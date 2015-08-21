@@ -1,0 +1,18 @@
+msgid "View"
+msgstr "View"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "RoledataList"
+msgstr "Roledata List"
+
+
+msgid "ListAccountCommon"
+msgstr "List Account Common"
+
+msgid "PleaseSelectLanguage"
+msgstr "Please Select Language"

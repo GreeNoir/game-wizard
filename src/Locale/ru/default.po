@@ -1,0 +1,17 @@
+msgid "View"
+msgstr "Просмотр"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "RoledataList"
+msgstr "Список персонажей"
+
+msgid "ListAccountCommon"
+msgstr "Список Account Common"
+
+msgid "PleaseSelectLanguage"
+msgstr "Выберете язык страницы"
