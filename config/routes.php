@@ -52,9 +52,11 @@ Router::addUrlFilter(function ($params, $request) {
 });
 
 
-Router::scope('/', function($routes){
-    $routes->connect('/', ['controller' => 'Home', 'action' => 'index']);
-});
+
+
+Router::redirect('/', '/'.Router::getRequest()->session()->read('Config.language').'/');
+
+Router::connect('/:lang/', ['controller' => 'Home', 'action' => 'index']);
 
 Router::connect('/:lang/:controller', ['action' => 'index']);
 

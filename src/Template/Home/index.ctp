@@ -1,9 +1,9 @@
 <div>
     <div><?= __('PleaseSelectLanguage') ?></div>
 
-    <?= $this->Form->create('', ['type' => 'get', 'id' => 'language_form']) ?>
+    <?= $this->Form->create('', ['type' => 'post', 'id' => 'language_form']) ?>
 
-    <?php echo $this->Form->select('lang', ['en' => 'English', 'ru' => 'Русский'], ['default' => $lang]) ?>
+    <?php echo $this->Form->select('language', ['en' => 'English', 'ru' => 'Русский'], ['default' => $lang]) ?>
 
     <?= $this->Form->end() ?>
 </div>
@@ -14,7 +14,7 @@
 </div>
 
 <?= $this->Html->scriptBlock('
-    $("select[name=lang]").change(function() {
+    $("select[name=language]").change(function() {
         $("#language_form").submit();
     });
 ');
