@@ -23,7 +23,7 @@
                 <?= $this->Html->link(__('View', true), ['action' => 'view', $accountCommon->AccountID]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $accountCommon->AccountID]) ?>
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $accountCommon->AccountID], ['confirm' => __('Are you sure you want to delete # {0}?', $accountCommon->AccountID)]) ?>
-                <?= $this->Html->link(__('RoledataList'), ['action' => 'roledata_list', $accountCommon->AccountID]) ?>
+                <?php /*echo $this->Html->link(__('RoledataList'), ['action' => 'roledata_list', $accountCommon->AccountID]);*/ ?>
             </td>
         </tr>
 

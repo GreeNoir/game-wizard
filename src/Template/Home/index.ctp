@@ -9,7 +9,8 @@
 </div>
 
 <div>
-    <?= $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index']) ?>
+    <?php echo $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]);
+    ?>
 </div>
 
 <?= $this->Html->scriptBlock('
