@@ -52,9 +52,12 @@ Router::addUrlFilter(function ($params, $request) {
 });
 
 
+$lang = 'en';
+if (Router::getRequest()->session()->check('Config.language')) {
+    $lang = Router::getRequest()->session()->read('Config.language');
+}
 
-
-Router::redirect('/', '/'.Router::getRequest()->session()->read('Config.language').'/');
+Router::redirect('/', "/$lang/");
 
 Router::connect('/:lang/', ['controller' => 'Home', 'action' => 'index']);
 
