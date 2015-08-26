@@ -23,10 +23,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <title>Game Wizard</title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('bootstrap-theme.min.css') ?>
+    <?= $this->Html->css('main.css') ?>
 
     <?= $this->Html->Script('jquery-1.11.3.min.js') ?>
     <?= $this->Html->Script('bootstrap.min.js') ?>
@@ -36,22 +35,33 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <header>
-        <div class="header-title">
-            <span><?= $this->fetch('title') ?></span>
-        </div>
-    </header>
-    <div id="container">
-
-        <div id="content">
-            <?= $this->Flash->render() ?>
-
-            <div class="row">
-                <?= $this->fetch('content') ?>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Game Wizard</a>
             </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><?php echo $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]); ?></li>
+                </ul>
+            </div><!--/.nav-collapse -->
         </div>
-        <footer>
-        </footer>
     </div>
+
+    <div class="container">
+        <?= $this->fetch('content') ?>
+    </div>
+
+    <footer>
+    </footer>
 </body>
 </html>
