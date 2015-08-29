@@ -7,7 +7,7 @@
                 ['confirm' => __('Are you sure you want to delete # {0}?', $roledata->RoleID)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Roledata'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
     </ul>
 </div>
 <div class="roledata form large-10 medium-9 columns">

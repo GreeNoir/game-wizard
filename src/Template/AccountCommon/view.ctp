@@ -1,10 +1,10 @@
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit').' Account Common', ['action' => 'edit', $accountCommon->AccountID]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Account Common'), ['action' => 'delete', $accountCommon->AccountID], ['confirm' => __('Are you sure you want to delete # {0}?', $accountCommon->AccountID)]) ?> </li>
-        <li><?= $this->Html->link(__('List Account Common'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Account Common'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Edit').__('AccountCommon'), ['action' => 'edit', $accountCommon->AccountID]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete').__('AccountCommon'), ['action' => 'delete', $accountCommon->AccountID], ['confirm' => __('Are you sure you want to delete # {0}?', $accountCommon->AccountID)]) ?> </li>
+        <li><?= $this->Html->link(__('List').__('AccountCommon'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New').__('AccountCommon'), ['action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="account_common view large-10 medium-9 columns">

@@ -2,20 +2,34 @@ msgid "Home"
 msgstr "Home"
 
 msgid "View"
-msgstr "View"
+msgstr "View "
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "New"
+msgstr "Create new "
 
 msgid "Edit"
-msgstr "Edit"
+msgstr "Edit "
 
 msgid "Delete"
-msgstr "Delete"
+msgstr "Delete "
 
 msgid "RoledataList"
 msgstr "Roledata List"
 
+msgid "AccountCommon"
+msgstr "account"
 
 msgid "ListAccountCommon"
 msgstr "List Account Common"
 
 msgid "PleaseSelectLanguage"
 msgstr "Please Select Language"
+
+msgid "RoledataListHeader"
+msgstr "List of Roledata who assigned to AccountCommon with ID="
+
+msgid "Back"
+msgstr "Back to "

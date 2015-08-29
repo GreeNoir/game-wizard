@@ -1,7 +1,7 @@
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('New AccountCommon'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New').__('AccountCommon'), ['action' => 'add']) ?></li>
     </ul>
 </div>
 

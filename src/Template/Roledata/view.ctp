@@ -1,10 +1,10 @@
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit Roledata'), ['action' => 'edit', $roledata->RoleID]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Roledata'), ['action' => 'delete', $roledata->RoleID], ['confirm' => __('Are you sure you want to delete # {0}?', $roledata->RoleID)]) ?> </li>
-        <li><?= $this->Html->link(__('List Roledata'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Roledata'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Edit').__('Roledata'), ['action' => 'edit', $roledata->RoleID]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete').__('Roledata'), ['action' => 'delete', $roledata->RoleID], ['confirm' => __('Are you sure you want to delete # {0}?', $roledata->RoleID)]) ?> </li>
+        <li><?= $this->Html->link(__('List').__('Roledata'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New').__('Roledata'), ['action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="roledata view large-10 medium-9 columns">

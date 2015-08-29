@@ -7,7 +7,7 @@
             ['confirm' => __('Are you sure you want to delete # {0}?', $accountCommon->AccountID)]
             )
             ?></li>
-        <li><?= $this->Html->link(__('List Account Common'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List').__('AccountCommon'), ['action' => 'index']) ?></li>
     </ul>
 </div>
 <div class="account_common form large-10 medium-9 columns">

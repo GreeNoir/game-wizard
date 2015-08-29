@@ -1,7 +1,7 @@
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Roledata'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New').__('Roledata'), ['action' => 'add']) ?></li>
     </ul>
 </div>
 <div class="roledata index large-10 medium-9 columns">

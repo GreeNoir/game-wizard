@@ -1,6 +1,6 @@
-<div>List of Roledata who assigned to AccountCommon with ID = <?= $id ?></div>
+<div><?=__('RoledataListHeader').$id ?></div>
 <div>
-    <?= $this->Html->link(__('Back to AccountCommon List'), ['action' => 'index']) ?>
+    <?= $this->Html->link(__('Back').__('ListAccountCommon'), ['action' => 'index']) ?>
 </div>
 <div>
     <table cellpadding="0" cellspacing="0">
