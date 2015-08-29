@@ -29,8 +29,8 @@
             <td><?= $this->Number->format($roledata->SpeakOff) ?></td>
             <td><?= $this->Number->format($roledata->HairModelID) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $roledata->RoleID]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $roledata->RoleID]) ?>
+                <?= $this->Html->link(__('View'), ['action' => 'view', 'id' => $roledata->RoleID]) ?>
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', 'id' => $roledata->RoleID]) ?>
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $roledata->RoleID], ['confirm' => __('Are you sure you want to delete # {0}?', $roledata->RoleID)]) ?>
             </td>
         </tr>

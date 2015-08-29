@@ -29,6 +29,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->Html->Script('jquery-1.11.3.min.js') ?>
     <?= $this->Html->Script('bootstrap.min.js') ?>
+    <?= $this->Html->Script('main.js') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -48,10 +49,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li data-controller="Home"><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index', 'lang' => $lang]) ?></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><?php echo $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]); ?></li>
+                    <li data-controller="AccountCommon"><?= $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]); ?></li>
+                    <li data-controller="Roledata"><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index', 'lang' => $lang]); ?></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -63,5 +65,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <footer>
     </footer>
+
+<?=
+    $this->Html->scriptBlock('
+        var controller = "'.$controller.'";
+
+        setMenuActive(controller);
+    ');
+?>
+
 </body>
 </html>

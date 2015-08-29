@@ -57,7 +57,10 @@ class AppController extends Controller
 
             }
         }
+
         $session->write('Config.language', $lang);
+        $this->set('lang', $lang);
+        $this->set('controller', $this->name);
 
         I18n::locale($lang);
     }

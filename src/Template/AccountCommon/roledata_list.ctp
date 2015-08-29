@@ -19,7 +19,7 @@
         <?php foreach ($roledataList as $roledataItem): ?>
         <tr>
             <td>
-                <?= $this->Html->link($roledataItem->RoleID, ['controller' => 'Roledata', 'action' => 'view/'.$roledataItem->RoleID]) ?>
+                <?= $this->Html->link($roledataItem->RoleID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $roledataItem->RoleID]) ?>
             </td>
             <td><?= $roledataItem->RoleName ?></td>
             <td><?= $roledataItem->Sex ?></td>

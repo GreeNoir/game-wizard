@@ -1,3 +1,6 @@
+msgid "Home"
+msgstr "Главная"
+
 msgid "View"
 msgstr "Просмотр"
 
