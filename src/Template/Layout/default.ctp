@@ -55,6 +55,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
+                <div class="language_select">
+                    <?= $this->Form->create('', ['type' => 'post', 'id' => 'language_form']) ?>
+                    <?= $this->Form->select('language', ['en' => 'English', 'ru' => 'Русский'], ['default' => $lang]) ?>
+                    <?= $this->Form->end() ?>
+                </div>
             </div><!--/.nav-collapse -->
         </div>
     </div>

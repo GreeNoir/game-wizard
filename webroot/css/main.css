@@ -6,4 +6,8 @@ body {
     text-align: center;
 }
 
-
+.navbar .language_select {
+    display: none;
+    float: right;
+    padding-top: 14px;
+}
