@@ -63,3 +63,18 @@ msgstr "Войти"
 
 msgid "Please login"
 msgstr "Авторизуйтесь в системе"
+
+msgid "AddUser"
+msgstr "Новый администратор"
+
+msgid "Role"
+msgstr "Права"
+
+msgid "Create"
+msgstr "Создать"
+
+msgid "Logout"
+msgstr "Выйти"
+
+msgid "Hello"
+msgstr "Добро пожаловать, "

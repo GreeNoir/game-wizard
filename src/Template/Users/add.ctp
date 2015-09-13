@@ -2,14 +2,14 @@
     <div class="users form">
         <?= $this->Form->create($user) ?>
         <fieldset>
-            <legend><?= __('Add User') ?></legend>
+            <legend><?= __('AddUser') ?></legend>
             <?= $this->Form->input('username') ?>
             <?= $this->Form->input('password') ?>
-            <?= $this->Form->input('role', [
-            'options' => ['admin' => 'Admin', 'author' => 'Author']
-            ]) ?>
+            <?= $this->Form->input('role', ['options' => ['admin' => __('Admin'), 'view' => __('View')] ]) ?>
         </fieldset>
-        <?= $this->Form->button(__('Submit')); ?>
+        <div class="button_block">
+            <?= $this->Form->button(__('Create')); ?>
+        </div>
         <?= $this->Form->end() ?>
     </div>
 </div>

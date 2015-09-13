@@ -46,7 +46,7 @@ class UsersTable extends Table
         $validator->notEmpty('password');
         $validator->notEmpty('role');
         $validator->add('role', 'inList', [
-            'rule' => ['inList', ['admin', 'author']],
+            'rule' => ['inList', ['admin', 'view']],
             'message' => 'Please enter a valid role'
         ]);
 

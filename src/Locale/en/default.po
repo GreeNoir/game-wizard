@@ -33,3 +33,9 @@ msgstr "Roledata list assigned to AccountCommon ID#"
 
 msgid "Back"
 msgstr "Back to "
+
+msgid "AddUser"
+msgstr "New Administrator"
+
+msgid "Hello"
+msgstr "Hello, "
