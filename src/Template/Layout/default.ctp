@@ -52,8 +52,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <li data-controller="Home"><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index', 'lang' => $lang]) ?></li>
                     <li data-controller="AccountCommon"><?= $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]); ?></li>
                     <li data-controller="Roledata"><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index', 'lang' => $lang]); ?></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#"><?= __('Contact') ?></a></li>
                 </ul>
                 <div class="language_select">
                     <?= $this->Form->create('', ['type' => 'post', 'id' => 'language_form']) ?>

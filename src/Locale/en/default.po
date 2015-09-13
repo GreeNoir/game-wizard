@@ -20,7 +20,7 @@ msgid "RoledataList"
 msgstr "Roledata List"
 
 msgid "AccountCommon"
-msgstr "account"
+msgstr "Account"
 
 msgid "ListAccountCommon"
 msgstr "List Account Common"
@@ -29,7 +29,7 @@ msgid "PleaseSelectLanguage"
 msgstr "Please Select Language"
 
 msgid "RoledataListHeader"
-msgstr "List of Roledata who assigned to AccountCommon with ID="
+msgstr "Roledata list assigned to AccountCommon ID#"
 
 msgid "Back"
 msgstr "Back to "

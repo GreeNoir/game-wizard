@@ -32,10 +32,34 @@ msgid "PleaseSelectLanguage"
 msgstr "Выберете язык страницы"
 
 msgid "RoledataListHeader"
-msgstr "Список персонажей аккаунта с ID="
+msgstr "Список персонажей аккаунта ID#"
 
 msgid "Back"
 msgstr "Назад на "
 
 msgid "Roledata"
 msgstr "персонаж"
+
+msgid "previous"
+msgstr "пред."
+
+msgid "next"
+msgstr "след."
+
+msgid "About"
+msgstr "О нас"
+
+msgid "Contact"
+msgstr "Контакты"
+
+msgid "Username"
+msgstr "Пользователь"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Login"
+msgstr "Войти"
+
+msgid "Please login"
+msgstr "Авторизуйтесь в системе"

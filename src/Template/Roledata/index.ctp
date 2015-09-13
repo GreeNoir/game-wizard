@@ -21,7 +21,12 @@
     <tbody>
     <?php foreach ($roledata as $roledata): ?>
         <tr>
-            <td><?= $this->Number->format($roledata->AccountID) ?></td>
+            <td>
+                <?php
+                    $accountID = $this->Number->format($roledata->AccountID);
+                    echo $this->Html->link($accountID, ['controller' => 'AccountCommon', 'action' => 'view', 'id' => $accountID]);
+                ?>
+            </td>
             <td><?= $this->Number->format($roledata->RoleID) ?></td>
             <td><?= h($roledata->RoleName) ?></td>
             <td><?= $this->Number->format($roledata->RoleNameCrc) ?></td>

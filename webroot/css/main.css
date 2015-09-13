@@ -2,12 +2,64 @@ body {
     padding-top: 50px;
 }
 .main {
-    padding: 40px 15px;
-    text-align: center;
+    clear: both;
 }
 
 .navbar .language_select {
     display: none;
     float: right;
     padding-top: 14px;
+}
+
+#login_block {
+    float: right;
+}
+
+#login_block > div {
+    display: inline-block;
+}
+
+.authorize_btn {
+    display: inline-block;
+    background-color: #007ba4;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 10px 0 0 10px;
+    cursor: pointer;
+}
+
+.authorize_btn > a {
+    color: #ffffff;
+   text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.main div.form {
+    margin: 20px 0;
+}
+
+.main div.users {
+    display: inline-block;
+    border: 1px solid #e5e5e5;
+    padding: 10px;
+}
+
+.main div.users fieldset {
+    display: inline-block;
+}
+
+.main div.users div.input {
+    margin-bottom: 5px;
+}
+
+.main div.users div.input input {
+    float: right;
+    margin-left: 5px;
+}
+
+.main div.users div.button_block {
+    padding-top: 5px;
 }

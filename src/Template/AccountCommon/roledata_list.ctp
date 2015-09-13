@@ -1,8 +1,11 @@
-<div><?=__('RoledataListHeader').$id ?></div>
-<div>
-    <?= $this->Html->link(__('Back').__('ListAccountCommon'), ['action' => 'index']) ?>
+<div class="actions columns large-2 medium-3">
+    <h4><?=__('RoledataListHeader').$id ?></h4>
+    <ul class="side-nav">
+        <li><?= $this->Html->link(__('Back').__('ListAccountCommon'), ['action' => 'index']) ?></li>
+    </ul>
 </div>
-<div>
+
+<div class="index large-10 medium-9 columns">
     <table cellpadding="0" cellspacing="0">
         <thead>
         <tr>

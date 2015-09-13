@@ -7,25 +7,20 @@
             ['confirm' => __('Are you sure you want to delete # {0}?', $accountCommon->AccountID)]
             )
             ?></li>
-        <li><?= $this->Html->link(__('List').__('AccountCommon'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List').' '.__('AccountCommon'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('RoledataList'), ['action' => 'roledata_list', 'id' => $accountCommon->AccountID]); ?></li>
     </ul>
 </div>
 <div class="account_common form large-10 medium-9 columns">
     <?= $this->Form->create($accountCommon) ?>
     <fieldset>
         <legend><?= __('Edit Account Common') ?></legend>
-        <?php
-            echo $this->Form->input('AccountName', ['required' => true]);
-        ?>
-        <?php
-            echo $this->Form->input('BaiBaoYuanBao');
-        ?>
-        <?php
-            echo $this->Form->input('WareSize');
-        ?>
-        <?php
-            echo $this->Form->input('WareSilver');
-        ?>
+        <?= $this->Form->input('AccountName', ['required' => true]); ?>
+        <?= $this->Form->input('ChannelID'); ?>
+        <?= $this->Form->input('BaiBaoYuanBao'); ?>
+        <?= $this->Form->input('WareSize'); ?>
+        <?= $this->Form->input('WareSilver'); ?>
+        <?= $this->Form->input('LastUseRoleID'); ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
