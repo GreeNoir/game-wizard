@@ -71,4 +71,10 @@ Router::connect('/:lang/:controller/edit/:id', ['action' => 'edit'],  ['id' => '
 
 Router::connect('/:lang/:controller/delete/:id', ['action' => 'delete'],  ['id' => '\d+', 'pass' => ['id']]);
 
+Router::connect('/:lang/:controller/roledata_list/:id', ['action' => 'roledata_list'], ['id' => '\d+', 'pass' => ['id']]);
+
+Router::connect('/:lang/:controller/login', ['action' => 'login']);
+
+Router::connect('/:lang/:controller/logout', ['action' => 'logout']);
+
 Plugin::routes();

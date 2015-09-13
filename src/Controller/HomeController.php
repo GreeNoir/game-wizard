@@ -23,6 +23,18 @@ class HomeController extends AppController
             $session = $this->request->session();
             $session->write('Config.language', $lang);
             $this->set('lang', $lang);
+
+            $user = $this->Auth->user();
+
+            if (isset($user)){
+                $username = $user['username'];
+                $this->set([
+                    'is_authorized' => true,
+                    'username'      => $username,
+                ]);
+            } else {
+                $this->set('is_authorized', false);
+            }
         }
     }
 }

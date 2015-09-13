@@ -1,11 +1,11 @@
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('New AccountCommon'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New').__('AccountCommon'), ['action' => 'add']) ?></li>
     </ul>
 </div>
 
-<div class="accountcommon index large-10 medium-9 columns">
+<div class="accountcommon index columns">
     <table cellpadding="0" cellspacing="0">
         <thead>
         <tr>
@@ -23,7 +23,7 @@
                 <?= $this->Html->link(__('View', true), ['action' => 'view', $accountCommon->AccountID]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $accountCommon->AccountID]) ?>
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $accountCommon->AccountID], ['confirm' => __('Are you sure you want to delete # {0}?', $accountCommon->AccountID)]) ?>
-                <?php /*echo $this->Html->link(__('RoledataList'), ['action' => 'roledata_list', $accountCommon->AccountID]);*/ ?>
+                <?= $this->Html->link(__('RoledataList'), ['action' => 'roledata_list', 'id' => $accountCommon->AccountID]); ?>
             </td>
         </tr>
 

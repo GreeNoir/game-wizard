@@ -1,17 +1,80 @@
+msgid "Home"
+msgstr "Главная"
+
+msgid "Actions"
+msgstr "Действия"
+
 msgid "View"
-msgstr "Просмотр"
+msgstr "Просмотр "
+
+msgid "New"
+msgstr "Создать новый "
+
+msgid "List"
+msgstr "Список "
 
 msgid "Edit"
-msgstr "Редактировать"
+msgstr "Редактировать "
 
 msgid "Delete"
-msgstr "Удалить"
+msgstr "Удалить "
+
+msgid "AccountCommon"
+msgstr "аккаунт"
 
 msgid "RoledataList"
 msgstr "Список персонажей"
 
 msgid "ListAccountCommon"
-msgstr "Список Account Common"
+msgstr "Список аккаунтов"
 
 msgid "PleaseSelectLanguage"
 msgstr "Выберете язык страницы"
+
+msgid "RoledataListHeader"
+msgstr "Список персонажей аккаунта ID#"
+
+msgid "Back"
+msgstr "Назад на "
+
+msgid "Roledata"
+msgstr "персонаж"
+
+msgid "previous"
+msgstr "пред."
+
+msgid "next"
+msgstr "след."
+
+msgid "About"
+msgstr "О нас"
+
+msgid "Contact"
+msgstr "Контакты"
+
+msgid "Username"
+msgstr "Пользователь"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Login"
+msgstr "Войти"
+
+msgid "Please login"
+msgstr "Авторизуйтесь в системе"
+
+msgid "AddUser"
+msgstr "Новый администратор"
+
+msgid "Role"
+msgstr "Права"
+
+msgid "Create"
+msgstr "Создать"
+
+msgid "Logout"
+msgstr "Выйти"
+
+msgid "Hello"
+msgstr "Добро пожаловать, "

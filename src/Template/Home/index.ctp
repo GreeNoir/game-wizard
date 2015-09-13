@@ -1,21 +1,12 @@
-<div>
-    <div><?= __('PleaseSelectLanguage') ?></div>
+<div class="main">
+    <div id="login_block">
+        <?php if($is_authorized) { ?>
+        <div><?= __('Hello').$username ?> !</div>
+        <div class="authorize_btn"><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></div>
+        <?php } else { ?>
+        <div class="authorize_btn"><?= $this->Html->link(__('Login'), ['controller' => 'Users', 'action' => 'login']) ?></div>
+        <?php } ?>
+    </div>
+    <div class="clear"></div>
 
-    <?= $this->Form->create('', ['type' => 'post', 'id' => 'language_form']) ?>
-
-    <?php echo $this->Form->select('language', ['en' => 'English', 'ru' => 'Русский'], ['default' => $lang]) ?>
-
-    <?= $this->Form->end() ?>
 </div>
-
-<div>
-    <?php echo $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]);
-    ?>
-</div>
-
-<?= $this->Html->scriptBlock('
-    $("select[name=language]").change(function() {
-        $("#language_form").submit();
-    });
-');
- ?>

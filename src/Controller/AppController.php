@@ -41,6 +41,17 @@ class AppController extends Controller
     {
         parent::initialize();
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
+            'loginRedirect' => [
+                'controller' => 'Home',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Home',
+                'action' => 'index'
+            ]
+        ]);
     }
 
     public function beforeFilter(Event $event) {
@@ -57,9 +68,28 @@ class AppController extends Controller
 
             }
         }
+
         $session->write('Config.language', $lang);
+        $this->set('lang', $lang);
+        $this->set('controller', $this->name);
 
         I18n::locale($lang);
+
+        $this->Auth->config([
+            'unauthorizedRedirect' => false
+        ]);
+        $this->Auth->allow(['index', 'view', 'display', 'login']);
+    }
+
+    public function isAuthorized($user)
+    {
+        // Admin can access every action
+        if (isset($user['role']) /*&& $user['role'] === 'admin'*/) {
+            return true;
+        }
+
+        // Default deny
+        return false;
     }
 
 }
