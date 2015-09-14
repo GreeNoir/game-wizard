@@ -36,6 +36,3 @@ msgstr "Back to "
 
 msgid "AddUser"
 msgstr "New Administrator"
-
-msgid "Hello"
-msgstr "Hello, "

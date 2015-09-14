@@ -1,40 +1,17 @@
 body {
-    padding-top: 50px;
-}
-.main {
-    clear: both;
+    background-color: #ffffff;
 }
 
-.navbar .language_select {
-    display: none;
-    float: right;
-    padding-top: 14px;
-}
-
-#login_block {
-    float: right;
-}
-
-#login_block > div {
-    display: inline-block;
-}
-
-.authorize_btn {
-    display: inline-block;
-    background-color: #007ba4;
-    padding: 5px 10px;
-    border-radius: 3px;
-    margin: 10px 0 0 10px;
-    cursor: pointer;
-}
-
-.authorize_btn > a {
-    color: #ffffff;
-   text-decoration: none;
+#page-wrapper {
+    height: 100%;
 }
 
 .clear {
     clear: both;
+}
+
+.dropdown-menu.lang {
+    min-width: auto;
 }
 
 .main div.form {

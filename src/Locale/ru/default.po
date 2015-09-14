@@ -76,5 +76,5 @@ msgstr "Создать"
 msgid "Logout"
 msgstr "Выйти"
 
-msgid "Hello"
-msgstr "Добро пожаловать, "
+msgid "Tables"
+msgstr "Таблицы"

@@ -19,12 +19,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <html>
 <head>
     <?= $this->Html->charset() ?>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Wizard</title>
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('bootstrap-theme.min.css') ?>
+    <?= $this->Html->css('sb-admin.css') ?>
+    <?= $this->Html->css('font-awesome.min.css') ?>
     <?= $this->Html->css('main.css') ?>
 
     <?= $this->Html->Script('jquery-1.11.3.min.js') ?>
@@ -36,47 +39,91 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Game Wizard</a>
+                <a class="navbar-brand" href="/">Game Wizard</a>
             </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li data-controller="Home"><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index', 'lang' => $lang]) ?></li>
-                    <li data-controller="Users"><?= $this->Html->link(__('AddUser'), ['controller' => 'Users', 'action' => 'add', 'lang' => $lang]) ?></li>
-                    <li data-controller="AccountCommon"><?= $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]); ?></li>
-                    <li data-controller="Roledata"><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index', 'lang' => $lang]); ?></li>
-                    <li><a href="#"><?= __('Contact') ?></a></li>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu lang">
+                        <li>
+                            <?= $this->Form->create('', ['type' => 'post', 'id' => 'language_form']) ?>
+                            <?= $this->Form->select('language', ['en' => 'English', 'ru' => 'Русский'], ['default' => $lang, 'size' => 2]) ?>
+                            <?= $this->Form->end() ?>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <?php
+                        if ($is_authorized) { ?>
+                            <a href="javascript:void();" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?= $username ?> <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-power-off']).__('Logout'),
+                                    ['controller' => 'Users', 'action' => 'logout'],
+                                    ['escape' => false]) ?>
+                                </li>
+                            </ul>
+                    <?php
+                        } else {
+                            echo $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-user']).__('Login'),
+                                ['controller' => 'Users', 'action' => 'login'],
+                                ['escape' => false]);
+                        }
+                     ?>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <?= $this->Html->link(
+                            $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-dashboard']).__('Home'),
+                            ['controller' => 'Home', 'action' => 'index', 'lang' => $lang],
+                            ['escape' => false]) ?>
+                    </li>
+                    <li>
+                        <a href="javascript:void();" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-table"></i><?= __('Tables') ?><i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li><?= $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]); ?></li>
+                            <li><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index', 'lang' => $lang]); ?></li>
+                        </ul>
+                    </li>
                 </ul>
-                <div class="language_select">
-                    <?= $this->Form->create('', ['type' => 'post', 'id' => 'language_form']) ?>
-                    <?= $this->Form->select('language', ['en' => 'English', 'ru' => 'Русский'], ['default' => $lang]) ?>
-                    <?= $this->Form->end() ?>
-                </div>
-            </div><!--/.nav-collapse -->
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <?= $this->fetch('content') ?>
+            </div>
         </div>
     </div>
 
-    <div class="container">
-        <?= $this->fetch('content') ?>
-    </div>
-
     <footer>
+        <div>footer</div>
     </footer>
 
-<?=
-    $this->Html->scriptBlock('
+<?php
+    /*$this->Html->scriptBlock('
         var controller = "'.$controller.'";
 
         setMenuActive(controller);
-    ');
+    ');*/
 ?>
 
 </body>

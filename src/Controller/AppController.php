@@ -70,6 +70,14 @@ class AppController extends Controller
         }
 
         $session->write('Config.language', $lang);
+
+        // Change current language by post request
+        if ($this->request->is('post') && isset($this->request->data['language'])) {
+            $newLang = $this->request->data['language'];
+            $transUrl = $this->translateUrl($newLang);
+            $this->redirect($transUrl);
+        }
+
         $this->set('lang', $lang);
         $this->set('controller', $this->name);
 
@@ -79,6 +87,18 @@ class AppController extends Controller
             'unauthorizedRedirect' => false
         ]);
         $this->Auth->allow(['index', 'view', 'display', 'login']);
+
+        $user = $this->Auth->user();
+
+        if (isset($user)){
+            $username = $user['username'];
+            $this->set([
+                'is_authorized' => true,
+                'username'      => $username,
+            ]);
+        } else {
+            $this->set('is_authorized', false);
+        }
     }
 
     public function isAuthorized($user)
@@ -90,6 +110,16 @@ class AppController extends Controller
 
         // Default deny
         return false;
+    }
+
+    private function translateUrl($newLang) {
+        $transUrl = Router::url([
+            'controller' => $this->request->params['controller'],
+            'action'     => $this->request->params['action'],
+            'lang'       => $newLang,
+            'id'         => $this->request->params['id']
+        ]);
+        return $transUrl;
     }
 
 }
