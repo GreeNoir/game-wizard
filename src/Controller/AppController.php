@@ -117,7 +117,8 @@ class AppController extends Controller
             'controller' => $this->request->params['controller'],
             'action'     => $this->request->params['action'],
             'lang'       => $newLang,
-            'id'         => $this->request->params['id']
+            'id'         => $this->request->params['id'],
+            '?'          => $this->request->query
         ]);
         return $transUrl;
     }
