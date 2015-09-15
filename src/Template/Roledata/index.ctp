@@ -1,11 +1,11 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('New').__('Roledata'), ['action' => 'add']) ?></li>
     </ul>
 </div>
-<div class="roledata index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+<div class="roledata table-responsive">
+    <table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th><?= $this->Paginator->sort('AccountID') ?></th>

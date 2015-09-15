@@ -27,7 +27,7 @@ nav.navbar div.collapse ul li.active > a {
     position: relative;
     left: 0;
     top: 4px;
-    background-color: #ffffff;
+    background-color: transparent;
     margin: 0;
     padding: 0 0 10px 15px;
 }

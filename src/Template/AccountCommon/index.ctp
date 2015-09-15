@@ -5,8 +5,8 @@
     </ul>
 </div>
 
-<div class="accountcommon index columns">
-    <table cellpadding="0" cellspacing="0">
+<div class="accountcommon table-responsive">
+    <table class="table table-bordered table-striped">
         <thead>
         <tr>
             <th><?= $this->Paginator->sort('AccountID') ?></th>
