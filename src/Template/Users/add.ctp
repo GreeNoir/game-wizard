@@ -8,7 +8,7 @@
             <?= $this->Form->input('role', ['options' => ['admin' => __('Admin'), 'view' => __('View')] ]) ?>
         </fieldset>
         <div class="button_block">
-            <?= $this->Form->button(__('Create')); ?>
+            <?= $this->Form->button(__('UserCreate')); ?>
         </div>
         <?= $this->Form->end() ?>
     </div>

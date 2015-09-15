@@ -1,18 +1,22 @@
 <div class="actions columns large-2 medium-3">
-    <h4><?=__('RoledataListHeader').$id ?></h4>
+    <h3><?=__('RoledataListHeader').$id ?></h3>
     <ul class="side-nav">
+        <li><?= $this->Html->link(__('View').__('AccountCommon'), ['action' => 'view', $id]) ?> </li>
+        <li><?= $this->Html->link(__('Edit').__('AccountCommon'), ['action' => 'edit', $id]) ?> </li>
         <li><?= $this->Html->link(__('Back').__('ListAccountCommon'), ['action' => 'index']) ?></li>
     </ul>
 </div>
 
-<div class="index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+<div class="roledata_list table-responsive">
+    <table class="table table-bordered table-striped">
         <thead>
         <tr>
             <th>Role ID</th>
-            <th>Role Name</th>
+            <th>RoleName</th>
+            <th>RoleNameCrc</th>
             <th>Sex</th>
-            <th>Map ID</th>
+            <th>SpeakOff</th>
+            <th>HairModelID</th>
             <th>X</th>
             <th>Y</th>
             <th>Z</th>
@@ -25,11 +29,13 @@
                 <?= $this->Html->link($roledataItem->RoleID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $roledataItem->RoleID]) ?>
             </td>
             <td><?= $roledataItem->RoleName ?></td>
+            <td><?= $roledataItem->RoleNameCrc ?></td>
             <td><?= $roledataItem->Sex ?></td>
-            <td><?= $roledataItem->MapID ?></td>
-            <td><?= $roledataItem->X ?></td>
-            <td><?= $roledataItem->Y ?></td>
-            <td><?= $roledataItem->Z ?></td>
+            <td><?= $this->Number->format($roledataItem->SpeakOff) ?></td>
+            <td><?= $this->Number->format($roledataItem->HairModelID) ?></td>
+            <td><?= $this->Number->format($roledataItem->X) ?></td>
+            <td><?= $this->Number->format($roledataItem->Y) ?></td>
+            <td><?= $this->Number->format($roledataItem->Z) ?></td>
         </tr>
         <?php endforeach; ?>
         </tbody>

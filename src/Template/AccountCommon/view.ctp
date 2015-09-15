@@ -9,7 +9,7 @@
     </ul>
 </div>
 <div class="account_common view large-10 medium-9 columns">
-    <h2><?= h($accountCommon->AccountName) ?></h2>
+    <h2><?= h($accountCommon->AccountID) ?></h2>
     <div class="row">
         <div class="large-5 columns strings">
             <h6 class="subheader"><?= __('AccountName') ?></h6>
@@ -29,10 +29,6 @@
 
             <h6 class="subheader"><?= __('LastUseRoleID') ?></h6>
             <p><?= h($accountCommon->LastUseRoleID) ?></p>
-        </div>
-        <div class="large-2 columns numbers end">
-            <h6 class="subheader"><?= __('Id') ?></h6>
-            <p><?= $this->Number->format($accountCommon->AccountID) ?></p>
         </div>
     </div>
 </div>

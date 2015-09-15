@@ -16,8 +16,11 @@ msgstr "Edit "
 msgid "Delete"
 msgstr "Delete "
 
-msgid "RoledataList"
+msgid "Roledata"
 msgstr "Roledata"
+
+msgid "RoledataList"
+msgstr "Roledata List"
 
 msgid "AccountCommon"
 msgstr "Account"
@@ -29,10 +32,19 @@ msgid "PleaseSelectLanguage"
 msgstr "Please Select Language"
 
 msgid "RoledataListHeader"
-msgstr "Roledata list assigned to AccountCommon ID#"
+msgstr "Roledata of AccountCommon ID#"
 
 msgid "Back"
 msgstr "Back to "
 
+msgid "SignIn"
+msgstr "Sign In"
+
+msgid "SignUp"
+msgstr "Sign Up"
+
 msgid "AddUser"
-msgstr "New Administrator"
+msgstr "Create personal account"
+
+msgid "UserCreate"
+msgstr "Create an account"

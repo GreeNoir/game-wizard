@@ -58,20 +58,23 @@ msgstr "Пользователь"
 msgid "Password"
 msgstr "Пароль"
 
-msgid "Login"
-msgstr "Войти"
-
 msgid "Please login"
 msgstr "Авторизуйтесь в системе"
 
 msgid "AddUser"
-msgstr "Новый администратор"
+msgstr "Создать персональный аккаунт"
 
 msgid "Role"
 msgstr "Права"
 
-msgid "Create"
-msgstr "Создать"
+msgid "SignIn"
+msgstr "Войти"
+
+msgid "SignUp"
+msgstr "Регистрация"
+
+msgid "UserCreate"
+msgstr "Создать аккаунт"
 
 msgid "Logout"
 msgstr "Выйти"

@@ -11,6 +11,11 @@
         <tr>
             <th><?= $this->Paginator->sort('AccountID') ?></th>
             <th><?= $this->Paginator->sort('AccountName') ?></th>
+            <th><?= __('LastUseRoleID') ?></th>
+            <th><?= $this->Paginator->sort('ChannelID') ?></th>
+            <th><?= $this->Paginator->sort('BaiBaoYuanBao') ?></th>
+            <th><?= $this->Paginator->sort('WareSize') ?></th>
+            <th><?= $this->Paginator->sort('WareSilver') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         </thead>
@@ -19,6 +24,11 @@
         <tr>
             <td><?= $this->Number->format($accountCommon->AccountID) ?></td>
             <td><?= h($accountCommon->AccountName) ?></td>
+            <td><?= $accountCommon->LastUseRoleID ?></td>
+            <td><?= $accountCommon->ChannelID ?></td>
+            <td><?= $accountCommon->BaiBaoYuanBao ?></td>
+            <td><?= $accountCommon->WareSize ?></td>
+            <td><?= $accountCommon->WareSilver ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View', true), ['action' => 'view', $accountCommon->AccountID]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $accountCommon->AccountID]) ?>

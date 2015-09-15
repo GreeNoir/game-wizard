@@ -59,32 +59,38 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         </li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <?php
-                        if ($is_authorized) { ?>
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i> <?= $username ?> <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-power-off']).__('Logout'),
-                                    ['controller' => 'Users', 'action' => 'logout'],
-                                    ['escape' => false]) ?>
-                                </li>
-                            </ul>
-                    <?php
-                        } else {
-                            echo $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-user']).__('Login'),
-                                ['controller' => 'Users', 'action' => 'login'],
-                                ['escape' => false]);
-                        }
-                     ?>
-                </li>
+                <?php
+                if ($is_authorized) { ?>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i> <?= $username ?> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-power-off']).__('Logout'),
+                                ['controller' => 'Users', 'action' => 'logout'],
+                                ['escape' => false]) ?>
+                            </li>
+                        </ul>
+                    </li>
+                <?php
+                } else { ?>
+                    <li>
+                        <?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-user']).__('SignUp'),
+                                 ['controller' => 'Users', 'action' => 'add'],
+                                 ['escape' => false]) ?>
+                    </li>
+                    <li>
+                        <?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-sign-in']).__('SignIn'),
+                                 ['controller' => 'Users', 'action' => 'login'],
+                                 ['escape' => false]) ?>
+                    </li>
+                <?php } ?>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -99,7 +105,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#tables"><i class="fa fa-fw fa-table"></i><?= __('Tables') ?><i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="tables" class="collapse">
                             <li data-controller="AccountCommon"><?= $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]); ?></li>
-                            <li data-controller="Roledata"><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index', 'lang' => $lang]); ?></li>
+                            <li data-controller="Roledata"><?= $this->Html->link(__('Roledata'), ['controller' => 'Roledata', 'action' => 'index', 'lang' => $lang]); ?></li>
                         </ul>
                     </li>
                 </ul>
