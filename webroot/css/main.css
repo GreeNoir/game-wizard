@@ -6,12 +6,35 @@ body {
     height: 100%;
 }
 
+.fa-fw {
+    margin-right: 5px;
+}
+
 .clear {
     clear: both;
 }
 
 .dropdown-menu.lang {
     min-width: auto;
+}
+
+nav.navbar div.collapse ul li.active > a {
+    background-color: #080808;
+    color: #fff;
+}
+
+#page-wrapper div.actions ul.side-nav {
+    position: relative;
+    left: 0;
+    top: 4px;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0 0 10px 15px;
+}
+
+#page-wrapper div.actions ul.side-nav li a:hover,
+#page-wrapper div.actions ul.side-nav li a:focus {
+    background-color: #ffffff !important;
 }
 
 .main div.form {

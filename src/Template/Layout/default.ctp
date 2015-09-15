@@ -62,7 +62,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <li class="dropdown">
                     <?php
                         if ($is_authorized) { ?>
-                            <a href="javascript:void();" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?= $username ?> <b class="caret"></b></a>
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i> <?= $username ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -89,17 +89,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                    <li data-controller="Home">
                         <?= $this->Html->link(
                             $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-dashboard']).__('Home'),
                             ['controller' => 'Home', 'action' => 'index', 'lang' => $lang],
                             ['escape' => false]) ?>
                     </li>
                     <li>
-                        <a href="javascript:void();" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-table"></i><?= __('Tables') ?><i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li><?= $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]); ?></li>
-                            <li><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index', 'lang' => $lang]); ?></li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#tables"><i class="fa fa-fw fa-table"></i><?= __('Tables') ?><i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="tables" class="collapse">
+                            <li data-controller="AccountCommon"><?= $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]); ?></li>
+                            <li data-controller="Roledata"><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index', 'lang' => $lang]); ?></li>
                         </ul>
                     </li>
                 </ul>
@@ -118,13 +118,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div>footer</div>
     </footer>
 
-<?php
-    /*$this->Html->scriptBlock('
+<?= $this->Html->scriptBlock('
         var controller = "'.$controller.'";
-
         setMenuActive(controller);
-    ');*/
-?>
+') ?>
 
 </body>
 </html>

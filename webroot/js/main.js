@@ -6,10 +6,10 @@ $(function() {
 });
 
 function setMenuActive(controller) {
-    $('div.navbar ul.nav li').removeClass('active');
-    $('div.navbar ul.nav li[data-controller="'+controller+'"]').addClass('active');
-
-    if (controller == 'Home') {
-        $('div.language_select').css('display', 'inline-block');
+    $('nav.navbar ul li').removeClass('active');
+    var tables = ['AccountCommon', 'Roledata'];
+    if (tables.indexOf(controller) != -1) {
+        $('nav.navbar ul#tables').addClass('in');
     }
+    $('nav.navbar ul li[data-controller="'+controller+'"]').addClass('active');
 }

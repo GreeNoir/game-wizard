@@ -23,10 +23,10 @@ msgid "AccountCommon"
 msgstr "аккаунт"
 
 msgid "RoledataList"
-msgstr "Список персонажей"
+msgstr "Персонажи"
 
 msgid "ListAccountCommon"
-msgstr "Список аккаунтов"
+msgstr "Аккаунты"
 
 msgid "PleaseSelectLanguage"
 msgstr "Выберете язык страницы"

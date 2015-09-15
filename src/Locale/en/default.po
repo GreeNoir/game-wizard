@@ -17,13 +17,13 @@ msgid "Delete"
 msgstr "Delete "
 
 msgid "RoledataList"
-msgstr "Roledata List"
+msgstr "Roledata"
 
 msgid "AccountCommon"
 msgstr "Account"
 
 msgid "ListAccountCommon"
-msgstr "List Account Common"
+msgstr "Accounts"
 
 msgid "PleaseSelectLanguage"
 msgstr "Please Select Language"
