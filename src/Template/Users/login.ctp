@@ -1,4 +1,3 @@
-
 <div class="form">
     <?= $this->Flash->render('auth') ?>
     <?= $this->Form->create('User', ['autocomplete' => 'off', 'class' => 'form-horizontal']) ?>
