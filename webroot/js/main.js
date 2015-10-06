@@ -3,6 +3,10 @@ $(function() {
     $('select[name="language"]').change(function() {
         $('#language_form').submit();
     });
+
+    if ($('div.input').length > 0) {
+        $("div.input").addClass("form-group col-sm-10");
+    }
 });
 
 function setMenuActive(controller) {

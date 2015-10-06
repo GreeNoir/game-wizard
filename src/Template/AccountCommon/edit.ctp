@@ -29,7 +29,3 @@
     </div>
     <?= $this->Form->end() ?>
 </div>
-
-<?= $this->Html->scriptBlock('
-    $("div.input").addClass("form-group col-sm-10");
-') ?>
