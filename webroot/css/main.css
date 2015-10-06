@@ -65,3 +65,7 @@ nav.navbar div.collapse ul li.active > a {
 .main div.users div.button_block {
     padding-top: 5px;
 }
+
+.form-control {
+    width: auto;
+}

@@ -8,27 +8,39 @@
         <li><?= $this->Html->link(__('RoledataList'), ['action' => 'roledata_list', 'id' => $accountCommon->AccountID]); ?></li>
     </ul>
 </div>
-<div class="account_common view large-10 medium-9 columns">
+<div class="account_common view columns">
     <h2><?= h($accountCommon->AccountID) ?></h2>
     <div class="row">
-        <div class="large-5 columns strings">
-            <h6 class="subheader"><?= __('AccountName') ?></h6>
-            <p><?= h($accountCommon->AccountName) ?></p>
+        <div class="columns strings">
+            <div class="form-group col-sm-10">
+                <div class="col-sm-2 subheader"><?= __('AccountName') ?></div>
+                <div class="col-sm-3"><?= h($accountCommon->AccountName) ?></div>
+            </div>
 
-            <h6 class="subheader"><?= __('ChannelID') ?></h6>
-            <p><?= h($accountCommon->ChannelID) ?></p>
+            <div class="form-group col-sm-10">
+                <div class="col-sm-2 subheader"><?= __('ChannelID') ?></div>
+                <div class="col-sm-3"><?= h($accountCommon->ChannelID) ?></div>
+            </div>
 
-            <h6 class="subheader"><?= __('BaiBaoYuanBao') ?></h6>
-            <p><?= h($accountCommon->BaiBaoYuanBao) ?></p>
+            <div class="form-group col-sm-10">
+                <div class="col-sm-2 subheader"><?= __('BaiBaoYuanBao') ?></div>
+                <div class="col-sm-3"><?= h($accountCommon->BaiBaoYuanBao) ?></div>
+            </div>
 
-            <h6 class="subheader"><?= __('WareSize') ?></h6>
-            <p><?= h($accountCommon->WareSize) ?></p>
+            <div class="form-group col-sm-10">
+                <div class="col-sm-2 subheader"><?= __('WareSize') ?></div>
+                <div class="col-sm-3"><?= h($accountCommon->WareSize) ?></div>
+            </div>
 
-            <h6 class="subheader"><?= __('WareSilver') ?></h6>
-            <p><?= h($accountCommon->WareSilver) ?></p>
+            <div class="form-group col-sm-10">
+                <div class="col-sm-2 subheader"><?= __('WareSilver') ?></div>
+                <div class="col-sm-3"><?= h($accountCommon->WareSilver) ?></div>
+            </div>
 
-            <h6 class="subheader"><?= __('LastUseRoleID') ?></h6>
-            <p><?= h($accountCommon->LastUseRoleID) ?></p>
+            <div class="form-group col-sm-10">
+                <div class="col-sm-2 subheader"><?= __('LastUseRoleID') ?></div>
+                <div class="col-sm-3"><?= h($accountCommon->LastUseRoleID) ?></div>
+            </div>
         </div>
     </div>
 </div>
