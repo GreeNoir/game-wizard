@@ -15,7 +15,7 @@ body {
 }
 
 .dropdown-menu.lang {
-    min-width: auto;
+    width: auto;
 }
 
 nav.navbar div.collapse ul li.active > a {
@@ -39,4 +39,28 @@ nav.navbar div.collapse ul li.active > a {
 
 .form-control {
     width: auto;
+}
+
+label {
+    font-weight: normal;
+}
+
+a.chosen-single {
+    display: none !important;
+}
+
+ul.dropdown-menu.lang {
+    border: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.chosen-container .chosen-drop {
+    margin-top: -15px;
+}
+
+.chosen-container .chosen-results li.highlighted {
+    background-image: none;
+    background-color: #eee;
+    color: #333333;
 }

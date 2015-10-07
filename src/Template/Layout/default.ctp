@@ -1,20 +1,3 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-
-$cakeDescription = 'CakePHP: the rapid development php framework';
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,10 +11,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('bootstrap-theme.min.css') ?>
     <?= $this->Html->css('sb-admin.css') ?>
     <?= $this->Html->css('font-awesome.min.css') ?>
+    <?= $this->Html->css('chosen.css') ?>
     <?= $this->Html->css('main.css') ?>
 
     <?= $this->Html->Script('jquery-1.11.3.min.js') ?>
     <?= $this->Html->Script('bootstrap.min.js') ?>
+    <?= $this->Html->Script('chosen.jquery.min.js') ?>
     <?= $this->Html->Script('main.js') ?>
 
     <?= $this->fetch('meta') ?>
@@ -50,11 +35,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="lang_drop"><i class="fa fa-fw fa-globe"></i><b class="caret"></b></a>
                     <ul class="dropdown-menu lang">
                         <li>
                             <?= $this->Form->create('', ['type' => 'post', 'id' => 'language_form']) ?>
-                            <?= $this->Form->select('language', ['en' => 'English', 'ru' => 'Русский'], ['default' => $lang, 'size' => 2]) ?>
+                            <?= $this->Form->select('language', ['en' => 'English', 'ru' => 'Русский'], ['default' => $lang, 'size' => 2, 'class' => 'lang_select']) ?>
                             <?= $this->Form->end() ?>
                         </li>
                     </ul>
@@ -127,7 +112,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <?= $this->Html->scriptBlock('
         var controller = "'.$controller.'";
         setMenuActive(controller);
-') ?>
+
+        $(".lang_select").chosen({width: "95%", disable_search: true});
+
+        $("#lang_drop").on("click", function() {
+            $(".lang_select").trigger("chosen:open");
+        });
+    ') ?>
 
 </body>
 </html>
