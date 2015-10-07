@@ -113,7 +113,7 @@
         var controller = "'.$controller.'";
         setMenuActive(controller);
 
-        $(".lang_select").chosen({width: "95%", disable_search: true});
+        $(".lang_select").chosen({width: "100%", disable_search: true});
 
         $("#lang_drop").on("click", function() {
             $(".lang_select").trigger("chosen:open");

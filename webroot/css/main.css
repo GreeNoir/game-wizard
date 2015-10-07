@@ -16,6 +16,7 @@ body {
 
 .dropdown-menu.lang {
     width: auto;
+    height: 60px;
 }
 
 nav.navbar div.collapse ul li.active > a {
@@ -49,14 +50,19 @@ a.chosen-single {
     display: none !important;
 }
 
-ul.dropdown-menu.lang {
-    border: none !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
+.chosen-container.chosen-with-drop .chosen-drop {
+    position: static;
+    border: none;
+    box-shadow: none;
 }
 
-.chosen-container .chosen-drop {
-    margin-top: -15px;
+.chosen-container .chosen-results {
+    padding: 0;
+    margin: 0 0 4px 0;
+}
+
+.chosen-container .chosen-results li {
+    padding-left: 10px;
 }
 
 .chosen-container .chosen-results li.highlighted {
