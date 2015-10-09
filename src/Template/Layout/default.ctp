@@ -112,7 +112,7 @@
 <?= $this->Html->scriptBlock('
         var controller = "'.$controller.'";
         setMenuActive(controller);
-
+        current_lang = "'.$lang.'";
         $(".lang_select").chosen({width: "100%", disable_search: true});
 
         $("#lang_drop").on("click", function() {

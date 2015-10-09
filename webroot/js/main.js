@@ -1,7 +1,12 @@
+var current_lang = '';
 
 $(function() {
     $('select[name="language"]').change(function() {
-        $('#language_form').submit();
+        var select_lang = $('select[name="language"] option:selected').val();
+        if (select_lang == current_lang) {
+        } else {
+            $('#language_form').submit();
+        }
     });
 
     if ($('div.input').length > 0) {
