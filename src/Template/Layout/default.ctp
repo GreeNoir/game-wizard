@@ -112,8 +112,10 @@
 <?= $this->Html->scriptBlock('
         var controller = "'.$controller.'";
         setMenuActive(controller);
-        current_lang = "'.$lang.'";
-        $(".lang_select").chosen({width: "100%", disable_search: true});
+
+        $(".lang_select").chosen({width: "100%", disable_search: true}).change(function(){
+            languageChange();
+        });
 
         $("#lang_drop").on("click", function() {
             $(".lang_select").trigger("chosen:open");

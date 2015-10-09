@@ -1,18 +1,22 @@
-var current_lang = '';
-
 $(function() {
-    $('select[name="language"]').change(function() {
-        var select_lang = $('select[name="language"] option:selected').val();
-        if (select_lang == current_lang) {
-        } else {
-            $('#language_form').submit();
-        }
+
+    $('.dropdown-menu.lang ul.chosen-results').click(function() {
+        resetTopNav();
     });
 
     if ($('div.input').length > 0) {
         $("div.input").addClass("form-group col-sm-10");
     }
 });
+
+function languageChange() {
+    var select_lang = $('select[name="language"] option:selected').val();
+    $('#language_form').submit();
+}
+
+function resetTopNav() {
+    $('ul.top-nav li').removeClass('open');
+}
 
 function setMenuActive(controller) {
     $('nav.navbar ul li').removeClass('active');
