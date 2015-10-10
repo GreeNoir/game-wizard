@@ -35,7 +35,7 @@
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="lang_drop"><i class="fa fa-fw fa-globe"></i><b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="lang_drop"><i class="fa fa-fw fa-globe"></i> <?= __('Language') ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu lang">
                         <li>
                             <?= $this->Form->create('', ['type' => 'post', 'id' => 'language_form']) ?>
@@ -82,7 +82,7 @@
                 <ul class="nav navbar-nav side-nav">
                     <li data-controller="Home">
                         <?= $this->Html->link(
-                            $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-dashboard']).__('Home'),
+                            $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-home']).__('Home'),
                             ['controller' => 'Home', 'action' => 'index', 'lang' => $lang],
                             ['escape' => false]) ?>
                     </li>

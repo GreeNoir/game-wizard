@@ -62,11 +62,15 @@ a.chosen-single {
 }
 
 .chosen-container .chosen-results li {
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 .chosen-container .chosen-results li.highlighted {
     background-image: none;
     background-color: #eee;
     color: #333333;
+}
+
+.fa-stack-text {
+    color: #ffffff;
 }

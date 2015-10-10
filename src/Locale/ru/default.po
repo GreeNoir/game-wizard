@@ -81,3 +81,9 @@ msgstr "Выйти"
 
 msgid "Tables"
 msgstr "Таблицы"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Russian"
+msgstr "Русский"
