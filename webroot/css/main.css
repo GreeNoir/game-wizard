@@ -87,3 +87,12 @@ div.input.checkbox .control-label {
 .form-horizontal .checkbox, .form-horizontal .radio {
     min-height: 32px;
 }
+
+.col-sm-3.subheader {
+    width: 30%;
+}
+
+.roledata.form #panel_booleans .col-sm-3.control-label {
+    width: 35%;
+}
+

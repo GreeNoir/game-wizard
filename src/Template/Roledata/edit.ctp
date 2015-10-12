@@ -28,7 +28,6 @@
             echo $this->Form->input('CreateTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->input('LoginTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->input('LogoutTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-
             ?>
         </div>
         <div id="panel_numbers" class="numbers tab-pane fade in">
@@ -108,7 +107,6 @@
             echo $this->Form->input('TotalTax', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->input('RemoteOpenSet', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->input('CurTitleID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-
             echo $this->Form->input('OnlineTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->input('CurOnlineTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->input('RemoveTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
@@ -153,7 +151,6 @@
             echo $this->Form->input('FreeWorldTalkTimes', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->input('VipMaxDays', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->input('YaoJingValue', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-
             echo $this->Form->input('YListCompleteRefreshTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->input('YListIMRefreshTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
             echo $this->Form->input('TakeGuildRewardTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
@@ -196,18 +193,18 @@
         </div>
         <div id="panel_booleans" class="boolean tab-pane fade in">
             <?php
-            echo $this->Form->input('SGFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-            echo $this->Form->input('RemoveFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-            echo $this->Form->input('Hostility', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-            echo $this->Form->input('OfflineExperienceRewardFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-            echo $this->Form->input('VipLevel', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-            echo $this->Form->input('CanRankFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-            echo $this->Form->input('Buy50LvlItemFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-            echo $this->Form->input('Buy60LvlItemFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-            echo $this->Form->input('Buy70LvlItemFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-            echo $this->Form->input('Buy80LvlItemFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-            echo $this->Form->input('PlayerBack', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
-            echo $this->Form->input('UseConstraintsMaxPKSafeGuardLevel', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]);
+            echo $this->Form->input('SGFlag', ['class' => 'form-control', 'label' => ['text' => 'SFGlag', 'class' => 'col-sm-3 control-label']]);
+            echo $this->Form->input('RemoveFlag', ['class' => 'form-control', 'label' => ['text' => 'RemoveFlag', 'class' => 'col-sm-3 control-label']]);
+            echo $this->Form->input('Hostility', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
+            echo $this->Form->input('OfflineExperienceRewardFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
+            echo $this->Form->input('VipLevel', ['class' => 'form-control', 'label' => ['text' => 'OfflineExperienceRewardFlag', 'class' => 'col-sm-3 control-label']]);
+            echo $this->Form->input('CanRankFlag', ['class' => 'form-control', 'label' => ['text' => 'CanRankFlag', 'class' => 'col-sm-3 control-label']]);
+            echo $this->Form->input('Buy50LvlItemFlag', ['class' => 'form-control', 'label' => ['text' => 'Buy50LvlItemFlag', 'class' => 'col-sm-3 control-label']]);
+            echo $this->Form->input('Buy60LvlItemFlag', ['class' => 'form-control', 'label' => ['text' => 'Buy60LvlItemFlag', 'class' => 'col-sm-3 control-label']]);
+            echo $this->Form->input('Buy70LvlItemFlag', ['class' => 'form-control', 'label' => ['text' => 'Buy70LvlItemFlag', 'class' => 'col-sm-3 control-label']]);
+            echo $this->Form->input('Buy80LvlItemFlag', ['class' => 'form-control', 'label' => ['text' => 'Buy80LvlItemFlag', 'class' => 'col-sm-3 control-label']]);
+            echo $this->Form->input('PlayerBack', ['class' => 'form-control', 'label' => ['text' => 'PlayerBack', 'class' => 'col-sm-3 control-label']]);
+            echo $this->Form->input('UseConstraintsMaxPKSafeGuardLevel', ['class' => 'form-control', 'label' => ['text' => 'UseConstraintsMaxPKSafeGuardLevel', 'class' => 'col-sm-3 control-label']]);
 
             ?>
         </div>

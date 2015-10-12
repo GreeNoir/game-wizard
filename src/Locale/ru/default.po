@@ -87,3 +87,13 @@ msgstr "Язык"
 
 msgid "Russian"
 msgstr "Русский"
+
+msgid "String parameters"
+msgstr "Текстовые значения"
+
+msgid "Number parameters"
+msgstr "Числовые значения"
+
+msgid "Boolean parameters"
+msgstr "Логические значения"
+
