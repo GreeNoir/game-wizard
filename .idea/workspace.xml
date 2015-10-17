@@ -4,9 +4,24 @@
     <bookmark url="file://$PROJECT_DIR$/src/Model/Entity/AccountCommon.php" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3953442e-792a-442a-aab3-3310025222d3" name="Default" comment="" />
+    <list default="true" id="3953442e-792a-442a-aab3-3310025222d3" name="Default" comment="edit&#10;">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/game-wizard.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/access.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/error.log" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    </list>
     <ignored path="game-wizard.iws" />
-    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/" />
+    <ignored path="error.log" />
+    <ignored path="access.log" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +44,7 @@
       <file leaf-file-name="bootstrap.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/bootstrap.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="196" column="39" selection-start="6094" selection-end="6094" vertical-scroll-proportion="-0.0" vertical-offset="3332" max-vertical-offset="3553">
+            <state line="196" column="39" selection-start="6094" selection-end="6094" vertical-scroll-proportion="0.0" vertical-offset="3332" max-vertical-offset="3553">
               <folding />
             </state>
           </provider>
@@ -38,7 +53,7 @@
       <file leaf-file-name="AppController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/AppController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="955" selection-end="955" vertical-scroll-proportion="0.15658915" vertical-offset="222" max-vertical-offset="867">
+            <state line="67" column="0" selection-start="1972" selection-end="1972" vertical-scroll-proportion="0.6365055" vertical-offset="527" max-vertical-offset="2040">
               <folding>
                 <element signature="e#602#633#0" expanded="true" />
               </folding>
@@ -49,7 +64,7 @@
       <file leaf-file-name="HomeController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="46" selection-start="324" selection-end="324" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="459">
+            <state line="14" column="1" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="340">
               <folding />
             </state>
           </provider>
@@ -58,7 +73,7 @@
       <file leaf-file-name="index.ctp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Template/Home/index.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="6" selection-start="434" selection-end="434" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="442">
+            <state line="0" column="6" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
               <folding />
             </state>
           </provider>
@@ -67,7 +82,7 @@
       <file leaf-file-name="add.ctp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Template/AccountCommon/add.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="82" selection-start="141" selection-end="189" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="544">
+            <state line="3" column="82" selection-start="141" selection-end="189" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="527">
               <folding />
             </state>
           </provider>
@@ -76,10 +91,8 @@
       <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="109" selection-start="2326" selection-end="2326" vertical-scroll-proportion="-18.923077" vertical-offset="341" max-vertical-offset="986">
-              <folding>
-                <element signature="e#816#837#0" expanded="true" />
-              </folding>
+            <state line="66" column="0" selection-start="2148" selection-end="2148" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="1462">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -87,7 +100,7 @@
       <file leaf-file-name="index.ctp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Template/AccountCommon/index.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="13" selection-start="547" selection-end="547" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="816">
+            <state line="14" column="13" selection-start="539" selection-end="539" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="986">
               <folding />
             </state>
           </provider>
@@ -99,6 +112,9 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
@@ -129,12 +145,12 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="8" />
-    <option name="y" value="4" />
-    <option name="width" value="1581" />
-    <option name="height" value="855" />
+    <option name="x" value="2" />
+    <option name="y" value="9" />
+    <option name="width" value="1594" />
+    <option name="height" value="851" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -178,112 +194,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-wizard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-wizard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-wizard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-wizard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-wizard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-wizard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AccountCommon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-wizard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-wizard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Locale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-wizard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game-wizard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Locale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ru" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.lastSelected" value="web-ide.project.structure" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Ignored.Files" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/access.log" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -307,6 +230,23 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3953442e-792a-442a-aab3-3310025222d3" name="Default" comment="" />
@@ -316,15 +256,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="8" y="4" width="1581" height="855" extended-state="1" />
-    <editor active="true" />
+    <frame x="2" y="9" width="1594" height="851" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48857144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20748523" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21028645" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -381,9 +321,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Layout/default.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="30" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1020">
-          <folding />
-        </state>
+        <state line="31" column="30" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1020" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/AccountCommon/add.ctp">
@@ -396,9 +334,7 @@
     <entry file="file://$PROJECT_DIR$/config/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="3" selection-start="1767" selection-end="1767" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="867">
-          <folding>
-            <element signature="e#816#837#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -434,9 +370,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Layout/default.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="30" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1020">
-          <folding />
-        </state>
+        <state line="31" column="30" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1020" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/AccountCommon/add.ctp">
@@ -604,21 +538,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="46" selection-start="324" selection-end="324" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="459">
+        <state line="14" column="1" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="340">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Layout/default.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="30" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.5176282" vertical-offset="204" max-vertical-offset="1020">
-          <folding />
-        </state>
+        <state line="31" column="30" selection-start="1070" selection-end="1070" vertical-scroll-proportion="0.5176282" vertical-offset="204" max-vertical-offset="1020" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/AccountCommon/add.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="82" selection-start="141" selection-end="189" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="544">
+        <state line="3" column="82" selection-start="141" selection-end="189" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="527">
           <folding />
         </state>
       </provider>
@@ -632,7 +564,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Home/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="6" selection-start="434" selection-end="434" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="442">
+        <state line="0" column="6" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
           <folding />
         </state>
       </provider>
@@ -646,23 +578,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/AccountCommon/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="547" selection-end="547" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="816">
+        <state line="14" column="13" selection-start="539" selection-end="539" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="986">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="109" selection-start="2326" selection-end="2326" vertical-scroll-proportion="-18.923077" vertical-offset="341" max-vertical-offset="986">
-          <folding>
-            <element signature="e#816#837#0" expanded="true" />
-          </folding>
+        <state line="66" column="0" selection-start="2148" selection-end="2148" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="1462">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AppController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="955" selection-end="955" vertical-scroll-proportion="0.15658915" vertical-offset="222" max-vertical-offset="867">
+        <state line="67" column="0" selection-start="1972" selection-end="1972" vertical-scroll-proportion="0.6365055" vertical-offset="527" max-vertical-offset="2040">
           <folding>
             <element signature="e#602#633#0" expanded="true" />
           </folding>
