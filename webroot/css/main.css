@@ -76,14 +76,16 @@ a.chosen-single {
 }
 
 div.input.checkbox input[type="checkbox"] {
-    right: -23px;
+    right: -20px;
     height: auto;
-}
-
-div.input.checkbox .control-label {
-    margin-top: -15px;
 }
 
 .form-horizontal .checkbox, .form-horizontal .radio {
     min-height: 32px;
 }
+
+.voffset2  { margin-top: 2px; }
+.voffset5 { margin-top: 5px; }
+.voffset10 { margin-top: 10px; }
+.voffset15 { margin-top: 15px; }
+.voffset20 { margin-top: 20px; }

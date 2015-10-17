@@ -90,7 +90,7 @@
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#tables"><i class="fa fa-fw fa-table"></i><?= __('Tables') ?><i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="tables" class="collapse">
                             <li data-controller="AccountCommon"><?= $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]); ?></li>
-                            <li data-controller="Roledata"><?= $this->Html->link(__('Roledata'), ['controller' => 'Roledata', 'action' => 'index', 'lang' => $lang]); ?></li>
+                            <li data-controller="Roledata"><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index', 'lang' => $lang]); ?></li>
                         </ul>
                     </li>
                 </ul>
