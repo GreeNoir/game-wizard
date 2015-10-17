@@ -76,8 +76,12 @@ a.chosen-single {
 }
 
 div.input.checkbox input[type="checkbox"] {
-    right: -20px;
+    right: -23px;
     height: auto;
+}
+
+div.input.checkbox .control-label {
+    margin-top: -15px;
 }
 
 .form-horizontal .checkbox, .form-horizontal .radio {

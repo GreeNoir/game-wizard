@@ -5,7 +5,7 @@
         <li><?= $this->Form->postLink(__('Delete').__('Roledata'), ['action' => 'delete', $roledata->RoleID], ['confirm'
             => __('Are you sure you want to delete # {0}?', $roledata->RoleID)]) ?>
         </li>
-        <li><?= $this->Html->link(__('List').__('Roledata'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New').__('Roledata'), ['action' => 'add']) ?></li>
     </ul>
 </div>
