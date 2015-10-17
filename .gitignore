@@ -1,7 +1,5 @@
 /vendor/*
 /tmp/*
 /logs/*
-/.idea/*
-error.log
-access.log
 
+/access.log

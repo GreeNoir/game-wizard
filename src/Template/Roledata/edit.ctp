@@ -10,7 +10,7 @@
         <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
     </ul>
 </div>
-<legend><?= __('Edit Roledata') ?></legend>
+<legend><?= __('Edit Roledata') ?><div class="id">ID#<?= $roledata->RoleID ?></div></legend>
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#panel_strings"><?= __('String parameters') ?></a></li>
     <li><a data-toggle="tab" href="#panel_numbers"><?= __('Number parameters') ?></a></li>
