@@ -105,3 +105,9 @@ msgstr "Редактировать аккаунт"
 
 msgid "Submit"
 msgstr "Сохранить"
+
+msgid "Login"
+msgstr "Вход"
+
+msgid "Reports"
+msgstr "Отчеты"

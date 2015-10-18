@@ -93,6 +93,12 @@
                             <li data-controller="Roledata"><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index', 'lang' => $lang]); ?></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#reports"><i class="fa fa-fw fa-file-text"></i><?= __('Reports') ?><i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="reports" class="collapse">
+                            <li data-controller="LoginLog"><?= $this->Html->link(__('ListLoginLog'), ['controller' => 'LoginLog', 'action' => 'index', 'lang' => $lang]); ?></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
