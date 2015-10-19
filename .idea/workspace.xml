@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3953442e-792a-442a-aab3-3310025222d3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path=".idea/" />
@@ -40,7 +39,7 @@
       <file leaf-file-name="workspace.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="38" selection-start="753" selection-end="753" vertical-scroll-proportion="0.3353566" vertical-offset="0" max-vertical-offset="5984">
+            <state line="22" column="21" selection-start="1156" selection-end="1156" vertical-scroll-proportion="0.3353566" vertical-offset="153" max-vertical-offset="6222">
               <folding />
             </state>
           </provider>
@@ -64,12 +63,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Model/Table/AccountControllerTable.php" />
-        <option value="$PROJECT_DIR$/src/Template/AccountCommon/edit.ctp" />
-        <option value="$PROJECT_DIR$/src/Model/Entity/AccountCommon.php" />
-        <option value="$PROJECT_DIR$/src/Template/AccountCommon/add.ctp" />
-        <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/src/Model/Table/RoledataTable.php" />
         <option value="$PROJECT_DIR$/src/Template/AccountCommon/roledataList.ctp" />
         <option value="$PROJECT_DIR$/src/Model/Table/AccountCommonTable.php" />
         <option value="$PROJECT_DIR$/src/Template/AccountCommon/roledata_list.ctp" />
@@ -85,6 +78,7 @@
         <option value="$PROJECT_DIR$/config/routes.php" />
         <option value="$PROJECT_DIR$/src/Template/AccountCommon/view.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/AppController.php" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
       </list>
     </option>
   </component>
@@ -209,12 +203,18 @@
       <created>1439723828444</created>
       <updated>1439723828444</updated>
     </task>
+    <task id="LOCAL-00001" summary="err">
+      <created>1445240959102</created>
+      <updated>1445240959102</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="4" width="1428" height="855" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48857144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -247,6 +247,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="err" />
+    <option name="LAST_COMMIT_MESSAGE" value="err" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -347,7 +349,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="38" selection-start="753" selection-end="753" vertical-scroll-proportion="0.3353566" vertical-offset="0" max-vertical-offset="5984">
+        <state line="22" column="21" selection-start="1156" selection-end="1156" vertical-scroll-proportion="0.3353566" vertical-offset="153" max-vertical-offset="6171">
           <folding />
         </state>
       </provider>
