@@ -14,7 +14,7 @@
 <div class="account_common form">
     <?= $this->Form->create($accountCommon, ['class' => 'form-horizontal']) ?>
 
-    <legend><?= __('Edit Account Common') ?></legend>
+    <legend><?= __('Edit Account Common') ?><div class="id">ID#<?= $accountCommon->AccountID ?></div></legend>
     <?= $this->Form->input('AccountName', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('ChannelID', ['type' => 'text', 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('BaiBaoYuanBao', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
@@ -23,7 +23,7 @@
     <?= $this->Form->input('LastUseRoleID', ['type' => 'text', 'disabled' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
 
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
+        <div class="col-sm-offset-2 col-sm-10 voofset10">
             <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
         </div>
     </div>

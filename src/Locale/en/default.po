@@ -20,7 +20,7 @@ msgid "Roledata"
 msgstr "Roledata"
 
 msgid "RoledataList"
-msgstr "Roledata List"
+msgstr "Roledata"
 
 msgid "AccountCommon"
 msgstr "Account"

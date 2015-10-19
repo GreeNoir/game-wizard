@@ -77,4 +77,6 @@ Router::connect('/:lang/:controller/login', ['action' => 'login']);
 
 Router::connect('/:lang/:controller/logout', ['action' => 'logout']);
 
+Router::connect('/:lang/:controller/accountLog', ['action' => 'accountLog']);
+
 Plugin::routes();
