@@ -111,3 +111,9 @@ msgstr "Вход"
 
 msgid "Reports"
 msgstr "Отчеты"
+
+msgid "ListLoginLog"
+msgstr "Отчеты входа в игру"
+
+msgid "Log"
+msgstr "Отчет по"

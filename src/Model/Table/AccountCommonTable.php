@@ -33,6 +33,20 @@ class AccountCommonTable extends Table
         $this->primaryKey('AccountID');
     }
 
+    public function getIndexList() {
+        $account_common = TableRegistry::get('account_common');
+        $query = $account_common->find()
+            ->select(['AccountID', 'AccountName', 'LastUseRoleID', 'BaiBaoYuanBao', 'WareSize', 'WareSilver', 'l.ip'])
+            ->hydrate(false)
+            ->join([
+                'table' => 'sm_login.login_log',
+                'alias' => 'l',
+                'conditions' => 'l.accountID = account_common.AccountID'
+            ])
+            ->group(['account_common.AccountID']);
+        return $query;
+    }
+
     public function getNewAccountID() {
         $query = TableRegistry::get('AccountCommon')->find();
         $query->select(['count' => $query->func()->count('*')]);

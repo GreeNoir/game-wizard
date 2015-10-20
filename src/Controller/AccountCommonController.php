@@ -24,7 +24,7 @@ class AccountCommonController extends AppController {
      */
     public function index()
     {
-        $this->set('accountCommonList', $this->paginate($this->AccountCommon->find('all')));
+        $this->set('accountCommonList', $this->paginate($this->AccountCommon->getIndexList()));
     }
 
     /**

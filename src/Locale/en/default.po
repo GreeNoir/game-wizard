@@ -48,3 +48,6 @@ msgstr "Create personal account"
 
 msgid "UserCreate"
 msgstr "Create an account"
+
+msgid "ListLoginLog"
+msgstr "Login Log"

@@ -24,5 +24,9 @@ function setMenuActive(controller) {
     if (tables.indexOf(controller) != -1) {
         $('nav.navbar ul#tables').addClass('in');
     }
+    var reports = ['LoginLog'];
+    if (reports.indexOf(controller) != -1) {
+        $('nav.navbar ul#reports').addClass('in');
+    }
     $('nav.navbar ul li[data-controller="'+controller+'"]').addClass('active');
 }

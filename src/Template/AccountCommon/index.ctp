@@ -4,7 +4,7 @@
         <li><?= $this->Html->link(__('New').__('AccountCommon'), ['action' => 'add']) ?></li>
     </ul>
 </div>
-
+<?php /*debug($accountCommonList);*/ ?>
 <div class="accountcommon table-responsive">
     <table class="table table-bordered table-striped">
         <thead>
@@ -12,7 +12,7 @@
             <th><?= $this->Paginator->sort('AccountID') ?></th>
             <th><?= $this->Paginator->sort('AccountName') ?></th>
             <th><?= __('LastUseRoleID') ?></th>
-            <th><?= $this->Paginator->sort('ChannelID') ?></th>
+            <th><?= $this->Paginator->sort('Last IP') ?></th>
             <th><?= $this->Paginator->sort('BaiBaoYuanBao') ?></th>
             <th><?= $this->Paginator->sort('WareSize') ?></th>
             <th><?= $this->Paginator->sort('WareSilver') ?></th>
@@ -22,18 +22,14 @@
         <tbody>
         <?php foreach ($accountCommonList as $accountCommon): ?>
         <tr>
-            <td><?= $this->Number->format($accountCommon->AccountID) ?></td>
-            <td><?= h($accountCommon->AccountName) ?></td>
-            <td><?= $accountCommon->LastUseRoleID ?></td>
-            <td><?= $accountCommon->ChannelID ?></td>
-            <td><?= $accountCommon->BaiBaoYuanBao ?></td>
-            <td><?= $accountCommon->WareSize ?></td>
-            <td><?= $accountCommon->WareSilver ?></td>
+            <td><?= $this->Number->format($accountCommon['AccountID']) ?></td>
+            <td><?= h($accountCommon['AccountName']) ?></td>
+            <td><?= $accountCommon['LastUseRoleID'] ?></td>
+            <td><?= $accountCommon['l']['ip'] ?></td>
+            <td><?= $accountCommon['BaiBaoYuanBao'] ?></td>
+            <td><?= $accountCommon['WareSize'] ?></td>
+            <td><?= $accountCommon['WareSilver'] ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View', true), ['action' => 'view', $accountCommon->AccountID]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $accountCommon->AccountID]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $accountCommon->AccountID], ['confirm' => __('Are you sure you want to delete # {0}?', $accountCommon->AccountID)]) ?>
-                <?= $this->Html->link(__('RoledataList'), ['action' => 'roledata_list', 'id' => $accountCommon->AccountID]); ?>
             </td>
         </tr>
 
