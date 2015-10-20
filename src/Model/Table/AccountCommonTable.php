@@ -36,12 +36,15 @@ class AccountCommonTable extends Table
     public function getIndexList() {
         $account_common = TableRegistry::get('account_common');
         $query = $account_common->find()
-            ->select(['AccountID', 'AccountName', 'LastUseRoleID', 'BaiBaoYuanBao', 'WareSize', 'WareSilver', 'l.ip'])
+            ->select(['AccountID', 'AccountName', 'LastUseRoleID', 'r.RoleName', 'BaiBaoYuanBao', 'WareSize', 'WareSilver', 'l.ip', 'l.mac'])
             ->hydrate(false)
             ->join([
-                'table' => 'sm_login.login_log',
-                'alias' => 'l',
-                'conditions' => 'l.accountID = account_common.AccountID'
+                'l' => [
+                        'table' => 'sm_login.login_log',
+                        'conditions' => 'l.accountID = account_common.AccountID'],
+                'r'  => [
+                        'table' => 'roledata',
+                        'conditions' => 'r.RoleID = account_common.LastUseRoleID']
             ])
             ->group(['account_common.AccountID']);
         return $query;
