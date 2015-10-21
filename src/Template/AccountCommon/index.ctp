@@ -26,7 +26,7 @@
         <tr>
             <td><?= $this->Number->format($accountCommon['AccountID']) ?></td>
             <td><?= h($accountCommon['AccountName']) ?></td>
-            <td><?= $accountCommon['LastUseRoleID'] ?></td>
+            <td><?= $this->Html->link($accountCommon['LastUseRoleID'], ['action' => 'view', $accountCommon['LastUseRoleID'], 'controller' => 'Roledata']); ?></td>
             <td><?= $accountCommon['r']['RoleName'] ?></td>
             <td><?= $accountCommon['l']['ip'] ?></td>
             <td><?= $accountCommon['l']['mac'] ?></td>
