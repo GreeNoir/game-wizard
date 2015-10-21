@@ -4,7 +4,6 @@
         <li><?= $this->Html->link(__('New').__('AccountCommon'), ['action' => 'add']) ?></li>
     </ul>
 </div>
-<?php /*debug($accountCommonList);*/ ?>
 <div class="accountcommon table-responsive">
     <table class="table table-bordered table-striped">
         <thead>
