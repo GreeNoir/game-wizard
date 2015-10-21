@@ -41,8 +41,11 @@ class AccountCommonTable extends Table
             ->join([
                 'l' => [
                         'table' => 'sm_login.login_log',
-                        'conditions' => 'l.accountID = account_common.AccountID'],
-                'r'  => [
+                        'conditions' => [
+                            'l.accountID = account_common.AccountID',
+                            'l.time = (SELECT MAX(time) FROM sm_login.login_log WHERE accountID=account_common.AccountID)']
+                       ],
+                'r' => [
                         'table' => 'roledata',
                         'conditions' => 'r.RoleID = account_common.LastUseRoleID']
             ])
