@@ -26,6 +26,8 @@ class AccountController extends AppController {
      */
     public function edit($id = null)
     {
+        $this->Account->initConnectionParams($id);
+
         $account = $this->Account->get($id, [
             'contain' => []
         ]);
@@ -38,7 +40,10 @@ class AccountController extends AppController {
                 $this->Flash->error(__('The account common could not be saved. Please, try again.'));
             }
         }
+
         $this->set(compact('account'));
         $this->set('_serialize', ['account']);
+        $this->set('isIpBanned', $this->Account->isBanIp($id));
+        $this->set('isMacBanned', $this->Account->isBanMac($id));
     }
 }

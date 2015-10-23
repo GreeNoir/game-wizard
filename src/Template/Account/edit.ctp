@@ -45,7 +45,17 @@
     </div>
     <div class="account form">
         <?= $this->Form->create($account, ['class' => 'form-horizontal']) ?>
-        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+        <div class="input text ip form-group col-sm-10">
+            <label class="col-sm-2 control-label"><?= __('IP Ban') ?></label>
+        </div>
+        <div class="input text ip form-group col-sm-10">
+            <label class="col-sm-2 control-label"><?= __('MAC Ban') ?></label>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+            </div>
+        </div>
         <?= $this->Form->end() ?>
     </div>
 </div>

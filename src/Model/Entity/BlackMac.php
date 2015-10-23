@@ -1,15 +1,14 @@
 <?php
 
-
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 use Cake\Auth\DefaultPasswordHasher;
 
 /**
- * Account Entity
+ * BlackMac Entity
  */
-class Account extends Entity
+class BlackMac extends Entity
 {
 
     /**
