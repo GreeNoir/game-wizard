@@ -34,6 +34,10 @@
                 <div class="col-sm-3"><?= h($account->ip) ?></div>
             </div>
             <div class="form-group col-sm-10">
+                <div class="col-sm-2 subheader"><?= __('mac') ?></div>
+                <div class="col-sm-3"><?= h($account->mac) ?></div>
+            </div>
+            <div class="form-group col-sm-10">
                 <div class="col-sm-2 subheader"><?= __('time') ?></div>
                 <div class="col-sm-3"><?= h($account->time) ?></div>
             </div>
@@ -43,19 +47,16 @@
             </div>
         </div>
     </div>
+
     <div class="account form">
-        <?= $this->Form->create($account, ['class' => 'form-horizontal']) ?>
-        <div class="input text ip form-group col-sm-10">
-            <label class="col-sm-2 control-label"><?= __('IP Ban') ?></label>
-        </div>
-        <div class="input text ip form-group col-sm-10">
-            <label class="col-sm-2 control-label"><?= __('MAC Ban') ?></label>
-        </div>
+    <?= $this->Form->create($account, ['class' => 'form-horizontal']) ?>
+        <?= $this->Form->input('ip_ban', ['type' => 'checkbox', 'checked' => $isIpBanned ? 'checked' : '', 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+        <?= $this->Form->input('mac_ban', ['type' => 'checkbox', 'checked' => $isMacBanned, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
         <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
                 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
             </div>
         </div>
-        <?= $this->Form->end() ?>
+    <?= $this->Form->end() ?>
     </div>
 </div>

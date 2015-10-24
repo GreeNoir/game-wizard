@@ -41,6 +41,7 @@ class AccountController extends AppController {
             }
         }
 
+        $account->mac = $this->Account->getMac();
         $this->set(compact('account'));
         $this->set('_serialize', ['account']);
         $this->set('isIpBanned', $this->Account->isBanIp($id));

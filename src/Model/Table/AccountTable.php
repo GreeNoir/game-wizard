@@ -45,10 +45,9 @@ class AccountTable extends Table
         $this->mac = $query->l['mac'];
     }
 
-    public function isBanMac($id) {
+    public function isBanMac() {
         $result = TableRegistry::get('black_mac')->find()
-            ->select(['id', 'mac'])
-            ->where(['mac'=>$this->mac, 'id'=>$id])->first();
+            ->where(['mac'=>$this->mac])->first();
         if ($result) {
             return true;
         } else {
@@ -56,15 +55,18 @@ class AccountTable extends Table
         }
     }
 
-    public function isBanIp($id) {
+    public function isBanIp() {
         $result = TableRegistry::get('black_list')->find()
-            ->select(['id', 'ip'])
-            ->where(['ip'=>$this->ip, 'id'=>$id])->first();
+            ->where(['ip'=>$this->ip])->first();
         if ($result) {
             return true;
         } else {
             return false;
         }
+    }
+
+    public function getMac() {
+        return $this->mac;
     }
 
 }
