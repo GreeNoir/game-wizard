@@ -2,7 +2,7 @@
 
 </div>
 <div class="account view columns">
-    <h2><i class="fa fa-fw fa-eye"></i><?= __('Monitoring for account ')?><div class="id">ID#<?= h($account->id) ?></div></h2>
+    <h2><i class="fa fa-fw fa-eye"></i><?= __('Monitoring for account')?><div class="id">ID#<?= h($account->id) ?></div></h2>
     <div class="row">
         <div class="columns strings">
             <div class="form-group col-sm-10">

@@ -123,3 +123,9 @@ msgstr "Забанить по IP"
 
 msgid "Ban MAC"
 msgstr "Забанить по MAC"
+
+msgid "Monitoring"
+msgstr "Мониторинг активности"
+
+msgid "Monitoring for account"
+msgstr "Мониторинг актовности аккуанта"

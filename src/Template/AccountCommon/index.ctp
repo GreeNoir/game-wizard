@@ -12,8 +12,8 @@
             <th><?= $this->Paginator->sort('AccountName') ?></th>
             <th><?= __('LastUseRoleID') ?></th>
             <th><?= __('LastRoleName') ?></th>
-            <th><?= __('IP') ?>*</th>
-            <th><?= __('MAC') ?>*</th>
+            <th><?= __('IP') ?></th>
+            <th><?= __('MAC') ?></th>
             <th><?= $this->Paginator->sort('BaiBaoYuanBao') ?></th>
             <th><?= $this->Paginator->sort('WareSize') ?></th>
             <th><?= $this->Paginator->sort('WareSilver') ?></th>
