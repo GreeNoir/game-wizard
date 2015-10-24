@@ -36,7 +36,7 @@ class LoginLogController extends AppController {
     public function accountLog() {
         $accountID = $this->request->query['accountID'];
         $this->set('accountID', $accountID);
-        $this->set('accountLogList', $this->LoginLog->find()->where(['accountID' => $accountID])->toArray());
+        $this->set('accountLogList', $this->LoginLog->find()->where(['accountID' => $accountID])->order(['time' => 'DESC'])->toArray());
     }
 
 }
