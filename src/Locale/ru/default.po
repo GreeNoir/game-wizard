@@ -117,3 +117,9 @@ msgstr "Отчеты входа в игру"
 
 msgid "Log"
 msgstr "Отчет по"
+
+msgid "Ban IP"
+msgstr "Забанить по IP"
+
+msgid "Ban MAC"
+msgstr "Забанить по MAC"

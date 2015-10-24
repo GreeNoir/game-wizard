@@ -93,3 +93,7 @@ div.input.checkbox .control-label {
 .voffset10 { margin-top: 10px; }
 .voffset15 { margin-top: 15px; }
 .voffset20 { margin-top: 20px; }
+
+.account .checkbox label {
+    padding: 0 0 0 15px;
+}

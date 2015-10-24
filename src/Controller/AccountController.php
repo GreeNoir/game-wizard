@@ -34,7 +34,7 @@ class AccountController extends AppController {
         $account->ip = $this->Account->getIp();
         $account->mac = $this->Account->getMac();
 
-        if ($this->request->is(['patch', 'post', 'put'])) {
+        if ($this->request->is(['put'])) {
 
             $this->loadModel('BlackList');
             $this->BlackList->ban($this->request->data['ip_ban'], $account->ip);
