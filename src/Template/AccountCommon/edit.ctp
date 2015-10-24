@@ -9,6 +9,12 @@
             ?></li>
         <li><?= $this->Html->link(__('List').' '.__('AccountCommon'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('RoledataList'), ['action' => 'roledata_list', 'id' => $accountCommon->AccountID]); ?></li>
+        <li>
+            <?= $this->Html->link(
+            $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-eye']).__('Monitoring'),
+            ['controller' => 'Account', 'action' => 'edit', $accountCommon['AccountID']],
+            ['escape' => false]) ?>
+        </li>
     </ul>
 </div>
 <div class="account_common form">
