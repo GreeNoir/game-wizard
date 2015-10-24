@@ -125,7 +125,7 @@ msgid "Ban MAC"
 msgstr "Забанить по MAC"
 
 msgid "Monitoring"
-msgstr "Мониторинг активности"
+msgstr "Мониторинг"
 
 msgid "Monitoring for account"
 msgstr "Мониторинг актовности аккуанта"

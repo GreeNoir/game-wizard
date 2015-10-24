@@ -33,14 +33,16 @@
             <td><?= $accountCommon['WareSize'] ?></td>
             <td><?= $accountCommon['WareSilver'] ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $accountCommon['AccountID']]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $accountCommon['AccountID']]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $accountCommon['AccountID']], ['confirm' => __('Are you sure you want to delete # {0}?', $accountCommon['AccountID'])]) ?>
-                <?= $this->Html->link(__('RoledataList'), ['action' => 'roledata_list', 'id' => $accountCommon['AccountID']]); ?>
-                <?= $this->Html->link(
-                    $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-eye']).__('Monitoring'),
-                    ['controller' => 'Account', 'action' => 'edit', $accountCommon['AccountID']],
-                    ['escape' => false]) ?>
+                <div>
+                    <div><?= $this->Html->link(__('View'), ['action' => 'view', $accountCommon['AccountID']]) ?></div>
+                    <div><?= $this->Html->link(__('Edit'), ['action' => 'edit', $accountCommon['AccountID']]) ?></div>
+                    <div><?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $accountCommon['AccountID']], ['confirm' => __('Are you sure you want to delete # {0}?', $accountCommon['AccountID'])]) ?></div>
+                    <div><?= $this->Html->link(__('RoledataList'), ['action' => 'roledata_list', 'id' => $accountCommon['AccountID']]); ?></div>
+                    <div><?= $this->Html->link(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-eye']).__('Monitoring'),
+                        ['controller' => 'Account', 'action' => 'edit', $accountCommon['AccountID']],
+                        ['escape' => false]) ?></div>
+                </div>
             </td>
         </tr>
 
