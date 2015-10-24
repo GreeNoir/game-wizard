@@ -65,6 +65,10 @@ class AccountTable extends Table
         }
     }
 
+    public function getIp() {
+        return $this->ip;
+    }
+
     public function getMac() {
         return $this->mac;
     }

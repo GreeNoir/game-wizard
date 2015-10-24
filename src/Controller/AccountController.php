@@ -31,17 +31,21 @@ class AccountController extends AppController {
         $account = $this->Account->get($id, [
             'contain' => []
         ]);
+        $account->ip = $this->Account->getIp();
+        $account->mac = $this->Account->getMac();
+
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $account = $this->Account->patchEntity($account, $this->request->data);
-            if ($this->Account->save($account)) {
-                $this->Flash->success(__('The account common has been saved.'));
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The account common could not be saved. Please, try again.'));
-            }
+
+            $this->loadModel('BlackList');
+            $this->BlackList->ban($this->request->data['ip_ban'], $account->ip);
+
+            $this->loadModel('BlackMac');
+            $this->BlackMac->ban($this->request->data['mac_ban'], $account->mac);
+
+            $this->Flash->success(__('The account common has been saved.'));
+            return $this->redirect(['action' => 'edit', $id]);
         }
 
-        $account->mac = $this->Account->getMac();
         $this->set(compact('account'));
         $this->set('_serialize', ['account']);
         $this->set('isIpBanned', $this->Account->isBanIp($id));
