@@ -47,16 +47,20 @@
                         ['action' => 'delete', $accountCommon['AccountID']],
                         ['escape' => false],
                         ['confirm' => __('Are you sure you want to delete # {0}?', $accountCommon['AccountID'])]) ?></div>
-                    <div class="icon-contain">
-                        <?= $this->Html->link(
-                        $this->Html->tag('i', '', ['class' => 'fa fa-male']).$this->Html->tag('div', __('RoledataList')),
-                        ['action' => 'roledata_list', 'id' => $accountCommon['AccountID']],
-                        ['escape' => false]); ?>
-                    </div>
                     <div class="icon-contain"><?= $this->Html->link(
                         $this->Html->tag('i', '', ['class' => 'fa fa-eye']).$this->Html->tag('div', __('Monitoring')),
                         ['controller' => 'Account', 'action' => 'edit', $accountCommon['AccountID']],
                         ['escape' => false]) ?></div>
+                    <div class="icon-contain">
+                        <?= $this->Html->link(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-male']).$this->Html->tag('div', __('RoledataList')),
+                        ['action' => 'roledata_list', 'id' => $accountCommon['AccountID']],
+                        ['escape' => false]); ?></div>
+                    <div class="icon-contain">
+                        <?= $this->Html->link(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-briefcase']).$this->Html->tag('div', __('Equipment')),
+                        ['action' => 'equipment_list', 'id' => $accountCommon['AccountID']],
+                        ['escape' => false]); ?></div>
                 </div>
             </td>
         </tr>

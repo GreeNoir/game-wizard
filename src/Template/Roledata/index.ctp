@@ -5,7 +5,7 @@
     </ul>
 </div>
 <div class="roledata table-responsive">
-    <table class="table table-bordered table-striped">
+    <table class="table table-condensed table-bordered table-striped">
     <thead>
         <tr>
             <th class="ids"><?= $this->Paginator->sort('Account ID') ?></th>

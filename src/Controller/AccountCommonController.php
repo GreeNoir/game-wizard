@@ -116,4 +116,16 @@ class AccountCommonController extends AppController {
         $this->set('roledataList', $list);
     }
 
+    public function equipment_list($id) {
+        $this->loadModel('Equip');
+        $this->loadModel('Holyequip');
+        $this->loadModel('Holyman');
+        $this->loadModel('Soulcrystal');
+        $this->set('id', $id);
+        $this->set('equipList', $this->Equip->getList($id));
+        $this->set('holyequipList', $this->Holyequip->getList($id));
+        $this->set('holymanList', $this->Holyman->getList($id));
+        $this->set('soulcrystalList', $this->Soulcrystal->getList($id));
+    }
+
 }

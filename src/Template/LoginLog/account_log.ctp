@@ -6,7 +6,7 @@
 </div>
 
 <div class="account_log table-responsive">
-    <table class="table table-bordered table-striped">
+    <table class="table table-condensed table-bordered table-striped">
         <thead>
         <tr>
         <th>IP</th>

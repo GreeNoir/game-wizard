@@ -8,7 +8,7 @@
 </div>
 
 <div class="roledata_list table-responsive">
-    <table class="table table-bordered table-striped">
+    <table class="table table-condensed table-bordered table-striped">
         <thead>
         <tr>
             <th>Role ID</th>

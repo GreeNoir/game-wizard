@@ -151,3 +151,6 @@ msgstr "Посл. персонаж"
 
 msgid "RoleName"
 msgstr "Ник персонажа"
+
+msgid "Equipment"
+msgstr "Вещи"

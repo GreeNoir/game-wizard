@@ -79,4 +79,6 @@ Router::connect('/:lang/:controller/logout', ['action' => 'logout']);
 
 Router::connect('/:lang/:controller/accountLog', ['action' => 'accountLog']);
 
+Router::connect('/:lang/:controller/equipment_list/:id', ['action' => 'equipment_list'], ['id' => '\d+', 'pass' => ['id']]);
+
 Plugin::routes();
