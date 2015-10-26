@@ -50,7 +50,10 @@ class EquipTable extends Table
                 'MaxDmg',
                 'Armor',
                 'PotVal',
-                'PotValUsed'
+                'PotValUsed',
+                'typeID' => 'i.TypeID',
+                'num' => 'i.Num',
+                'roleID' => 'i.OwnerID'
             ])
             ->join([
                 'i' => [

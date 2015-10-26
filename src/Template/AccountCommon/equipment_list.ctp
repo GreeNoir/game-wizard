@@ -20,6 +20,8 @@
                     <thead>
                     <tr>
                         <th><?= __('SerialNum') ?></th>
+                        <th><?= __('TypeID') ?></th>
+                        <th><?= __('Num') ?></th>
                         <th><?= __('Quality') ?></th>
                         <th><?= __('MinUseLevel') ?></th>
                         <th><?= __('MaxUseLevel') ?></th>
@@ -29,12 +31,15 @@
                         <th><?= __('Armor') ?></th>
                         <th><?= __('PotVal') ?></th>
                         <th><?= __('PotValUsed') ?></th>
+                        <th><?= __('Role ID') ?></th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($equipList as $equipItem): ?>
                     <tr>
                         <td><?= $equipItem->cSerialNum ?></td>
+                        <td><?= $equipItem->typeID ?></td>
+                        <td><?= $equipItem->num ?></td>
                         <td><?= $equipItem->Quality ?></td>
                         <td><?= $equipItem->MinUseLevel ?></td>
                         <td><?= $equipItem->MaxUseLevel ?></td>
@@ -44,6 +49,7 @@
                         <td><?= $equipItem->Armor ?></td>
                         <td><?= $equipItem->PotVal ?></td>
                         <td><?= $equipItem->PotValUsed ?></td>
+                        <td><?= $equipItem->roleID ?></td>
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
