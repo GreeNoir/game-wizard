@@ -51,3 +51,24 @@ msgstr "Create an account"
 
 msgid "ListLoginLog"
 msgstr "Login Log"
+
+msgid "AccountID"
+msgstr "Id"
+
+msgid "Account ID"
+msgstr "Account#"
+
+msgid "RoleID"
+msgstr "Id"
+
+msgid "AccountName"
+msgstr "Account"
+
+msgid "LastUseRoleID"
+msgstr "Last Role#"
+
+msgid "LastRoleName"
+msgstr "Last Role Name"
+
+msgid "RoleName"
+msgstr "Role Name"

@@ -129,3 +129,25 @@ msgstr "Мониторинг"
 
 msgid "Monitoring for account"
 msgstr "Мониторинг актовности аккуанта"
+
+
+msgid "AccountID"
+msgstr "Id"
+
+msgid "Account ID"
+msgstr "Аккаунт#"
+
+msgid "RoleID"
+msgstr "Id"
+
+msgid "AccountName"
+msgstr "Аккаунт"
+
+msgid "LastUseRoleID"
+msgstr "Посл. перс.#"
+
+msgid "LastRoleName"
+msgstr "Посл. персонаж"
+
+msgid "RoleName"
+msgstr "Ник персонажа"

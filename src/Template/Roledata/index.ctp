@@ -8,36 +8,46 @@
     <table class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('AccountID') ?></th>
-            <th><?= $this->Paginator->sort('RoleID') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('Account ID') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('RoleID') ?></th>
             <th><?= $this->Paginator->sort('RoleName') ?></th>
             <th><?= $this->Paginator->sort('RoleNameCrc') ?></th>
-            <th><?= $this->Paginator->sort('Sex') ?></th>
-            <th><?= $this->Paginator->sort('SpeakOff') ?></th>
-            <th><?= $this->Paginator->sort('HairModelID') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('Sex') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('SpeakOff') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('HairModelID') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
     <tbody>
     <?php foreach ($roledata as $roledata): ?>
         <tr>
-            <td>
+            <td class="ids">
                 <?php
                     $accountID = $this->Number->format($roledata->AccountID);
                     echo $this->Html->link($accountID, ['controller' => 'AccountCommon', 'action' => 'view', 'id' => $accountID]);
                 ?>
             </td>
-            <td><?= $this->Number->format($roledata->RoleID) ?></td>
+            <td class="ids"><?= $this->Number->format($roledata->RoleID) ?></td>
             <td><?= h($roledata->RoleName) ?></td>
             <td><?= $this->Number->format($roledata->RoleNameCrc) ?></td>
-            <td><?= $this->Number->format($roledata->Sex) ?></td>
-            <td><?= $this->Number->format($roledata->SpeakOff) ?></td>
-            <td><?= $this->Number->format($roledata->HairModelID) ?></td>
+            <td class="ids"><?= $this->Number->format($roledata->Sex) ?></td>
+            <td class="ids"><?= $this->Number->format($roledata->SpeakOff) ?></td>
+            <td class="ids"><?= $this->Number->format($roledata->HairModelID) ?></td>
             <td class="actions">
                 <div>
-                    <div><?= $this->Html->link(__('View'), ['action' => 'view', 'id' => $roledata->RoleID]) ?></div>
-                    <div><?= $this->Html->link(__('Edit'), ['action' => 'edit', 'id' => $roledata->RoleID]) ?></div>
-                    <div><?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $roledata->RoleID], ['confirm' => __('Are you sure you want to delete # {0}?', $roledata->RoleID)]) ?></div>
+                    <div class="icon-contain"><?= $this->Html->link(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-external-link']).$this->Html->tag('div', __('View')),
+                        ['action' => 'view', 'id' => $roledata->RoleID],
+                        ['escape' => false]) ?></div>
+                    <div class="icon-contain"><?= $this->Html->link(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-pencil']).$this->Html->tag('div', __('Edit')),
+                        ['action' => 'edit', 'id' => $roledata->RoleID],
+                        ['escape' => false]) ?></div>
+                    <div class="icon-contain"><?= $this->Form->postLink(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']).$this->Html->tag('div', __('Delete')),
+                        ['action' => 'delete', $roledata->RoleID],
+                        ['escape' => false],
+                        ['confirm' => __('Are you sure you want to delete # {0}?', $roledata->RoleID)]) ?></div>
                 </div>
             </td>
         </tr>

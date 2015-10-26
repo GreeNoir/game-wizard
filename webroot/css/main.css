@@ -97,3 +97,38 @@ div.input.checkbox .control-label {
 .account .checkbox label {
     padding: 0 0 0 15px;
 }
+
+th.actions {
+    text-align: center;
+    width: 115px;
+}
+
+th.ids, td.ids {
+    text-align: center;
+}
+
+th.numbers {
+    text-align: center;
+}
+
+td.numbers {
+    text-align: right;
+}
+
+div.icon-contain {
+    position: relative;
+    height: 24px;
+}
+
+div.icon-contain i {
+    position: absolute;
+    top: 3px;
+    left: 0;
+}
+
+div.icon-contain div {
+    position: absolute;
+    top: 3px;
+    left: 20px;
+    font-size: 11px;
+}
