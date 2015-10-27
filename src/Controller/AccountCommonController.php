@@ -116,6 +116,10 @@ class AccountCommonController extends AppController {
         $this->set('roledataList', $list);
     }
 
+    /**
+     * @param $id - Account ID
+     * List of item, equip, holyequip, holyman, soulcrystal linked to Account
+     */
     public function equipment_list($id) {
         $this->loadModel('Item');
         $this->loadModel('Equip');
@@ -123,11 +127,11 @@ class AccountCommonController extends AppController {
         $this->loadModel('Holyman');
         $this->loadModel('Soulcrystal');
         $this->set('id', $id);
-        $this->set('itemList', $this->Item->getList($id));
-        $this->set('equipList', $this->Equip->getList($id));
-        $this->set('holyequipList', $this->Holyequip->getList($id));
-        $this->set('holymanList', $this->Holyman->getList($id));
-        $this->set('soulcrystalList', $this->Soulcrystal->getList($id));
+        $this->set('itemList', $this->Item->getListAccount($id));
+        $this->set('equipList', $this->Equip->getListAccount($id));
+        $this->set('holyequipList', $this->Holyequip->getListAccount($id));
+        $this->set('holymanList', $this->Holyman->getListAccount($id));
+        $this->set('soulcrystalList', $this->Soulcrystal->getListAccount($id));
     }
 
 }

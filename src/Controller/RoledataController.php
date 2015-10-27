@@ -102,4 +102,22 @@ class RoledataController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    /**
+     * @param $id - Roledata ID
+     * List of item, equip, holyequip, holyman, soulcrystal linked to Roledata
+     */
+    public function equipment_list($id) {
+        $this->loadModel('Item');
+        $this->loadModel('Equip');
+        $this->loadModel('Holyequip');
+        $this->loadModel('Holyman');
+        $this->loadModel('Soulcrystal');
+        $this->set('id', $id);
+        $this->set('itemList', $this->Item->getListRoledata($id));
+        $this->set('equipList', $this->Equip->getListRoledata($id));
+        $this->set('holyequipList', $this->Holyequip->getListRoledata($id));
+        $this->set('holymanList', $this->Holyman->getListRoledata($id));
+        $this->set('soulcrystalList', $this->Soulcrystal->getListRoledata($id));
+    }
 }

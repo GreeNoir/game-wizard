@@ -38,7 +38,7 @@ class HolymanTable extends Table
      * Get list of holyman from account $accountID
      * @return array
      */
-    public function getList($accountID) {
+    public function getListAccount($accountID) {
         $holyman = TableRegistry::get('holyman');
         $result = $holyman->find()
             ->select(['cSerialNum' => 'CONVERT (holyman.SerialNum, CHAR)',
@@ -72,4 +72,44 @@ class HolymanTable extends Table
             ->where(['i.AccountID' => $accountID])->toArray();
         return $result;
     }
+
+    /**
+     * @param $roleID - Roledata ID
+     * Get list of holyman from roledata $roleID
+     * @return array
+     */
+    public function getListRoledata($roleID) {
+        $holyman = TableRegistry::get('holyman');
+        $result = $holyman->find()
+            ->select(['cSerialNum' => 'CONVERT (holyman.SerialNum, CHAR)',
+                'DevourNum',
+                'EquipmentNumber',
+                'ToDayDevourNum',
+                'EquipSerialIDs',
+                'CostHoly',
+                'CoValue',
+                'HolyDmg',
+                'HolyDef',
+                'Crit',
+                'HolyCritRate',
+                'ExDamage',
+                'AttackTec',
+                'NeglectToughness',
+                'HolyValue',
+                'MaxDevourNum',
+                'typeID' => 'i.TypeID',
+                'num' => 'i.Num',
+            ])
+            ->join([
+                'i' => [
+                    'table' => 'item',
+                    'conditions' => [
+                        'i.SerialNum = holyman.SerialNum',
+                    ]
+                ]
+            ])
+            ->where(['i.OwnerID' => $roleID])->toArray();
+        return $result;
+    }
+
 }
