@@ -94,6 +94,15 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#equipment"><i class="fa fa-fw fa-briefcase"></i><?= __('Equipment') ?><i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="equipment" class="collapse">
+                            <li data-controller="Equipment"><?= $this->Html->link(
+                                $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-search']).__('Find'),
+                                ['controller' => 'Equipment', 'action' => 'index', 'lang' => $lang],
+                                ['escape' => false]); ?></li>
+                        </ul>
+                    </li>
+                    <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#reports"><i class="fa fa-fw fa-file-text"></i><?= __('Reports') ?><i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="reports" class="collapse">
                             <li data-controller="LoginLog"><?= $this->Html->link(__('ListLoginLog'), ['controller' => 'LoginLog', 'action' => 'index', 'lang' => $lang]); ?></li>

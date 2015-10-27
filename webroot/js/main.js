@@ -24,6 +24,12 @@ function setMenuActive(controller) {
     if (tables.indexOf(controller) != -1) {
         $('nav.navbar ul#tables').addClass('in');
     }
+
+    var equipment = ['Equipment'];
+    if (equipment.indexOf(controller) != -1) {
+        $('nav.navbar ul#equipment').addClass('in');
+    }
+
     var reports = ['LoginLog'];
     if (reports.indexOf(controller) != -1) {
         $('nav.navbar ul#reports').addClass('in');
