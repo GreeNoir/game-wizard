@@ -50,7 +50,10 @@ class HolyequipTable extends Table
                 'HolyCritRateChg',
                 'ExDamageChg',
                 'AttackTecChg',
-                'NeglectToughnessChg'
+                'NeglectToughnessChg',
+                'typeID' => 'i.TypeID',
+                'num' => 'i.Num',
+                'roleID' => 'i.OwnerID'
             ])
             ->join([
                 'i' => [

@@ -117,11 +117,13 @@ class AccountCommonController extends AppController {
     }
 
     public function equipment_list($id) {
+        $this->loadModel('Item');
         $this->loadModel('Equip');
         $this->loadModel('Holyequip');
         $this->loadModel('Holyman');
         $this->loadModel('Soulcrystal');
         $this->set('id', $id);
+        $this->set('itemList', $this->Item->getList($id));
         $this->set('equipList', $this->Equip->getList($id));
         $this->set('holyequipList', $this->Holyequip->getList($id));
         $this->set('holymanList', $this->Holyman->getList($id));

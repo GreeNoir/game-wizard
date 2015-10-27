@@ -32,4 +32,19 @@ class ItemTable extends Table{
         $this->table('item');
         $this->primaryKey('SerialNum');
     }
+
+    /**
+     * @param $accountID - Account ID
+     * Get list of item from account $accountID
+     * @return array
+     */
+    public function getList($accountID) {
+        $item = TableRegistry::get('item');
+        $result = $item->find()
+            ->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)',
+                'Num', 'TypeID', 'Bind', 'OwnerID', 'CreateTime', 'del_time'])
+            ->where(['AccountID' => $accountID])->toArray();
+        return $result;
+
+    }
 }

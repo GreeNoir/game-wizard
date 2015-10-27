@@ -52,7 +52,10 @@ class SoulcrystalTable extends Table
                 'SoulAttID5',
                 'SoulAttID6',
                 'SoulAttID7',
-                'SoulAttID8'
+                'SoulAttID8',
+                'typeID' => 'i.TypeID',
+                'num' => 'i.Num',
+                'roleID' => 'i.OwnerID'
             ])
             ->join([
                 'i' => [

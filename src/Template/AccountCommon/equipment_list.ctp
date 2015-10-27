@@ -7,13 +7,48 @@
     </ul>
 </div>
 <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#panel_equip"><?= __('Equip') ?></a></li>
+    <li class="active"><a data-toggle="tab" href="#panel_item"><?= __('Item') ?></a></li>
+    <li><a data-toggle="tab" href="#panel_equip"><?= __('Equip') ?></a></li>
     <li><a data-toggle="tab" href="#panel_holyequip"><?= __('Holyequip') ?></a></li>
     <li><a data-toggle="tab" href="#panel_holyman"><?= __('Holyman') ?></a></li>
     <li><a data-toggle="tab" href="#panel_soulcrystal"><?= __('Soulcrystal') ?></a></li>
 </ul>
 <div class="tab-content equipment">
-    <div id="panel_equip" class="tab-pane fade in active">
+    <div id="panel_item" class="tab-pane fade in active">
+        <?php if (count($itemList) > 0) { ?>
+        <div class="table-responsive">
+            <table class="table table-condensed table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th><?= __('SerialNum') ?></th>
+                    <th><?= __('TypeID') ?></th>
+                    <th><?= __('Num') ?></th>
+                    <th><?= __('Bind') ?></th>
+                    <th><?= __('Role ID') ?></th>
+                    <th><?= __('Create Time') ?></th>
+                    <th><?= __('Delete Time') ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($itemList as $item): ?>
+                <tr>
+                    <td><?= $item->cSerialNum ?></td>
+                    <td><?= $item->TypeID ?></td>
+                    <td><?= $item->Num ?></td>
+                    <td><?= $item->Bind ?></td>
+                    <td><?= $item->OwnerID ?></td>
+                    <td><?= $item->CreateTime ?></td>
+                    <td><?= $item->del_time ?></td>
+                </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php } else { ?>
+        <div><?= __('No results') ?></div>
+        <?php } ?>
+    </div>
+    <div id="panel_equip" class="tab-pane fade in">
         <?php if (count($equipList) > 0) { ?>
             <div class="table-responsive">
                 <table class="table table-condensed table-bordered table-striped">
@@ -66,6 +101,8 @@
                     <thead>
                     <tr>
                         <th><?= __('SerialNum') ?></th>
+                        <th><?= __('TypeID') ?></th>
+                        <th><?= __('Num') ?></th>
                         <th><?= __('CostHoly') ?></th>
                         <th><?= __('EnhanceCount') ?></th>
                         <th><?= __('HolyDmgChg') ?></th>
@@ -75,12 +112,15 @@
                         <th><?= __('ExDamageChg') ?></th>
                         <th><?= __('AttackTecChg') ?></th>
                         <th><?= __('NeglectToughnessChg') ?></th>
+                        <th><?= __('Role ID') ?></th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($holyequipList as $holyequipItem): ?>
                     <tr>
                         <td><?= $holyequipItem->cSerialNum ?></td>
+                        <td><?= $holyequipItem->typeID ?></td>
+                        <td><?= $holyequipItem->num ?></td>
                         <td><?= $holyequipItem->CostHoly ?></td>
                         <td><?= $holyequipItem->EnhanceCount ?></td>
                         <td><?= $holyequipItem->HolyDmgChg ?></td>
@@ -90,6 +130,7 @@
                         <td><?= $holyequipItem->ExDamageChg ?></td>
                         <td><?= $holyequipItem->AttackTecChg ?></td>
                         <td><?= $holyequipItem->NeglectToughnessChg ?></td>
+                        <td><?= $holyequipItem->roleID ?></td>
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
@@ -106,6 +147,8 @@
                 <thead>
                 <tr>
                     <th><?= __('SerialNum') ?></th>
+                    <th><?= __('TypeID') ?></th>
+                    <th><?= __('Num') ?></th>
                     <th><?= __('DevourNum') ?></th>
                     <th><?= __('EquipmentNumber') ?></th>
                     <th><?= __('ToDayDevourNum') ?></th>
@@ -121,12 +164,15 @@
                     <th><?= __('NeglectToughness') ?></th>
                     <th><?= __('HolyValue') ?></th>
                     <th><?= __('MaxDevourNum') ?></th>
+                    <th><?= __('Role ID') ?></th>
                 </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($holymanList as $holymanItem): ?>
                     <tr>
                         <td><?= $holymanItem->cSerialNum ?></td>
+                        <td><?= $holymanItem->typeID ?></td>
+                        <td><?= $holymanItem->num ?></td>
                         <td><?= $holymanItem->CostHoly ?></td>
                         <td><?= $holymanItem->EnhanceCount ?></td>
                         <td><?= $holymanItem->HolyDmgChg ?></td>
@@ -136,6 +182,7 @@
                         <td><?= $holymanItem->ExDamageChg ?></td>
                         <td><?= $holymanItem->AttackTecChg ?></td>
                         <td><?= $holymanItem->NeglectToughnessChg ?></td>
+                        <td><?= $holymanItem->roleID ?></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -152,6 +199,8 @@
                 <thead>
                 <tr>
                     <th><?= __('SerialNum') ?></th>
+                    <th><?= __('TypeID') ?></th>
+                    <th><?= __('Num') ?></th>
                     <th><?= __('SoulLevel') ?></th>
                     <th><?= __('SoulQlty') ?></th>
                     <th><?= __('SoulSkillID') ?></th>
@@ -163,12 +212,15 @@
                     <th><?= __('SoulAttID6') ?></th>
                     <th><?= __('SoulAttID7') ?></th>
                     <th><?= __('SoulAttID8') ?></th>
+                    <th><?= __('Role ID') ?></th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach ($soulcrystalList as $soulcrystalItem): ?>
                 <tr>
                     <td><?= $soulcrystalItem->cSerialNum ?></td>
+                    <td><?= $soulcrystalItem->typeID ?></td>
+                    <td><?= $soulcrystalItem->num ?></td>
                     <td><?= $soulcrystalItem->SoulLevel ?></td>
                     <td><?= $soulcrystalItem->SoulQlty ?></td>
                     <td><?= $soulcrystalItem->SoulSkillID ?></td>
@@ -180,6 +232,7 @@
                     <td><?= $soulcrystalItem->SoulAttID6 ?></td>
                     <td><?= $soulcrystalItem->SoulAttID7 ?></td>
                     <td><?= $soulcrystalItem->SoulAttID8 ?></td>
+                    <td><?= $soulcrystalItem->roleID ?></td>
                 </tr>
                 <?php endforeach; ?>
                 </tbody>

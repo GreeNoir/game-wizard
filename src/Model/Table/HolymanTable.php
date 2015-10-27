@@ -56,7 +56,10 @@ class HolymanTable extends Table
                 'AttackTec',
                 'NeglectToughness',
                 'HolyValue',
-                'MaxDevourNum'
+                'MaxDevourNum',
+                'typeID' => 'i.TypeID',
+                'num' => 'i.Num',
+                'roleID' => 'i.OwnerID'
             ])
             ->join([
                 'i' => [
