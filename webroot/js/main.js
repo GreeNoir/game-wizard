@@ -4,8 +4,16 @@ $(function() {
         resetTopNav();
     });
 
-    if ($('div.input').length > 0) {
-        $("div.input").addClass("form-group col-sm-10");
+    if ($('form div.input').length > 0) {
+        $('form div.input').addClass("form-group");
+    }
+
+    if ($('form.form-inline div.input').length > 0) {
+        $('form.form-inline div.input').addClass("col-xs-3");
+    }
+
+    if ($('form:not(.form-inline) div.input').length > 0) {
+        $('form:not(.form-inline) div.input').addClass("col-sm-10");
     }
 });
 

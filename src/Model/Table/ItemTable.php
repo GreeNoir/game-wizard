@@ -60,4 +60,23 @@ class ItemTable extends Table{
             ->where(['OwnerID' => $roleID])->toArray();
         return $result;
     }
+
+    /**
+     * @param $serialNum
+     * Get array of equipment owners
+     * @return array
+     */
+    public function getItemOwners($serialNum) {
+        $item = TableRegistry::get('item');
+        $listAll = $item->find()->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)', 'AccountID', 'OwnerID'])->toArray();
+        if (count($listAll) > 0) {
+            foreach($listAll as $item) {
+                if ($item->cSerialNum == $serialNum) {
+                    $result[] = ['AccountID' => $item->AccountID, 'OwnerID' => $item->OwnerID];
+                    return $result;
+                }
+            }
+        }
+        return array();
+    }
 }

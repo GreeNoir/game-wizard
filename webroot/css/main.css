@@ -136,3 +136,11 @@ div.icon-contain div {
 .equipment {
     font-size: 12px;
 }
+
+form.form-inline div.input.col-xs-3 input {
+    width: 100%;
+}
+
+div.equipment .table {
+    width: auto;
+}

@@ -21,6 +21,9 @@ class EquipmentController extends AppController {
      * return array
      */
     public function find() {
-
+        $serialNum = $this->request->query['serialNum'];
+        $this->set('serialNum', $serialNum);
+        $this->loadModel('Item');
+        $this->set('ownersList', $this->Item->getItemOwners($serialNum));
     }
 }
