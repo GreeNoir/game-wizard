@@ -121,7 +121,7 @@
     </div>
 
     <footer>
-        <div>footer</div>
+        <div></div>
     </footer>
 
 <?= $this->Html->scriptBlock('

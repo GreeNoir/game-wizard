@@ -44,3 +44,11 @@ function setMenuActive(controller) {
     }
     $('nav.navbar ul li[data-controller="'+controller+'"]').addClass('active');
 }
+
+function findOwners() {
+    var serialNum = $('#serialNum').val();
+    var select_lang = $('select[name="language"] option:selected').val();
+    $.get('/' + select_lang + '/Equipment/find?serialNum='+serialNum, function(data){
+        $('#find_result').html(data);
+    });
+}
