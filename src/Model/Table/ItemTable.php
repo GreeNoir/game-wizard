@@ -69,7 +69,10 @@ class ItemTable extends Table{
     public function getItemOwners($serialNum) {
         $item = TableRegistry::get('item');
         $listAll = $item->find()
-            ->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)', 'Num', 'TypeID', 'AccountID', 'AccountName' => 'a.AccountName', 'OwnerID', 'RoleName' => 'r.RoleName'])
+            ->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)',
+                'Num', 'TypeID',
+                'Name' => "IF(item_name.name <> '', item_name.name, equip_name.name)",
+                'AccountID', 'AccountName' => 'a.AccountName', 'OwnerID', 'RoleName' => 'r.RoleName'])
             ->join([
                 'a' => [
                     'table' => 'account_common',
@@ -86,12 +89,30 @@ class ItemTable extends Table{
                     ]
                 ]
             ])
+            ->join([
+                'item_name' => [
+                    'table' => 'wizard_db.item_name',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'item_name.id = item.TypeID'
+                    ]
+                ]
+            ])
+            ->join([
+                'equip_name' => [
+                    'table' => 'wizard_db.equip_name',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'equip_name.id = item.TypeID'
+                    ]
+                ]
+            ])
             ->toArray();
 
         if (count($listAll) > 0) {
             foreach($listAll as $item) {
                 if ($item->cSerialNum == $serialNum) {
-                    $result[] = ['AccountID' => $item->AccountID, 'Num' => $item->Num, 'TypeID' => $item->TypeID, 'AccountName' => $item->AccountName, 'OwnerID' => $item->OwnerID, 'RoleName' => $item->RoleName];
+                    $result[] = ['AccountID' => $item->AccountID, 'Num' => $item->Num, 'TypeID' => $item->TypeID, 'Name' => $item->Name, 'AccountName' => $item->AccountName, 'OwnerID' => $item->OwnerID, 'RoleName' => $item->RoleName];
                     return $result;
                 }
             }

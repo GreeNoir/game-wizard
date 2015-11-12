@@ -1,10 +1,11 @@
 <?php if (count($ownersList) > 0) { ?>
-    <div class="equipment table-responsive">
+    <div class="equipment find table-responsive">
         <table class="table table-condensed table-bordered table-striped">
             <thead>
             <tr>
             <th><?= __('Number') ?></th>
             <th><?= __('TypeID') ?></th>
+            <th class="name"><?= __('Name') ?></th>
             <th><?= __('Account ID') ?></th>
             <th><?= __('AccountName') ?></th>
             <th><?= __('Role ID') ?></th>
@@ -16,6 +17,7 @@
                 <tr>
                     <td><?= $owner['Num'] ?></td>
                     <td><?= $owner['TypeID'] ?></td>
+                    <td><?= $owner['Name'] ?></td>
                     <td><?php
                         $accountID = $this->Number->format($owner['AccountID']);
                         echo $this->Html->link($accountID, ['controller' => 'AccountCommon', 'action' => 'view', 'id' => $accountID]);

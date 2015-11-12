@@ -155,3 +155,7 @@ div.equipment .table {
     vertical-align: top;
     display: none;
 }
+
+.equipment.find .table th.name {
+    width: 150px;
+}
