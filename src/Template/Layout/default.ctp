@@ -98,7 +98,7 @@
                         <ul id="equipment" class="collapse">
                             <li data-controller="Equipment"><?= $this->Html->link(
                                 $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-search']).__('Find'),
-                                ['controller' => 'Equipment', 'action' => 'index', 'lang' => $lang],
+                                ['controller' => 'Equipment', 'action' => 'start', 'lang' => $lang],
                                 ['escape' => false]); ?></li>
                         </ul>
                     </li>

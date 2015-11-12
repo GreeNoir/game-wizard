@@ -12,8 +12,7 @@ use Cake\I18n\I18n;
  */
 class EquipmentController extends AppController {
 
-    public function index() {
-
+    public function start() {
     }
 
     /**
@@ -21,11 +20,10 @@ class EquipmentController extends AppController {
      * return array
      */
     public function find() {
-        if ($this->request->is('ajax')) {
-            $serialNum = $this->request->query['serialNum'];
-            $this->set('serialNum', $serialNum);
-            $this->loadModel('Item');
-            $this->set('ownersList', $this->Item->getItemOwners($serialNum));
-        }
+        $serialNum = $this->request->query['serialNum'];
+        $this->set('serialNum', $serialNum);
+        $this->loadModel('Item');
+        $this->viewClass = 'ajax';
+        $this->set('ownersList', $this->Item->getItemOwners($serialNum));
     }
 }

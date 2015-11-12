@@ -81,6 +81,7 @@ Router::connect('/:lang/:controller/accountLog', ['action' => 'accountLog']);
 
 Router::connect('/:lang/:controller/equipment_list/:id', ['action' => 'equipment_list'], ['id' => '\d+', 'pass' => ['id']]);
 
+Router::connect('/:lang/:controller/start', ['action' => 'start']);
 Router::connect('/:lang/:controller/find', ['action' => 'find']);
 
 Plugin::routes();

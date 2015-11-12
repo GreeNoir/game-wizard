@@ -4,6 +4,7 @@
             <thead>
             <tr>
             <th><?= __('Number') ?></th>
+            <th><?= __('TypeID') ?></th>
             <th><?= __('Account ID') ?></th>
             <th><?= __('AccountName') ?></th>
             <th><?= __('Role ID') ?></th>
@@ -14,6 +15,7 @@
             <?php foreach($ownersList as $owner): ?>
                 <tr>
                     <td><?= $owner['Num'] ?></td>
+                    <td><?= $owner['TypeID'] ?></td>
                     <td><?php
                         $accountID = $this->Number->format($owner['AccountID']);
                         echo $this->Html->link($accountID, ['controller' => 'AccountCommon', 'action' => 'view', 'id' => $accountID]);
