@@ -10,6 +10,9 @@ use App\Controller\AppController;
  */
 class RoledataController extends AppController
 {
+    public $paginate = array(
+        'limit' => 20
+    );
 
     /**
      * Index method
@@ -103,21 +106,47 @@ class RoledataController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    /**
-     * @param $id - Roledata ID
-     * List of item, equip, holyequip, holyman, soulcrystal linked to Roledata
-     */
     public function equipment_list($id) {
+        $this->set('id', $id);
+    }
+
+    public function equipment_item($id) {
         $this->loadModel('Item');
+        $this->set('id', $id);
+        $this->set('itemList', $this->paginate($this->Item->getListRoledata($id)));
+        $this->set('itemListCount', $this->Item->getListRoledata($id)->count());
+        $this->set('_serialize', ['itemList']);
+    }
+
+    public function equipment_equip($id) {
         $this->loadModel('Equip');
+        $this->set('id', $id);
+        $this->set('equipList', $this->paginate($this->Equip->getListRoledata($id)));
+        $this->set('equipListCount', $this->Equip->getListRoledata($id)->count());
+        $this->set('_serialize', ['equipList']);
+    }
+
+    public function equipment_holyequip($id) {
         $this->loadModel('Holyequip');
+        $this->set('id', $id);
+        $this->set('holyequipList', $this->paginate($this->Holyequip->getListRoledata($id)));
+        $this->set('holyequipListCount', $this->Holyequip->getListRoledata($id)->count());
+        $this->set('_serialize', ['holyequipList']);
+    }
+
+    public function equipment_holyman($id) {
         $this->loadModel('Holyman');
+        $this->set('id', $id);
+        $this->set('holymanList', $this->paginate($this->Holyman->getListRoledata($id)));
+        $this->set('holymanListCount', $this->Holyman->getListRoledata($id)->count());
+        $this->set('_serialize', ['holymanList']);
+    }
+
+    public function equipment_soulcrystal($id) {
         $this->loadModel('Soulcrystal');
         $this->set('id', $id);
-        $this->set('itemList', $this->Item->getListRoledata($id));
-        $this->set('equipList', $this->Equip->getListRoledata($id));
-        $this->set('holyequipList', $this->Holyequip->getListRoledata($id));
-        $this->set('holymanList', $this->Holyman->getListRoledata($id));
-        $this->set('soulcrystalList', $this->Soulcrystal->getListRoledata($id));
+        $this->set('soulcrystalList', $this->paginate($this->Soulcrystal->getListRoledata($id)));
+        $this->set('soulcrystalListCount', $this->Soulcrystal->getListRoledata($id)->count());
+        $this->set('_serialize', ['soulcrystalList']);
     }
 }

@@ -76,7 +76,7 @@ class SoulcrystalTable extends Table
      */
     public function getListRoledata($roleID) {
         $soulcrystal = TableRegistry::get('soulcrystal');
-        $result = $soulcrystal->find()
+        $query = $soulcrystal->find()
             ->select(['cSerialNum' => 'CONVERT (soulcrystal.SerialNum, CHAR)',
                 'SoulLevel',
                 'SoulQlty',
@@ -100,7 +100,7 @@ class SoulcrystalTable extends Table
                     ]
                 ]
             ])
-            ->where(['i.OwnerID' => $roleID])->toArray();
-        return $result;
+            ->where(['i.OwnerID' => $roleID]);
+        return $query;
     }
 }

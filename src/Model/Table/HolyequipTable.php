@@ -74,7 +74,7 @@ class HolyequipTable extends Table
      */
     public function getListRoledata($roleID) {
         $holyequip = TableRegistry::get('holyequip');
-        $result = $holyequip->find()
+        $query = $holyequip->find()
             ->select(['cSerialNum' => 'CONVERT (holyequip.SerialNum, CHAR)',
                 'CostHoly',
                 'EnhanceCount',
@@ -96,7 +96,7 @@ class HolyequipTable extends Table
                     ]
                 ]
             ])
-            ->where(['i.OwnerID' => $roleID])->toArray();
-        return $result;
+            ->where(['i.OwnerID' => $roleID]);
+        return $query;
     }
 }

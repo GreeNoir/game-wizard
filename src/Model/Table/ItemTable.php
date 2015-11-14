@@ -54,11 +54,11 @@ class ItemTable extends Table{
      */
     public function getListRoledata($roleID) {
         $item = TableRegistry::get('item');
-        $result = $item->find()
+        $query = $item->find()
             ->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)',
                 'Num', 'TypeID', 'Bind', 'CreateTime', 'del_time'])
-            ->where(['OwnerID' => $roleID])->toArray();
-        return $result;
+            ->where(['OwnerID' => $roleID]);
+        return $query;
     }
 
     /**

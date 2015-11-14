@@ -74,7 +74,7 @@ class EquipTable extends Table
      */
     public function getListRoledata($roleID) {
         $equip = TableRegistry::get('equip');
-        $result = $equip->find()
+        $query = $equip->find()
             ->select(['cSerialNum' => 'CONVERT (equip.SerialNum, CHAR)',
                 'Quality',
                 'MinUseLevel',
@@ -96,7 +96,7 @@ class EquipTable extends Table
                     ]
                 ]
             ])
-            ->where(['i.OwnerID' => $roleID])->toArray();
-        return $result;
+            ->where(['i.OwnerID' => $roleID]);
+        return $query;
     }
 }

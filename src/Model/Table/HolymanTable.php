@@ -80,7 +80,7 @@ class HolymanTable extends Table
      */
     public function getListRoledata($roleID) {
         $holyman = TableRegistry::get('holyman');
-        $result = $holyman->find()
+        $query = $holyman->find()
             ->select(['cSerialNum' => 'CONVERT (holyman.SerialNum, CHAR)',
                 'DevourNum',
                 'EquipmentNumber',
@@ -108,8 +108,8 @@ class HolymanTable extends Table
                     ]
                 ]
             ])
-            ->where(['i.OwnerID' => $roleID])->toArray();
-        return $result;
+            ->where(['i.OwnerID' => $roleID]);
+        return $query;
     }
 
 }

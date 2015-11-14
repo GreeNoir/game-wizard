@@ -80,6 +80,11 @@ Router::connect('/:lang/:controller/logout', ['action' => 'logout']);
 Router::connect('/:lang/:controller/accountLog', ['action' => 'accountLog']);
 
 Router::connect('/:lang/:controller/equipment_list/:id', ['action' => 'equipment_list'], ['id' => '\d+', 'pass' => ['id']]);
+Router::connect('/:lang/:controller/equipment_item/:id', ['action' => 'equipment_item'], ['id' => '\d+', 'pass' => ['id']]);
+Router::connect('/:lang/:controller/equipment_equip/:id', ['action' => 'equipment_equip'], ['id' => '\d+', 'pass' => ['id']]);
+Router::connect('/:lang/:controller/equipment_holyequip/:id', ['action' => 'equipment_holyequip'], ['id' => '\d+', 'pass' => ['id']]);
+Router::connect('/:lang/:controller/equipment_holyman/:id', ['action' => 'equipment_holyman'], ['id' => '\d+', 'pass' => ['id']]);
+Router::connect('/:lang/:controller/equipment_soulcrystal/:id', ['action' => 'equipment_soulcrystal'], ['id' => '\d+', 'pass' => ['id']]);
 
 Router::connect('/:lang/:controller/start', ['action' => 'start']);
 Router::connect('/:lang/:controller/find', ['action' => 'find']);

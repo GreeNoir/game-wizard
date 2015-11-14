@@ -42,6 +42,12 @@
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td><?= __('Count') ?>:</td>
+                        <td colspan="6"><?= count($itemList) ?></td>
+                    </tr>
+                </tfoot>
             </table>
         </div>
         <?php } else { ?>
@@ -88,6 +94,12 @@
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
+                    <tfoot>
+                    <tr>
+                        <td><?= __('Count') ?>:</td>
+                        <td colspan="12"><?= count($equipList) ?></td>
+                    </tr>
+                    </tfoot>
                 </table>
             </div>
         <?php } else { ?>
@@ -134,6 +146,12 @@
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
+                    <tfoot>
+                    <tr>
+                        <td><?= __('Count') ?>:</td>
+                        <td colspan="12"><?= count($holyequipList) ?></td>
+                    </tr>
+                    </tfoot>
                 </table>
             </div>
         <?php } else { ?>
@@ -186,6 +204,12 @@
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
+                <tfoot>
+                <tr>
+                    <td><?= __('Count') ?>:</td>
+                    <td colspan="12"><?= count($holymanList) ?></td>
+                </tr>
+                </tfoot>
             </table>
         </div>
         <?php } else { ?>
@@ -236,6 +260,12 @@
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
+                <tfoot>
+                <tr>
+                    <td><?= __('Count') ?>:</td>
+                    <td colspan="14"><?= count($soulcrystalList) ?></td>
+                </tr>
+                </tfoot>
             </table>
         </div>
         <?php } else { ?>
