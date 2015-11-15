@@ -34,46 +34,6 @@ class HolymanTable extends Table
     }
 
     /**
-     * @param $accountID - Account ID
-     * Get list of holyman from account $accountID
-     * @return array
-     */
-    public function getListAccount($accountID) {
-        $holyman = TableRegistry::get('holyman');
-        $result = $holyman->find()
-            ->select(['cSerialNum' => 'CONVERT (holyman.SerialNum, CHAR)',
-                'DevourNum',
-                'EquipmentNumber',
-                'ToDayDevourNum',
-                'EquipSerialIDs',
-                'CostHoly',
-                'CoValue',
-                'HolyDmg',
-                'HolyDef',
-                'Crit',
-                'HolyCritRate',
-                'ExDamage',
-                'AttackTec',
-                'NeglectToughness',
-                'HolyValue',
-                'MaxDevourNum',
-                'typeID' => 'i.TypeID',
-                'num' => 'i.Num',
-                'roleID' => 'i.OwnerID'
-            ])
-            ->join([
-                'i' => [
-                    'table' => 'item',
-                    'conditions' => [
-                        'i.SerialNum = holyman.SerialNum',
-                    ]
-                ]
-            ])
-            ->where(['i.AccountID' => $accountID])->toArray();
-        return $result;
-    }
-
-    /**
      * @param $roleID - Roledata ID
      * Get list of holyman from roledata $roleID
      * @return array

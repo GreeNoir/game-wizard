@@ -34,40 +34,6 @@ class EquipTable extends Table
     }
 
     /**
-     * @param $accountID - Account ID
-     * Get list of equip from account $accountID
-     * @return array
-     */
-    public function getListAccount($accountID) {
-        $equip = TableRegistry::get('equip');
-        $result = $equip->find()
-            ->select(['cSerialNum' => 'CONVERT (equip.SerialNum, CHAR)',
-                'Quality',
-                'MinUseLevel',
-                'MaxUseLevel',
-                'WuHun',
-                'MinDmg',
-                'MaxDmg',
-                'Armor',
-                'PotVal',
-                'PotValUsed',
-                'typeID' => 'i.TypeID',
-                'num' => 'i.Num',
-                'roleID' => 'i.OwnerID'
-            ])
-            ->join([
-                'i' => [
-                    'table' => 'item',
-                    'conditions' => [
-                        'i.SerialNum = equip.SerialNum',
-                    ]
-                ]
-            ])
-            ->where(['i.AccountID' => $accountID])->toArray();
-        return $result;
-    }
-
-    /**
      * @param $roleID - Roledata ID
      * Get list of equip from roledata $roleID
      * @return array

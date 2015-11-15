@@ -34,42 +34,6 @@ class SoulcrystalTable extends Table
     }
 
     /**
-     * @param $accountID - Account ID
-     * Get list of soulcrystal from account $accountID
-     * @return array
-     */
-    public function getListAccount($accountID) {
-        $soulcrystal = TableRegistry::get('soulcrystal');
-        $result = $soulcrystal->find()
-            ->select(['cSerialNum' => 'CONVERT (soulcrystal.SerialNum, CHAR)',
-                'SoulLevel',
-                'SoulQlty',
-                'SoulSkillID',
-                'SoulAttID1',
-                'SoulAttID2',
-                'SoulAttID3',
-                'SoulAttID4',
-                'SoulAttID5',
-                'SoulAttID6',
-                'SoulAttID7',
-                'SoulAttID8',
-                'typeID' => 'i.TypeID',
-                'num' => 'i.Num',
-                'roleID' => 'i.OwnerID'
-            ])
-            ->join([
-                'i' => [
-                    'table' => 'item',
-                    'conditions' => [
-                        'i.SerialNum = soulcrystal.SerialNum',
-                    ]
-                ]
-            ])
-            ->where(['i.AccountID' => $accountID])->toArray();
-        return $result;
-    }
-
-    /**
      * @param $roleID - Roledata ID
      * Get list of soulcrystal from roledata $roleID
      * @return array

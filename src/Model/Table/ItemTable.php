@@ -34,20 +34,6 @@ class ItemTable extends Table{
     }
 
     /**
-     * @param $accountID - Account ID
-     * Get list of item from account $accountID
-     * @return array
-     */
-    public function getListAccount($accountID) {
-        $item = TableRegistry::get('item');
-        $result = $item->find()
-            ->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)',
-                'Num', 'TypeID', 'Bind', 'OwnerID', 'CreateTime', 'del_time'])
-            ->where(['AccountID' => $accountID])->toArray();
-        return $result;
-    }
-
-    /**
      * @param $roleID - Roledata ID
      * Get list of item from roledata $roleID
      * @return array
