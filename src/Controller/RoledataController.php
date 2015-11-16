@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Datasource\ConnectionManager;
 
 /**
  * Roledata Controller
@@ -148,5 +149,22 @@ class RoledataController extends AppController
         $this->set('soulcrystalList', $this->paginate($this->Soulcrystal->getListRoledata($id)));
         $this->set('soulcrystalListCount', $this->Soulcrystal->getListRoledata($id)->count());
         $this->set('_serialize', ['soulcrystalList']);
+    }
+
+    public function del_equip() {
+        $this->request->allowMethod(['post', 'delete']);
+        $this->autoRender = false;
+        $this->loadModel('Item');
+        $serialNum = $this->request->data('serial');
+        $typeID = $this->request->data('typeid');
+        $roleID = $this->request->data('roleid');
+        $db = ConnectionManager::get('sm_db');
+        $del = 'DELETE FROM item WHERE TypeID='.$typeID.' AND OwnerID='.$roleID;
+        $db->query($del);
+        return $this->redirect(['action' => 'equipment_equip', $roleID]);
+    }
+
+    public function edit_equip() {
+
     }
 }

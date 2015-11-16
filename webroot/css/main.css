@@ -159,3 +159,17 @@ div.equipment .table {
 .equipment.find .table th.name {
     width: 150px;
 }
+
+.equip td.actions {
+    text-align: center;
+    font-size: 20px;
+}
+
+.equip td.actions .action {
+    margin: 0 2px;
+    display: inline-block;
+}
+
+.equip td.actions .red {
+    color: #8b0000;
+}

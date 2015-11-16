@@ -30,7 +30,7 @@ class EquipTable extends Table
         parent::initialize($config);
 
         $this->table('equip');
-        $this->primaryKey('SerialNum');
+        //$this->primaryKey('SerialNum');
     }
 
     /**
@@ -64,5 +64,13 @@ class EquipTable extends Table
             ])
             ->where(['i.OwnerID' => $roleID]);
         return $query;
+    }
+
+    public function findSerial($serialNum) {
+        $equip = TableRegistry::get('equip');
+        $entity = $equip->find()
+            ->select(['SerialNum' => 'CONVERT (equip.SerialNum, CHAR)'])
+            ->having(['SerialNum' => $serialNum])->first();
+        return $entity;
     }
 }

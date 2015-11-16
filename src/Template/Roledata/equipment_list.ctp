@@ -6,6 +6,7 @@
         <li><?= $this->Html->link(__('Holyequip'), ['action' => 'equipment_holyequip', $id]) ?></li>
         <li><?= $this->Html->link(__('Holyman'), ['action' => 'equipment_holyman', $id]) ?></li>
         <li><?= $this->Html->link(__('Soulcrystal'), ['action' => 'equipment_soulcrystal', $id]) ?></li>
+        <li><?= $this->Html->link(__('View').__('Roledata'), ['action' => 'view', $id]) ?></li>
         <li><?= $this->Html->link(__('Back').__('RoledataList'), ['action' => 'index']) ?></li>
     </ul>
 </div>

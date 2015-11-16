@@ -6,7 +6,7 @@
 </div>
 <?php if ($equipListCount > 0) { ?>
 <div class="table-responsive">
-    <table class="table table-condensed table-bordered table-striped">
+    <table class="table table-condensed table-bordered table-striped equip">
         <thead>
         <tr>
             <th><?= __('SerialNum') ?></th>
@@ -21,6 +21,7 @@
             <th><?= __('Armor') ?></th>
             <th><?= __('PotVal') ?></th>
             <th><?= __('PotValUsed') ?></th>
+            <th class="actions"><?= __('Actions') ?></th>
         </tr>
         </thead>
         <tbody>
@@ -38,6 +39,21 @@
             <td><?= $equipItem->Armor ?></td>
             <td><?= $equipItem->PotVal ?></td>
             <td><?= $equipItem->PotValUsed ?></td>
+            <td class="actions">
+                <div class="action">
+                <?= $this->Form->postLink(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-minus-circle red']),
+                    ['action' => 'del_equip'],
+                    ['escape' => false,
+                    'data' => ['serial' => $equipItem->cSerialNum, 'typeid' => $equipItem->typeID, 'roleid' => $id]]) ?>
+                </div>
+                <div class="action">
+                <?= $this->Html->link(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-pencil-square-o']),
+                    ['action' => 'edit_equip'],
+                    ['escape' => false]) ?>
+                </div>
+            </td>
         </tr>
         <?php endforeach; ?>
         </tbody>
