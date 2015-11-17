@@ -19,8 +19,7 @@
             <th><?= __('MinDmg') ?></th>
             <th><?= __('MaxDmg') ?></th>
             <th><?= __('Armor') ?></th>
-            <th><?= __('PotVal') ?></th>
-            <th><?= __('PotValUsed') ?></th>
+            <th><?= __('Name') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         </thead>
@@ -37,19 +36,24 @@
             <td><?= $equipItem->MinDmg ?></td>
             <td><?= $equipItem->MaxDmg ?></td>
             <td><?= $equipItem->Armor ?></td>
-            <td><?= $equipItem->PotVal ?></td>
-            <td><?= $equipItem->PotValUsed ?></td>
+            <td><?= $equipItem->Name ?></td>
             <td class="actions">
                 <div class="action">
                 <?= $this->Form->postLink(
-                    $this->Html->tag('i', '', ['class' => 'fa fa-minus-circle red']),
+                    $this->Html->tag('i', '', ['class' => 'fa fa-minus-circle']),
                     ['action' => 'del_equip'],
                     ['escape' => false,
-                    'data' => ['serial' => $equipItem->cSerialNum, 'typeid' => $equipItem->typeID, 'roleid' => $id]]) ?>
+                    'data' => ['serial' => $equipItem->cSerialNum, 'typeid' => $equipItem->typeID, 'roleid' => $id, 'base' => 'equip']]) ?>
+                </div>
+                <div class="action">
+                    <?= $this->Html->link(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-plus-circle']),
+                    ['action' => 'edit_equip'],
+                    ['escape' => false]) ?>
                 </div>
                 <div class="action">
                 <?= $this->Html->link(
-                    $this->Html->tag('i', '', ['class' => 'fa fa-pencil-square-o']),
+                    $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
                     ['action' => 'edit_equip'],
                     ['escape' => false]) ?>
                 </div>

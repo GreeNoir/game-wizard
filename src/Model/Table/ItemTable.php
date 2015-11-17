@@ -42,7 +42,17 @@ class ItemTable extends Table{
         $item = TableRegistry::get('item');
         $query = $item->find()
             ->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)',
-                'Num', 'TypeID', 'Bind', 'CreateTime', 'del_time'])
+                'Num', 'TypeID', 'Bind', 'CreateTime', 'del_time',
+                'Name' => 'item_name.name'])
+            ->join([
+                'item_name' => [
+                    'table' => 'wizard_db.item_name',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'item_name.id = item.TypeID'
+                    ]
+                ]
+            ])
             ->where(['OwnerID' => $roleID]);
         return $query;
     }
@@ -52,9 +62,9 @@ class ItemTable extends Table{
      * Get array of equipment owners
      * @return array
      */
-    public function getItemOwners($serialNum) {
+    public function findItemOwners($serialNum) {
         $item = TableRegistry::get('item');
-        $listAll = $item->find()
+        $result = $item->find()
             ->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)',
                 'Num', 'TypeID',
                 'Name' => "IF(item_name.name <> '', item_name.name, equip_name.name)",
@@ -93,16 +103,9 @@ class ItemTable extends Table{
                     ]
                 ]
             ])
+            ->having(['cSerialNum' => $serialNum])
             ->toArray();
 
-        if (count($listAll) > 0) {
-            foreach($listAll as $item) {
-                if ($item->cSerialNum == $serialNum) {
-                    $result[] = ['AccountID' => $item->AccountID, 'Num' => $item->Num, 'TypeID' => $item->TypeID, 'Name' => $item->Name, 'AccountName' => $item->AccountName, 'OwnerID' => $item->OwnerID, 'RoleName' => $item->RoleName];
-                    return $result;
-                }
-            }
-        }
-        return [];
+        return $result;
     }
 }

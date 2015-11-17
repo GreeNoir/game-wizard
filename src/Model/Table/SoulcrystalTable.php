@@ -54,13 +54,23 @@ class SoulcrystalTable extends Table
                 'SoulAttID7',
                 'SoulAttID8',
                 'typeID' => 'i.TypeID',
-                'num' => 'i.Num'
+                'num' => 'i.Num',
+                'Name' => 'item_name.name'
             ])
             ->join([
                 'i' => [
                     'table' => 'item',
                     'conditions' => [
                         'i.SerialNum = soulcrystal.SerialNum',
+                    ]
+                ]
+            ])
+            ->join([
+                'item_name' => [
+                    'table' => 'wizard_db.item_name',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'item_name.id = i.TypeID'
                     ]
                 ]
             ])

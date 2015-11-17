@@ -6,7 +6,7 @@
 </div>
 <?php if ($soulcrystalListCount > 0) { ?>
 <div class="roledata_list table-responsive">
-    <table class="table table-condensed table-bordered table-striped">
+    <table class="table table-condensed table-bordered table-striped equip">
         <thead>
         <tr>
             <th><?= __('SerialNum') ?></th>
@@ -22,7 +22,8 @@
             <th><?= __('SoulAttID5') ?></th>
             <th><?= __('SoulAttID6') ?></th>
             <th><?= __('SoulAttID7') ?></th>
-            <th><?= __('SoulAttID8') ?></th>
+            <th><?= __('Name') ?></th>
+            <th class="actions"><?= __('Actions') ?></th>
         </tr>
         </thead>
         <tbody>
@@ -41,14 +42,35 @@
             <td><?= $soulcrystalItem->SoulAttID5 ?></td>
             <td><?= $soulcrystalItem->SoulAttID6 ?></td>
             <td><?= $soulcrystalItem->SoulAttID7 ?></td>
-            <td><?= $soulcrystalItem->SoulAttID8 ?></td>
+            <td><?= $soulcrystalItem->Name ?></td>
+            <td class="actions">
+                <div class="action">
+                    <?= $this->Form->postLink(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-minus-circle']),
+                    ['action' => 'del_equip'],
+                    ['escape' => false,
+                    'data' => ['serial' => $soulcrystalItem->cSerialNum, 'typeid' => $soulcrystalItem->typeID, 'roleid' => $id, 'base' => 'soulcrystal']]) ?>
+                </div>
+                <div class="action">
+                    <?= $this->Html->link(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-plus-circle']),
+                    ['action' => 'edit_equip'],
+                    ['escape' => false]) ?>
+                </div>
+                <div class="action">
+                    <?= $this->Html->link(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
+                    ['action' => 'edit_equip'],
+                    ['escape' => false]) ?>
+                </div>
+            </td>
         </tr>
         <?php endforeach; ?>
         </tbody>
         <tfoot>
         <tr>
             <td><?= __('Total') ?>:</td>
-            <td colspan="13"><?= $soulcrystalListCount ?></td>
+            <td colspan="14"><?= $soulcrystalListCount ?></td>
         </tr>
         </tfoot>
     </table>

@@ -15,20 +15,13 @@
             <tbody>
             <?php foreach($ownersList as $owner): ?>
                 <tr>
-                    <td><?= $owner['Num'] ?></td>
-                    <td><?= $owner['TypeID'] ?></td>
-                    <td><?= $owner['Name'] ?></td>
-                    <td><?php
-                        $accountID = $this->Number->format($owner['AccountID']);
-                        echo $this->Html->link($accountID, ['controller' => 'AccountCommon', 'action' => 'view', 'id' => $accountID]);
-                    ?></td>
-                    <td><?= $owner['AccountName'] ?></td>
-                    <td>
-                        <?php
-                        $roleID = $this->Number->format($owner['OwnerID']);
-                        echo $this->Html->link($roleID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $roleID]);
-                    ?></td>
-                    <td><?= $owner['RoleName'] ?></td>
+                    <td><?= $owner->Num ?></td>
+                    <td><?= $owner->TypeID ?></td>
+                    <td><?= $owner->Name ?></td>
+                    <td><?= $this->Html->link($owner->AccountID, ['controller' => 'AccountCommon', 'action' => 'view', 'id' => $owner->AccountID]) ?></td>
+                    <td><?= $owner->AccountName ?></td>
+                    <td><?= $this->Html->link($owner->OwnerID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $owner->OwnerID]) ?></td>
+                    <td><?= $owner->RoleName ?></td>
                 </tr>
             <?<?php endforeach; ?>  ?>
             </tbody>

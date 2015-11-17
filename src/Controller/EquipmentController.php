@@ -24,6 +24,6 @@ class EquipmentController extends AppController {
         $this->set('serialNum', $serialNum);
         $this->loadModel('Item');
         $this->viewClass = 'ajax';
-        $this->set('ownersList', $this->Item->getItemOwners($serialNum));
+        $this->set('ownersList', $this->Item->findItemOwners($serialNum));
     }
 }

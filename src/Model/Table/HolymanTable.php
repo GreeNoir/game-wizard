@@ -59,12 +59,22 @@ class HolymanTable extends Table
                 'MaxDevourNum',
                 'typeID' => 'i.TypeID',
                 'num' => 'i.Num',
+                'Name' => 'item_name.name'
             ])
             ->join([
                 'i' => [
                     'table' => 'item',
                     'conditions' => [
                         'i.SerialNum = holyman.SerialNum',
+                    ]
+                ]
+            ])
+            ->join([
+                'item_name' => [
+                    'table' => 'wizard_db.item_name',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'item_name.id = i.TypeID'
                     ]
                 ]
             ])

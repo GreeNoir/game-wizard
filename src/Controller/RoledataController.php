@@ -158,10 +158,12 @@ class RoledataController extends AppController
         $serialNum = $this->request->data('serial');
         $typeID = $this->request->data('typeid');
         $roleID = $this->request->data('roleid');
+        $base = $this->request->data('base');
+
         $db = ConnectionManager::get('sm_db');
         $del = 'DELETE FROM item WHERE TypeID='.$typeID.' AND OwnerID='.$roleID;
         $db->query($del);
-        return $this->redirect(['action' => 'equipment_equip', $roleID]);
+        return $this->redirect(['action' => 'equipment_'.$base, $roleID]);
     }
 
     public function edit_equip() {
