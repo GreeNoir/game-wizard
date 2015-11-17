@@ -12,6 +12,7 @@
             <th><?= __('SerialNum') ?></th>
             <th><?= __('TypeID') ?></th>
             <th><?= __('Num') ?></th>
+            <th><?= __('EquipType') ?></th>
             <th><?= __('Bind') ?></th>
             <th><?= __('Create Time') ?></th>
             <th><?= __('Delete Time') ?></th>
@@ -25,25 +26,34 @@
             <td><?= $item->cSerialNum ?></td>
             <td><?= $item->TypeID ?></td>
             <td><?= $item->Num ?></td>
+            <td>
+                <?php
+                    if($item->EquipType == 'not_set') {
+                        echo '';
+                    } else {
+                        echo $this->Html->link(__($item->EquipType), ['action' => 'view_equip', '?' => ['type' => $item->EquipType, 'serial' => $item->cSerialNum]]);
+                    }
+                ?>
+            </td>
             <td><?= $item->Bind ?></td>
             <td><?= $item->CreateTime ?></td>
             <td><?= $item->del_time ?></td>
             <td><?= $item->Name ?></td>
             <td class="actions">
-                <div class="action">
+                <div class="action" data-toggle="tooltip" title="<?= __('delete_item') ?>">
                     <?= $this->Form->postLink(
                     $this->Html->tag('i', '', ['class' => 'fa fa-minus-circle']),
                     ['action' => 'del_equip'],
                     ['escape' => false,
                     'data' => ['serial' => $item->cSerialNum, 'typeid' => $item->TypeID, 'roleid' => $id, 'base' => 'item']]) ?>
                 </div>
-                <div class="action">
+                <div class="action" data-toggle="tooltip" title="<?= __('copy_item') ?>">
                     <?= $this->Html->link(
                     $this->Html->tag('i', '', ['class' => 'fa fa-plus-circle']),
                     ['action' => 'edit_equip'],
                     ['escape' => false]) ?>
                 </div>
-                <div class="action">
+                <div class="action" data-toggle="tooltip" title="<?= __('edit_item') ?>">
                     <?= $this->Html->link(
                     $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
                     ['action' => 'edit_equip'],
@@ -56,7 +66,7 @@
         <tfoot>
         <tr>
             <td><?= __('Total') ?>:</td>
-            <td colspan="5"><?= $itemListCount ?></td>
+            <td colspan="8"><?= $itemListCount ?></td>
         </tr>
         </tfoot>
     </table>

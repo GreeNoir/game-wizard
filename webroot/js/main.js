@@ -15,6 +15,8 @@ $(function() {
     if ($('form:not(.form-inline) div.input').length > 0) {
         $('form:not(.form-inline) div.input').addClass("col-sm-10");
     }
+
+    $('[data-toggle="tooltip"]').tooltip();
 });
 
 function languageChange() {

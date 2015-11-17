@@ -82,4 +82,27 @@ class HolymanTable extends Table
         return $query;
     }
 
+    public function findSerial($serialNum) {
+        $equip = TableRegistry::get('holyman');
+        $query = $equip->find()
+            ->select(['cSerialNum' => 'CONVERT (holyman.SerialNum, CHAR)',
+                        'DevourNum',
+                        'EquipmentNumber',
+                        'ToDayDevourNum',
+                        'EquipSerialIDs',
+                        'CostHoly',
+                        'CoValue',
+                        'HolyDmg',
+                        'HolyDef',
+                        'Crit',
+                        'HolyCritRate',
+                        'ExDamage',
+                        'AttackTec',
+                        'NeglectToughness',
+                        'HolyValue',
+                        'MaxDevourNum'])
+            ->having(['cSerialNum' => $serialNum]);
+        return $query->first();
+    }
+
 }

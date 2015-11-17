@@ -43,13 +43,58 @@ class ItemTable extends Table{
         $query = $item->find()
             ->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)',
                 'Num', 'TypeID', 'Bind', 'CreateTime', 'del_time',
-                'Name' => 'item_name.name'])
+                'Name' => 'item_name.name',
+                'EquipType' =>
+                "CASE
+                WHEN equip.SerialNum IS NOT NULL THEN 'equip'
+                WHEN holyequip.SerialNum IS NOT NULL THEN 'holyequip'
+                WHEN holyman.SerialNum IS NOT NULL THEN 'holyman'
+                WHEN soulcrystal.SerialNum IS NOT NULL THEN 'soulcrystal'
+                ELSE 'not_set'
+                END"
+            ])
             ->join([
                 'item_name' => [
                     'table' => 'wizard_db.item_name',
                     'type'  => 'LEFT',
                     'conditions' => [
                         'item_name.id = item.TypeID'
+                    ]
+                ]
+            ])
+            ->join([
+                'equip' => [
+                    'table' => 'equip',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'item.SerialNum = equip.SerialNum',
+                    ]
+                ]
+            ])
+            ->join([
+                'holyequip' => [
+                    'table' => 'holyequip',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'item.SerialNum = holyequip.SerialNum',
+                    ]
+                ]
+            ])
+            ->join([
+                'holyman' => [
+                    'table' => 'holyman',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'item.SerialNum = holyman.SerialNum',
+                    ]
+                ]
+            ])
+            ->join([
+                'soulcrystal' => [
+                    'table' => 'soulcrystal',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'item.SerialNum = soulcrystal.SerialNum',
                     ]
                 ]
             ])

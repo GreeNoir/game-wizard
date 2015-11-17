@@ -87,6 +87,7 @@ Router::connect('/:lang/:controller/equipment_holyman/:id', ['action' => 'equipm
 Router::connect('/:lang/:controller/equipment_soulcrystal/:id', ['action' => 'equipment_soulcrystal'], ['id' => '\d+', 'pass' => ['id']]);
 Router::connect('/:lang/:controller/del_equip', ['action' => 'del_equip']);
 Router::connect('/:lang/:controller/edit_equip', ['action' => 'edit_equip']);
+Router::connect('/:lang/:controller/view_equip', ['action' => 'view_equip']);
 
 Router::connect('/:lang/:controller/start', ['action' => 'start']);
 Router::connect('/:lang/:controller/find', ['action' => 'find']);

@@ -166,6 +166,32 @@ class RoledataController extends AppController
         return $this->redirect(['action' => 'equipment_'.$base, $roleID]);
     }
 
+    public function view_equip() {
+        $type = $this->request->query['type'];
+        $serial = $this->request->query['serial'];
+        switch($type) {
+            case 'equip':
+                $this->loadModel('Equip');
+                $equipItem = $this->Equip->findSerial($serial);
+                $this->set('equipItem', $equipItem);
+                break;
+            case 'holyequip':
+                $this->loadModel('Holyequip');
+                $holyequipItem = $this->Holyequip->findSerial($serial);
+                $this->set('holyequipItem', $holyequipItem);
+                break;
+            case 'holyman':
+                $this->loadModel('Holyman');
+                $holymanItem = $this->Holyman->findSerial($serial);
+                $this->set('holymanItem', $holymanItem);
+                break;
+            case 'soulcrystal':
+                $this->loadModel('Soulsrystal');
+                break;
+        }
+        $this->render('view_'.$type);
+    }
+
     public function edit_equip() {
 
     }

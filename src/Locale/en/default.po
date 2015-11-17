@@ -72,3 +72,6 @@ msgstr "Last Role Name"
 
 msgid "RoleName"
 msgstr "Role Name"
+
+msgid "copy_item"
+msgstr "Assign copy of this item to another Roledata"

@@ -75,4 +75,12 @@ class HolyequipTable extends Table
             ->where(['i.OwnerID' => $roleID]);
         return $query;
     }
+
+    public function findSerial($serialNum) {
+        $equip = TableRegistry::get('holyequip');
+        $query = $equip->find()
+            ->select(['cSerialNum' => 'CONVERT (holyequip.SerialNum, CHAR)', 'CostHoly', 'EnhanceCount', 'HolyDmgChg', 'HolyDefChg', 'CritChg', 'HolyCritRateChg', 'ExDamageChg', 'AttackTecChg', 'NeglectToughnessChg'])
+            ->having(['cSerialNum' => $serialNum]);
+        return $query->first();
+    }
 }

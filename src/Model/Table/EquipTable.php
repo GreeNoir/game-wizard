@@ -78,9 +78,9 @@ class EquipTable extends Table
 
     public function findSerial($serialNum) {
         $equip = TableRegistry::get('equip');
-        $entity = $equip->find()
-            ->select(['SerialNum' => 'CONVERT (equip.SerialNum, CHAR)'])
-            ->having(['SerialNum' => $serialNum])->first();
-        return $entity;
+        $query = $equip->find()
+            ->select(['cSerialNum' => 'CONVERT (equip.SerialNum, CHAR)', 'Quality', 'MinUseLevel', 'MaxUseLevel', 'WuHun', 'MinDmg', 'MaxDmg', 'Armor'])
+            ->having(['cSerialNum' => $serialNum]);
+        return $query->first();
     }
 }
