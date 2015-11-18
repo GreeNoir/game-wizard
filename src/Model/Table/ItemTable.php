@@ -15,6 +15,12 @@ use Cake\ORM\TableRegistry;
  */
 class ItemTable extends Table{
 
+    const EQUIP_EQUIP = 'equip';
+    const EQUIP_HOLYEQUIP = 'holyequip';
+    const EQUIP_HOLYMAN = 'holyman';
+    const EQUIP_SOULCRYSTAL = 'soulcrystal';
+    const EQUIP_UNDEFINED = 'undefined';
+
     public static function defaultConnectionName() {
         return 'sm_db';
     }
@@ -38,22 +44,25 @@ class ItemTable extends Table{
      * Get list of item from roledata $roleID
      * @return array
      */
-    public function getListRoledata($roleID) {
+    public function getListRoledata($roleID, $params) {
         $item = TableRegistry::get('item');
         $query = $item->find()
             ->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)',
                 'Num', 'TypeID', 'Bind', 'CreateTime', 'del_time',
-                'Name' => 'item_name.name',
+                'Name' => 'item_name.name']);
+        if (!isset($params['equipType']) || (isset($params['equipType']) && $params['equipType']=='all')) {
+            $query->select([
                 'EquipType' =>
                 "CASE
-                WHEN equip.SerialNum IS NOT NULL THEN 'equip'
+                WHEN soulcrystal.SerialNum IS NOT NULL THEN 'soulcrystal'
                 WHEN holyequip.SerialNum IS NOT NULL THEN 'holyequip'
                 WHEN holyman.SerialNum IS NOT NULL THEN 'holyman'
-                WHEN soulcrystal.SerialNum IS NOT NULL THEN 'soulcrystal'
-                ELSE 'not_set'
+                WHEN equip.SerialNum IS NOT NULL THEN 'equip'
+                ELSE 'undefined'
                 END"
-            ])
-            ->join([
+            ]);
+        }
+        $query->join([
                 'item_name' => [
                     'table' => 'wizard_db.item_name',
                     'type'  => 'LEFT',
@@ -61,8 +70,20 @@ class ItemTable extends Table{
                         'item_name.id = item.TypeID'
                     ]
                 ]
-            ])
-            ->join([
+            ]);
+
+        if (isset($params['equipType']) && $params['equipType'] && $params['equipType']!='all') {
+            $equipType = $params['equipType'];
+            $query->join([
+                $equipType => [
+                    'table' => $equipType,
+                    'conditions' => [
+                        'item.SerialNum = '.$equipType.'.SerialNum',
+                    ]
+                ]
+            ]);
+        } else {
+           $query->join([
                 'equip' => [
                     'table' => 'equip',
                     'type'  => 'LEFT',
@@ -97,9 +118,20 @@ class ItemTable extends Table{
                         'item.SerialNum = soulcrystal.SerialNum',
                     ]
                 ]
-            ])
-            ->where(['OwnerID' => $roleID]);
+            ]);
+        }
+
+        $query->where(['OwnerID' => $roleID]);
+
         return $query;
+    }
+
+    public function getEquipmentTypes() {
+        return [ItemTable::EQUIP_EQUIP,
+            ItemTable::EQUIP_HOLYEQUIP,
+            ItemTable::EQUIP_HOLYMAN,
+            ItemTable::EQUIP_SOULCRYSTAL];
+//            ItemTable::EQUIP_UNDEFINED];
     }
 
     /**

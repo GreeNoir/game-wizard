@@ -77,4 +77,23 @@ class SoulcrystalTable extends Table
             ->where(['i.OwnerID' => $roleID]);
         return $query;
     }
+
+    public function findSerial($serialNum) {
+        $soulcrystal = TableRegistry::get('soulcrystal');
+        $query = $soulcrystal->find()
+            ->select(['cSerialNum' => 'CONVERT (soulcrystal.SerialNum, CHAR)',
+                'SoulLevel',
+                'SoulQlty',
+                'SoulSkillID',
+                'SoulAttID1',
+                'SoulAttID2',
+                'SoulAttID3',
+                'SoulAttID4',
+                'SoulAttID5',
+                'SoulAttID6',
+                'SoulAttID7',
+                'SoulAttID8'])
+            ->having(['cSerialNum' => $serialNum]);
+        return $query->first();
+    }
 }

@@ -17,6 +17,10 @@ $(function() {
     }
 
     $('[data-toggle="tooltip"]').tooltip();
+
+    $('table.equip select#equipType').change(function(){
+        $('form#equipment_item').submit();
+    });
 });
 
 function languageChange() {

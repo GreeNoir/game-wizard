@@ -107,15 +107,20 @@ class RoledataController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function equipment_list($id) {
-        $this->set('id', $id);
-    }
-
     public function equipment_item($id) {
+        if ($this->request->is('post')) {
+            $equipType = $this->request->data('equipType');
+            $this->request->session()->write('equipType', $equipType);
+            return $this->redirect(['action' =>'equipment_item', $id]);
+        }
+        $equipType = $this->request->session()->read('equipType');
+//        $this->request->session()->write('equipType', null);
         $this->loadModel('Item');
         $this->set('id', $id);
-        $this->set('itemList', $this->paginate($this->Item->getListRoledata($id)));
-        $this->set('itemListCount', $this->Item->getListRoledata($id)->count());
+        $this->set('itemList', $this->paginate($this->Item->getListRoledata($id, ['equipType' => $equipType])));
+        $this->set('itemListCount', $this->Item->getListRoledata($id, ['equipType' => $equipType])->count());
+        $this->set('equipTypes', $this->Item->getEquipmentTypes());
+        $this->set('selectedEquipType', $equipType);
         $this->set('_serialize', ['itemList']);
     }
 
@@ -186,7 +191,9 @@ class RoledataController extends AppController
                 $this->set('holymanItem', $holymanItem);
                 break;
             case 'soulcrystal':
-                $this->loadModel('Soulsrystal');
+                $this->loadModel('Soulcrystal');
+                $soulcrystalItem = $this->Soulcrystal->findSerial($serial);
+                $this->set('soulcrystalItem', $soulcrystalItem);
                 break;
         }
         $this->render('view_'.$type);

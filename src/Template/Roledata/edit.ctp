@@ -8,7 +8,7 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Equipment'), ['action' => 'equipment_list', $roledata->RoleID]) ?></li>
+        <li><?= $this->Html->link(__('Equipment'), ['action' => 'equipment_item', $roledata->RoleID]) ?></li>
     </ul>
 </div>
 <legend><?= __('Edit Roledata') ?><div class="id">ID#<?= $roledata->RoleID ?></div></legend>
