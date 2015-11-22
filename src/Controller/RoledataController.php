@@ -109,16 +109,31 @@ class RoledataController extends AppController
 
     public function equipment_item($id) {
         if ($this->request->is('post')) {
-            $equipType = $this->request->data('equipType');
-            $this->request->session()->write('equipType', $equipType);
-            return $this->redirect(['action' =>'equipment_item', $id]);
+            $subaction = $this->request->data('subaction');
+            $this->request->session()->write('subaction', $subaction);
+            if ($subaction == 'change') {   //filter
+                $equipType = $this->request->data('equipType');
+                $this->request->session()->write('equipType', $equipType);
+                return $this->redirect(['action' =>'equipment_item', $id]);
+            } else {   //sorting
+                return $this->redirect(['action' =>'equipment_item', $id]);
+            }
         }
-        $equipType = $this->request->session()->read('equipType');
-//        $this->request->session()->write('equipType', null);
+
         $this->loadModel('Item');
         $this->set('id', $id);
-        $this->set('itemList', $this->paginate($this->Item->getListRoledata($id, ['equipType' => $equipType])));
-        $this->set('itemListCount', $this->Item->getListRoledata($id, ['equipType' => $equipType])->count());
+
+        $subaction = $this->request->session()->read('subaction');
+        if ($subaction == 'change') {
+            $equipType = $this->request->session()->read('equipType');
+            $this->set('itemList', $this->paginate($this->Item->getListRoledata($id, ['equipType' => $equipType])));
+            $this->set('itemListCount', $this->Item->getListRoledata($id, ['equipType' => $equipType])->count());
+        } else {
+            $equipType = 'all';
+            $this->set('itemList', $this->paginate($this->Item->getListRoledata($id, ['sort' => 'asc'])));
+            $this->set('itemListCount', $this->Item->getListRoledata($id)->count());
+        }
+
         $this->set('equipTypes', $this->Item->getEquipmentTypes());
         $this->set('selectedEquipType', $equipType);
         $this->set('_serialize', ['itemList']);

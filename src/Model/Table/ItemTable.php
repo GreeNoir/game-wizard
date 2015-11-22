@@ -44,7 +44,7 @@ class ItemTable extends Table{
      * Get list of item from roledata $roleID
      * @return array
      */
-    public function getListRoledata($roleID, $params) {
+    public function getListRoledata($roleID, $params=null) {
         $item = TableRegistry::get('item');
         $query = $item->find()
             ->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)',
@@ -122,7 +122,10 @@ class ItemTable extends Table{
         }
 
         $query->where(['OwnerID' => $roleID]);
-
+        if (isset($params['sort']) && $params['sort']) {
+            $direct =  $params['sort'];
+            $query->order(['EquipType' => $direct]);
+        }
         return $query;
     }
 

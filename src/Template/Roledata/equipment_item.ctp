@@ -7,6 +7,7 @@
 </div>
 <?php if ($itemListCount > 0) { ?>
 <form id="equipment_item" method="post">
+<input type="hidden" name="subaction">
 <div class="table-responsive">
     <table class="table table-condensed table-bordered table-striped equip">
         <thead>
@@ -63,12 +64,6 @@
                 <div class="action" data-toggle="tooltip" title="<?= __('copy_item') ?>">
                     <?= $this->Html->link(
                     $this->Html->tag('i', '', ['class' => 'fa fa-plus-circle']),
-                    ['action' => 'edit_equip'],
-                    ['escape' => false]) ?>
-                </div>
-                <div class="action" data-toggle="tooltip" title="<?= __('edit_item') ?>">
-                    <?= $this->Html->link(
-                    $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
                     ['action' => 'edit_equip'],
                     ['escape' => false]) ?>
                 </div>

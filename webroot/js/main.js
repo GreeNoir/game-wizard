@@ -19,8 +19,15 @@ $(function() {
     $('[data-toggle="tooltip"]').tooltip();
 
     $('table.equip select#equipType').change(function(){
+        $('input[name=subaction]').val('change');
         $('form#equipment_item').submit();
     });
+
+    $('table.equip select#equipType').click(function(){
+        $('input[name=subaction]').val('click');
+        $('form#equipment_item').submit();
+    });
+
 });
 
 function languageChange() {
