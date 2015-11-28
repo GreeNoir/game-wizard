@@ -122,10 +122,6 @@ class ItemTable extends Table{
         }
 
         $query->where(['OwnerID' => $roleID]);
-        if (isset($params['sort']) && $params['sort']) {
-            $direct =  $params['sort'];
-            $query->order(['EquipType' => $direct]);
-        }
         return $query;
     }
 

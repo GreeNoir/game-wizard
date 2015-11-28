@@ -5,7 +5,6 @@
         <li><?= $this->Html->link(__('Back').__('RoledataList'), ['action' => 'index']) ?></li>
     </ul>
 </div>
-<?php if ($itemListCount > 0) { ?>
 <form id="equipment_item" method="post">
 <input type="hidden" name="subaction">
 <div class="table-responsive">
@@ -22,6 +21,18 @@
                         <option value="<?= $type ?>" <?php if($type==$selectedEquipType) { echo 'selected="selected"';} ?>><?= $type ?></option>
                     <?php } ?>
                 </select>
+                <div class="sort_container">
+                    <?php if ($hiddenDirection == 'desc') {
+                            echo $this->Paginator->sort('EquipType',
+                                '<div class="pointer"><i class="fa fa-sort-alpha-asc"></i></div>',
+                                ['escape' => false, 'direction' => 'asc']);
+                        } else {
+                            echo $this->Paginator->sort('EquipType',
+                                '<div class="pointer"><i class="fa fa-sort-alpha-desc"></i></div>',
+                                ['escape' => false, 'direction' => 'desc']);
+                        }
+                    ?>
+                </div>
             </th>
             <th><?= __('Name') ?></th>
             <th><?= __('Bind') ?></th>
@@ -30,47 +41,49 @@
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         </thead>
-        <tbody>
-        <?php foreach ($itemList as $item): ?>
-        <tr>
-            <td><?= $item->cSerialNum ?></td>
-            <td><?= $item->TypeID ?></td>
-            <td><?= $item->Num ?></td>
-            <td>
-                <?php
-                    if (!isset($item->EquipType)) {
-                        echo $this->Html->link(__($selectedEquipType), ['action' => 'view_equip', '?' => ['type' => $selectedEquipType, 'serial' => $item->cSerialNum]]);
-                    } else {
-                        if($item->EquipType == 'undefined') {
-                            echo '';
+        <?php if ($itemListCount > 0) { ?>
+            <tbody>
+            <?php foreach ($itemList as $item): ?>
+            <tr>
+                <td><?= $item->cSerialNum ?></td>
+                <td><?= $item->TypeID ?></td>
+                <td><?= $item->Num ?></td>
+                <td>
+                    <?php
+                        if (!isset($item->EquipType)) {
+                            echo $this->Html->link(__($selectedEquipType), ['action' => 'view_equip', '?' => ['type' => $selectedEquipType, 'serial' => $item->cSerialNum]]);
                         } else {
-                            echo $this->Html->link(__($item->EquipType), ['action' => 'view_equip', '?' => ['type' => $item->EquipType, 'serial' => $item->cSerialNum]]);
+                            if($item->EquipType == 'undefined') {
+                                echo '';
+                            } else {
+                                echo $this->Html->link(__($item->EquipType), ['action' => 'view_equip', '?' => ['type' => $item->EquipType, 'serial' => $item->cSerialNum]]);
+                            }
                         }
-                    }
-                ?>
-            </td>
-            <td><?= $item->Name ?></td>
-            <td><?= $item->Bind ?></td>
-            <td><?= $item->CreateTime ?></td>
-            <td><?= $item->del_time ?></td>
-            <td class="actions">
-                <div class="action" data-toggle="tooltip" title="<?= __('delete_item') ?>">
-                    <?= $this->Form->postLink(
-                    $this->Html->tag('i', '', ['class' => 'fa fa-minus-circle']),
-                    ['action' => 'del_equip'],
-                    ['escape' => false,
-                    'data' => ['serial' => $item->cSerialNum, 'typeid' => $item->TypeID, 'roleid' => $id, 'base' => 'item']]) ?>
-                </div>
-                <div class="action" data-toggle="tooltip" title="<?= __('copy_item') ?>">
-                    <?= $this->Html->link(
-                    $this->Html->tag('i', '', ['class' => 'fa fa-plus-circle']),
-                    ['action' => 'edit_equip'],
-                    ['escape' => false]) ?>
-                </div>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-        </tbody>
+                    ?>
+                </td>
+                <td><?= $item->Name ?></td>
+                <td><?= $item->Bind ?></td>
+                <td><?= $item->CreateTime ?></td>
+                <td><?= $item->del_time ?></td>
+                <td class="actions">
+                    <div class="action" data-toggle="tooltip" title="<?= __('delete_item') ?>">
+                        <?= $this->Form->postLink(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-minus-circle']),
+                        ['action' => 'del_equip'],
+                        ['escape' => false,
+                        'data' => ['serial' => $item->cSerialNum, 'typeid' => $item->TypeID, 'roleid' => $id, 'base' => 'item']]) ?>
+                    </div>
+                    <div class="action" data-toggle="tooltip" title="<?= __('copy_item') ?>">
+                        <?= $this->Html->link(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-plus-circle']),
+                        ['action' => 'edit_equip'],
+                        ['escape' => false]) ?>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+            </tbody>
+        <?php } ?>
         <tfoot>
         <tr>
             <td><?= __('Total') ?>:</td>
@@ -88,6 +101,3 @@
     </div>
 </div>
 </form>
-<?php } else { ?>
-<div><?= __('No results') ?></div>
-<?php } ?>

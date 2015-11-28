@@ -169,3 +169,12 @@ div.equipment .table {
     margin: 0 2px;
     display: inline-block;
 }
+
+.sort_container {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pointer {
+    cursor: pointer;
+}

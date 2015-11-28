@@ -12,7 +12,10 @@ use Cake\Datasource\ConnectionManager;
 class RoledataController extends AppController
 {
     public $paginate = array(
-        'limit' => 20
+        'limit' => 20,
+        'sortWhitelist' => [
+            'SerialNum', 'TypeID', 'Num', 'EquipType'
+        ]
     );
 
     /**
@@ -124,18 +127,29 @@ class RoledataController extends AppController
         $this->set('id', $id);
 
         $subaction = $this->request->session()->read('subaction');
+        $this->request->session()->write('subaction', '');
+
+        $sort = $this->request->query('sort');
+        $direction = $this->request->query('direction');
+        $hiddenDirection = 'desc';
+        if ($sort == 'EquipType') {
+            $hiddenDirection = $direction;
+        }
+
         if ($subaction == 'change') {
             $equipType = $this->request->session()->read('equipType');
             $this->set('itemList', $this->paginate($this->Item->getListRoledata($id, ['equipType' => $equipType])));
             $this->set('itemListCount', $this->Item->getListRoledata($id, ['equipType' => $equipType])->count());
         } else {
             $equipType = 'all';
-            $this->set('itemList', $this->paginate($this->Item->getListRoledata($id, ['sort' => 'asc'])));
+            $this->set('itemList', $this->paginate($this->Item->getListRoledata($id)));
             $this->set('itemListCount', $this->Item->getListRoledata($id)->count());
+
         }
 
         $this->set('equipTypes', $this->Item->getEquipmentTypes());
         $this->set('selectedEquipType', $equipType);
+        $this->set('hiddenDirection', $hiddenDirection);
         $this->set('_serialize', ['itemList']);
     }
 
