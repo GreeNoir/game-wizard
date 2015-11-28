@@ -22,6 +22,8 @@ $(function() {
         $('input[name=subaction]').val('change');
         $('form#equipment_item').submit();
     });
+
+    $('#equipType').chosen();
 });
 
 function languageChange() {

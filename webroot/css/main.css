@@ -46,26 +46,26 @@ label {
     font-weight: normal;
 }
 
-a.chosen-single {
+.lang a.chosen-single {
     display: none !important;
 }
 
-.chosen-container.chosen-with-drop .chosen-drop {
+.lang .chosen-container.chosen-with-drop .chosen-drop {
     position: static;
     border: none;
     box-shadow: none;
 }
 
-.chosen-container .chosen-results {
+.lang .chosen-container .chosen-results {
     padding: 0;
     margin: 0 0 4px 0;
 }
 
-.chosen-container .chosen-results li {
+.lang .chosen-container .chosen-results li {
     padding-left: 20px;
 }
 
-.chosen-container .chosen-results li.highlighted {
+.lang .chosen-container .chosen-results li.highlighted {
     background-image: none;
     background-color: #eee;
     color: #333333;
