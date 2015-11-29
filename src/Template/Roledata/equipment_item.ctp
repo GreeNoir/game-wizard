@@ -74,10 +74,7 @@
                         'data' => ['serial' => $item->cSerialNum, 'typeid' => $item->TypeID, 'roleid' => $id, 'base' => 'item']]) ?>
                     </div>
                     <div class="action" data-toggle="tooltip" title="<?= __('copy_item') ?>">
-                        <?= $this->Html->link(
-                        $this->Html->tag('i', '', ['class' => 'fa fa-plus-circle']),
-                        ['action' => 'edit_equip'],
-                        ['escape' => false]) ?>
+                        <a href="javascript:void(0);" class="copy_item" data-typeid="<?= $item->TypeID ?>" data-toggle="modal" data-target="#equip_add"><i class="fa fa-plus-circle"></i></a>
                     </div>
                 </td>
             </tr>
@@ -101,3 +98,11 @@
     </div>
 </div>
 </form>
+
+<?= $this->element('Roledata/equipment_add_dialog'); ?>
+
+<?= $this->Html->scriptBlock('
+
+    initEquipment('.$roledataAccountsList.');
+
+') ?>

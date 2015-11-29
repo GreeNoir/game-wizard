@@ -18,12 +18,6 @@ $(function() {
 
     $('[data-toggle="tooltip"]').tooltip();
 
-    $('table.equip select#equipType').change(function(){
-        $('input[name=subaction]').val('change');
-        $('form#equipment_item').submit();
-    });
-
-    $('#equipType').chosen();
 });
 
 function languageChange() {
@@ -62,5 +56,40 @@ function findOwners() {
     $.get('/' + select_lang + '/Equipment/find?serialNum='+serialNum, function(data){
         $('#find_results').html(data);
         $('.find_progress').hide();
+    });
+}
+
+function initEquipment(roledataAccountsList) {
+    $('table.equip select#equipType').change(function(){
+        $('input[name=subaction]').val('change');
+        $('form#equipment_item').submit();
+    });
+
+    $('#equipType').chosen();
+
+    $('.copy_item').click(function(){
+        $('input[name=typeID]').val($(this).data('typeid'));
+    });
+
+    $('select[name=account]').change(function(){
+        initAccountRoledataList($(this).val(), roledataAccountsList);
+    })
+}
+
+function initAccountRoledataList(accountID, roledataAccountsList) {
+    $('select[name=roledata]').empty().append('<option selected="selected" value="0">'+$('input[name=empty_option]').val()+'</option>');
+    for(var i=0; i<roledataAccountsList[accountID].length; i++) {
+        $('select[name=roledata]').append('<option value="'+roledataAccountsList[accountID][i].RoleID+'">'+roledataAccountsList[accountID][i].RoleName+'</option>>')
+    }
+}
+
+function addEquipment() {
+    var typeID = $('input[name=typeID]').val();
+    var accountID = $('select[name=account]').val();
+    var roleID = $('select[name=role]').val();
+    var count = $('select[name=count]').val();
+    var select_lang = $('select[name="language"] option:selected').val();
+    $.post('/' + select_lang + '/Equipment/addRoledataEquipment', {typeID: typeID, accountID: accountID, roleID: roleID, count: count}, function(data) {
+        console.log(data);
     });
 }

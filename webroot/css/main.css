@@ -172,9 +172,13 @@ div.equipment .table {
 
 .sort_container {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 .pointer {
     cursor: pointer;
+}
+
+.modal-backdrop {
+    z-index: 0;
 }

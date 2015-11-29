@@ -78,5 +78,16 @@ class AccountCommonTable extends Table
             ->where(['AccountID' => $AccountID])->toArray();
         return $result;
     }
+
+    public function getListRoledataAccounts() {
+        $accountsList = TableRegistry::get('AccountCommon')->find()->select(['AccountID'])->toArray();
+        $roledataLists = [];
+        foreach($accountsList as $item) {
+            $accountID = $item->AccountID;
+            $roledataLists[$accountID] = $this->getListRoledata($accountID);
+        }
+        return $roledataLists;
+    }
+
 }
 

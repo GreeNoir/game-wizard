@@ -86,5 +86,6 @@ Router::connect('/:lang/:controller/view_equip', ['action' => 'view_equip']);
 
 Router::connect('/:lang/:controller/start', ['action' => 'start']);
 Router::connect('/:lang/:controller/find', ['action' => 'find']);
+Router::connect('/:lang/:controller/addRoledataEquipment', ['action' => 'addRoledataEquipment']);
 
 Plugin::routes();

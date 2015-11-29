@@ -124,6 +124,8 @@ class RoledataController extends AppController
         }
 
         $this->loadModel('Item');
+        $this->loadModel('AccountCommon');
+        $this->loadModel('Roledata');
         $this->set('id', $id);
 
         $subaction = $this->request->session()->read('subaction');
@@ -147,6 +149,8 @@ class RoledataController extends AppController
 
         }
 
+        $this->set('accountCommonList', $this->AccountCommon->find()->order(['AccountName']));
+        $this->set('roledataAccountsList', json_encode($this->AccountCommon->getListRoledataAccounts()));
         $this->set('equipTypes', $this->Item->getEquipmentTypes());
         $this->set('selectedEquipType', $equipType);
         $this->set('hiddenDirection', $hiddenDirection);
@@ -228,7 +232,4 @@ class RoledataController extends AppController
         $this->render('view_'.$type);
     }
 
-    public function edit_equip() {
-
-    }
 }
