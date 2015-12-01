@@ -86,8 +86,9 @@ function initAccountRoledataList(accountID, roledataAccountsList) {
 function addEquipment() {
     var typeID = $('input[name=typeID]').val();
     var accountID = $('select[name=account]').val();
-    var roleID = $('select[name=role]').val();
-    var count = $('select[name=count]').val();
+    var roleID = $('select[name=roledata]').val();
+    var count = $('input[name=count]').val();
+    console.log(count);
     var select_lang = $('select[name="language"] option:selected').val();
     $.post('/' + select_lang + '/Equipment/addRoledataEquipment', {typeID: typeID, accountID: accountID, roleID: roleID, count: count}, function(data) {
         console.log(data);

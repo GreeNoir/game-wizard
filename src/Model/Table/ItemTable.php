@@ -184,4 +184,34 @@ class ItemTable extends Table{
 
         return $result;
     }
+
+    public function getNextSerialNum() {
+        $item = TableRegistry::get('item');
+        $result = $item->find()
+            ->select(['m'=>'MAX(TypeID)', 'cSerialNum' => 'CONVERT (SerialNum, CHAR)'])->first();
+        $serial = $result->cSerialNum;
+        debug($serial);
+        $l = strlen($serial);
+        $parts = explode("000", $serial);
+        if (isset($parts[1])) {
+            $v = (int)$parts[1];
+            $s = $parts[0].(string)$v++;
+            $k = $l - strlen($s);
+            $nextSerial = $parts[0];
+            for($i=0; $i<$k; $i++) {
+                $nextSerial .= '0';
+            }
+            $nextSerial .= (string)$v++;
+            return $nextSerial;
+        } else {
+            return 1;
+        }
+    }
+
+    public function getNextTypeID() {
+        $item = TableRegistry::get('item');
+        $result = $item->find()
+            ->select(['m'=>'MAX(TypeID)'])->first();
+        return $result->m++;
+    }
 }
