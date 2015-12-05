@@ -187,31 +187,28 @@ class ItemTable extends Table{
 
     public function getNextSerialNum() {
         $item = TableRegistry::get('item');
-        $result = $item->find()
-            ->select(['m'=>'MAX(TypeID)', 'cSerialNum' => 'CONVERT (SerialNum, CHAR)'])->first();
-        $serial = $result->cSerialNum;
-        debug($serial);
-        $l = strlen($serial);
-        $parts = explode("000", $serial);
-        if (isset($parts[1])) {
-            $v = (int)$parts[1];
-            $s = $parts[0].(string)$v++;
-            $k = $l - strlen($s);
-            $nextSerial = $parts[0];
-            for($i=0; $i<$k; $i++) {
-                $nextSerial .= '0';
+        $list = $item->find()
+            ->select(['cSerialNum' => 'CONVERT (SerialNum, CHAR)'])->toArray();
+
+        $values = [];
+        foreach($list as $elem) {
+            $parts = explode("000", $elem->cSerialNum);
+            if (isset($parts[1])) {
+                $values[] = $parts[1];
             }
-            $nextSerial .= (string)$v++;
-            return $nextSerial;
-        } else {
-            return 1;
         }
+
+        $next = max($values);
+        $next++;
+        $result = '5000'.(string)$next;
+        return $result;
     }
 
     public function getNextTypeID() {
         $item = TableRegistry::get('item');
         $result = $item->find()
             ->select(['m'=>'MAX(TypeID)'])->first();
-        return $result->m++;
+        $next =  $result->m+1;
+        return $next;
     }
 }

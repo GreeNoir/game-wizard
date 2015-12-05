@@ -6,6 +6,7 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\I18n\I18n;
 use Cake\ORM\TableRegistry;
+use Cake\Datasource\ConnectionManager;
 
 /**
  * EquipmentCommon Controller
@@ -38,14 +39,36 @@ class EquipmentController extends AppController {
         $this->autoRender = false;
         $item = $this->Item->find()->where(['typeID' => $typeID])->first();
 
+        $typeID = $this->Item->getNextTypeID();
+
         $newItem = $this->Item->newEntity();
-        $newItem = $item;
-        $newItem->SerialNum = $this->Item->getNextSerialNum();
+        $newItem->SerialNum = 0;
         $newItem->AccountID = $accountID;
         $newItem->OwnerID = $roleID;
         $newItem->Num = $count;
-        $newItem->TypeID = $this->Item->getNextTypeID();
+        $newItem->TypeID = $typeID;
+
+        $newItem->Bind = $item->Bind;
+	    $newItem->LockStat = $item->LockStat;
+	    $newItem->UnlockTime = $item->UnlockTime;
+	    $newItem->UseTimes = $item->UseTimes;
+	    $newItem->FirstGainTime = $item->FirstGainTime;
+	    $newItem->CreateMode = $item->CreateMode;
+	    $newItem->CreateID = $item->CreateID;
+	    $newItem->CreatorID = $item->CreatorID;
+	    $newItem->CreateTime = date('Y-m-d H:i:s');
+	    $newItem->ContainerTypeID = $item->ContainerTypeID;
+	    $newItem->Suffix = $item->Suffix;
+	    $newItem->NameID = $item->NameID;
+	    $newItem->ItemSpecVal1 = $item->ItemSpecVal1;
+	    $newItem->ItemSpecVal2 = $item->ItemSpecVal2;
+	    $newItem->del_time = $item->del_time;
+
         $newItem = $this->Item->patchEntity($newItem, $newItem->toArray());
         $this->Item->save($newItem);
+
+        $conn = ConnectionManager::get('sm_db');
+        $query = "UPDATE item SET SerialNum='".$this->Item->getNextSerialNum()."' WHERE TypeID=".$typeID;
+        $conn->query($query);
     }
 }
