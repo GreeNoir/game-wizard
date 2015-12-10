@@ -76,10 +76,12 @@ class HolyequipTable extends Table
         return $query;
     }
 
-    public function findSerial($serialNum) {
+    public function findSerial($serialNum, $hydrate=true) {
         $equip = TableRegistry::get('holyequip');
         $query = $equip->find()
-            ->select(['cSerialNum' => 'CONVERT (holyequip.SerialNum, CHAR)', 'CostHoly', 'EnhanceCount', 'HolyDmgChg', 'HolyDefChg', 'CritChg', 'HolyCritRateChg', 'ExDamageChg', 'AttackTecChg', 'NeglectToughnessChg'])
+            ->select(['cSerialNum' => 'CONVERT (holyequip.SerialNum, CHAR)'])
+            ->autoFields(true)
+            ->hydrate($hydrate)
             ->having(['cSerialNum' => $serialNum]);
         return $query->first();
     }

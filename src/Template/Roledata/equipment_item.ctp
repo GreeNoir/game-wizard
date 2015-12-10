@@ -71,10 +71,12 @@
                         $this->Html->tag('i', '', ['class' => 'fa fa-minus-circle']),
                         ['action' => 'del_equip'],
                         ['escape' => false,
-                        'data' => ['serial' => $item->cSerialNum, 'typeid' => $item->TypeID, 'roleid' => $id, 'base' => 'item']]) ?>
+                         'data' => ['serial' => $item->cSerialNum, 'typeid' => $item->TypeID, 'roleid' => $id, 'base' => 'item'],
+                         'confirm' => __('Are you sure you want to delete item # {0}?', $item->cSerialNum)
+                        ]) ?>
                     </div>
                     <div class="action" data-toggle="tooltip" title="<?= __('copy_item') ?>">
-                        <a href="javascript:void(0);" class="copy_item" data-typeid="<?= $item->TypeID ?>" data-toggle="modal" data-target="#equip_add"><i class="fa fa-plus-circle"></i></a>
+                        <a href="javascript:void(0);" class="copy_item" data-serial="<?= $item->cSerialNum ?>" data-typeid="<?= $item->TypeID ?>" data-toggle="modal" data-target="#equip_add"><i class="fa fa-plus-circle"></i></a>
                     </div>
                 </td>
             </tr>

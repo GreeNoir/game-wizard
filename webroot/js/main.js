@@ -68,6 +68,7 @@ function initEquipment(roledataAccountsList) {
     $('#equipType').chosen();
 
     $('.copy_item').click(function(){
+        $('input[name=serial]').val($(this).data('serial'));
         $('input[name=typeID]').val($(this).data('typeid'));
     });
 
@@ -84,13 +85,12 @@ function initAccountRoledataList(accountID, roledataAccountsList) {
 }
 
 function addEquipment() {
+    var serialNum = $('input[name=serial]').val();
     var typeID = $('input[name=typeID]').val();
     var accountID = $('select[name=account]').val();
     var roleID = $('select[name=roledata]').val();
     var count = $('input[name=count]').val();
-    console.log(count);
     var select_lang = $('select[name="language"] option:selected').val();
-    $.post('/' + select_lang + '/Equipment/addRoledataEquipment', {typeID: typeID, accountID: accountID, roleID: roleID, count: count}, function(data) {
-        console.log(data);
+    $.post('/' + select_lang + '/Equipment/addRoledataEquipment', {serial: serialNum, typeID: typeID, accountID: accountID, roleID: roleID, count: count}, function(data) {
     });
 }
