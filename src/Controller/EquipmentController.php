@@ -104,6 +104,8 @@ class EquipmentController extends AppController {
             $query = "UPDATE soulcrystal SET SerialNum='".$newSerialNum."' WHERE SerialNum=0";
             $conn->query($query);
         }
+
+        echo json_encode(['SerialNum' => $newSerialNum]);
     }
 
     private function getTimeNow() {

@@ -76,7 +76,7 @@
                         ]) ?>
                     </div>
                     <div class="action" data-toggle="tooltip" title="<?= __('copy_item') ?>">
-                        <a href="javascript:void(0);" class="copy_item" data-serial="<?= $item->cSerialNum ?>" data-typeid="<?= $item->TypeID ?>" data-toggle="modal" data-target="#equip_add"><i class="fa fa-plus-circle"></i></a>
+                        <a href="javascript:void(0);" class="copy_item" data-original-roleid="<?= $id ?>" data-serial="<?= $item->cSerialNum ?>" data-typeid="<?= $item->TypeID ?>" data-toggle="modal" data-target="#equip_add"><i class="fa fa-plus-circle"></i></a>
                     </div>
                 </td>
             </tr>

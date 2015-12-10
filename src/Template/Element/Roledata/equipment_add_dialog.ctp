@@ -6,6 +6,7 @@
                 <h4 class="modal-title"><?= __('Select account and roledata') ?></h4>
             </div>
             <form class="form-horizontal" role="form">
+                <input type="hidden" name="originalRoleId" value="">
                 <input type="hidden" name="serial" value="">
                 <input type="hidden" name="typeID" value="">
                 <input type="hidden" name="empty_option" value="<?= __('please_select') ?>">
