@@ -165,6 +165,7 @@ class RoledataController extends AppController
         $this->autoRender = false;
         $this->loadModel('Item');
         $serialNum = $this->request->data('serial');
+        $type = $this->request->data('type');
         $typeID = $this->request->data('typeid');
         $roleID = $this->request->data('roleid');
         $base = $this->request->data('base');
@@ -172,11 +173,15 @@ class RoledataController extends AppController
         $db = ConnectionManager::get('sm_db');
         $del = 'DELETE FROM item WHERE TypeID='.$typeID.' AND OwnerID='.$roleID;
         $db->query($del);
+
+        $del_equip = 'DELETE FROM '.strtolower($type).' WHERE SerialNum='.$serialNum;
+        $db->query($del_equip);
+
         return $this->redirect(['action' => 'equipment_'.$base, $roleID]);
     }
 
     public function edit_equipment() {
-        $conn = ConnectionManager::get('sm_db');
+        $db = ConnectionManager::get('sm_db');
         $type = $this->request->query['type'];
         $serial = $this->request->query['serial'];
         $roleID = $this->request->query['roleID'];
@@ -194,9 +199,9 @@ class RoledataController extends AppController
 
             if ($this->{$type}->save($equipCopy)) {
                 $query = "DELETE FROM ".strtolower($type)." WHERE SerialNum='".$serial."'";
-                $conn->query($query);
+                $db->query($query);
                 $query = "UPDATE ".strtolower($type)." SET SerialNum='".$serial."' WHERE SerialNum=0";
-                $conn->query($query);
+                $db->query($query);
                 $this->Flash->success(__("The {$type} has been saved."));
                 return $this->redirect(['action' => 'edit_equipment', '?' => ['type' =>$type, 'serial' => $serial, 'roleID' => $roleID]]);
             } else {

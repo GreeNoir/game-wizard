@@ -75,7 +75,7 @@
                         $this->Html->tag('i', '', ['class' => 'fa fa-minus-circle']),
                         ['action' => 'del_equip'],
                         ['escape' => false,
-                         'data' => ['serial' => $item->cSerialNum, 'typeid' => $item->TypeID, 'roleid' => $id, 'base' => 'item'],
+                         'data' => ['serial' => $item->cSerialNum, 'typeid' => $item->TypeID, 'roleid' => $id, 'type' => $item->EquipType, 'base' => 'item'],
                          'confirm' => __('Are you sure you want to delete item # {0}?', $item->cSerialNum)
                         ]) ?>
                     </div>
