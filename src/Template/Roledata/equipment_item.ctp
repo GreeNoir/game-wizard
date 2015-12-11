@@ -55,12 +55,12 @@
                 <td>
                     <?php
                         if (!isset($item->EquipType)) {
-                            echo $this->Html->link(__($selectedEquipType), ['action' => 'view_equip', '?' => ['type' => $selectedEquipType, 'serial' => $item->cSerialNum]]);
+                            echo $this->Html->link(__($selectedEquipType), ['action' => 'edit_equipment', '?' => ['type' => $selectedEquipType, 'serial' => $item->cSerialNum, 'roleID' => $id]]);
                         } else {
                             if($item->EquipType == 'undefined') {
                                 echo '';
                             } else {
-                                echo $this->Html->link(__($item->EquipType), ['action' => 'view_equip', '?' => ['type' => $item->EquipType, 'serial' => $item->cSerialNum]]);
+                                echo $this->Html->link(__($item->EquipType), ['action' => 'edit_equipment', '?' => ['type' => $item->EquipType, 'serial' => $item->cSerialNum, 'roleID' => $id]]);
                             }
                         }
                     ?>

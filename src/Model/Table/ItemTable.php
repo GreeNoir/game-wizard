@@ -15,10 +15,10 @@ use Cake\ORM\TableRegistry;
  */
 class ItemTable extends Table{
 
-    const EQUIP_EQUIP = 'equip';
-    const EQUIP_HOLYEQUIP = 'holyequip';
-    const EQUIP_HOLYMAN = 'holyman';
-    const EQUIP_SOULCRYSTAL = 'soulcrystal';
+    const EQUIP_EQUIP = 'Equip';
+    const EQUIP_HOLYEQUIP = 'Holyequip';
+    const EQUIP_HOLYMAN = 'Holyman';
+    const EQUIP_SOULCRYSTAL = 'Soulcrystal';
     const EQUIP_UNDEFINED = 'undefined';
 
     public static function defaultConnectionName() {
@@ -54,10 +54,10 @@ class ItemTable extends Table{
             $query->select([
                 'EquipType' =>
                 "CASE
-                WHEN soulcrystal.SerialNum IS NOT NULL THEN 'soulcrystal'
-                WHEN holyequip.SerialNum IS NOT NULL THEN 'holyequip'
-                WHEN holyman.SerialNum IS NOT NULL THEN 'holyman'
-                WHEN equip.SerialNum IS NOT NULL THEN 'equip'
+                WHEN soulcrystal.SerialNum IS NOT NULL THEN 'Soulcrystal'
+                WHEN holyequip.SerialNum IS NOT NULL THEN 'Holyequip'
+                WHEN holyman.SerialNum IS NOT NULL THEN 'Holyman'
+                WHEN equip.SerialNum IS NOT NULL THEN 'Equip'
                 ELSE 'undefined'
                 END"
             ]);

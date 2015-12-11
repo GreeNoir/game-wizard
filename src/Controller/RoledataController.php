@@ -160,38 +160,6 @@ class RoledataController extends AppController
         $this->set('_serialize', ['itemList']);
     }
 
-    public function equipment_equip($id) {
-        $this->loadModel('Equip');
-        $this->set('id', $id);
-        $this->set('equipList', $this->paginate($this->Equip->getListRoledata($id)));
-        $this->set('equipListCount', $this->Equip->getListRoledata($id)->count());
-        $this->set('_serialize', ['equipList']);
-    }
-
-    public function equipment_holyequip($id) {
-        $this->loadModel('Holyequip');
-        $this->set('id', $id);
-        $this->set('holyequipList', $this->paginate($this->Holyequip->getListRoledata($id)));
-        $this->set('holyequipListCount', $this->Holyequip->getListRoledata($id)->count());
-        $this->set('_serialize', ['holyequipList']);
-    }
-
-    public function equipment_holyman($id) {
-        $this->loadModel('Holyman');
-        $this->set('id', $id);
-        $this->set('holymanList', $this->paginate($this->Holyman->getListRoledata($id)));
-        $this->set('holymanListCount', $this->Holyman->getListRoledata($id)->count());
-        $this->set('_serialize', ['holymanList']);
-    }
-
-    public function equipment_soulcrystal($id) {
-        $this->loadModel('Soulcrystal');
-        $this->set('id', $id);
-        $this->set('soulcrystalList', $this->paginate($this->Soulcrystal->getListRoledata($id)));
-        $this->set('soulcrystalListCount', $this->Soulcrystal->getListRoledata($id)->count());
-        $this->set('_serialize', ['soulcrystalList']);
-    }
-
     public function del_equip() {
         $this->request->allowMethod(['post', 'delete']);
         $this->autoRender = false;
@@ -207,32 +175,43 @@ class RoledataController extends AppController
         return $this->redirect(['action' => 'equipment_'.$base, $roleID]);
     }
 
-    public function view_equip() {
+    public function edit_equipment() {
+        $conn = ConnectionManager::get('sm_db');
         $type = $this->request->query['type'];
         $serial = $this->request->query['serial'];
-        switch($type) {
-            case 'equip':
-                $this->loadModel('Equip');
-                $equipItem = $this->Equip->findSerial($serial);
-                $this->set('equipItem', $equipItem);
-                break;
-            case 'holyequip':
-                $this->loadModel('Holyequip');
-                $holyequipItem = $this->Holyequip->findSerial($serial);
-                $this->set('holyequipItem', $holyequipItem);
-                break;
-            case 'holyman':
-                $this->loadModel('Holyman');
-                $holymanItem = $this->Holyman->findSerial($serial);
-                $this->set('holymanItem', $holymanItem);
-                break;
-            case 'soulcrystal':
-                $this->loadModel('Soulcrystal');
-                $soulcrystalItem = $this->Soulcrystal->findSerial($serial);
-                $this->set('soulcrystalItem', $soulcrystalItem);
-                break;
+        $roleID = $this->request->query['roleID'];
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $this->request->data['SerialNum'] = $this->request->data['cSerialNum'];
+            unset($this->request->data['cSerialNum']);
+
+            $this->loadModel($type);
+            $equip = $this->{$type}->findSerial($serial, false);
+            $equipCopy = $this->{$type}->newEntity($equip);
+            $equipCopy->set($this->request->data);
+            $equipCopy->set(['SerialNum' => 0]);
+            $equipCopy = $this->{$type}->patchEntity($equipCopy, $equipCopy->toArray());
+
+            if ($this->{$type}->save($equipCopy)) {
+                $query = "DELETE FROM ".strtolower($type)." WHERE SerialNum='".$serial."'";
+                $conn->query($query);
+                $query = "UPDATE ".strtolower($type)." SET SerialNum='".$serial."' WHERE SerialNum=0";
+                $conn->query($query);
+                $this->Flash->success(__("The {$type} has been saved."));
+                return $this->redirect(['action' => 'edit_equipment', '?' => ['type' =>$type, 'serial' => $serial, 'roleID' => $roleID]]);
+            } else {
+                $this->Flash->error(__("The {$type} could not be saved. Please, try again."));
+            }
         }
-        $this->render('view_'.$type);
+
+        $this->loadModel($type);
+        $oEquip = $this->{$type}->findSerial($serial, true);
+        $aEquip = $this->{$type}->findSerial($serial, false);
+        $this->set('oEquip', $oEquip);
+        $this->set('aEquip', $aEquip);
+        $this->set('type', $type);
+        $this->set('roleID', $roleID);
+        $this->set('serial', $serial);
     }
 
 }
