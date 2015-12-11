@@ -182,3 +182,8 @@ div.equipment .table {
 .modal-backdrop {
     z-index: 0;
 }
+
+#equip_add option.current {
+    color: red;
+    font-weight: bold;
+}

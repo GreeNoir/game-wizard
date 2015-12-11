@@ -5,6 +5,7 @@ use App\Model\Entity\Roledata;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 use Cake\Validation\Validator;
 
 /**
@@ -922,4 +923,23 @@ class RoledataTable extends Table
 
         return $validator;
     }
+
+    public function getRoledataInfo($roleID) {
+        $roledata = TableRegistry::get('roledata');
+        $result = $roledata->find()
+            ->select(['AccountID', 'AccountName' => 'a.AccountName', 'RoleName'])
+            ->join([
+                'a' => [
+                    'table' => 'account_common',
+                    'conditions' => [
+                        'a.AccountID = roledata.AccountID',
+                    ]
+                ]
+            ])
+            ->where(['RoleID' => $roleID])->first();
+        return $result;
+    }
+
+
+
 }

@@ -68,7 +68,6 @@ function initEquipment(roledataAccountsList) {
     $('#equipType').chosen();
 
     $('.copy_item').click(function(){
-        $('input[name=originalRoleId]').val($(this).data('original-roleid'))
         $('input[name=serial]').val($(this).data('serial'));
         $('input[name=typeID]').val($(this).data('typeid'));
         $('select[name=account]').val(0);
@@ -82,9 +81,14 @@ function initEquipment(roledataAccountsList) {
 }
 
 function initAccountRoledataList(accountID, roledataAccountsList) {
+    var originalRoleId = $('input[name=originalRoleId]').val();
     $('select[name=roledata]').empty().append('<option selected="selected" value="0">'+$('input[name=empty_option]').val()+'</option>');
     for(var i=0; i<roledataAccountsList[accountID].length; i++) {
-        $('select[name=roledata]').append('<option value="'+roledataAccountsList[accountID][i].RoleID+'">'+roledataAccountsList[accountID][i].RoleName+'</option>>')
+        var className = '';
+        if (roledataAccountsList[accountID][i].RoleID == originalRoleId) {
+            className = 'current';
+        }
+        $('select[name=roledata]').append('<option class="'+className+'" value="'+roledataAccountsList[accountID][i].RoleID+'">'+roledataAccountsList[accountID][i].RoleName+'</option>')
     }
 }
 

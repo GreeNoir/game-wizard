@@ -6,7 +6,7 @@
                 <h4 class="modal-title"><?= __('Select account and roledata') ?></h4>
             </div>
             <form class="form-horizontal" role="form">
-                <input type="hidden" name="originalRoleId" value="">
+                <input type="hidden" name="originalRoleId" value="<?= $id ?>">
                 <input type="hidden" name="serial" value="">
                 <input type="hidden" name="typeID" value="">
                 <input type="hidden" name="empty_option" value="<?= __('please_select') ?>">
@@ -17,7 +17,10 @@
                             <select name="account" class="form-control">
                                 <option value="0"><?= __('please_select') ?></option>
                                 <?php foreach($accountCommonList as $accountCommon) { ?>
-                                    <option value="<?= $accountCommon->AccountID ?>"><?= $accountCommon->AccountName ?></option>
+                                    <option
+                                        class="<?php if ($accountCommon->AccountID == $accountID) { echo 'current'; } ?>"
+                                        value="<?= $accountCommon->AccountID ?>"><?= $accountCommon->AccountName ?>
+                                    </option>
                                 <?php } ?>
                             </select>
                         </div>

@@ -127,6 +127,9 @@ class RoledataController extends AppController
         $this->loadModel('AccountCommon');
         $this->loadModel('Roledata');
         $this->set('id', $id);
+        $this->set('accountID', $this->Roledata->getRoledataInfo($id)->AccountID);
+        $this->set('accountName', $this->Roledata->getRoledataInfo($id)->AccountName);
+        $this->set('roleName', $this->Roledata->getRoledataInfo($id)->RoleName);
 
         $subaction = $this->request->session()->read('subaction');
         $this->request->session()->write('subaction', '');

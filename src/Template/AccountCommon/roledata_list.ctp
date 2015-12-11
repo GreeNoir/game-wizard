@@ -20,6 +20,7 @@
             <th>X</th>
             <th>Y</th>
             <th>Z</th>
+            <th><?= __('Additionally') ?></th>
         </tr>
         </thead>
         <tbody>
@@ -36,6 +37,22 @@
             <td><?= $this->Number->format($roledataItem->X) ?></td>
             <td><?= $this->Number->format($roledataItem->Y) ?></td>
             <td><?= $this->Number->format($roledataItem->Z) ?></td>
+            <td>
+                <div class="icon-contain"><?= $this->Html->link(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-external-link']).$this->Html->tag('div', __('View')),
+                    ['controller' => 'Roledata', 'action' => 'view', 'id' => $roledataItem->RoleID],
+                    ['escape' => false]) ?></div>
+                <div class="icon-contain"><?= $this->Html->link(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-pencil']).$this->Html->tag('div', __('Edit')),
+                    ['controller' => 'Roledata', 'action' => 'edit', 'id' => $roledataItem->RoleID],
+                    ['escape' => false]) ?></div>
+                <div class="icon-contain">
+                    <?= $this->Html->link(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-briefcase']).$this->Html->tag('div', __('Equipment')),
+                    ['controller' => 'Roledata', 'action' => 'equipment_item', 'id' => $roledataItem->RoleID],
+                    ['escape' => false]); ?>
+                </div>
+            </td>
         </tr>
         <?php endforeach; ?>
         </tbody>
