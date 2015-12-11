@@ -5,8 +5,6 @@
         <li><?= $this->Html->link(__('Back').__('RoledataList'), ['action' => 'index']) ?></li>
     </ul>
 </div>
-<form id="equipment_item" method="post">
-<input type="hidden" name="subaction">
 <div class="table-responsive">
     <table class="table table-condensed table-bordered table-striped equip">
         <thead>
@@ -15,24 +13,27 @@
             <th><?= $this->Paginator->sort('TypeID') ?></th>
             <th><?= $this->Paginator->sort('Num') ?></th>
             <th>
-                <select id="equipType" name="equipType">
-                    <option value="all" selected="selected"><?= __('EquipType') ?></option>
-                    <?php foreach($equipTypes as $type) { ?>
+                <form id="equipment_item" method="post">
+                    <input type="hidden" name="subaction">
+                    <select id="equipType" name="equipType">
+                        <option value="all" selected="selected"><?= __('EquipType') ?></option>
+                        <?php foreach($equipTypes as $type) { ?>
                         <option value="<?= $type ?>" <?php if($type==$selectedEquipType) { echo 'selected="selected"';} ?>><?= $type ?></option>
-                    <?php } ?>
-                </select>
-                <div class="sort_container">
-                    <?php if ($hiddenDirection == 'desc') {
-                            echo $this->Paginator->sort('EquipType',
-                                '<div class="pointer"><i class="fa fa-sort-alpha-asc"></i></div>',
-                                ['escape' => false, 'direction' => 'asc']);
-                        } else {
-                            echo $this->Paginator->sort('EquipType',
-                                '<div class="pointer"><i class="fa fa-sort-alpha-desc"></i></div>',
-                                ['escape' => false, 'direction' => 'desc']);
-                        }
-                    ?>
-                </div>
+                        <?php } ?>
+                    </select>
+                    <div class="sort_container">
+                        <?php if ($hiddenDirection == 'desc') {
+                                echo $this->Paginator->sort('EquipType',
+                                    '<div class="pointer"><i class="fa fa-sort-alpha-asc"></i></div>',
+                                    ['escape' => false, 'direction' => 'asc']);
+                            } else {
+                                echo $this->Paginator->sort('EquipType',
+                                    '<div class="pointer"><i class="fa fa-sort-alpha-desc"></i></div>',
+                                    ['escape' => false, 'direction' => 'desc']);
+                            }
+                        ?>
+                    </div>
+                </form>
             </th>
             <th><?= __('Name') ?></th>
             <th><?= __('Bind') ?></th>
@@ -99,7 +100,6 @@
         <p><?= $this->Paginator->counter() ?></p>
     </div>
 </div>
-</form>
 
 <?= $this->element('Roledata/equipment_add_dialog'); ?>
 
