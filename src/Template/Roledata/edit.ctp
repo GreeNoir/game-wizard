@@ -34,7 +34,7 @@
         </div>
         <div id="panel_numbers" class="numbers tab-pane fade in">
             <?php
-            echo $this->Form->input('AccountID', ['class' => 'form-control', 'type'=>'text', 'label' => ['class' => 'col-sm-3 control-label']]);
+            echo $this->Form->input('AccountID', ['class' => 'form-control', 'type'=>'text', 'disabled' => true, 'label' => ['class' => 'col-sm-3 control-label']]);
             echo $this->Form->input('RoleNameCrc', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
             echo $this->Form->input('Sex', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
             echo $this->Form->input('SpeakOff', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);

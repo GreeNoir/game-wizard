@@ -8,7 +8,7 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use Cake\ORM\TableRegistry;
-
+use Cake\Datasource\ConnectionManager;
 /**
  * Itam Model
  *
@@ -130,7 +130,6 @@ class ItemTable extends Table{
             ItemTable::EQUIP_HOLYEQUIP,
             ItemTable::EQUIP_HOLYMAN,
             ItemTable::EQUIP_SOULCRYSTAL];
-//            ItemTable::EQUIP_UNDEFINED];
     }
 
     /**
@@ -204,11 +203,34 @@ class ItemTable extends Table{
         return $result;
     }
 
-    public function getNextTypeID() {
-        $item = TableRegistry::get('item');
-        $result = $item->find()
-            ->select(['m'=>'MAX(TypeID)'])->first();
-        $next =  $result->m+1;
-        return $next;
+    /**
+     * Delete items and all linked equips
+     * @param $typeID
+     */
+    public function deleteItems($typeID) {
+        $db = ConnectionManager::get('sm_db');
+        $item_entity = TableRegistry::get('item');
+
+        //список все item у которых TypeID = $typeID
+        $itemList = $item_entity->find()
+            ->select(['cSerialNum' => 'CONVERT (SerialNum, CHAR)'])
+            ->where(['TypeID' => $typeID])->all();
+
+        foreach($itemList as $itemInfo) {
+            $itemSerialNum = $itemInfo->cSerialNum;
+            foreach($this->getEquipmentTypes() as $type) {
+                $table = strtolower($type);
+                $entity = TableRegistry::get($table);
+                $equip = $entity->find()
+                    ->select(['cSerialNum' => 'CONVERT (SerialNum, CHAR)'])
+                    ->having(['cSerialNum' => $itemSerialNum]);
+                if ($equip) {
+                    $del = "DELETE FROM {$table} WHERE SerialNum='{$itemSerialNum}'";
+                    $db->query($del);
+                }
+            }
+        }
+        $query = TableRegistry::get('item')->query();
+        $query->delete()->where(['TypeID' => $typeID])->execute();
     }
 }

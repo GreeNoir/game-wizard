@@ -7,20 +7,13 @@
     </ul>
 </div>
 
-<div class="roledata_list table-responsive">
+<div class="roledata_list table-responsive col-lg-5">
     <table class="table table-condensed table-bordered table-striped">
         <thead>
         <tr>
             <th>Role ID</th>
             <th>RoleName</th>
-            <th>RoleNameCrc</th>
-            <th>Sex</th>
-            <th>SpeakOff</th>
-            <th>HairModelID</th>
-            <th>X</th>
-            <th>Y</th>
-            <th>Z</th>
-            <th><?= __('Additionally') ?></th>
+            <th class="actions"><?= __('Additionally') ?></th>
         </tr>
         </thead>
         <tbody>
@@ -30,25 +23,18 @@
                 <?= $this->Html->link($roledataItem->RoleID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $roledataItem->RoleID]) ?>
             </td>
             <td><?= $roledataItem->RoleName ?></td>
-            <td><?= $roledataItem->RoleNameCrc ?></td>
-            <td><?= $roledataItem->Sex ?></td>
-            <td><?= $this->Number->format($roledataItem->SpeakOff) ?></td>
-            <td><?= $this->Number->format($roledataItem->HairModelID) ?></td>
-            <td><?= $this->Number->format($roledataItem->X) ?></td>
-            <td><?= $this->Number->format($roledataItem->Y) ?></td>
-            <td><?= $this->Number->format($roledataItem->Z) ?></td>
-            <td>
-                <div class="icon-contain"><?= $this->Html->link(
-                    $this->Html->tag('i', '', ['class' => 'fa fa-external-link']).$this->Html->tag('div', __('View')),
+            <td class="actions">
+                <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('View') ?>"><?= $this->Html->link(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-external-link']),
                     ['controller' => 'Roledata', 'action' => 'view', 'id' => $roledataItem->RoleID],
                     ['escape' => false]) ?></div>
-                <div class="icon-contain"><?= $this->Html->link(
-                    $this->Html->tag('i', '', ['class' => 'fa fa-pencil']).$this->Html->tag('div', __('Edit')),
+                <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Edit') ?>"><?= $this->Html->link(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
                     ['controller' => 'Roledata', 'action' => 'edit', 'id' => $roledataItem->RoleID],
                     ['escape' => false]) ?></div>
-                <div class="icon-contain">
+                <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Equipment') ?>">
                     <?= $this->Html->link(
-                    $this->Html->tag('i', '', ['class' => 'fa fa-briefcase']).$this->Html->tag('div', __('Equipment')),
+                    $this->Html->tag('i', '', ['class' => 'fa fa-briefcase']),
                     ['controller' => 'Roledata', 'action' => 'equipment_item', 'id' => $roledataItem->RoleID],
                     ['escape' => false]); ?>
                 </div>

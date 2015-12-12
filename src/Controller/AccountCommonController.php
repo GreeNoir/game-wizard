@@ -81,7 +81,7 @@ class AccountCommonController extends AppController {
             $accountCommon = $this->AccountCommon->patchEntity($accountCommon, $this->request->data);
             if ($this->AccountCommon->save($accountCommon)) {
                 $this->Flash->success(__('The account common has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'edit', 'id' => $id]);
             } else {
                 $this->Flash->error(__('The account common could not be saved. Please, try again.'));
             }

@@ -89,5 +89,13 @@ class AccountCommonTable extends Table
         return $roledataLists;
     }
 
+    /**
+     * Delete account and all linked roledata
+     * @param $accountID
+     */
+    public function deleteAccount($accountID) {
+
+    }
+
 }
 

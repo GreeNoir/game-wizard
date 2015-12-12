@@ -30,7 +30,7 @@ class EquipmentController extends AppController {
     }
 
     public function addRoledataEquipment() {
-        $conn = ConnectionManager::get('sm_db');
+        $db = ConnectionManager::get('sm_db');
         $this->loadModel('Item');
         $this->loadModel('Equip');
         $this->loadModel('Holyequip');
@@ -50,7 +50,6 @@ class EquipmentController extends AppController {
             ->hydrate(false)
             ->where(['typeID' => $typeID])->first();
 
-        $typeID = $this->Item->getNextTypeID();
         $newSerialNum = $this->Item->getNextSerialNum();
 
         $newItem = $this->Item->newEntity($item);
@@ -65,44 +64,18 @@ class EquipmentController extends AppController {
         $newItem = $this->Item->patchEntity($newItem, $newItem->toArray());
         $this->Item->save($newItem);
 
-        $query = "UPDATE item SET SerialNum='".$newSerialNum."' WHERE TypeID=".$typeID;
-        $conn->query($query);
+        $query = "UPDATE item SET SerialNum='{$newSerialNum}' WHERE SerialNum=0";
+        $db->query($query);
 
-        $linkedEquip = $this->Equip->findSerial($serialNum, false);
-        $linkedHolyequip = $this->Holyequip->findSerial($serialNum, false);
-        $linkedHolyman = $this->Holyman->findSerial($serialNum, false);
-        $linkedSoulcrystal = $this->Soulcrystal->findSerial($serialNum, false);
-
-        if ($linkedEquip) {
-            $newEquip = $this->Equip->newEntity($linkedEquip);
-            $newEquip->set(['SerialNum' => 0]);
-            $this->Equip->save($newEquip);
-            $query = "UPDATE equip SET SerialNum='".$newSerialNum."' WHERE SerialNum=0";
-            $conn->query($query);
-        }
-
-        if ($linkedHolyequip) {
-            $newHolyequip = $this->Holyequip->newEntity($linkedHolyequip);
-            $newHolyequip->set(['SerialNum' => 0]);
-            $this->Holyequip->save($newHolyequip);
-            $query = "UPDATE holyequip SET SerialNum='".$newSerialNum."' WHERE SerialNum=0";
-            $conn->query($query);
-        }
-
-        if ($linkedHolyman) {
-            $newHolyman = $this->Holyman->newEntity($linkedHolyman);
-            $newHolyman->set(['SerialNum' => 0]);
-            $this->Holyman->save($newHolyman);
-            $query = "UPDATE holyman SET SerialNum='".$newSerialNum."' WHERE SerialNum=0";
-            $conn->query($query);
-        }
-
-        if ($linkedSoulcrystal) {
-            $newSoulcrystal = $this->Soulcrystal->newEntity($linkedSoulcrystal);
-            $newSoulcrystal->set(['SerialNum' => 0]);
-            $this->Soulcrystal->save($newSoulcrystal);
-            $query = "UPDATE soulcrystal SET SerialNum='".$newSerialNum."' WHERE SerialNum=0";
-            $conn->query($query);
+        foreach($this->Item->getEquipmentTypes() as $type) {
+            $linkedEquip = $this->{$type}->findSerial($serialNum, false);
+            if ($linkedEquip) {
+                $newEquip = $this->{$type}->newEntity($linkedEquip);
+                $newEquip->set(['SerialNum' => 0]);
+                $this->{$type}->save($newEquip);
+                $query = "UPDATE ".strtolower($type)." SET SerialNum='{$newSerialNum}' WHERE SerialNum=0";
+                $db->query($query);
+            }
         }
 
         echo json_encode(['SerialNum' => $newSerialNum]);

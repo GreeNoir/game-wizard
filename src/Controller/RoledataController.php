@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use App\Model\Table\ItemTable;
 use Cake\Datasource\ConnectionManager;
 
 /**
@@ -12,10 +13,7 @@ use Cake\Datasource\ConnectionManager;
 class RoledataController extends AppController
 {
     public $paginate = array(
-        'limit' => 20,
-        'sortWhitelist' => [
-            'SerialNum', 'TypeID', 'Num', 'EquipType'
-        ]
+        'limit' => 20
     );
 
     /**
@@ -82,7 +80,7 @@ class RoledataController extends AppController
             $roledata = $this->Roledata->patchEntity($roledata, $this->request->data);
             if ($this->Roledata->save($roledata)) {
                 $this->Flash->success(__('The roledata has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'edit', 'id' => $id]);
             } else {
                 $this->Flash->error(__('The roledata could not be saved. Please, try again.'));
             }
@@ -100,9 +98,22 @@ class RoledataController extends AppController
      */
     public function delete($id = null)
     {
+        $this->loadModel('Item');
         $this->request->allowMethod(['post', 'delete']);
+
         $roledata = $this->Roledata->get($id);
         if ($this->Roledata->delete($roledata)) {
+
+            /* список всех вещей привязанных к данному персонажу */
+            $itemList = $this->Item->find()
+                ->select(['TypeID'])
+                ->where(['OwnerID' => $id])
+                ->all();
+
+            foreach($itemList as $item) {
+                $this->Item->deleteItems($item->TypeID);
+            }
+
             $this->Flash->success(__('The roledata has been deleted.'));
         } else {
             $this->Flash->error(__('The roledata could not be deleted. Please, try again.'));
@@ -171,12 +182,13 @@ class RoledataController extends AppController
         $base = $this->request->data('base');
 
         $db = ConnectionManager::get('sm_db');
-        $del = 'DELETE FROM item WHERE TypeID='.$typeID.' AND OwnerID='.$roleID;
+        $del = "DELETE FROM item WHERE SerialNum='{$serialNum}'";
         $db->query($del);
 
-        $del_equip = 'DELETE FROM '.strtolower($type).' WHERE SerialNum='.$serialNum;
-        $db->query($del_equip);
-
+        if ($type != ItemTable::EQUIP_UNDEFINED) {
+            $del_equip = "DELETE FROM ".strtolower($type)." WHERE SerialNum='{$serialNum}'";
+            $db->query($del_equip);
+        }
         return $this->redirect(['action' => 'equipment_'.$base, $roleID]);
     }
 

@@ -133,6 +133,15 @@ div.icon-contain div {
     font-size: 12px;
 }
 
+div.icon-contain-inline {
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.roledata_list td.actions {
+    text-align: center;
+}
+
 .equipment {
     font-size: 12px;
 }
