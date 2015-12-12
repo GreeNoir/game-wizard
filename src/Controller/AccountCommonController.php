@@ -99,9 +99,30 @@ class AccountCommonController extends AppController {
      */
     public function delete($id = null)
     {
+        $this->loadModel('Roledata');
+        $this->loadModel('Item');
         $this->request->allowMethod(['post', 'delete']);
+
         $accountCommon = $this->AccountCommon->get($id);
         if ($this->AccountCommon->delete($accountCommon)) {
+
+            /* список всех вещей привязанных к данному аккаунту */
+            $itemList = $this->Item->find()
+                ->select(['TypeID'])
+                ->where(['AccountID' => $id])
+                ->all();
+
+            foreach($itemList as $item) {
+                $this->Item->deleteItems($item->TypeID);
+            }
+
+            /* список всех персонажей привязанных к данному аккаунту */
+            $roledataList = $this->AccountCommon->getListRoledata($id);
+            foreach($roledataList as $roledataInfo) {
+                $roledata = $this->Roledata->get($roledataInfo->RoleID);
+                $this->Roledata->delete($roledata);
+            }
+
             $this->Flash->success(__('The Account Common has been deleted.'));
         } else {
             $this->Flash->error(__('The Account Common could not be deleted. Please, try again.'));

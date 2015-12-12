@@ -74,7 +74,7 @@ class AccountCommonTable extends Table
 
     public function getListRoledata($AccountID) {
         $result = TableRegistry::get('roledata')->find()
-            ->select(['AccountID', 'RoleID', 'RoleName', 'Sex', 'MapID', 'X', 'Y', 'Z'])
+            ->select(['AccountID', 'RoleID', 'RoleName'])
             ->where(['AccountID' => $AccountID])->toArray();
         return $result;
     }

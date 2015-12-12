@@ -45,8 +45,9 @@
                     <div class="icon-contain"><?= $this->Form->postLink(
                         $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']).$this->Html->tag('div', __('Delete')),
                         ['action' => 'delete', $accountCommon['AccountID']],
-                        ['escape' => false],
-                        ['confirm' => __('Are you sure you want to delete # {0}?', $accountCommon['AccountID'])]) ?></div>
+                        ['escape' => false,
+                         'confirm' => __('Are you sure you want to delete # {0}?', $accountCommon['AccountID'])
+                        ]) ?></div>
                     <div class="icon-contain"><?= $this->Html->link(
                         $this->Html->tag('i', '', ['class' => 'fa fa-eye']).$this->Html->tag('div', __('Monitoring')),
                         ['controller' => 'Account', 'action' => 'edit', $accountCommon['AccountID']],

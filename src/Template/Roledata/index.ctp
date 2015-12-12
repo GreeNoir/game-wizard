@@ -46,8 +46,9 @@
                     <div class="icon-contain"><?= $this->Form->postLink(
                         $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']).$this->Html->tag('div', __('Delete')),
                         ['action' => 'delete', $roledata->RoleID],
-                        ['escape' => false],
-                        ['confirm' => __('Are you sure you want to delete # {0}?', $roledata->RoleID)]) ?></div>
+                        ['escape' => false,
+                         'confirm' => __('Are you sure you want to delete # {0}?', $roledata->RoleID)
+                        ]) ?></div>
                     <div class="icon-contain">
                         <?= $this->Html->link(
                         $this->Html->tag('i', '', ['class' => 'fa fa-briefcase']).$this->Html->tag('div', __('Equipment')),
