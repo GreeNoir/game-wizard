@@ -1,10 +1,11 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?=__('RoledataListEquipmentItem').$id ?></h3>
-    <h4><?=__('AccountName').' - '.$accountName ?></h4>
-    <h4><?=__('RoleName').' - '.$roleName ?></h4>
+    <ul class="breadcrumb">
+        <li><?= $this->Html->link($accountName, ['controller' => 'AccountCommon', 'action' => 'view', $accountID]) ?></li>
+        <li><?= $this->Html->link($roleName, ['action' => 'view', $id]) ?></li>
+        <li class="active"><?= __('Equipment') ?></li>
+    </ul>
+    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('View').__('Roledata'), ['action' => 'view', $id]) ?></li>
-        <li><?= $this->Html->link(__('View').__('AccountCommon'), ['controller' => 'AccountCommon', 'action' => 'view', $accountID]) ?></li>
         <li><?= $this->Html->link(__('Back').__('RoledataList'), ['action' => 'index']) ?></li>
     </ul>
 </div>

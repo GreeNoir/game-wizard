@@ -196,3 +196,7 @@ div.equipment .table {
     color: red;
     font-weight: bold;
 }
+
+div.actions {
+    padding-top: 10px;
+}

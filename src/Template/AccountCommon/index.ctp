@@ -8,8 +8,8 @@
     <table class="table table-condensed table-bordered table-striped">
         <thead>
         <tr>
-            <th class="ids"><?= $this->Paginator->sort('AccountID') ?></th>
-            <th><?= $this->Paginator->sort('AccountName') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('AccountID', 'AccountID') ?></th>
+            <th><?= $this->Paginator->sort('AccountName', 'Name') ?></th>
             <th class="ids"><?= __('LastUseRoleID') ?></th>
             <th><?= __('LastRoleName') ?></th>
             <th><?= __('IP') ?></th>
