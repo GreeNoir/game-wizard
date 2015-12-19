@@ -14,7 +14,7 @@ class RoledataController extends AppController
 {
     public $paginate = [
         'sortWhitelist' => [
-            'account_common.AccountName', 'EquipType'
+            'account_common.AccountName', 'cSerialNum', 'TypeID', 'Num', 'EquipType'
         ],
         'contain' => ['account_common'],
         'limit' => 20
