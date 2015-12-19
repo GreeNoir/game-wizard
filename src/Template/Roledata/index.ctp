@@ -4,35 +4,37 @@
         <li><?= $this->Html->link(__('New').__('Roledata'), ['action' => 'add']) ?></li>
     </ul>
 </div>
-<div class="roledata table-responsive">
+<div class="roledata table-responsive col-lg-11">
     <table class="table table-condensed table-bordered table-striped">
     <thead>
         <tr>
-            <th class="ids"><?= $this->Paginator->sort('AccountID', 'AccountID') ?></th>
             <th class="ids"><?= $this->Paginator->sort('RoleID', 'RoleID') ?></th>
             <th><?= $this->Paginator->sort('RoleName') ?></th>
-            <th><?= $this->Paginator->sort('RoleNameCrc') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('Sex') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('SpeakOff') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('HairModelID') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('AccountID', 'AccountID') ?></th>
+            <th><?= $this->Paginator->sort('account_common.AccountName', 'AccountName') ?></th>
+            <th><?= $this->Paginator->sort('Sex') ?></th>
+            <th><?= $this->Paginator->sort('CreateTime') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
     <tbody>
     <?php foreach ($roledata as $roledata): ?>
         <tr>
+            <td class="ids"><?= $this->Number->format($roledata->RoleID) ?></td>
+            <td><?= h($roledata->RoleName) ?></td>
             <td class="ids">
                 <?php
                     $accountID = $this->Number->format($roledata->AccountID);
-                    echo $this->Html->link($accountID, ['controller' => 'AccountCommon', 'action' => 'view', 'id' => $accountID]);
+                echo $this->Html->link($accountID, ['controller' => 'AccountCommon', 'action' => 'view', 'id' => $accountID]);
                 ?>
             </td>
-            <td class="ids"><?= $this->Number->format($roledata->RoleID) ?></td>
-            <td><?= h($roledata->RoleName) ?></td>
-            <td><?= $this->Number->format($roledata->RoleNameCrc) ?></td>
-            <td class="ids"><?= $this->Number->format($roledata->Sex) ?></td>
-            <td class="ids"><?= $this->Number->format($roledata->SpeakOff) ?></td>
-            <td class="ids"><?= $this->Number->format($roledata->HairModelID) ?></td>
+            <td><?= $roledata->account_common->AccountName ?></td>
+            <td class="ids">
+                <?php
+                if ($roledata->Sex == 0) echo __('Woman');
+                else { echo __('Man'); } ?>
+            </td>
+            <td><?= $roledata->CreateTime ?></td>
             <td class="actions">
                 <div>
                     <div class="icon-contain"><?= $this->Html->link(

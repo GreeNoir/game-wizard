@@ -12,9 +12,13 @@ use Cake\Datasource\ConnectionManager;
  */
 class RoledataController extends AppController
 {
-    public $paginate = array(
+    public $paginate = [
+        'sortWhitelist' => [
+            'account_common.AccountName', 'EquipType'
+        ],
+        'contain' => ['account_common'],
         'limit' => 20
-    );
+    ];
 
     /**
      * Index method

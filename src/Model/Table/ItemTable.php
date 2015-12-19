@@ -37,6 +37,11 @@ class ItemTable extends Table{
 
         $this->table('item');
         $this->primaryKey('SerialNum');
+        $this->belongsTo('account_common', [
+            'className' => 'AccountCommon',
+            'foreignKey' => 'AccountID',
+            'joinType'  => 'INNER'
+        ]);
     }
 
     /**

@@ -32,6 +32,11 @@ class RoledataTable extends Table
         $this->table('roledata');
         $this->displayField('RoleID');
         $this->primaryKey('RoleID');
+        $this->belongsTo('account_common', [
+            'className' => 'AccountCommon',
+            'foreignKey' => 'AccountID',
+            'joinType'  => 'INNER'
+        ]);
 
     }
 

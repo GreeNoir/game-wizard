@@ -26,15 +26,8 @@
                         <?php } ?>
                     </select>
                     <div class="sort_container">
-                        <?php if ($hiddenDirection == 'desc') {
-                                echo $this->Paginator->sort('EquipType',
-                                    '<div class="pointer"><i class="fa fa-sort-alpha-asc"></i></div>',
-                                    ['escape' => false, 'direction' => 'asc']);
-                            } else {
-                                echo $this->Paginator->sort('EquipType',
-                                    '<div class="pointer"><i class="fa fa-sort-alpha-desc"></i></div>',
-                                    ['escape' => false, 'direction' => 'desc']);
-                            }
+                        <?php $hiddenDirection == 'desc' ? $direction = 'asc' : $direction = 'desc';
+                              echo $this->Paginator->sort('EquipType', '<div class="pointer"><i class="fa fa-sort-alpha-asc"></i></div>', ['escape' => false, 'direction' => $direction]);
                         ?>
                     </div>
                 </form>
