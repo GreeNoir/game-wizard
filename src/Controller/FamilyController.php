@@ -106,4 +106,47 @@ class FamilyController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    /**
+     * View FamilySprite method
+     *
+     * @param string|null $id Family Sprite id.
+     * @return void
+     * @throws \Cake\Network\Exception\NotFoundException When record not found.
+     */
+    public function view_sprite($id = null)
+    {
+        $this->loadModel('FamilySprite');
+        $familySprite = $this->FamilySprite->get($id, [
+            'contain' => []
+        ]);
+        $this->set('familySprite', $familySprite);
+        $this->set('_serialize', ['familySprite']);
+    }
+
+    /**
+     * Edit FamilySprite method
+     *
+     * @param string|null $id Family Sprite id.
+     * @return void Redirects on successful edit, renders view otherwise.
+     * @throws \Cake\Network\Exception\NotFoundException When record not found.
+     */
+    public function edit_sprite($id = null)
+    {
+        $this->loadModel('FamilySprite');
+        $familySprite = $this->FamilySprite->get($id, [
+            'contain' => []
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $familySprite = $this->FamilySprite->patchEntity($familySprite, $this->request->data);
+            if ($this->FamilySprite->save($familySprite)) {
+                $this->Flash->success(__('The family sprite has been saved.'));
+                return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('The family sprite could not be saved. Please, try again.'));
+            }
+        }
+        $this->set(compact('familySprite'));
+        $this->set('_serialize', ['familySprite']);
+    }
 }

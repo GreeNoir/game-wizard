@@ -42,6 +42,10 @@
                         ['escape' => false,
                         'confirm' => __('Are you sure you want to delete # {0}?', $family->FamilyID)
                         ]) ?></div>
+                    <div class="icon-contain"><?= $this->Html->link(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-cog']).$this->Html->tag('div', __('Sprite')),
+                        ['action' => 'view_sprite', $family->FamilyID],
+                        ['escape' => false]) ?></div>
                 </div>
             </td>
         </tr>
