@@ -75,3 +75,6 @@ msgstr "Role Name"
 
 msgid "copy_item"
 msgstr "Assign copy of this item to another Roledata"
+
+msgid "FamilyList"
+msgstr "Families"

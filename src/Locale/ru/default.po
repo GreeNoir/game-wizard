@@ -154,3 +154,6 @@ msgstr "Ник персонажа"
 
 msgid "Equipment"
 msgstr "Вещи"
+
+msgid "FamilyList"
+msgstr "Семья"
