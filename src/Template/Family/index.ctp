@@ -46,6 +46,10 @@
                         $this->Html->tag('i', '', ['class' => 'fa fa-cog']).$this->Html->tag('div', __('Sprite')),
                         ['action' => 'view_sprite', $family->FamilyID],
                         ['escape' => false]) ?></div>
+                    <div class="icon-contain"><?= $this->Html->link(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-users']).$this->Html->tag('div', __('Members')),
+                        ['action' => 'members', $family->FamilyID],
+                        ['escape' => false]) ?></div>
                 </div>
             </td>
         </tr>

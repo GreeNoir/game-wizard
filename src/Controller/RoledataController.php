@@ -14,7 +14,7 @@ class RoledataController extends AppController
 {
     public $paginate = [
         'sortWhitelist' => [
-            'account_common.AccountName', 'cSerialNum', 'TypeID', 'Num', 'EquipType'
+            'account_common.AccountName', 'cSerialNum', 'TypeID', 'Num', 'EquipType', 'FamilyName'
         ],
         'contain' => ['account_common'],
         'limit' => 20
@@ -27,7 +27,7 @@ class RoledataController extends AppController
      */
     public function index()
     {
-        $this->set('roledata', $this->paginate($this->Roledata));
+        $this->set('roledata', $this->paginate($this->Roledata->getList()));
         $this->set('_serialize', ['roledata']);
     }
 

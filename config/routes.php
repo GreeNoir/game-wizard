@@ -88,5 +88,6 @@ Router::connect('/:lang/:controller/find', ['action' => 'find']);
 Router::connect('/:lang/:controller/addRoledataEquipment', ['action' => 'addRoledataEquipment']);
 Router::connect('/:lang/:controller/view_sprite/:id', ['action' => 'view_sprite'], ['id' => '\d+', 'pass' => ['id']]);
 Router::connect('/:lang/:controller/edit_sprite/:id', ['action' => 'edit_sprite'], ['id' => '\d+', 'pass' => ['id']]);
+Router::connect('/:lang/:controller/members/:id', ['action' => 'members'], ['id' => '\d+', 'pass' => ['id']]);
 
 Plugin::routes();

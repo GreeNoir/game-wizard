@@ -12,6 +12,7 @@
             <th><?= $this->Paginator->sort('RoleName') ?></th>
             <th class="ids"><?= $this->Paginator->sort('AccountID', 'AccountID') ?></th>
             <th><?= $this->Paginator->sort('account_common.AccountName', 'AccountName') ?></th>
+            <th><?= $this->Paginator->sort('FamilyName') ?></th>
             <th><?= $this->Paginator->sort('Sex') ?></th>
             <th><?= $this->Paginator->sort('CreateTime') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
@@ -28,9 +29,15 @@
                 echo $this->Html->link($accountID, ['controller' => 'AccountCommon', 'action' => 'view', 'id' => $accountID]);
                 ?>
             </td>
-            <td><?= $roledata->account_common->AccountName ?></td>
-            <td class="ids">
-                <?php
+            <td><?= $roledata->AccountName ?></td>
+            <td><?php
+                if ($roledata->FamilyName != 'undefined') {
+                    echo $this->Html->link($roledata->FamilyName, ['controller' => 'Family', 'action' => 'view', 'id' => $roledata->FamilyID]);
+                } else {
+                    echo '';
+                } ?>
+            </td>
+            <td><?php
                 if ($roledata->Sex == 0) echo __('Woman');
                 else { echo __('Man'); } ?>
             </td>

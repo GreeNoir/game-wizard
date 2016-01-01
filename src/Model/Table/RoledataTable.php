@@ -37,7 +37,6 @@ class RoledataTable extends Table
             'foreignKey' => 'AccountID',
             'joinType'  => 'INNER'
         ]);
-
     }
 
     /**
@@ -927,6 +926,35 @@ class RoledataTable extends Table
             ->notEmpty('role_eei_all');
 
         return $validator;
+    }
+
+    public function getList() {
+        $roledata = TableRegistry::get('roledata');
+        $query = $roledata->find()
+            ->select(['RoleID', 'RoleName', 'AccountID', 'AccountName' => 'a.AccountName', 'FamilyID' => 'f.FamilyID', 'FamilyName' => 'IFNULL(f.FamilyName, "undefined")', 'Sex', 'CreateTime'])
+            ->join([
+                'a' => [
+                    'table' => 'account_common',
+                    'conditions' => [
+                        'a.AccountID = roledata.AccountID',
+                    ]
+                ],
+                'fm' => [
+                    'table' => 'family_member',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'fm.RoleID = roledata.RoleID'
+                    ]
+                ],
+                'f' => [
+                    'table' => 'family',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'fm.FamilyID = f.FamilyID'
+                    ]
+                ]
+            ]);
+        return $query;
     }
 
     public function getRoledataInfo($roleID) {

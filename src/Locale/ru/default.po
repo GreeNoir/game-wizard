@@ -156,4 +156,7 @@ msgid "Equipment"
 msgstr "Снаряжение"
 
 msgid "FamilyList"
-msgstr "Семья"
+msgstr "Семьи"
+
+msgid "Sprite"
+msgstr "Эльф"

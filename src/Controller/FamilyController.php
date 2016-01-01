@@ -149,4 +149,15 @@ class FamilyController extends AppController
         $this->set(compact('familySprite'));
         $this->set('_serialize', ['familySprite']);
     }
+
+    /**
+     * Family members list
+     * @param $familyID
+     */
+    public function members($familyID) {
+        $this->loadModel('FamilyMember');
+        $this->set('familyID', $familyID);
+        $this->set('membersCount', $this->FamilyMember->find()->contain(['roledata'])->where(['FamilyMember.FamilyID' => $familyID])->count());
+        $this->set('membersList', $this->FamilyMember->find()->contain(['roledata'])->where(['FamilyMember.FamilyID' => $familyID]));
+    }
 }
