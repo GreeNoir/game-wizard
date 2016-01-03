@@ -8,6 +8,9 @@
         <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New').__('Roledata'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('Equipment'), ['action' => 'equipment_item', $roledata->RoleID]) ?></li>
+        <?php if ($roledata->FamilyName != 'undefined'): ?>
+            <li><?= $this->Html->link(__('Family').' "'.$roledata->FamilyName.'"', ['controller' => 'Family', 'action' => 'view', 'id' => $roledata->FamilyID]) ?></li>
+        <?php endif; ?>
     </ul>
 </div>
 

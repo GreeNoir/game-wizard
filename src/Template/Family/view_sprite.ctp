@@ -5,58 +5,96 @@
         <li><?= $this->Html->link(__('ListOfFamily'), ['action' => 'index']) ?> </li>
     </ul>
 </div>
-<div class="familySprite view large-10 medium-9 columns">
-    <h2><?= h($familySprite->FamilyID) ?></h2>
+<div class="familySprite view columns">
+    <h2>ID#<?= h($familySprite->FamilyID) ?></h2>
     <div class="row">
-        <div class="large-5 columns strings">
-            <h6 class="subheader"><?= __('Name') ?></h6>
-            <p><?= h($familySprite->Name) ?></p>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Name') ?></div>
+            <div class="col-sm-3"><?= h($familySprite->Name) ?></div>
         </div>
-        <div class="large-2 columns numbers end">
-            <h6 class="subheader"><?= __('FamilyID') ?></h6>
-            <p><?= $this->Number->format($familySprite->FamilyID) ?></p>
-            <h6 class="subheader"><?= __('Level') ?></h6>
-            <p><?= $this->Number->format($familySprite->Level) ?></p>
-            <h6 class="subheader"><?= __('Exp') ?></h6>
-            <p><?= $this->Number->format($familySprite->Exp) ?></p>
-            <h6 class="subheader"><?= __('HP') ?></h6>
-            <p><?= $this->Number->format($familySprite->HP) ?></p>
-            <h6 class="subheader"><?= __('EXAttack') ?></h6>
-            <p><?= $this->Number->format($familySprite->EXAttack) ?></p>
-            <h6 class="subheader"><?= __('InAttack') ?></h6>
-            <p><?= $this->Number->format($familySprite->InAttack) ?></p>
-            <h6 class="subheader"><?= __('EXDefense') ?></h6>
-            <p><?= $this->Number->format($familySprite->EXDefense) ?></p>
-            <h6 class="subheader"><?= __('InDefense') ?></h6>
-            <p><?= $this->Number->format($familySprite->InDefense) ?></p>
-            <h6 class="subheader"><?= __('EXAttackDeeper') ?></h6>
-            <p><?= $this->Number->format($familySprite->EXAttackDeeper) ?></p>
-            <h6 class="subheader"><?= __('InAttackDeeper') ?></h6>
-            <p><?= $this->Number->format($familySprite->InAttackDeeper) ?></p>
-            <h6 class="subheader"><?= __('EXAttackResistance') ?></h6>
-            <p><?= $this->Number->format($familySprite->EXAttackResistance) ?></p>
-            <h6 class="subheader"><?= __('InAttackResistance') ?></h6>
-            <p><?= $this->Number->format($familySprite->InAttackResistance) ?></p>
-            <h6 class="subheader"><?= __('Toughness') ?></h6>
-            <p><?= $this->Number->format($familySprite->Toughness) ?></p>
-            <h6 class="subheader"><?= __('CritDes') ?></h6>
-            <p><?= $this->Number->format($familySprite->CritDes) ?></p>
-            <h6 class="subheader"><?= __('ControleffectDeepen') ?></h6>
-            <p><?= $this->Number->format($familySprite->ControleffectDeepen) ?></p>
-            <h6 class="subheader"><?= __('ControleffectResistance') ?></h6>
-            <p><?= $this->Number->format($familySprite->ControleffectResistance) ?></p>
-            <h6 class="subheader"><?= __('SlowingeffectDeepen') ?></h6>
-            <p><?= $this->Number->format($familySprite->SlowingeffectDeepen) ?></p>
-            <h6 class="subheader"><?= __('SlowingeffectResistance') ?></h6>
-            <p><?= $this->Number->format($familySprite->SlowingeffectResistance) ?></p>
-            <h6 class="subheader"><?= __('FixedeffectDeepen') ?></h6>
-            <p><?= $this->Number->format($familySprite->FixedeffectDeepen) ?></p>
-            <h6 class="subheader"><?= __('FixedeffectResistance') ?></h6>
-            <p><?= $this->Number->format($familySprite->FixedeffectResistance) ?></p>
-            <h6 class="subheader"><?= __('AgingeffectDeepen') ?></h6>
-            <p><?= $this->Number->format($familySprite->AgingeffectDeepen) ?></p>
-            <h6 class="subheader"><?= __('AgingeffectResistance') ?></h6>
-            <p><?= $this->Number->format($familySprite->AgingeffectResistance) ?></p>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Level') ?></div>
+            <div class="col-sm-3"><?= $familySprite->Level ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Exp') ?></div>
+            <div class="col-sm-3"><?= $familySprite->Exp ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('HP') ?></div>
+            <div class="col-sm-3"><?= $familySprite->HP ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('EXAttack') ?></div>
+            <div class="col-sm-3"><?= $familySprite->EXAttack ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('InAttack') ?></div>
+            <div class="col-sm-3"><?= $familySprite->InAttack ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('EXDefense') ?></div>
+            <div class="col-sm-3"><?= $familySprite->EXDefense ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('InDefense') ?></div>
+            <div class="col-sm-3"><?= $familySprite->InDefense ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('EXAttackDeeper') ?></div>
+            <div class="col-sm-3"><?= $familySprite->EXAttackDeeper ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('InAttackDeeper') ?></div>
+            <div class="col-sm-3"><?= $familySprite->InAttackDeeper ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('EXAttackResistance') ?></div>
+            <div class="col-sm-3"><?= $familySprite->EXAttackResistance ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('InAttackResistance') ?></div>
+            <div class="col-sm-3"><?= $familySprite->InAttackResistance ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Toughness') ?></div>
+            <div class="col-sm-3"><?= $familySprite->Toughness ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('CritDes') ?></div>
+            <div class="col-sm-3"><?= $familySprite->CritDes ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('ControleffectDeepen') ?></div>
+            <div class="col-sm-3"><?= $familySprite->ControleffectDeepen ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('ControleffectResistance') ?></div>
+            <div class="col-sm-3"><?= $familySprite->ControleffectResistance ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('SlowingeffectDeepen') ?></div>
+            <div class="col-sm-3"><?= $familySprite->SlowingeffectDeepen ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('SlowingeffectResistance') ?></div>
+            <div class="col-sm-3"><?= $familySprite->SlowingeffectResistance ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('FixedeffectDeepen') ?></div>
+            <div class="col-sm-3"><?= $familySprite->FixedeffectDeepen ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('FixedeffectResistance') ?></div>
+            <div class="col-sm-3"><?= $familySprite->FixedeffectResistance ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('AgingeffectDeepen') ?></div>
+            <div class="col-sm-3"><?= $familySprite->AgingeffectDeepen ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('AgingeffectResistance') ?></div>
+            <div class="col-sm-3"><?= $familySprite->AgingeffectResistance ?></div>
         </div>
     </div>
 </div>

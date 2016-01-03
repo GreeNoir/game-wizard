@@ -47,6 +47,5 @@
                 <div class="col-sm-2 subheader"><?= __('LastUseRoleID') ?></div>
                 <div class="col-sm-3"><?= h($accountCommon->LastUseRoleID) ?></div>
             </div>
-        </div>
     </div>
 </div>

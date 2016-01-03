@@ -79,7 +79,7 @@ class FamilyController extends AppController
             $family = $this->Family->patchEntity($family, $this->request->data);
             if ($this->Family->save($family)) {
                 $this->Flash->success(__('The family has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'edit', 'id' => $id]);
             } else {
                 $this->Flash->error(__('The family could not be saved. Please, try again.'));
             }
@@ -141,7 +141,7 @@ class FamilyController extends AppController
             $familySprite = $this->FamilySprite->patchEntity($familySprite, $this->request->data);
             if ($this->FamilySprite->save($familySprite)) {
                 $this->Flash->success(__('The family sprite has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'edit_sprite', 'id' => $id]);
             } else {
                 $this->Flash->error(__('The family sprite could not be saved. Please, try again.'));
             }

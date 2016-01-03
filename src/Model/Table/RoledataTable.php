@@ -957,6 +957,37 @@ class RoledataTable extends Table
         return $query;
     }
 
+    public function getRoledata($roleID) {
+        $roledata = TableRegistry::get('roledata');
+        $result = $roledata->find()
+            ->select(['FamilyID' => 'f.FamilyID', 'FamilyName' => 'IFNULL(f.FamilyName, "undefined")'])
+            ->autoFields(true)
+            ->join([
+                'a' => [
+                    'table' => 'account_common',
+                    'conditions' => [
+                        'a.AccountID = roledata.AccountID',
+                    ]
+                ],
+                'fm' => [
+                    'table' => 'family_member',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'fm.RoleID = roledata.RoleID'
+                    ]
+                ],
+                'f' => [
+                    'table' => 'family',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'fm.FamilyID = f.FamilyID'
+                    ]
+                ]
+            ])
+            ->where(['roledata.RoleID' => $roleID])->first();
+        return $result;
+    }
+
     public function getRoledataInfo($roleID) {
         $roledata = TableRegistry::get('roledata');
         $result = $roledata->find()

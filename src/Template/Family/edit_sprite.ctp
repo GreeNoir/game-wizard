@@ -4,35 +4,37 @@
         <li><?= $this->Html->link(__('ListOfFamily'), ['action' => 'index']) ?></li>
     </ul>
 </div>
-<div class="familySprite form large-10 medium-9 columns">
+<div class="familySprite form">
     <?= $this->Form->create($familySprite) ?>
-    <fieldset>
-        <legend><?= __('Edit Family Sprite') ?></legend>
-        <?php
-            echo $this->Form->input('Level');
-            echo $this->Form->input('Exp');
-            echo $this->Form->input('Name');
-            echo $this->Form->input('HP');
-            echo $this->Form->input('EXAttack');
-            echo $this->Form->input('InAttack');
-            echo $this->Form->input('EXDefense');
-            echo $this->Form->input('InDefense');
-            echo $this->Form->input('EXAttackDeeper');
-            echo $this->Form->input('InAttackDeeper');
-            echo $this->Form->input('EXAttackResistance');
-            echo $this->Form->input('InAttackResistance');
-            echo $this->Form->input('Toughness');
-            echo $this->Form->input('CritDes');
-            echo $this->Form->input('ControleffectDeepen');
-            echo $this->Form->input('ControleffectResistance');
-            echo $this->Form->input('SlowingeffectDeepen');
-            echo $this->Form->input('SlowingeffectResistance');
-            echo $this->Form->input('FixedeffectDeepen');
-            echo $this->Form->input('FixedeffectResistance');
-            echo $this->Form->input('AgingeffectDeepen');
-            echo $this->Form->input('AgingeffectResistance');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <legend><?= __('Edit Family Sprite') ?><div class="id">ID#<?= $familySprite->FamilyID ?></div></legend>
+
+    <?= $this->Form->input('Level', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('Exp', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('Name', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('HP', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('EXAttack', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('InAttack', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('EXDefense', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('InDefense', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('EXAttackDeeper', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('InAttackDeeper', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('EXAttackResistance', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('InAttackResistance', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('Toughness', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('CritDes', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('ControleffectDeepen', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('ControleffectResistance', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('SlowingeffectDeepen', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('SlowingeffectResistance', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('FixedeffectDeepen', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('FixedeffectResistance', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('AgingeffectDeepen', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('AgingeffectResistance', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10 voofset10">
+            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+        </div>
+    </div>
     <?= $this->Form->end() ?>
 </div>

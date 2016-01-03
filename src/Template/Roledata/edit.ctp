@@ -9,6 +9,9 @@
         ?></li>
         <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Equipment'), ['action' => 'equipment_item', $roledata->RoleID]) ?></li>
+        <?php if ($roledata->FamilyName != 'undefined'): ?>
+            <li><?= $this->Html->link(__('Family').' "'.$roledata->FamilyName.'"', ['controller' => 'Family', 'action' => 'edit', 'id' => $roledata->FamilyID]) ?></li>
+        <?php endif; ?>
     </ul>
 </div>
 <legend><?= __('Edit Roledata') ?><div class="id">ID#<?= $roledata->RoleID ?></div></legend>

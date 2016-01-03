@@ -40,9 +40,7 @@ class RoledataController extends AppController
      */
     public function view($id = null)
     {
-        $roledata = $this->Roledata->get($id, [
-            'contain' => []
-        ]);
+        $roledata = $this->Roledata->getRoledata($id);
         $this->set('roledata', $roledata);
         $this->set('_serialize', ['roledata']);
     }
@@ -77,9 +75,7 @@ class RoledataController extends AppController
      */
     public function edit($id = null)
     {
-        $roledata = $this->Roledata->get($id, [
-            'contain' => []
-        ]);
+        $roledata = $this->Roledata->getRoledata($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $roledata = $this->Roledata->patchEntity($roledata, $this->request->data);
             if ($this->Roledata->save($roledata)) {

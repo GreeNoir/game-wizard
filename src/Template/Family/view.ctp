@@ -7,26 +7,32 @@
         <li><?= $this->Html->link(__('New Family'), ['action' => 'add']) ?> </li>
     </ul>
 </div>
-<div class="family view large-10 medium-9 columns">
-    <h2><?= h($family->FamilyID) ?></h2>
+<div class="family view columns">
+    <h2>ID#<?= h($family->FamilyID) ?></h2>
     <div class="row">
-        <div class="large-5 columns strings">
-            <h6 class="subheader"><?= __('FamilyName') ?></h6>
-            <p><?= h($family->FamilyName) ?></p>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('FamilyName') ?></div>
+            <div class="col-sm-3"><?= h($family->FamilyName) ?></div>
         </div>
-        <div class="large-2 columns numbers end">
-            <h6 class="subheader"><?= __('FamilyID') ?></h6>
-            <p><?= $this->Number->format($family->FamilyID) ?></p>
-            <h6 class="subheader"><?= __('LeaderID') ?></h6>
-            <p><?= $this->Number->format($family->LeaderID) ?></p>
-            <h6 class="subheader"><?= __('FounderID') ?></h6>
-            <p><?= $this->Number->format($family->FounderID) ?></p>
-            <h6 class="subheader"><?= __('Active') ?></h6>
-            <p><?= $this->Number->format($family->Active) ?></p>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('FamilyID') ?></div>
+            <div class="col-sm-3"><?= $family->FamilyID ?></div>
         </div>
-        <div class="large-2 columns dates end">
-            <h6 class="subheader"><?= __('CreateTime') ?></h6>
-            <p><?= h($family->CreateTime) ?></p>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('LeaderID') ?></div>
+            <div class="col-sm-3"><?= $family->LeaderID ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('FounderID') ?></div>
+            <div class="col-sm-3"><?= $family->FounderID ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Active') ?></div>
+            <div class="col-sm-3"><?= $family->Active ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('CreateTime') ?></div>
+            <div class="col-sm-3"><?= h($family->CreateTime) ?></div>
         </div>
     </div>
 </div>
