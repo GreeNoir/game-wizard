@@ -77,7 +77,7 @@ function initEquipment(roledataAccountsList) {
 
     $('select[name=account]').change(function(){
         initAccountRoledataList($(this).val(), roledataAccountsList);
-    })
+    });
 }
 
 function initAccountRoledataList(accountID, roledataAccountsList) {
@@ -107,4 +107,13 @@ function addEquipment() {
             window.location.reload();
         }
     });
+}
+
+function initMembers(roledataAccountsList) {
+    $('select[name=account]').change(function(){
+        initAccountRoledataList($(this).val(), roledataAccountsList);
+    });
+}
+
+function addMembers() {
 }

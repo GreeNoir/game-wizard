@@ -99,19 +99,30 @@ class RoledataController extends AppController
     public function delete($id = null)
     {
         $this->loadModel('Item');
+        $this->loadModel('FamilyMember');
         $this->request->allowMethod(['post', 'delete']);
 
         $roledata = $this->Roledata->get($id);
         if ($this->Roledata->delete($roledata)) {
 
-            /* список всех вещей привязанных к данному персонажу */
+            /* список всех вещей привязанных к персонажу */
             $itemList = $this->Item->find()
                 ->select(['TypeID'])
                 ->where(['OwnerID' => $id])
                 ->all();
 
-            foreach($itemList as $item) {
+            foreach((array)$itemList as $item) {
                 $this->Item->deleteItems($item->TypeID);
+            }
+
+            /* список семей, привязанных к персонажу */
+            $familyList = $this->FamilyMember->find()
+                ->select(['RoleID', 'FamilyID'])
+                ->where(['RoleID' => $id])
+                ->all();
+
+            foreach((array)$familyList as $member) {
+                $this->FamilyMember->deleteMember($member->RoleID, $member->FamilyID);
             }
 
             $this->Flash->success(__('The roledata has been deleted.'));

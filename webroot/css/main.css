@@ -169,12 +169,15 @@ div.equipment .table {
     width: 150px;
 }
 
-.equip td.actions {
+td.actions {
     text-align: center;
+}
+
+.equip td.actions {
     font-size: 20px;
 }
 
-.equip td.actions .action {
+td.actions .action {
     margin: 0 2px;
     display: inline-block;
 }
@@ -186,6 +189,10 @@ div.equipment .table {
 
 .pointer {
     cursor: pointer;
+}
+
+.modal-header {
+    text-align: center;
 }
 
 .modal-backdrop {

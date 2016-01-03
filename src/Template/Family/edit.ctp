@@ -8,6 +8,8 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Family'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Sprite'), ['action' => 'edit_sprite', $family->FamilyID]) ?></li>
+        <li><?= $this->Html->link(__('Members'), ['action' => 'members', $family->FamilyID]) ?></li>
     </ul>
 </div>
 <div class="family form">

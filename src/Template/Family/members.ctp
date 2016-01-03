@@ -2,6 +2,7 @@
     <h3><?=__('FamilyMemberList').$familyID ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Back').__('ListOfFamily'), ['action' => 'index']) ?></li>
+        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#member_add"><?= __('AddMembers') ?></a></li>
     </ul>
 </div>
 <?php if ($membersCount > 0): ?>
@@ -12,6 +13,7 @@
             <th>Role ID</th>
             <th>RoleName</th>
             <th class="actions"><?= __('Additionally') ?></th>
+            <th class="actions"><?= __('Actions') ?></th>
         </tr>
         </thead>
         <tbody>
@@ -37,6 +39,17 @@
                     ['escape' => false]); ?>
                 </div>
             </td>
+            <td class="actions">
+                <div class="action" data-toggle="tooltip" title="<?= __('delete_member') ?>">
+                    <?= $this->Form->postLink(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-minus-circle']),
+                    ['action' => 'del_member'],
+                    ['escape' => false,
+                    'data' => ['roleID' => $memberItem->RoleID, 'familyID' => $memberItem->FamilyID],
+                    'confirm' => __('Are you sure you want to delete member #{0} from this family?', $memberItem->RoleID)
+                    ]) ?>
+                </div>
+            </td>
         </tr>
         <?php endforeach; ?>
         </tbody>
@@ -45,3 +58,5 @@
 <?php else: ?>
 <div>No records found</div>
 <?php endif; ?>
+
+<?= $this->element('Family/member_add_dialog'); ?>

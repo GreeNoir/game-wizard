@@ -5,6 +5,8 @@
         <li><?= $this->Form->postLink(__('Delete Family'), ['action' => 'delete', $family->FamilyID], ['confirm' => __('Are you sure you want to delete # {0}?', $family->FamilyID)]) ?> </li>
         <li><?= $this->Html->link(__('List Family'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Family'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Sprite'), ['action' => 'view_sprite', $family->FamilyID]) ?></li>
+        <li><?= $this->Html->link(__('Members'), ['action' => 'members', $family->FamilyID]) ?></li>
     </ul>
 </div>
 <div class="family view columns">

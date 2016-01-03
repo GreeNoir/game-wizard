@@ -221,7 +221,7 @@ class ItemTable extends Table{
             ->select(['cSerialNum' => 'CONVERT (SerialNum, CHAR)'])
             ->where(['TypeID' => $typeID])->all();
 
-        foreach($itemList as $itemInfo) {
+        foreach((array)$itemList as $itemInfo) {
             $itemSerialNum = $itemInfo->cSerialNum;
             foreach($this->getEquipmentTypes() as $type) {
                 $table = strtolower($type);

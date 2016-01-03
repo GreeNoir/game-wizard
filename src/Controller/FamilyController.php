@@ -155,9 +155,25 @@ class FamilyController extends AppController
      * @param $familyID
      */
     public function members($familyID) {
+        $family = $this->Family->get($familyID);
+        $this->loadModel('AccountCommon');
+        $this->loadModel('Roledata');
         $this->loadModel('FamilyMember');
         $this->set('familyID', $familyID);
+        $this->set('familyName', $family->FamilyName);
         $this->set('membersCount', $this->FamilyMember->find()->contain(['roledata'])->where(['FamilyMember.FamilyID' => $familyID])->count());
         $this->set('membersList', $this->FamilyMember->find()->contain(['roledata'])->where(['FamilyMember.FamilyID' => $familyID]));
+        $this->set('accountCommonList', $this->AccountCommon->find()->order(['AccountName']));
+        $this->set('roledataAccountsList', json_encode($this->AccountCommon->getListRoledataAccounts()));
+    }
+
+    public function del_member() {
+        $this->request->allowMethod(['post', 'delete']);
+        $this->autoRender = false;
+        $this->loadModel('FamilyMember');
+        $roleID = $this->request->data('roleID');
+        $familyID = $this->request->data('familyID');
+        $this->FamilyMember->deleteMember($roleID, $familyID);
+        return $this->redirect(['action' => 'members', $familyID]);
     }
 }
