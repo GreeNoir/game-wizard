@@ -6,7 +6,7 @@
                 <h4 class="modal-title"><?= __('Select Account and Roledata to assign Family "'.$familyName.'"') ?></h4>
             </div>
             <form class="form-horizontal" role="form">
-                <input type="hidden" name="familyID" value="">
+                <input type="hidden" name="familyID" value="<?= $familyID ?>">
                 <input type="hidden" name="empty_option" value="<?= __('please_select') ?>">
                 <div class="modal-body">
                     <div class="form-group">

@@ -116,4 +116,23 @@ function initMembers(roledataAccountsList) {
 }
 
 function addMembers() {
+    var familyID = $('input[name=familyID]').val();
+    var roleID = $('select[name=roledata]').val();
+    if (roleID == 0) {
+        alert('Please select roledata to assign!');
+        return;
+    }
+    var select_lang = $('select[name="language"] option:selected').val();
+    $.post('/' + select_lang + '/Family/addFamilyMember', {familyID: familyID, roleID: roleID}, function(result) {
+        if (result == 1) {
+            alert('Member already in family'); return;
+        }
+        if (result == 2) {
+            alert('Family is full. Cannot add members'); return;
+        }
+        if (result == 0) {
+            window.location.reload();
+        }
+
+    });
 }

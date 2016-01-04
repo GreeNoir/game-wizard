@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Table;
 
+use App\Controller\EquipmentController;
 use App\Model\Entity\FamilyMember;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
@@ -14,6 +15,8 @@ use Cake\ORM\TableRegistry;
  */
 class FamilyMemberTable extends Table
 {
+
+    const MAX_FAMILY_MEMBERS = 12;
 
     public static function defaultConnectionName() {
         return 'sm_db';
@@ -51,6 +54,41 @@ class FamilyMemberTable extends Table
         $query =  TableRegistry::get('family_member')->query();
         $query->delete()
             ->where(['RoleID' => $roleID, 'FamilyID' => $familyID])
+            ->execute();
+    }
+
+    public function memberExists($roleID, $familyID) {
+        $familyMember = TableRegistry::get('family_member');
+        $check = $familyMember->find()
+            ->where(['RoleID' => $roleID, 'FamilyID' => $familyID])->first();
+        if ($check) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function membersCount($familyID) {
+        $familyMember = TableRegistry::get('family_member');
+        $result = $familyMember->find()
+            ->select(['count' => 'COUNT(*)'])
+            ->where(['FamilyID' => $familyID])->first();
+        return $result->count;
+    }
+
+    /**
+     * Add member to family
+     * @param $roleID
+     * @param $familyID
+     */
+    public function addMember($roleID, $familyID) {
+        $query =  TableRegistry::get('family_member')->query();
+        $query->insert(['RoleID', 'FamilyID', 'JoinTime'])
+            ->values([
+                'RoleID' => $roleID,
+                'FamilyID' => $familyID,
+                'JoinTime' => EquipmentController::getTimeNow()
+            ])
             ->execute();
     }
 }

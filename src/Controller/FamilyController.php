@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use App\Model\Table\FamilyMemberTable;
 
 /**
  * Family Controller
@@ -175,5 +176,22 @@ class FamilyController extends AppController
         $familyID = $this->request->data('familyID');
         $this->FamilyMember->deleteMember($roleID, $familyID);
         return $this->redirect(['action' => 'members', $familyID]);
+    }
+
+    public function addFamilyMember() {
+        $this->request->allowMethod(['post', 'patch']);
+        $this->autoRender = false;
+        $code = 0;
+        $familyID = $this->request->data['familyID'];
+        $roleID = $this->request->data['roleID'];
+        $this->loadModel('FamilyMember');
+        if ($this->FamilyMember->memberExists($roleID, $familyID)) {
+            $code = 1;
+        } elseif ($this->FamilyMember->membersCount($familyID) >= FamilyMemberTable::MAX_FAMILY_MEMBERS) {
+            $code = 2;
+        } else {
+            $this->FamilyMember->addMember($roleID, $familyID);
+        }
+        echo $code;
     }
 }

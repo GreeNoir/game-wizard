@@ -81,7 +81,7 @@ class EquipmentController extends AppController {
         echo json_encode(['SerialNum' => $newSerialNum]);
     }
 
-    private function getTimeNow() {
+    public static function getTimeNow() {
         $conn = ConnectionManager::get('sm_db');
         $result = $conn->query('select now()')->fetch();
         return $result[0];
