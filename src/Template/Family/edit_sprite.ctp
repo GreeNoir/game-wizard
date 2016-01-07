@@ -32,7 +32,7 @@
     <?= $this->Form->input('AgingeffectResistance', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]); ?>
 
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10 voofset10">
+        <div class="col-sm-offset-3 col-sm-10 voofset10">
             <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
         </div>
     </div>

@@ -2,6 +2,7 @@
 namespace App\Model\Table;
 
 use App\Model\Entity\Family;
+use Cake\Form\Schema;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -31,7 +32,7 @@ class FamilyTable extends Table
         $this->table('family');
         $this->displayField('FamilyID');
         $this->primaryKey('FamilyID');
-
+        $this->schema()->columnType('FamilyID', 'float');
     }
 
     /**

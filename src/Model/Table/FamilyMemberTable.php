@@ -33,6 +33,7 @@ class FamilyMemberTable extends Table
         parent::initialize($config);
 
         $this->table('family_member');
+        $this->schema()->columnType('FamilyID', 'float');
         $this->belongsTo('roledata', [
             'className' => 'Roledata',
             'foreignKey' => 'RoleID',

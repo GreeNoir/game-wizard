@@ -1,8 +1,17 @@
 <div class="actions columns large-2 medium-3">
     <h3><?=__('FamilyMemberList').$familyID ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Back').__('ListOfFamily'), ['action' => 'index']) ?></li>
-        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#member_add"><?= __('AddMembers') ?></a></li>
+        <li><?= $this->Html->link(__('ListFamily'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('View'), ['action' => 'view', 'id' => $familyID]) ?></li>
+        <li><?= $this->Html->link(__('Edit'), ['action' => 'edit', 'id' => $familyID]) ?></li>
+        <li><?= $this->Form->postLink(
+            __('Delete'),
+            ['action' => 'delete', $familyID],
+            ['confirm' => __('Are you sure you want to delete # {0}?', $familyID)]
+            )
+            ?></li>
+        <li><?= $this->Html->link(__('Sprite'), ['action' => 'view_sprite', 'id' => $familyID]) ?></li>
+        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#member_add"><?= __('AddMember') ?></a></li>
     </ul>
 </div>
 <?php if ($membersCount > 0): ?>

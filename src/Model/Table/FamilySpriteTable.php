@@ -31,7 +31,7 @@ class FamilySpriteTable extends Table
         $this->table('family_sprite');
         $this->displayField('FamilyID');
         $this->primaryKey('FamilyID');
-
+        $this->schema()->columnType('FamilyID', 'float');
     }
 
     /**
