@@ -6,16 +6,16 @@
 </div>
 <div class="family form large-10 medium-9 columns">
     <?= $this->Form->create($family) ?>
-    <fieldset>
-        <legend><?= __('Add Family') ?></legend>
-        <?php
-            echo $this->Form->input('FamilyName');
-            echo $this->Form->input('LeaderID');
-            echo $this->Form->input('FounderID');
-            echo $this->Form->input('Active');
-            echo $this->Form->input('CreateTime');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <legend><?= __('Add Family') ?></legend>
+    <?= $this->Form->input('FamilyName', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('LeaderID', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('FounderID', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('Active', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('CreateTime', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10 voofset10">
+            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+        </div>
+    </div>
     <?= $this->Form->end() ?>
 </div>

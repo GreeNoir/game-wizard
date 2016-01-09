@@ -56,8 +56,9 @@ class RoledataController extends AppController
         if ($this->request->is('post')) {
             $roledata = $this->Roledata->patchEntity($roledata, $this->request->data);
             if ($this->Roledata->save($roledata)) {
+                $roleID = $roledata->RoleID;
                 $this->Flash->success(__('The roledata has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'edit', $roleID]);
             } else {
                 $this->Flash->error(__('The roledata could not be saved. Please, try again.'));
             }

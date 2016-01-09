@@ -54,8 +54,9 @@ class FamilyController extends AppController
         if ($this->request->is('post')) {
             $family = $this->Family->patchEntity($family, $this->request->data);
             if ($this->Family->save($family)) {
+                $familyID = $family->FamilyID;
                 $this->Flash->success(__('The family has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'edit', $familyID]);
             } else {
                 $this->Flash->error(__('The family could not be saved. Please, try again.'));
             }
