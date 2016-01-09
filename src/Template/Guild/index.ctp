@@ -6,17 +6,15 @@
         <li><?= $this->Html->link(__('New City'), ['controller' => 'City', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Skill'), ['controller' => 'Skill', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Skill'), ['controller' => 'Skill', 'action' => 'add']) ?></li>
     </ul>
 </div>
-<div class="guild index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
+<div class="guild table-responsive col-lg-10">
+    <table class="table table-condensed table-bordered table-striped">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('ID') ?></th>
-            <th><?= $this->Paginator->sort('FounderNameID') ?></th>
-            <th><?= $this->Paginator->sort('LeaderID') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('ID') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('FounderNameID') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('LeaderID') ?></th>
             <th><?= $this->Paginator->sort('SpecState') ?></th>
             <th><?= $this->Paginator->sort('Level') ?></th>
             <th><?= $this->Paginator->sort('HoldCity0') ?></th>
@@ -27,17 +25,30 @@
     <tbody>
     <?php foreach ($guild as $guild): ?>
         <tr>
-            <td><?= $this->Number->format($guild->ID) ?></td>
-            <td><?= $this->Number->format($guild->FounderNameID) ?></td>
-            <td><?= $this->Number->format($guild->LeaderID) ?></td>
-            <td><?= $this->Number->format($guild->SpecState) ?></td>
-            <td><?= $this->Number->format($guild->Level) ?></td>
-            <td><?= $this->Number->format($guild->HoldCity0) ?></td>
-            <td><?= $this->Number->format($guild->HoldCity1) ?></td>
+            <td class="ids"><?= $guild->ID ?></td>
+            <td class="ids"><?= $this->Html->link($guild->FounderNameID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $guild->FounderNameID]) ?></td>
+            <td class="ids"><?= $this->Html->link($guild->LeaderID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $guild->LeaderID]) ?></td>
+            <td><?= $guild->SpecState ?></td>
+            <td><?= $guild->Level ?></td>
+            <td><?= $guild->HoldCity0 ?></td>
+            <td><?= $guild->HoldCity1 ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $guild->ID]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $guild->ID]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $guild->ID], ['confirm' => __('Are you sure you want to delete # {0}?', $guild->ID)]) ?>
+                <div>
+                    <div class="icon-contain"><?= $this->Html->link(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-external-link']).$this->Html->tag('div', __('View')),
+                        ['action' => 'view', 'id' => $guild->ID],
+                        ['escape' => false]) ?></div>
+                    <div class="icon-contain"><?= $this->Html->link(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-pencil']).$this->Html->tag('div', __('Edit')),
+                        ['action' => 'edit', 'id' => $guild->ID],
+                        ['escape' => false]) ?></div>
+                    <div class="icon-contain"><?= $this->Form->postLink(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']).$this->Html->tag('div', __('Delete')),
+                        ['action' => 'delete', $guild->ID],
+                        ['escape' => false,
+                        'confirm' => __('Are you sure you want to delete # {0}?', $guild->ID)
+                        ]) ?></div>
+                </div>
             </td>
         </tr>
 

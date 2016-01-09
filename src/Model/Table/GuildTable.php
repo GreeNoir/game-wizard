@@ -42,10 +42,8 @@ class GuildTable extends Table
         $this->hasMany('CommerceRank', [
             'foreignKey' => 'guild_id'
         ]);
-        $this->belongsToMany('Skill', [
-            'foreignKey' => 'guild_id',
-            'targetForeignKey' => 'skill_id',
-            'joinTable' => 'guild_skill'
+        $this->hasMany('GuildSkill', [
+            'foreignKey' => 'guild_id'
         ]);
     }
 

@@ -80,10 +80,6 @@ div.input.checkbox input[type="checkbox"] {
     height: auto;
 }
 
-div.input.checkbox .control-label {
-    margin-top: -15px;
-}
-
 .form-horizontal .checkbox, .form-horizontal .radio {
     min-height: 32px;
 }

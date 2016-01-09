@@ -9,58 +9,86 @@
         <li><?= $this->Html->link(__('New City'), ['controller' => 'City', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Skill'), ['controller' => 'Skill', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Skill'), ['controller' => 'Skill', 'action' => 'add']) ?> </li>
     </ul>
 </div>
-<div class="guild view large-10 medium-9 columns">
-    <h2><?= h($guild->ID) ?></h2>
+<div class="guild view columns">
+    <h2>ID#<?= h($guild->ID) ?></h2>
     <div class="row">
-        <div class="large-2 columns numbers end">
-            <h6 class="subheader"><?= __('ID') ?></h6>
-            <p><?= $this->Number->format($guild->ID) ?></p>
-            <h6 class="subheader"><?= __('FounderNameID') ?></h6>
-            <p><?= $this->Number->format($guild->FounderNameID) ?></p>
-            <h6 class="subheader"><?= __('LeaderID') ?></h6>
-            <p><?= $this->Number->format($guild->LeaderID) ?></p>
-            <h6 class="subheader"><?= __('SpecState') ?></h6>
-            <p><?= $this->Number->format($guild->SpecState) ?></p>
-            <h6 class="subheader"><?= __('Level') ?></h6>
-            <p><?= $this->Number->format($guild->Level) ?></p>
-            <h6 class="subheader"><?= __('HoldCity0') ?></h6>
-            <p><?= $this->Number->format($guild->HoldCity0) ?></p>
-            <h6 class="subheader"><?= __('HoldCity1') ?></h6>
-            <p><?= $this->Number->format($guild->HoldCity1) ?></p>
-            <h6 class="subheader"><?= __('HoldCity2') ?></h6>
-            <p><?= $this->Number->format($guild->HoldCity2) ?></p>
-            <h6 class="subheader"><?= __('Fund') ?></h6>
-            <p><?= $this->Number->format($guild->Fund) ?></p>
-            <h6 class="subheader"><?= __('Material') ?></h6>
-            <p><?= $this->Number->format($guild->Material) ?></p>
-            <h6 class="subheader"><?= __('Rep') ?></h6>
-            <p><?= $this->Number->format($guild->Rep) ?></p>
-            <h6 class="subheader"><?= __('DailyCost') ?></h6>
-            <p><?= $this->Number->format($guild->DailyCost) ?></p>
-            <h6 class="subheader"><?= __('Peace') ?></h6>
-            <p><?= $this->Number->format($guild->Peace) ?></p>
-            <h6 class="subheader"><?= __('Rank') ?></h6>
-            <p><?= $this->Number->format($guild->Rank) ?></p>
-            <h6 class="subheader"><?= __('GroupPurchase') ?></h6>
-            <p><?= $this->Number->format($guild->GroupPurchase) ?></p>
-            <h6 class="subheader"><?= __('RemainSpreadTimes') ?></h6>
-            <p><?= $this->Number->format($guild->RemainSpreadTimes) ?></p>
-            <h6 class="subheader"><?= __('GuildValue1') ?></h6>
-            <p><?= $this->Number->format($guild->GuildValue1) ?></p>
-            <h6 class="subheader"><?= __('GuildValue2') ?></h6>
-            <p><?= $this->Number->format($guild->GuildValue2) ?></p>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('FounderNameID') ?></div>
+            <div class="col-sm-3"><?= $guild->FounderNameID ?></div>
         </div>
-        <div class="large-2 columns dates end">
-            <h6 class="subheader"><?= __('CreateTime') ?></h6>
-            <p><?= h($guild->CreateTime) ?></p>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('LeaderID') ?></div>
+            <div class="col-sm-3"><?= $guild->LeaderID ?></div>
         </div>
-        <div class="large-2 columns booleans end">
-            <h6 class="subheader"><?= __('Commendation') ?></h6>
-            <p><?= $guild->Commendation ? __('Yes') : __('No'); ?></p>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('SpecState') ?></div>
+            <div class="col-sm-3"><?= $guild->SpecState ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Level') ?></div>
+            <div class="col-sm-3"><?= $guild->Level ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('HoldCity0') ?></div>
+            <div class="col-sm-3"><?= $guild->HoldCity0 ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('HoldCity1') ?></div>
+            <div class="col-sm-3"><?= $guild->HoldCity1 ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('HoldCity2') ?></div>
+            <div class="col-sm-3"><?= $guild->HoldCity2 ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Fund') ?></div>
+            <div class="col-sm-3"><?= $guild->Fund ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Material') ?></div>
+            <div class="col-sm-3"><?= $guild->Material ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Rep') ?></div>
+            <div class="col-sm-3"><?= $guild->Rep ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('DailyCost') ?></div>
+            <div class="col-sm-3"><?= $guild->DailyCost ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Peace') ?></div>
+            <div class="col-sm-3"><?= $guild->Peace ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Rank') ?></div>
+            <div class="col-sm-3"><?= $guild->Rank ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('GroupPurchase') ?></div>
+            <div class="col-sm-3"><?= $guild->GroupPurchase ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('RemainSpreadTimes') ?></div>
+            <div class="col-sm-3"><?= $guild->RemainSpreadTimes ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('GuildValue1') ?></div>
+            <div class="col-sm-3"><?= $guild->GuildValue1 ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('GuildValue2') ?></div>
+            <div class="col-sm-3"><?= $guild->GuildValue2 ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('CreateTime') ?></div>
+            <div class="col-sm-3"><?= h($guild->CreateTime) ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Commendation') ?></div>
+            <div class="col-sm-3"><?= $guild->Commendation ? __('Yes') : __('No'); ?></div>
         </div>
     </div>
 </div>
@@ -143,37 +171,36 @@
     </div>
 </div>
 <div class="related row">
-    <div class="column large-12">
-    <h4 class="subheader"><?= __('Related Skill') ?></h4>
-    <?php if (!empty($guild->skill)): ?>
-    <table cellpadding="0" cellspacing="0">
+    <div class="table-responsive col-lg-5">
+    <h4 class="subheader"><?= __('Related Guild Skill') ?></h4>
+    <?php if (!empty($guild->guild_skill)): ?>
+    <table class="table table-condensed table-bordered table-striped">
         <tr>
-            <th><?= __('RoleID') ?></th>
-            <th><?= __('ID') ?></th>
-            <th><?= __('BiddenLevel') ?></th>
-            <th><?= __('SelfLevel') ?></th>
-            <th><?= __('Proficiency') ?></th>
-            <th><?= __('CoolDown') ?></th>
-            <th><?= __('Active Time') ?></th>
+            <th><?= __('SkillID') ?></th>
+            <th><?= __('Progress') ?></th>
+            <th><?= __('Level') ?></th>
+            <th><?= __('Researching') ?></th>
+            <th><?= __('Active') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
-        <?php foreach ($guild->skill as $skill): ?>
+        <?php foreach ($guild->guild_skill as $skill): ?>
         <tr>
-            <td><?= h($skill->RoleID) ?></td>
-            <td><?= h($skill->ID) ?></td>
-            <td><?= h($skill->BiddenLevel) ?></td>
-            <td><?= h($skill->SelfLevel) ?></td>
-            <td><?= h($skill->Proficiency) ?></td>
-            <td><?= h($skill->CoolDown) ?></td>
-            <td><?= h($skill->active_time) ?></td>
-
+            <td><?= h($skill->skill_id) ?></td>
+            <td><?= h($skill->progress) ?></td>
+            <td><?= h($skill->level) ?></td>
+            <td><?= h($skill->researching) ?></td>
+            <td><?= h($skill->active) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['controller' => 'Skill', 'action' => 'view', $skill->RoleID]) ?>
-
-                <?= $this->Html->link(__('Edit'), ['controller' => 'Skill', 'action' => 'edit', $skill->RoleID]) ?>
-
-                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Skill', 'action' => 'delete', $skill->RoleID], ['confirm' => __('Are you sure you want to delete # {0}?', $skill->RoleID)]) ?>
-
+                <div class="icon-contain-inline action"><?= $this->Html->link(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
+                    ['action' => 'edit_skill', '?' => ['guild_id' => $skill->guild_id, 'skill_id' => $skill->skill_id]],
+                    ['escape' => false]) ?></div>
+                <div class="icon-contain-inline action"><?= $this->Form->postLink(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']),
+                    ['action' => 'delete_skill', $skill->skill_id],
+                    ['escape' => false,
+                    'confirm' => __('Are you sure you want to delete # {0}?', $skill->skill_id)
+                    ]) ?></div>
             </td>
         </tr>
 

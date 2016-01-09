@@ -160,3 +160,7 @@ msgstr "Семьи"
 
 msgid "Sprite"
 msgstr "Эльф"
+
+
+msgid "GuildList"
+msgstr "Гильдии"

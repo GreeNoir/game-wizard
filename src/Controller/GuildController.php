@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use App\Model\Table\GuildSkillTable;
 
 /**
  * Guild Controller
@@ -32,7 +33,7 @@ class GuildController extends AppController
     public function view($id = null)
     {
         $guild = $this->Guild->get($id, [
-            'contain' => ['Skill', 'City', 'CommerceRank']
+            'contain' => ['GuildSkill', 'City', 'CommerceRank']
         ]);
         $this->set('guild', $guild);
         $this->set('_serialize', ['guild']);
@@ -70,7 +71,7 @@ class GuildController extends AppController
     public function edit($id = null)
     {
         $guild = $this->Guild->get($id, [
-            'contain' => ['Skill']
+            'contain' => ['GuildSkill']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $guild = $this->Guild->patchEntity($guild, $this->request->data);
@@ -81,8 +82,12 @@ class GuildController extends AppController
                 $this->Flash->error(__('The guild could not be saved. Please, try again.'));
             }
         }
-        $skill = $this->Guild->Skill->find('list', ['limit' => 200]);
-        $this->set(compact('guild', 'skill'));
+        $skill = $this->Guild->GuildSkill->find()->where(['guild_id' => $guild->ID]);
+        $skills = [];
+        foreach($skill as $skill) {
+            $skills[] = $skill->skill_id;
+        }
+        $this->set(compact('guild', 'skills'));
         $this->set('_serialize', ['guild']);
     }
 
@@ -104,4 +109,27 @@ class GuildController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    public function edit_skill() {
+        $skillID = $this->request->query['skill_id'];
+        $guildID = $this->request->query['guild_id'];
+        $this->loadModel('GuildSkill');
+        $guildSkill = $this->GuildSkill->find()->where(['guild_id' => $guildID, 'skill_id' => $skillID])->first();
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $guildSkill = $this->GuildSkill->patchEntity($guildSkill, $this->request->data);
+            if ($this->GuildSkill->save($guildSkill)) {
+                $this->Flash->success(__('The skill sprite has been saved.'));
+                return $this->redirect(['action' => 'view', $guildID]);
+            } else {
+                $this->Flash->error(__('The family sprite could not be saved. Please, try again.'));
+            }
+        }
+        $this->set(compact('guildSkill'));
+        $this->set('_serialize', ['guildSkill']);
+    }
+
+    public function delete_skill($skillID) {
+
+    }
+
 }

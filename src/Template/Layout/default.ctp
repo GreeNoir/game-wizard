@@ -92,6 +92,7 @@
                             <li data-controller="AccountCommon"><?= $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]); ?></li>
                             <li data-controller="Roledata"><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index', 'lang' => $lang]); ?></li>
                             <li data-controller="Family"><?= $this->Html->link(__('FamilyList'), ['controller' => 'Family', 'action' => 'index', 'lang' => $lang]); ?></li>
+                            <li data-controller="Guild"><?= $this->Html->link(__('GuildList'), ['controller' => 'Guild', 'action' => 'index', 'lang' => $lang]); ?></li>
                         </ul>
                     </li>
                     <li>
