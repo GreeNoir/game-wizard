@@ -133,6 +133,8 @@
         </tr>
         <?php endforeach; ?>
     </table>
+    <?php else: ?>
+    <div class="not_found"><?= __('Not Found') ?></div>
     <?php endif; ?>
     </div>
 </div>
@@ -167,6 +169,8 @@
         </tr>
         <?php endforeach; ?>
     </table>
+    <?php else: ?>
+    <div class="not_found"><?= __('Not Found') ?></div>
     <?php endif; ?>
     </div>
 </div>
@@ -206,6 +210,8 @@
 
         <?php endforeach; ?>
     </table>
+    <?php else: ?>
+    <div class="not_found"><?= __('Not Found') ?></div>
     <?php endif; ?>
     </div>
 </div>

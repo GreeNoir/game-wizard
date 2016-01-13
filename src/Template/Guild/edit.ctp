@@ -8,10 +8,9 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List City'), ['controller' => 'City', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New City'), ['controller' => 'City', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Related Skills'), ['action' => 'related_skills', $guild->ID]) ?></li>
+        <li><?= $this->Html->link(__('Related Cities'), ['action' => 'related_cities', $guild->ID]) ?></li>
+        <li><?= $this->Html->link(__('Related Commerce Rank'), ['action' => 'related_commerce_rank', $guild->ID]) ?></li>
     </ul>
 </div>
 <div class="guild form">
@@ -35,7 +34,7 @@
     <?= $this->Form->input('Commendation', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('GuildValue1', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('GuildValue2', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('skill_ids', ['options' => $skills, 'required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('skill_ids', ['options' => $skill_ids, 'required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10 voofset10">
             <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>

@@ -34,11 +34,11 @@ class CommerceRankTable extends Table
         $this->displayField('role_id');
         $this->primaryKey('role_id');
 
-        $this->belongsTo('Roles', [
+        $this->belongsTo('Roledata', [
             'foreignKey' => 'role_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Guilds', [
+        $this->belongsTo('Guild', [
             'foreignKey' => 'guild_id',
             'joinType' => 'INNER'
         ]);
@@ -74,8 +74,8 @@ class CommerceRankTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['role_id'], 'Roles'));
-        $rules->add($rules->existsIn(['guild_id'], 'Guilds'));
+        $rules->add($rules->existsIn(['role_id'], 'Roledata'));
+        $rules->add($rules->existsIn(['guild_id'], 'Guild'));
         return $rules;
     }
 }

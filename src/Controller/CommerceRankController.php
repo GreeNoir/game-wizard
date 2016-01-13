@@ -73,7 +73,7 @@ class CommerceRankController extends AppController
             $commerceRank = $this->CommerceRank->patchEntity($commerceRank, $this->request->data);
             if ($this->CommerceRank->save($commerceRank)) {
                 $this->Flash->success(__('The commerce rank has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'edit', $id]);
             } else {
                 $this->Flash->error(__('The commerce rank could not be saved. Please, try again.'));
             }

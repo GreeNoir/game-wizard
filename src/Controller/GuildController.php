@@ -82,12 +82,12 @@ class GuildController extends AppController
                 $this->Flash->error(__('The guild could not be saved. Please, try again.'));
             }
         }
-        $skill = $this->Guild->GuildSkill->find()->where(['guild_id' => $guild->ID]);
-        $skills = [];
-        foreach($skill as $skill) {
-            $skills[] = $skill->skill_id;
+        $skills = $this->Guild->GuildSkill->find()->where(['guild_id' => $guild->ID]);
+        $skill_ids = [];
+        foreach($skills as $skill) {
+            $skill_ids[] = $skill->skill_id;
         }
-        $this->set(compact('guild', 'skills'));
+        $this->set(compact('guild', 'skill_ids'));
         $this->set('_serialize', ['guild']);
     }
 
@@ -130,6 +130,27 @@ class GuildController extends AppController
 
     public function delete_skill($skillID) {
 
+    }
+
+    public function related_skills($id) {
+        $skills = $this->Guild->GuildSkill->find()->where(['guild_id' => $id]);
+        $this->set('skills', $this->paginate($skills));
+        $this->set('_serialize', ['skills']);
+        $this->set('guildID', $id);
+    }
+
+    public function related_cities($id) {
+        $cities = $this->Guild->City->find()->where(['guild_id' => $id]);
+        $this->set('cities', $this->paginate($cities));
+        $this->set('_serialize', ['cities']);
+        $this->set('guildID', $id);
+    }
+
+    public function related_commerce_rank($id) {
+        $commerceRanks = $this->Guild->CommerceRank->find()->where(['guild_id' => $id]);
+        $this->set('commerceRanks', $this->paginate($commerceRanks));
+        $this->set('_serialize', ['commerceRanks']);
+        $this->set('guildID', $id);
     }
 
 }
