@@ -7,26 +7,36 @@
         <li><?= $this->Html->link(__('New City'), ['action' => 'add']) ?> </li>
     </ul>
 </div>
-<div class="city view large-10 medium-9 columns">
-    <h2><?= h($city->id) ?></h2>
+<div class="city view columns">
+    <h2>ID#<?= h($city->id) ?></h2>
     <div class="row">
-        <div class="large-2 columns numbers end">
-            <h6 class="subheader"><?= __('Id') ?></h6>
-            <p><?= $this->Number->format($city->id) ?></p>
-            <h6 class="subheader"><?= __('Guild Id') ?></h6>
-            <p><?= $this->Number->format($city->guild_id) ?></p>
-            <h6 class="subheader"><?= __('Defence') ?></h6>
-            <p><?= $this->Number->format($city->defence) ?></p>
-            <h6 class="subheader"><?= __('Eudemon Tally') ?></h6>
-            <p><?= $this->Number->format($city->eudemon_tally) ?></p>
-            <h6 class="subheader"><?= __('Tax Rate') ?></h6>
-            <p><?= $this->Number->format($city->tax_rate) ?></p>
-            <h6 class="subheader"><?= __('Tax Rate Time') ?></h6>
-            <p><?= $this->Number->format($city->tax_rate_time) ?></p>
-            <h6 class="subheader"><?= __('Taxation') ?></h6>
-            <p><?= $this->Number->format($city->taxation) ?></p>
-            <h6 class="subheader"><?= __('Prolificacy') ?></h6>
-            <p><?= $this->Number->format($city->prolificacy) ?></p>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-3 subheader"><?= __('Guild Id') ?></div>
+            <div class="col-sm-3"><?= $city->guild_id ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-3 subheader"><?= __('Defence') ?></div>
+            <div class="col-sm-3"><?= $city->defence ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-3 subheader"><?= __('Eudemon Tally') ?></div>
+            <div class="col-sm-3"><?= $city->eudemon_tally ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-3 subheader"><?= __('Tax Rate') ?></div>
+            <div class="col-sm-3"><?= $city->tax_rate ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-3 subheader"><?= __('Tax Rate Time') ?></div>
+            <div class="col-sm-3"><?= $city->tax_rate_time ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-3 subheader"><?= __('Taxation') ?></div>
+            <div class="col-sm-3"><?= $city->taxation ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-3 subheader"><?= __('Prolificacy') ?></div>
+            <div class="col-sm-3"><?= $city->prolificacy ?></div>
         </div>
     </div>
 </div>

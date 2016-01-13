@@ -7,18 +7,20 @@
         <li><?= $this->Html->link(__('New Commerce Rank'), ['action' => 'add']) ?> </li>
     </ul>
 </div>
-<div class="commerceRank view large-10 medium-9 columns">
-    <h2><?= h($commerceRank->role_id) ?></h2>
+<div class="commerceRank view columns">
+    <h2>ID#<?= h($commerceRank->role_id) ?></h2>
     <div class="row">
-        <div class="large-2 columns numbers end">
-            <h6 class="subheader"><?= __('Role Id') ?></h6>
-            <p><?= $this->Number->format($commerceRank->role_id) ?></p>
-            <h6 class="subheader"><?= __('Guild Id') ?></h6>
-            <p><?= $this->Number->format($commerceRank->guild_id) ?></p>
-            <h6 class="subheader"><?= __('Times') ?></h6>
-            <p><?= $this->Number->format($commerceRank->times) ?></p>
-            <h6 class="subheader"><?= __('Tael') ?></h6>
-            <p><?= $this->Number->format($commerceRank->tael) ?></p>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Guild Id') ?></div>
+            <div class="col-sm-3"><?= $commerceRank->guild_id ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Times') ?></div>
+            <div class="col-sm-3"><?= $commerceRank->times ?></div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2 subheader"><?= __('Tael') ?></div>
+            <div class="col-sm-3"><?= $commerceRank->tael ?></div>
         </div>
     </div>
 </div>

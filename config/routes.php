@@ -91,5 +91,7 @@ Router::connect('/:lang/:controller/edit_sprite/:id', ['action' => 'edit_sprite'
 Router::connect('/:lang/:controller/members/:id', ['action' => 'members'], ['id' => '\d+', 'pass' => ['id']]);
 Router::connect('/:lang/:controller/del_member', ['action' => 'del_member']);
 Router::connect('/:lang/:controller/addFamilyMember', ['action' => 'addFamilyMember']);
+Router::connect('/:lang/:controller/edit_skill', ['action' => 'edit_skill']);
+Router::connect('/:lang/:controller/delete_skill', ['action' => 'delete_skill'], ['id' => '\d+', 'pass' => ['id']]);
 
 Plugin::routes();

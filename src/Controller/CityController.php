@@ -34,9 +34,7 @@ class CityController extends AppController
      */
     public function view($id = null)
     {
-        $city = $this->City->get($id, [
-            'contain' => ['Guilds']
-        ]);
+        $city = $this->City->get($id);
         $this->set('city', $city);
         $this->set('_serialize', ['city']);
     }
@@ -58,8 +56,7 @@ class CityController extends AppController
                 $this->Flash->error(__('The city could not be saved. Please, try again.'));
             }
         }
-        $guilds = $this->City->Guilds->find('list', ['limit' => 200]);
-        $this->set(compact('city', 'guilds'));
+        $this->set(compact('city'));
         $this->set('_serialize', ['city']);
     }
 
@@ -72,9 +69,7 @@ class CityController extends AppController
      */
     public function edit($id = null)
     {
-        $city = $this->City->get($id, [
-            'contain' => []
-        ]);
+        $city = $this->City->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $city = $this->City->patchEntity($city, $this->request->data);
             if ($this->City->save($city)) {
@@ -84,8 +79,7 @@ class CityController extends AppController
                 $this->Flash->error(__('The city could not be saved. Please, try again.'));
             }
         }
-        $guilds = $this->City->Guilds->find('list', ['limit' => 200]);
-        $this->set(compact('city', 'guilds'));
+        $this->set(compact('city'));
         $this->set('_serialize', ['city']);
     }
 

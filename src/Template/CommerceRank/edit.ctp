@@ -10,16 +10,16 @@
         <li><?= $this->Html->link(__('List Commerce Rank'), ['action' => 'index']) ?></li>
     </ul>
 </div>
-<div class="commerceRank form large-10 medium-9 columns">
+<div class="commerceRank form">
     <?= $this->Form->create($commerceRank) ?>
-    <fieldset>
-        <legend><?= __('Edit Commerce Rank') ?></legend>
-        <?php
-            echo $this->Form->input('guild_id');
-            echo $this->Form->input('times');
-            echo $this->Form->input('tael');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <legend><?= __('Edit Commerce Rank') ?><div class="id">ID#<?= $commerceRank->role_id ?></div></legend>
+    <?= $this->Form->input('guild_id', ['required' => true, 'type' => 'text', 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('times', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('tael', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10 voofset10">
+            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+        </div>
+    </div>
     <?= $this->Form->end() ?>
 </div>

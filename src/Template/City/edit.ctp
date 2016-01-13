@@ -10,20 +10,19 @@
         <li><?= $this->Html->link(__('List City'), ['action' => 'index']) ?></li>
     </ul>
 </div>
-<div class="city form large-10 medium-9 columns">
+<div class="city form">
     <?= $this->Form->create($city) ?>
-    <fieldset>
-        <legend><?= __('Edit City') ?></legend>
-        <?php
-            echo $this->Form->input('guild_id');
-            echo $this->Form->input('defence');
-            echo $this->Form->input('eudemon_tally');
-            echo $this->Form->input('tax_rate');
-            echo $this->Form->input('tax_rate_time');
-            echo $this->Form->input('taxation');
-            echo $this->Form->input('prolificacy');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+    <legend><?= __('Edit City') ?><div class="id">ID#<?= $city->id ?></div></legend>
+    <?= $this->Form->input('guild_id', ['required' => true, 'class' => 'form-control', 'type' => 'text', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('defence', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('eudemon_tally', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('tax_rate', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('tax_rate_time', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('taxation', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('prolificacy', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10 voofset10">
+            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+        </div>
+    </div>
 </div>
