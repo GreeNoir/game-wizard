@@ -56,8 +56,7 @@ class GuildController extends AppController
                 $this->Flash->error(__('The guild could not be saved. Please, try again.'));
             }
         }
-        $skill = $this->Guild->Skill->find('list', ['limit' => 200]);
-        $this->set(compact('guild', 'skill'));
+        $this->set(compact('guild'));
         $this->set('_serialize', ['guild']);
     }
 

@@ -1,6 +1,7 @@
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
+        <li><?= $this->Html->link(__('Add Guild'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('Edit Guild'), ['action' => 'edit', $guild->ID]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Guild'), ['action' => 'delete', $guild->ID], ['confirm' => __('Are you sure you want to delete # {0}?', $guild->ID)]) ?> </li>
         <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?> </li>
@@ -192,8 +193,8 @@
             <td><?= h($skill->skill_id) ?></td>
             <td class="ids"><?= h($skill->progress) ?></td>
             <td class="ids"><?= h($skill->level) ?></td>
-            <td><?= h($skill->researching) ?></td>
-            <td class="ids"><?= h($skill->active) ?></td>
+            <td class="ids"><?= $skill->researching ? __('Yes') : __('No') ?></td>
+            <td class="ids"><?= $skill->active ? __('Yes') : __('No') ?></td>
             <td class="actions">
                 <div class="icon-contain-inline action"><?= $this->Html->link(
                     $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
