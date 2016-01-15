@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use App\Model\Table\GuildSkillTable;
+use Cake\Datasource\ConnectionManager;
 
 /**
  * Guild Controller
@@ -49,7 +50,8 @@ class GuildController extends AppController
         $guild = $this->Guild->newEntity();
         if ($this->request->is('post')) {
             $guild = $this->Guild->patchEntity($guild, $this->request->data);
-            if ($this->Guild->save($guild)) {
+            $guild->ID = $this->Guild->generateNextID();
+            if ($guild->ID > 0 && $this->Guild->save($guild)) {
                 $this->Flash->success(__('The guild has been saved.'));
                 return $this->redirect(['action' => 'index']);
             } else {

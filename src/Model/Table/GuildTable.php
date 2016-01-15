@@ -6,6 +6,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\ORM\TableRegistry;
 
 /**
  * Guild Model
@@ -165,5 +166,31 @@ class GuildTable extends Table
             ->allowEmpty('GuildValue2');
 
         return $validator;
+    }
+
+    public function generateNextID() {
+        $nextID = 1;
+        $found = false;
+        $guild = TableRegistry::get('guild');
+
+        $count = 0;
+        while(!$found) {
+            $search = $guild->find()->where(['ID' => $nextID])->first();
+            if (!$search) {
+                $found = true;
+            } else {
+                $nextID++;
+            }
+            $count++;
+            if ($count > PHP_INT_MAX) {
+                break;
+            }
+        }
+
+        if ($found) {
+            return $nextID;
+        } else {
+            return -1;
+        }
     }
 }
