@@ -6,14 +6,18 @@
 </div>
 <div class="commerceRank form large-10 medium-9 columns">
     <?= $this->Form->create($commerceRank) ?>
-    <fieldset>
-        <legend><?= __('Add Commerce Rank') ?></legend>
-        <?php
-            echo $this->Form->input('guild_id');
-            echo $this->Form->input('times');
-            echo $this->Form->input('tael');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <legend><?= __('Add Commerce Rank') ?></legend>
+    <?= $this->Form->input('guild_id', ['options' => $guildIds, 'required' => true, 'class' => 'form-control', 'label' => ['text' => 'Guild ID', 'class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('times', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('tael', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10 voofset10">
+            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+        </div>
+    </div>
     <?= $this->Form->end() ?>
 </div>
+<?= $this->Html->scriptBlock('
+var guildID = "'.$guild_id.'";
+$("select[name=guild_id]").val(guildID);
+') ?>

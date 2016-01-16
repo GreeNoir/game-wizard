@@ -46,17 +46,28 @@ class CityController extends AppController
      */
     public function add()
     {
+        $guild_id = isset($this->request->query['guild_id']) ? $this->request->query['guild_id'] : 0;
         $city = $this->City->newEntity();
         if ($this->request->is('post')) {
             $city = $this->City->patchEntity($city, $this->request->data);
-            if ($this->City->save($city)) {
+            $city->id = $this->City->generateNextID();
+            if ($city->id > 0 && $this->City->save($city)) {
                 $this->Flash->success(__('The city has been saved.'));
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The city could not be saved. Please, try again.'));
             }
         }
-        $this->set(compact('city'));
+        $this->loadModel('Guild');
+        $guilds = $this->Guild->find()->all();
+        $guildIds = [];
+        foreach($guilds as $guild) {
+            $guildIds[$guild->ID] = $guild->ID;
+        }
+
+        $this->set('guildIds', $guildIds);
+        $this->set('guild_id', $guild_id);
+        $this->set(compact(['city']));
         $this->set('_serialize', ['city']);
     }
 

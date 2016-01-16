@@ -3,9 +3,7 @@
     <ul class="side-nav">
         <li><?= $this->Html->link(__('New Guild'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List City'), ['controller' => 'City', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New City'), ['controller' => 'City', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'add']) ?></li>
     </ul>
 </div>
 <div class="guild table-responsive col-lg-10">

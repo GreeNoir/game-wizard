@@ -1,12 +1,14 @@
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
+        <li><?= $this->Html->link('Add Guild Commerce Rank', ['controller' => 'CommerceRank', 'action' => 'add', '?' => ['guild_id' => $guildID]]) ?></li>
         <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('Back').__('Edit Guild'), ['action' => 'edit', $guildID]) ?> </li>
     </ul>
 </div>
 <div class="table-responsive col-lg-5">
     <h2 class="subheader"><?= __('Related Guild Commerce Rank').' #ID'.$guildID ?></h2>
+    <?php if (count($commerceRanks)): ?>
     <table class="table table-condensed table-bordered table-striped">
         <tr>
             <th class="ids"><?= $this->Paginator->sort('role_id') ?></th>
@@ -42,5 +44,7 @@
         </ul>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
-
+    <?php else: ?>
+    <div class="not_found"><?= __('Not Found') ?></div>
+    <?php endif; ?>
 </div>

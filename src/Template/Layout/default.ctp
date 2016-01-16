@@ -89,10 +89,12 @@
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#tables"><i class="fa fa-fw fa-table"></i><?= __('Tables') ?><i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="tables" class="collapse">
-                            <li data-controller="AccountCommon"><?= $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index', 'lang' => $lang]); ?></li>
-                            <li data-controller="Roledata"><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index', 'lang' => $lang]); ?></li>
-                            <li data-controller="Family"><?= $this->Html->link(__('FamilyList'), ['controller' => 'Family', 'action' => 'index', 'lang' => $lang]); ?></li>
-                            <li data-controller="Guild"><?= $this->Html->link(__('GuildList'), ['controller' => 'Guild', 'action' => 'index', 'lang' => $lang]); ?></li>
+                            <li data-controller="AccountCommon"><?= $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index']) ?></li>
+                            <li data-controller="Roledata"><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index']) ?></li>
+                            <li data-controller="Family"><?= $this->Html->link(__('FamilyList'), ['controller' => 'Family', 'action' => 'index']) ?></li>
+                            <li data-controller="Guild"><?= $this->Html->link(__('GuildList'), ['controller' => 'Guild', 'action' => 'index']) ?></li>
+                            <li data-controller="City"><?= $this->Html->link(__('CityList'), ['controller' => 'City', 'action' => 'index']) ?></li>
+                            <li data-controller="CommerceRank"><?= $this->Html->link(__('CommerceRankList'), ['controller' => 'CommerceRank', 'action' => 'index']) ?></li>
                         </ul>
                     </li>
                     <li>

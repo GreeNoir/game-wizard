@@ -2,14 +2,16 @@
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('New City'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Guild'), ['controller' => 'Guild', 'action' => 'index']) ?> </li>
     </ul>
 </div>
 <div class="city table-responsive col-lg-10">
+    <?php if (count($city)): ?>
     <table class="table table-condensed table-bordered table-striped">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('guild_id') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('id', 'ID') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('guild_id', 'Guild ID') ?></th>
             <th class="ids"><?= $this->Paginator->sort('defence') ?></th>
             <th class="ids"><?= $this->Paginator->sort('eudemon_tally') ?></th>
             <th class="ids"><?= $this->Paginator->sort('tax_rate') ?></th>
@@ -21,7 +23,7 @@
     <tbody>
     <?php foreach ($city as $city): ?>
         <tr>
-            <td><?= $city->id ?></td>
+            <td class="ids"><?= $city->id ?></td>
             <td class="ids"><?= $city->guild_id ?></td>
             <td class="ids"><?= $city->defence ?></td>
             <td class="ids"><?= $city->eudemon_tally ?></td>
@@ -59,4 +61,7 @@
         </ul>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
+    <?php else: ?>
+    <div class="not_found"><?= __('Not Found') ?></div>
+    <?php endif; ?>
 </div>

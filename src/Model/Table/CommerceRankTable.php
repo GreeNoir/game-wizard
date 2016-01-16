@@ -6,6 +6,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\ORM\TableRegistry;
 
 /**
  * CommerceRank Model
@@ -33,11 +34,6 @@ class CommerceRankTable extends Table
         $this->table('commerce_rank');
         $this->displayField('role_id');
         $this->primaryKey('role_id');
-
-        $this->belongsTo('Roledata', [
-            'foreignKey' => 'role_id',
-            'joinType' => 'INNER'
-        ]);
         $this->belongsTo('Guild', [
             'foreignKey' => 'guild_id',
             'joinType' => 'INNER'
@@ -74,8 +70,33 @@ class CommerceRankTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['role_id'], 'Roledata'));
         $rules->add($rules->existsIn(['guild_id'], 'Guild'));
         return $rules;
+    }
+
+    public function generateNextID() {
+        $nextID = 1;
+        $found = false;
+        $city = TableRegistry::get('commerce_rank');
+
+        $count = 0;
+        while(!$found) {
+            $search = $city->find()->where(['role_id' => $nextID])->first();
+            if (!$search) {
+                $found = true;
+            } else {
+                $nextID++;
+            }
+            $count++;
+            if ($count > PHP_INT_MAX) {
+                break;
+            }
+        }
+
+        if ($found) {
+            return $nextID;
+        } else {
+            return -1;
+        }
     }
 }

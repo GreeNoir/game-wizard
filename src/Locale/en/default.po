@@ -81,3 +81,9 @@ msgstr "Families"
 
 msgid "GuildList"
 msgstr "Guilds"
+
+msgid "CityList"
+msgstr "Cities"
+
+msgid "CommerceRankList"
+msgstr "CommerceRanks"

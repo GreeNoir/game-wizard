@@ -92,7 +92,8 @@ Router::connect('/:lang/:controller/members/:id', ['action' => 'members'], ['id'
 Router::connect('/:lang/:controller/del_member', ['action' => 'del_member']);
 Router::connect('/:lang/:controller/addFamilyMember', ['action' => 'addFamilyMember']);
 Router::connect('/:lang/:controller/edit_skill', ['action' => 'edit_skill']);
-Router::connect('/:lang/:controller/delete_skill', ['action' => 'delete_skill'], ['id' => '\d+', 'pass' => ['id']]);
+Router::connect('/:lang/:controller/add_skill/:id', ['action' => 'add_skill'], ['id' => '\d+', 'pass' => ['id']]);
+Router::connect('/:lang/:controller/delete_skill', ['action' => 'delete_skill']);
 Router::connect('/:lang/:controller/related_skills/:id', ['action' => 'related_skills'], ['id' => '\d+', 'pass' => ['id']]);
 Router::connect('/:lang/:controller/related_cities/:id', ['action' => 'related_cities'], ['id' => '\d+', 'pass' => ['id']]);
 Router::connect('/:lang/:controller/related_commerce_rank/:id', ['action' => 'related_commerce_rank'], ['id' => '\d+', 'pass' => ['id']]);

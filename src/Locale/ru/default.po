@@ -164,3 +164,9 @@ msgstr "Эльф"
 
 msgid "GuildList"
 msgstr "Гильдии"
+
+msgid "CityList"
+msgstr "Города"
+
+msgid "CommerceRankList"
+msgstr "Коммерческие ранги"

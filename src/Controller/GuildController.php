@@ -13,6 +13,10 @@ use Cake\Datasource\ConnectionManager;
 class GuildController extends AppController
 {
 
+    public $paginate = [
+        'order' => ['ID' => 'ASC']
+    ];
+
     /**
      * Index method
      *
@@ -101,14 +105,50 @@ class GuildController extends AppController
      */
     public function delete($id = null)
     {
+        $this->loadModel('GuildSkill');
+        $this->loadModel('City');
+        $this->loadModel('CommerceRank');
+
         $this->request->allowMethod(['post', 'delete']);
         $guild = $this->Guild->get($id);
         if ($this->Guild->delete($guild)) {
+
+            $this->Guild->GuildSkill->deleteAll(['guild_id' => $id]);
+
+            $cities = $this->City->find()->where(['guild_id' => $id]);
+            foreach($cities as $city) {
+                $this->City->delete($city);
+            }
+            $commerceRanks = $this->CommerceRank->find()->where(['guild_id' => $id]);
+            foreach($commerceRanks as $commerceRank) {
+                $this->CommerceRank->delete($commerceRank);
+            }
+
             $this->Flash->success(__('The guild has been deleted.'));
         } else {
             $this->Flash->error(__('The guild could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function add_skill($guildID) {
+        $this->loadModel('GuildSkill');
+        $guildSkill = $this->GuildSkill->newEntity();
+        $guildSkill->skill_id = $this->GuildSkill->generateNextSkillID();
+        if ($this->request->is('post')) {
+            $guildSkill = $this->GuildSkill->patchEntity($guildSkill, $this->request->data);
+            $guildSkill->guild_id = $guildID;
+            if ($guildSkill->skill_id > 0 && $this->GuildSkill->save($guildSkill)) {
+                $this->Flash->success(__('The guildSkill has been saved.'));
+                return $this->redirect(['action' => 'related_skills', $guildID]);
+            } else {
+                $this->Flash->error(__('The guildSkill could not be saved. Please, try again.'));
+            }
+        }
+
+        $this->set('guildID', $guildID);
+        $this->set(compact('guildSkill'));
+        $this->set('_serialize', ['guildSkill']);
     }
 
     public function edit_skill() {
@@ -129,8 +169,18 @@ class GuildController extends AppController
         $this->set('_serialize', ['guildSkill']);
     }
 
-    public function delete_skill($skillID) {
-
+    public function delete_skill() {
+        $skillID = $this->request->query['skill_id'];
+        $guildID = $this->request->query['guild_id'];
+        $this->loadModel('GuildSkill');
+        $this->request->allowMethod(['post', 'delete']);
+        $guildSkill = $this->GuildSkill->find()->where(['guild_id' => $guildID, 'skill_id' => $skillID])->first();
+        if ($this->GuildSkill->delete($guildSkill)) {
+            $this->Flash->success(__('The guildSkill has been deleted.'));
+        } else {
+            $this->Flash->error(__('The guildSkill could not be deleted. Please, try again.'));
+        }
+        return $this->redirect($this->referer());
     }
 
     public function related_skills($id) {

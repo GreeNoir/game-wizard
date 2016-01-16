@@ -2,9 +2,7 @@
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit City'), ['action' => 'edit', $city->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete City'), ['action' => 'delete', $city->id], ['confirm' => __('Are you sure you want to delete # {0}?', $city->id)]) ?> </li>
         <li><?= $this->Html->link(__('List City'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New City'), ['action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="city view columns">

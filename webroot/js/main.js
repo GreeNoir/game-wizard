@@ -31,7 +31,7 @@ function resetTopNav() {
 
 function setMenuActive(controller) {
     $('nav.navbar ul li').removeClass('active');
-    var tables = ['AccountCommon', 'Roledata', 'Family', 'Guild'];
+    var tables = ['AccountCommon', 'Roledata', 'Family', 'Guild', 'City', 'CommerceRank'];
     if (tables.indexOf(controller) != -1) {
         $('nav.navbar ul#tables').addClass('in');
     }

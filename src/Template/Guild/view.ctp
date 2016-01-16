@@ -1,15 +1,9 @@
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Add Guild'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('Edit Guild'), ['action' => 'edit', $guild->ID]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Guild'), ['action' => 'delete', $guild->ID], ['confirm' => __('Are you sure you want to delete # {0}?', $guild->ID)]) ?> </li>
-        <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Guild'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List City'), ['controller' => 'City', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New City'), ['controller' => 'City', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="guild view columns">
@@ -202,7 +196,7 @@
                     ['escape' => false]) ?></div>
                 <div class="icon-contain-inline action"><?= $this->Form->postLink(
                     $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']),
-                    ['action' => 'delete_skill', $skill->skill_id],
+                    ['action' => 'delete_skill', '?' => ['skill_id' => $skill->skill_id, 'guild_id' => $skill->guild_id]],
                     ['escape' => false,
                     'confirm' => __('Are you sure you want to delete # {0}?', $skill->skill_id)
                     ]) ?></div>

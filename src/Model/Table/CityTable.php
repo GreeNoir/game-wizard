@@ -6,6 +6,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\ORM\TableRegistry;
 
 /**
  * City Model
@@ -34,6 +35,7 @@ class CityTable extends Table
         $this->primaryKey('id');
 
         $this->belongsTo('guild', [
+            'className' => 'Guild',
             'foreignKey' => 'guild_id'
         ]);
     }
@@ -89,7 +91,33 @@ class CityTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['guild_id'], 'Guilds'));
+        $rules->add($rules->existsIn(['guild_id'], 'Guild'));
         return $rules;
+    }
+
+    public function generateNextID() {
+        $nextID = 1;
+        $found = false;
+        $city = TableRegistry::get('city');
+
+        $count = 0;
+        while(!$found) {
+            $search = $city->find()->where(['id' => $nextID])->first();
+            if (!$search) {
+                $found = true;
+            } else {
+                $nextID++;
+            }
+            $count++;
+            if ($count > PHP_INT_MAX) {
+                break;
+            }
+        }
+
+        if ($found) {
+            return $nextID;
+        } else {
+            return -1;
+        }
     }
 }

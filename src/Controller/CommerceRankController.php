@@ -43,9 +43,11 @@ class CommerceRankController extends AppController
      */
     public function add()
     {
+        $guild_id = isset($this->request->query['guild_id']) ? $this->request->query['guild_id'] : 0;
         $commerceRank = $this->CommerceRank->newEntity();
         if ($this->request->is('post')) {
             $commerceRank = $this->CommerceRank->patchEntity($commerceRank, $this->request->data);
+            $commerceRank->role_id = $this->CommerceRank->generateNextID();
             if ($this->CommerceRank->save($commerceRank)) {
                 $this->Flash->success(__('The commerce rank has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -53,9 +55,17 @@ class CommerceRankController extends AppController
                 $this->Flash->error(__('The commerce rank could not be saved. Please, try again.'));
             }
         }
-        $roles = $this->CommerceRank->Roles->find('list', ['limit' => 200]);
-        $guilds = $this->CommerceRank->Guilds->find('list', ['limit' => 200]);
-        $this->set(compact('commerceRank', 'roles', 'guilds'));
+
+        $this->loadModel('Guild');
+        $guilds = $this->Guild->find()->all();
+        $guildIds = [];
+        foreach($guilds as $guild) {
+            $guildIds[$guild->ID] = $guild->ID;
+        }
+
+        $this->set('guildIds', $guildIds);
+        $this->set('guild_id', $guild_id);
+        $this->set(compact('commerceRank'));
         $this->set('_serialize', ['commerceRank']);
     }
 

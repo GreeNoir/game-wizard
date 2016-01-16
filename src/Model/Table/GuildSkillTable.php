@@ -6,6 +6,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\ORM\TableRegistry;
 
 /**
  * GuildSkill Model
@@ -31,8 +32,11 @@ class GuildSkillTable extends Table
         parent::initialize($config);
 
         $this->table('guild_skill');
-        $this->displayField('guild_id');
         $this->primaryKey(['guild_id', 'skill_id']);
+        $this->belongsTo('guild', [
+            'className' => 'Guild',
+            'foreignKey' => 'guild_id'
+        ]);
     }
 
     /**
@@ -75,8 +79,33 @@ class GuildSkillTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['guild_id'], 'Guilds'));
-        $rules->add($rules->existsIn(['skill_id'], 'Skills'));
+        $rules->add($rules->existsIn(['guild_id'], 'Guild'));
         return $rules;
+    }
+
+    public function generateNextSkillID() {
+        $nextID = 1;
+        $found = false;
+        $guildSkill = TableRegistry::get('guild_skill');
+
+        $count = 0;
+        while(!$found) {
+            $search = $guildSkill->find()->where(['skill_id' => $nextID])->first();
+            if (!$search) {
+                $found = true;
+            } else {
+                $nextID++;
+            }
+            $count++;
+            if ($count > PHP_INT_MAX) {
+                break;
+            }
+        }
+
+        if ($found) {
+            return $nextID;
+        } else {
+            return -1;
+        }
     }
 }
