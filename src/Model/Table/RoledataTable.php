@@ -37,6 +37,17 @@ class RoledataTable extends Table
             'foreignKey' => 'AccountID',
             'joinType'  => 'INNER'
         ]);
+        $this->schema()->columnType('MapID', 'float');
+        $this->schema()->columnType('RebornMapID', 'float');
+        $this->schema()->columnType('WorkedLevel', 'float');
+        $this->schema()->columnType('GuildID', 'float');
+        $this->schema()->columnType('RemoveTime', 'float');
+        $this->schema()->columnType('ItemTransportMapID', 'float');
+        $this->schema()->columnType('LoverID', 'float');
+        $this->schema()->columnType('MasterID', 'float');
+        $this->schema()->columnType('PickupModeSetting', 'float');
+        $this->schema()->columnType('BePlayActLayerID', 'float');
+        $this->schema()->columnType('FamilyID', 'float');
     }
 
     /**
@@ -931,7 +942,7 @@ class RoledataTable extends Table
     public function getList() {
         $roledata = TableRegistry::get('roledata');
         $query = $roledata->find()
-            ->select(['RoleID', 'RoleName', 'AccountID', 'AccountName' => 'a.AccountName', 'FamilyID' => 'f.FamilyID', 'FamilyName' => 'IFNULL(f.FamilyName, "undefined")', 'Sex', 'CreateTime'])
+            ->select(['RoleID', 'RoleName', 'AccountID', 'AccountName' => 'a.AccountName', 'FamilyID' => 'f.FamilyID', 'FamilyName' => 'IFNULL(f.FamilyName, "undefined")', 'Sex', 'GuildID'])
             ->join([
                 'a' => [
                     'table' => 'account_common',

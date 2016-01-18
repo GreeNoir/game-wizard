@@ -4,7 +4,7 @@
         <li><?= $this->Html->link(__('New').__('Roledata'), ['action' => 'add']) ?></li>
     </ul>
 </div>
-<div class="roledata table-responsive col-lg-11">
+<div class="roledata table-responsive">
     <table class="table table-condensed table-bordered table-striped">
     <thead>
         <tr>
@@ -13,8 +13,8 @@
             <th class="ids"><?= $this->Paginator->sort('AccountID', 'AccountID') ?></th>
             <th><?= $this->Paginator->sort('account_common.AccountName', 'AccountName') ?></th>
             <th><?= $this->Paginator->sort('FamilyName') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('GuildID') ?></th>
             <th><?= $this->Paginator->sort('Sex') ?></th>
-            <th><?= $this->Paginator->sort('CreateTime') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -37,11 +37,12 @@
                     echo '';
                 } ?>
             </td>
+            <td class="ids"><?= $this->Html->link($roledata->GuildID, ['controller' => 'Guild', 'action' => 'view', $roledata->GuildID]) ?>
+            </td>
             <td><?php
                 if ($roledata->Sex == 0) echo __('Woman');
                 else { echo __('Man'); } ?>
             </td>
-            <td><?= $roledata->CreateTime ?></td>
             <td class="actions">
                 <div>
                     <div class="icon-contain"><?= $this->Html->link(
