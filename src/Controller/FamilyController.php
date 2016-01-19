@@ -186,7 +186,10 @@ class FamilyController extends AppController
         $familyID = $this->request->data['familyID'];
         $roleID = $this->request->data['roleID'];
         $this->loadModel('FamilyMember');
-        if ($this->FamilyMember->memberExists($roleID, $familyID)) {
+
+        if ($this->FamilyMember->find()->where(['RoleID' => $roleID])->first()) {
+            $code = 3;
+        } elseif($this->FamilyMember->memberExists($roleID, $familyID)) {
             $code = 1;
         } elseif ($this->FamilyMember->membersCount($familyID) >= FamilyMemberTable::MAX_FAMILY_MEMBERS) {
             $code = 2;

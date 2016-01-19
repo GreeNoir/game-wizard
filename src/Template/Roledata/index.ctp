@@ -37,7 +37,7 @@
                     echo '';
                 } ?>
             </td>
-            <td class="ids"><?= $this->Html->link($roledata->GuildID, ['controller' => 'Guild', 'action' => 'view', $roledata->GuildID]) ?>
+            <td class="ids"><?= $roledata->GuildID ? $this->Html->link($roledata->GuildID, ['controller' => 'Guild', 'action' => 'view', $roledata->GuildID]) : '' ?>
             </td>
             <td><?php
                 if ($roledata->Sex == 0) echo __('Woman');

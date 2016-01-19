@@ -108,6 +108,7 @@ class GuildController extends AppController
         $this->loadModel('GuildSkill');
         $this->loadModel('City');
         $this->loadModel('CommerceRank');
+        $this->loadModel('Roledata');
 
         $this->request->allowMethod(['post', 'delete']);
         $guild = $this->Guild->get($id);
@@ -120,6 +121,9 @@ class GuildController extends AppController
                 $this->City->delete($city);
             }
             $commerceRanks = $this->CommerceRank->find()->where(['guild_id' => $id]);
+
+            $this->Roledata->resetGuildID($id);
+
             foreach($commerceRanks as $commerceRank) {
                 $this->CommerceRank->delete($commerceRank);
             }

@@ -942,7 +942,9 @@ class RoledataTable extends Table
     public function getList() {
         $roledata = TableRegistry::get('roledata');
         $query = $roledata->find()
-            ->select(['RoleID', 'RoleName', 'AccountID', 'AccountName' => 'a.AccountName', 'FamilyID' => 'f.FamilyID', 'FamilyName' => 'IFNULL(f.FamilyName, "undefined")', 'Sex', 'GuildID'])
+            ->select(['RoleID', 'RoleName', 'AccountID', 'AccountName' => 'a.AccountName', 'FamilyID' => 'f.FamilyID',
+                'FamilyName' => 'IFNULL(f.FamilyName, "undefined")', 'Sex',
+                'GuildID' => 'IFNULL(g.ID, 0)'])
             ->join([
                 'a' => [
                     'table' => 'account_common',
@@ -962,6 +964,13 @@ class RoledataTable extends Table
                     'type'  => 'LEFT',
                     'conditions' => [
                         'fm.FamilyID = f.FamilyID'
+                    ]
+                ],
+                'g' => [
+                    'table' => 'guild',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'g.ID = roledata.GuildID'
                     ]
                 ]
             ]);
@@ -1015,6 +1024,9 @@ class RoledataTable extends Table
         return $result;
     }
 
-
+    public function resetGuildID($guildID) {
+        $roledata = TableRegistry::get('roledata');
+        $roledata->updateAll(['GuildID' => 0], ['GuildID' => $guildID]);
+    }
 
 }

@@ -133,6 +133,9 @@ function addMembers() {
         if (result == 0) {
             window.location.reload();
         }
+        if (result == 3) {
+            alert('This roleID ' +roleID+ ' already has a family'); return;
+        }
 
     });
 }

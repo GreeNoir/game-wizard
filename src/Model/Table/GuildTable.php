@@ -35,7 +35,7 @@ class GuildTable extends Table
         $this->table('guild');
         $this->displayField('ID');
         $this->primaryKey('ID');
-//        $this->schema()->columnType('ID', 'float');
+        $this->schema()->columnType('ID', 'float');
 
         $this->hasMany('City', [
             'foreignKey' => 'guild_id'
