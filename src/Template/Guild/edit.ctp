@@ -11,6 +11,7 @@
         <li><?= $this->Html->link(__('Related Skills'), ['action' => 'related_skills', $guild->ID]) ?></li>
         <li><?= $this->Html->link(__('Related Cities'), ['action' => 'related_cities', $guild->ID]) ?></li>
         <li><?= $this->Html->link(__('Related Commerce Rank'), ['action' => 'related_commerce_rank', $guild->ID]) ?></li>
+        <li><?= $this->Html->link(__('List Members'), ['controller' => 'Guild', 'action' => 'related_guild_roledata', $guild->ID]) ?></li>
     </ul>
 </div>
 <div class="guild form">
