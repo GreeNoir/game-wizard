@@ -1,5 +1,5 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?=__('RoledataListGuild').$guildID ?></h3>
+    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('Back').__('Edit Guild'), ['action' => 'edit', $guildID]) ?> </li>
@@ -7,18 +7,20 @@
 </div>
 
 <div class="roledata_list table-responsive col-lg-5">
+    <h2><?=__('Related Guild Roledata').' #ID'.$guildID ?></h2>
+    <?php if (count($roledataList)): ?>
     <table class="table table-condensed table-bordered table-striped">
         <thead>
         <tr>
-            <th>Role ID</th>
-            <th>RoleName</th>
+            <th class="ids"><?= $this->Paginator->sort('RoleID', 'RoleID') ?></th>
+            <th><?= $this->Paginator->sort('RoleName') ?></th>
             <th class="actions"><?= __('Additionally') ?></th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($roledataList as $roledataItem): ?>
         <tr>
-            <td>
+            <td class="ids">
                 <?= $this->Html->link($roledataItem->RoleID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $roledataItem->RoleID]) ?>
             </td>
             <td><?= $roledataItem->RoleName ?></td>
@@ -42,4 +44,15 @@
         <?php endforeach; ?>
         </tbody>
     </table>
+    <div class="paginator">
+        <ul class="pagination">
+            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->next(__('next') . ' >') ?>
+        </ul>
+        <p><?= $this->Paginator->counter() ?></p>
+    </div>
+    <?php else: ?>
+    <div class="not_found"><?= __('Not Found') ?></div>
+    <?php endif; ?>
 </div>

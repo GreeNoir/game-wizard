@@ -46,6 +46,10 @@
                         ['escape' => false,
                         'confirm' => __('Are you sure you want to delete # {0}?', $guild->ID)
                         ]) ?></div>
+                    <div class="icon-contain"><?= $this->Html->link(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-users']).$this->Html->tag('div', __('Members')),
+                        ['action' => 'members', $guild->ID],
+                        ['escape' => false]) ?></div>
                 </div>
             </td>
         </tr>

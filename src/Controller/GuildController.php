@@ -208,10 +208,10 @@ class GuildController extends AppController
         $this->set('guildID', $id);
     }
 
-    public function related_guild_roledata($id) {
+    public function members($id) {
         $this->loadModel('Roledata');
-        $roledataList = $this->Roledata->find()->where(['GuildID' => $id])->all();
-        $this->set('roledataList', $roledataList);
+        $roledataList = $this->Roledata->find()->where(['GuildID' => $id]);
+        $this->set('roledataList', $this->paginate($roledataList));
         $this->set('_serialize', ['roledataList']);
         $this->set('guildID', $id);
     }
