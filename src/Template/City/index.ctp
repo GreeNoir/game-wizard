@@ -24,7 +24,7 @@
     <?php foreach ($city as $city): ?>
         <tr>
             <td class="ids"><?= $city->id ?></td>
-            <td class="ids"><?= $city->guild_id ?></td>
+            <td class="ids"><?= $this->Html->link($city->guild_id, ['controller' => 'Guild', 'action' => 'view', $city->guild_id]) ?></td>
             <td class="ids"><?= $city->defence ?></td>
             <td class="ids"><?= $city->eudemon_tally ?></td>
             <td class="ids"><?= $city->tax_rate ?></td>
