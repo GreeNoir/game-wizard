@@ -87,3 +87,6 @@ msgstr "Cities"
 
 msgid "CommerceRankList"
 msgstr "CommerceRanks"
+
+msgid "PetData"
+msgstr "Nurslings"

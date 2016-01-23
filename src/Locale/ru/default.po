@@ -170,3 +170,6 @@ msgstr "Города"
 
 msgid "CommerceRankList"
 msgstr "Коммерческие ранги"
+
+msgid "PetData"
+msgstr "Питомцы"

@@ -91,6 +91,7 @@
                         <ul id="tables" class="collapse">
                             <li data-controller="AccountCommon"><?= $this->Html->link(__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index']) ?></li>
                             <li data-controller="Roledata"><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index']) ?></li>
+                            <li data-controller="PetData"><?= $this->Html->link(__('PetData'), ['controller' => 'PetData', 'action' => 'index']) ?></li>
                             <li data-controller="Family"><?= $this->Html->link(__('FamilyList'), ['controller' => 'Family', 'action' => 'index']) ?></li>
                             <li data-controller="Guild"><?= $this->Html->link(__('GuildList'), ['controller' => 'Guild', 'action' => 'index']) ?></li>
                             <li data-controller="City"><?= $this->Html->link(__('CityList'), ['controller' => 'City', 'action' => 'index']) ?></li>
