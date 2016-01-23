@@ -1,5 +1,5 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?=__('FamilyMemberList').$familyID ?></h3>
+    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('ListFamily'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('View'), ['action' => 'view', 'id' => $familyID]) ?></li>
@@ -16,6 +16,7 @@
 </div>
 <?php if ($membersCount > 0): ?>
 <div class="members table-responsive col-lg-6">
+    <h2><?=__('FamilyMemberList').' #ID'.$familyID ?></h2>
     <table class="table table-condensed table-bordered table-striped">
         <thead>
         <tr>

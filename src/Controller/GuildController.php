@@ -209,11 +209,24 @@ class GuildController extends AppController
     }
 
     public function members($id) {
+        $this->loadModel('AccountCommon');
         $this->loadModel('Roledata');
         $roledataList = $this->Roledata->find()->where(['GuildID' => $id]);
         $this->set('roledataList', $this->paginate($roledataList));
         $this->set('_serialize', ['roledataList']);
+        $this->set('accountCommonList', $this->AccountCommon->find()->order(['AccountName']));
+        $this->set('roledataAccountsList', json_encode($this->AccountCommon->getListRoledataAccounts()));
         $this->set('guildID', $id);
+    }
+
+    public function addGuildMember() {
+        $this->loadModel('Roledata');
+        $this->autoRender = false;
+        $guildID = $this->request->data['guildID'];
+        $roleID = $this->request->data['roleID'];
+        $roledata = $this->Roledata->get($roleID);
+        $roledata->GuildID = $guildID;
+        $this->Roledata->save($roledata);
     }
 
 }

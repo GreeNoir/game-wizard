@@ -3,10 +3,18 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"><?= __('Select Account and Roledata to assign Family "'.$familyName.'"') ?></h4>
+                <h4 class="modal-title"><?php
+                    if ($controller == 'Family'): echo __('Select Account and Roledata to assign Family "'.$familyName.'"');
+                    elseif ($controller == 'Guild'): echo __('Select Account and Roledata to assign Guild #'.$guildID);
+                    endif;
+                 ?></h4>
             </div>
             <form class="form-horizontal" role="form">
-                <input type="hidden" name="familyID" value="<?= $familyID ?>">
+                <?php if ($controller == 'Family'): ?>
+                    <input type="hidden" name="familyID" value="<?= $familyID ?>">
+                <?php elseif ($controller == 'Guild') : ?>
+                    <input type="hidden" name="guildID" value="<?= $guildID ?>">
+                <?php endif; ?>
                 <input type="hidden" name="empty_option" value="<?= __('please_select') ?>">
                 <div class="modal-body">
                     <div class="form-group">
@@ -30,7 +38,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addMembers();"><?= __('Add') ?></button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addMembers('<?= $controller ?>');"><?= __('Add') ?></button>
                     <button type="button" class="btn btn-default" data-dismiss="modal"><?= __('Cancel') ?></button>
                 </div>
             </form>
