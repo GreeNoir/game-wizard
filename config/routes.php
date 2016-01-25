@@ -79,7 +79,7 @@ Router::connect('/:lang/:controller/logout', ['action' => 'logout']);
 
 Router::connect('/:lang/:controller/accountLog', ['action' => 'accountLog']);
 
-Router::connect('/:lang/:controller/equipment_item/:id', ['action' => 'equipment_item'], ['id' => '\d+', 'pass' => ['id']]);
+Router::connect('/:lang/:controller/equipment_item/:id/:slug', ['action' => 'equipment_item'], ['pass' => ['id', 'slug'], 'id' => '\d+']);
 Router::connect('/:lang/:controller/del_equip', ['action' => 'del_equip']);
 Router::connect('/:lang/:controller/edit_equipment', ['action' => 'edit_equipment']);
 

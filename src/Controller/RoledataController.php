@@ -133,29 +133,10 @@ class RoledataController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function equipment_item($id) {
-        if ($this->request->is('post')) {
-            $subaction = $this->request->data('subaction');
-            $this->request->session()->write('subaction', $subaction);
-            if ($subaction == 'change') {   //filter
-                $equipType = $this->request->data('equipType');
-                $this->request->session()->write('equipType', $equipType);
-                return $this->redirect(['action' =>'equipment_item', $id]);
-            } else {   //sorting
-                return $this->redirect(['action' =>'equipment_item', $id]);
-            }
-        }
-
+    public function equipment_item($id, $slug=null) {
         $this->loadModel('Item');
         $this->loadModel('AccountCommon');
         $this->loadModel('Roledata');
-        $this->set('id', $id);
-        $this->set('accountID', $this->Roledata->getRoledataInfo($id)->AccountID);
-        $this->set('accountName', $this->Roledata->getRoledataInfo($id)->AccountName);
-        $this->set('roleName', $this->Roledata->getRoledataInfo($id)->RoleName);
-
-        $subaction = $this->request->session()->read('subaction');
-        $this->request->session()->write('subaction', '');
 
         $sort = $this->request->query('sort');
         $direction = $this->request->query('direction');
@@ -164,21 +145,19 @@ class RoledataController extends AppController
             $hiddenDirection = $direction;
         }
 
-        if ($subaction == 'change') {
-            $equipType = $this->request->session()->read('equipType');
-            $this->set('itemList', $this->paginate($this->Item->getListRoledata($id, ['equipType' => $equipType])));
-            $this->set('itemListCount', $this->Item->getListRoledata($id, ['equipType' => $equipType])->count());
-        } else {
-            $equipType = 'all';
-            $this->set('itemList', $this->paginate($this->Item->getListRoledata($id)));
-            $this->set('itemListCount', $this->Item->getListRoledata($id)->count());
+        $equipType = $slug;
 
-        }
-
+        $this->set('id', $id);
+        $this->set('accountID', $this->Roledata->getRoledataInfo($id)->AccountID);
+        $this->set('accountName', $this->Roledata->getRoledataInfo($id)->AccountName);
+        $this->set('roleName', $this->Roledata->getRoledataInfo($id)->RoleName);
+        $this->set('itemList', $this->paginate($this->Item->getListRoledata($id, ['equipType' => $equipType])));
+        $this->set('itemListCount', $this->Item->getListRoledata($id, ['equipType' => $equipType])->count());
         $this->set('accountCommonList', $this->AccountCommon->find()->order(['AccountName']));
         $this->set('roledataAccountsList', json_encode($this->AccountCommon->getListRoledataAccounts()));
         $this->set('equipTypes', $this->Item->getEquipmentTypes());
         $this->set('selectedEquipType', $equipType);
+        $this->set('direction', $direction);
         $this->set('hiddenDirection', $hiddenDirection);
         $this->set('_serialize', ['itemList']);
     }

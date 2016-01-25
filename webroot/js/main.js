@@ -61,8 +61,10 @@ function findOwners() {
 
 function initEquipment(roledataAccountsList) {
     $('table.equip select#equipType').change(function(){
-        $('input[name=subaction]').val('change');
-        $('form#equipment_item').submit();
+        var select_lang = $('select[name="language"] option:selected').val();
+        var id = $('input[name=roleID]').val();
+        var slug = $(this).val();
+        location.href = '/' + select_lang + '/Roledata/equipment_item/'+ id + '/' + slug;
     });
 
     $('#equipType').chosen();

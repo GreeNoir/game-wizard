@@ -62,7 +62,7 @@
                     <div class="icon-contain">
                         <?= $this->Html->link(
                         $this->Html->tag('i', '', ['class' => 'fa fa-briefcase']).$this->Html->tag('div', __('Equipment')),
-                        ['action' => 'equipment_item', 'id' => $roledata->RoleID],
+                        ['action' => 'equipment_item', 'id' => $roledata->RoleID, 'slug' => 'all'],
                         ['escape' => false]); ?></div>
                 </div>
             </td>
