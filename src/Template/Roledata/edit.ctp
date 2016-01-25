@@ -8,7 +8,7 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Equipment'), ['action' => 'equipment_item', $roledata->RoleID]) ?></li>
+        <li><?= $this->Html->link(__('Equipment'), ['action' => 'equipment_item', 'id' => $roledata->RoleID, 'slug' => 'all']) ?></li>
         <?php if ($roledata->FamilyName != 'undefined'): ?>
             <li><?= $this->Html->link(__('Family').' "'.$roledata->FamilyName.'"', ['controller' => 'Family', 'action' => 'edit', 'id' => $roledata->FamilyID]) ?></li>
         <?php endif; ?>

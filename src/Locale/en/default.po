@@ -90,3 +90,6 @@ msgstr "CommerceRanks"
 
 msgid "PetData"
 msgstr "Nurslings"
+
+msgid "EquipType"
+msgstr "all types"
