@@ -173,3 +173,6 @@ msgstr "Коммерческие ранги"
 
 msgid "PetData"
 msgstr "Питомцы"
+
+msgid "Nurslings"
+msgstr "Петомцы"

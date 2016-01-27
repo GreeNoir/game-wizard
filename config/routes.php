@@ -98,6 +98,6 @@ Router::connect('/:lang/:controller/related_skills/:id', ['action' => 'related_s
 Router::connect('/:lang/:controller/related_cities/:id', ['action' => 'related_cities'], ['id' => '\d+', 'pass' => ['id']]);
 Router::connect('/:lang/:controller/related_commerce_rank/:id', ['action' => 'related_commerce_rank'], ['id' => '\d+', 'pass' => ['id']]);
 Router::connect('/:lang/:controller/related_guild_roledata/:id', ['action' => 'related_guild_roledata'], ['id' => '\d+', 'pass' => ['id']]);
-Router::connect('/:lang/:controller/addGuildMember', ['action' => 'addGuildMember']);
+Router::connect('/:lang/:controller/nurslings/:id', ['action' => 'nurslings'], ['id' => '\d+', 'pass' => ['id']]);
 
 Plugin::routes();

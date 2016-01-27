@@ -222,4 +222,9 @@ class RoledataController extends AppController
         $this->set('serial', $serial);
     }
 
+    public function nurslings($id) {
+        $this->loadModel('PetData');
+        $this->set('nurslings', $this->PetData->getNurslings($id));
+    }
+
 }

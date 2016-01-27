@@ -64,6 +64,11 @@
                         $this->Html->tag('i', '', ['class' => 'fa fa-briefcase']).$this->Html->tag('div', __('Equipment')),
                         ['action' => 'equipment_item', 'id' => $roledata->RoleID, 'slug' => 'all'],
                         ['escape' => false]); ?></div>
+                    <div class="icon-contain">
+                        <?= $this->Html->link(
+                        $this->Html->tag('i', '', ['class' => 'fa fa-paw']).$this->Html->tag('div', __('Nurslings')),
+                        ['action' => 'nurslings', 'id' => $roledata->RoleID],
+                        ['escape' => false]); ?></div>
                 </div>
             </td>
         </tr>

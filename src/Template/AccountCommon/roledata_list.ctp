@@ -35,7 +35,7 @@
                 <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Equipment') ?>">
                     <?= $this->Html->link(
                     $this->Html->tag('i', '', ['class' => 'fa fa-briefcase']),
-                    ['controller' => 'Roledata', 'action' => 'equipment_item', 'id' => $roledataItem->RoleID],
+                    ['controller' => 'Roledata', 'action' => 'equipment_item', 'id' => $roledataItem->RoleID, 'slug' => 'all'],
                     ['escape' => false]); ?>
                 </div>
             </td>

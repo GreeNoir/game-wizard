@@ -192,4 +192,13 @@ class PetDataTable extends Table
             return -1;
         }
     }
+
+    public function getNurslings($roleID) {
+        $petData = TableRegistry::get('pet_data');
+        $result = $petData->find()
+            ->select(['pet_id', 'pet_name', 'pet_value', 'pet_pm', 'quality'])
+            ->where(['master_id' => $roleID])->all();
+        return $result;
+    }
+
 }
