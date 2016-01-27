@@ -174,5 +174,10 @@ msgstr "Коммерческие ранги"
 msgid "PetData"
 msgstr "Питомцы"
 
+<<<<<<< HEAD
 msgid "Nurslings"
 msgstr "Петомцы"
+=======
+msgid "EquipType"
+msgstr "все типы"
+>>>>>>> origin/dev

@@ -25,7 +25,7 @@
                 <td><?= h($petData->pet_name) ?></td>
                 <td class="ids"><?= h($petData->pet_value) ?></td>
                 <td class="ids"><?= h($petData->pet_pm) ?></td>
-                <td class="ids"><?= h($petData->master_id) ?></td>
+                <td class="ids"><?= $this->Html->link($petData->master_id, ['controller' => 'Roledata', 'action' => 'view', $petData->master_id]) ?></td>
                 <td class="ids"><?= h($petData->type_id) ?></td>
                 <td class="ids"><?= h($petData->quality) ?></td>
                 <td class="actions">

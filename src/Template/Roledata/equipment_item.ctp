@@ -2,7 +2,12 @@
     <ul class="breadcrumb">
         <li><?= $this->Html->link($accountName, ['controller' => 'AccountCommon', 'action' => 'view', $accountID]) ?></li>
         <li><?= $this->Html->link($roleName, ['action' => 'view', $id]) ?></li>
-        <li class="active"><?= __('Equipment') ?></li>
+        <?php if ($selectedEquipType == 'all'): ?>
+            <li class="active"><?= __('Equipment') ?></li>
+        <?php else: ?>
+            <li><?= $this->Html->link(__('Equipment'), ['action' => 'equipment_item', 'id' => $id, 'slug' => 'all']) ?></li>
+            <li class="active"><?= $selectedEquipType ?></li>
+        <?php endif; ?>
     </ul>
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
@@ -28,7 +33,7 @@
                 <div class="sort_container <?php if($selectedEquipType != 'all'): echo 'disabled'; endif;?>">
                     <?php
                         $hiddenDirection == 'desc' ? $direction = 'asc' : $direction = 'desc';
-                        if ($hiddenDirection == 'asc') :
+                        if ($direction == 'asc') :
                             echo $this->Paginator->sort('EquipType', '<i class="fa fa-sort-alpha-asc"></i>', ['escape' => false, 'direction' => $direction]);
                         else:
                             echo $this->Paginator->sort('EquipType', '<i class="fa fa-sort-alpha-desc"></i>', ['escape' => false, 'direction' => $direction]);
