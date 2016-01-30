@@ -1,10 +1,17 @@
 <div class="actions columns large-2 medium-3">
+    <ul class="breadcrumb">
+        <li><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link($accountName, ['controller' => 'AccountCommon', 'action' => 'view', $accountID]) ?></li>
+        <li><?= $this->Html->link($roleName, ['action' => 'view', $id]) ?></li>
+        <li class="active"><?= __('Nurslings') ?></li>
+    </ul>
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Back').__('RoledataList'), ['action' => 'index']) ?></li>
     </ul>
 </div>
 <div class="table-responsive col-lg-8">
+    <?php if(count($nurslings)): ?>
     <table class="table table-condensed table-bordered table-striped nurslings">
         <thead>
         <tr>
@@ -33,9 +40,18 @@
                     $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
                     ['controller' => 'PetData', 'action' => 'edit', 'id' => $nursling->pet_id],
                     ['escape' => false]) ?></div>
+                <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Delete') ?>"><?= $this->Form->postLink(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']),
+                    ['controller' => 'PetData', 'action' => 'delete', 'id' => $nursling->pet_id],
+                    ['escape' => false,
+                    'confirm' => __('Are you sure you want to delete # {0}?', $nursling->pet_id)
+                    ]) ?></div>
             </td>
         </tr>
         <?php endforeach; ?>
         </tbody>
     </table>
+    <?php else: ?>
+    <div class="not_found"><?= __('Not Found') ?></div>
+    <?php endif; ?>
 </div>

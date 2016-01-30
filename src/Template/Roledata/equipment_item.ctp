@@ -1,5 +1,6 @@
 <div class="actions columns large-2 medium-3">
     <ul class="breadcrumb">
+        <li><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link($accountName, ['controller' => 'AccountCommon', 'action' => 'view', $accountID]) ?></li>
         <li><?= $this->Html->link($roleName, ['action' => 'view', $id]) ?></li>
         <?php if ($selectedEquipType == 'all'): ?>
@@ -74,11 +75,17 @@
                 <td><?= $item->del_time ?></td>
                 <td class="actions">
                     <div class="action" data-toggle="tooltip" title="<?= __('delete_item') ?>">
+                        <?php
+                        $equipType = $selectedEquipType;
+                        if (isset($item->EquipType)) {
+                            $equipType = $item->EquipType;
+                        }
+                        ?>
                         <?= $this->Form->postLink(
                         $this->Html->tag('i', '', ['class' => 'fa fa-minus-circle']),
                         ['action' => 'del_equip'],
                         ['escape' => false,
-                         'data' => ['serial' => $item->cSerialNum, 'typeid' => $item->TypeID, 'roleid' => $id, 'type' => $item->EquipType, 'base' => 'item'],
+                         'data' => ['serial' => $item->cSerialNum, 'typeid' => $item->TypeID, 'roleid' => $id, 'type' => $equipType],
                          'confirm' => __('Are you sure you want to delete item # {0}?', $item->cSerialNum)
                         ]) ?>
                     </div>

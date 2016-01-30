@@ -101,6 +101,7 @@ class RoledataController extends AppController
     {
         $this->loadModel('Item');
         $this->loadModel('FamilyMember');
+        $this->loadModel('PetData');
         $this->request->allowMethod(['post', 'delete']);
 
         $roledata = $this->Roledata->get($id);
@@ -112,8 +113,10 @@ class RoledataController extends AppController
                 ->where(['OwnerID' => $id])
                 ->all();
 
-            foreach((array)$itemList as $item) {
-                $this->Item->deleteItems($item->TypeID);
+            if (count($itemList)) {
+                foreach($itemList as $item) {
+                    $this->Item->deleteItems($item->TypeID);
+                }
             }
 
             /* список семей, привязанных к персонажу */
@@ -122,8 +125,23 @@ class RoledataController extends AppController
                 ->where(['RoleID' => $id])
                 ->all();
 
-            foreach((array)$familyList as $member) {
-                $this->FamilyMember->deleteMember($member->RoleID, $member->FamilyID);
+            if (count($familyList)) {
+                foreach($familyList as $member) {
+                    $this->FamilyMember->deleteMember($member->RoleID, $member->FamilyID);
+                }
+            }
+
+            /* список петомцев, привязанных к персонажу */
+            $petList = $this->PetData->find()
+                ->select(['pet_id'])
+                ->where(['master_id' => $id])
+                ->all();
+
+            if (count($petList)) {
+                foreach($petList as $pet) {
+                    $petData = $this->PetData->get($pet->pet_id);
+                    $this->PetData->delete($petData);
+                }
             }
 
             $this->Flash->success(__('The roledata has been deleted.'));
@@ -180,7 +198,10 @@ class RoledataController extends AppController
             $del_equip = "DELETE FROM ".strtolower($type)." WHERE SerialNum='{$serialNum}'";
             $db->query($del_equip);
         }
-        return $this->redirect(['action' => 'equipment_'.$base, $roleID]);
+        if ($type == ItemTable::EQUIP_UNDEFINED) {
+            $type = 'all';
+        }
+        return $this->redirect(['action' => 'equipment_item', 'id' => $roleID, 'slug' => $type]);
     }
 
     public function edit_equipment() {
@@ -224,6 +245,10 @@ class RoledataController extends AppController
 
     public function nurslings($id) {
         $this->loadModel('PetData');
+        $this->set('id', $id);
+        $this->set('accountID', $this->Roledata->getRoledataInfo($id)->AccountID);
+        $this->set('accountName', $this->Roledata->getRoledataInfo($id)->AccountName);
+        $this->set('roleName', $this->Roledata->getRoledataInfo($id)->RoleName);
         $this->set('nurslings', $this->PetData->getNurslings($id));
     }
 

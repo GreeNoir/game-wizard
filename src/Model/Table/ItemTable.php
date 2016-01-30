@@ -221,17 +221,19 @@ class ItemTable extends Table{
             ->select(['cSerialNum' => 'CONVERT (SerialNum, CHAR)'])
             ->where(['TypeID' => $typeID])->all();
 
-        foreach((array)$itemList as $itemInfo) {
-            $itemSerialNum = $itemInfo->cSerialNum;
-            foreach($this->getEquipmentTypes() as $type) {
-                $table = strtolower($type);
-                $entity = TableRegistry::get($table);
-                $equip = $entity->find()
-                    ->select(['cSerialNum' => 'CONVERT (SerialNum, CHAR)'])
-                    ->having(['cSerialNum' => $itemSerialNum]);
-                if ($equip) {
-                    $del = "DELETE FROM {$table} WHERE SerialNum='{$itemSerialNum}'";
-                    $db->query($del);
+        if (count($itemList)) {
+            foreach($itemList as $itemInfo) {
+                $itemSerialNum = $itemInfo->cSerialNum;
+                foreach($this->getEquipmentTypes() as $type) {
+                    $table = strtolower($type);
+                    $entity = TableRegistry::get($table);
+                    $equip = $entity->find()
+                        ->select(['cSerialNum' => 'CONVERT (SerialNum, CHAR)'])
+                        ->having(['cSerialNum' => $itemSerialNum]);
+                    if ($equip) {
+                        $del = "DELETE FROM {$table} WHERE SerialNum='{$itemSerialNum}'";
+                        $db->query($del);
+                    }
                 }
             }
         }

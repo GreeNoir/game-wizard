@@ -12,6 +12,7 @@
         <?php if ($roledata->FamilyName != 'undefined'): ?>
             <li><?= $this->Html->link(__('Family').' "'.$roledata->FamilyName.'"', ['controller' => 'Family', 'action' => 'edit', 'id' => $roledata->FamilyID]) ?></li>
         <?php endif; ?>
+        <li><?= $this->Html->link(__('Nurslings'), ['action' => 'nurslings', 'id' => $roledata->RoleID]) ?></li>
     </ul>
 </div>
 <legend><?= __('Edit Roledata') ?><div class="id">ID#<?= $roledata->RoleID ?></div></legend>
