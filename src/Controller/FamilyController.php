@@ -53,12 +53,17 @@ class FamilyController extends AppController
         $family = $this->Family->newEntity();
         if ($this->request->is('post')) {
             $family = $this->Family->patchEntity($family, $this->request->data);
-            if ($this->Family->save($family)) {
-                $familyID = $family->FamilyID;
-                $this->Flash->success(__('The family has been saved.'));
-                return $this->redirect(['action' => 'edit', $familyID]);
+            $family->FamilyID ++;
+            if ($this->Family->checkUniqueName($family->FamilyName)) {
+                if ($this->Family->save($family)) {
+                    $familyID = $family->FamilyID;
+                    $this->Flash->success(__('The family has been saved.'));
+                    return $this->redirect(['action' => 'edit', $familyID]);
+                } else {
+                    $this->Flash->error(__('The family could not be saved. Please, try again.'));
+                }
             } else {
-                $this->Flash->error(__('The family could not be saved. Please, try again.'));
+                $this->Flash->error(__('The family should be unique. Please, try again.'));
             }
         }
         $this->set(compact('family'));

@@ -73,4 +73,12 @@ class FamilyTable extends Table
 
         return $validator;
     }
+
+    public function checkUniqueName($name) {
+        if ($this->find()->where(['FamilyName' => $name])->first()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

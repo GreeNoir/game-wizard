@@ -14,10 +14,12 @@ class RoledataController extends AppController
 {
     public $paginate = [
         'sortWhitelist' => [
-            'account_common.AccountName', 'cSerialNum', 'TypeID', 'Num', 'EquipType', 'FamilyName', 'GuildID'
+            'RoleID', 'RoleName', 'account_common.AccountID', 'Sex',
+            'account_common.AccountName', 'SerialNum', 'TypeID', 'Num', 'EquipType', 'FamilyName', 'GuildID'
         ],
         'contain' => ['account_common'],
-        'limit' => 20
+        'limit' => 20,
+        'order' => ['RoleID' => 'asc']
     ];
 
     /**
