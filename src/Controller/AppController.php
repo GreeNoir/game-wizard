@@ -60,7 +60,7 @@ class AppController extends Controller
         $session = $this->request->session();
         $lang = 'en';
 
-        if (isset($this->request->params['lang'])) {
+        if (isset($thihs->request->params['lang'])) {
             $lang = $this->request->params['lang'];
         } else {
             if ($session->check('Config.language')) {

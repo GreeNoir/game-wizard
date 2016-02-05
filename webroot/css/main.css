@@ -226,7 +226,7 @@ div.actions {
 
 .alert {
     padding: 10px;
-    margin: 10px 0 0;
+    margin: 10px 0;
 }
 
 .alert-danger, .alert-error, .alert-danger .alert-heading, .alert-error .alert-heading {
