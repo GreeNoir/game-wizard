@@ -217,3 +217,43 @@ msgstr "Гильдия"
 
 msgid "Sex"
 msgstr "Пол"
+
+msgid "New City"
+msgstr "Создать город"
+
+msgid "List Guild"
+msgstr "Список гильдий"
+
+msgid "List City"
+msgstr "Список городов"
+
+msgid "New Guild"
+msgstr "Создать гильдию"
+
+msgid "List Commerce Rank"
+msgstr "Список Commerce Rank"
+
+msgid "Edit Guild"
+msgstr "Редактировать гильдию"
+
+msgid "Delete Guild"
+msgstr "Удалить гильдию"
+
+msgid "Related City"
+msgstr "Связанные города"
+
+msgid "Related Guild Skill"
+msgstr "Связанные навыки гильдий"
+
+msgid "Related Commerce Rank"
+msgstr "Связанные Commerce Rank"
+
+msgid "Not Found"
+msgstr "Не найдено"
+
+msgid "Man"
+msgstr "Мужской"
+
+msgid "Woman"
+msgstr "Женский"
+
