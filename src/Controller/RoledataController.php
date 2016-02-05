@@ -22,7 +22,7 @@ class RoledataController extends AppController
     {
         $this->paginate = [
             'sortWhitelist' => [
-                'RoleID', 'RoleName', 'account_common.AccountID',  'account_common.AccountName', 'Sex'],
+                'RoleID', 'RoleName', 'AccountID',  'account_common.AccountName', 'FamilyName', 'Sex', 'GuildID'],
             'contain' => ['account_common'],
             'limit' => 20,
             'order' => ['RoleID' => 'asc']
@@ -148,13 +148,13 @@ class RoledataController extends AppController
         } else {
             $this->Flash->error(__('The roledata could not be deleted. Please, try again.'));
         }
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect($this->referer());
     }
 
     public function equipment_item($id, $slug=null) {
         $this->paginate = [
             'sortWhitelist' => [
-                'SerialNum', 'TypeID', 'Num', 'EquipType', 'FamilyName', 'GuildID'
+                'SerialNum', 'TypeID', 'Num', 'EquipType'
             ],
             'order' => ['SerialNum' => 'asc']
         ];
