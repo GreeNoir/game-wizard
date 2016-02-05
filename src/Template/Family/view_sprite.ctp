@@ -1,10 +1,13 @@
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit Family Sprite'), ['action' => 'edit_sprite', $familySprite->FamilyID]) ?> </li>
+        <?php if ($familySprite): ?>
+            <li><?= $this->Html->link(__('Edit Family Sprite'), ['action' => 'edit_sprite', $id]) ?> </li>
+        <?php endif; ?>
         <li><?= $this->Html->link(__('ListOfFamily'), ['action' => 'index']) ?> </li>
     </ul>
 </div>
+<?php if ($familySprite): ?>
 <div class="familySprite view columns">
     <h2>ID#<?= h($familySprite->FamilyID) ?></h2>
     <div class="row">
@@ -98,3 +101,6 @@
         </div>
     </div>
 </div>
+<?php else: ?>
+    <div class="not_found"><?= __('Not Found') ?></div>
+<?php endif; ?>

@@ -109,9 +109,16 @@ class FamilyController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
+        $this->loadModel('FamilySprite');
         $family = $this->Family->get($id);
         if ($this->Family->delete($family)) {
-            $this->Flash->set(__('The family has been deleted.'));
+
+            $familySprite = $this->FamilySprite->find()->where(['FamilyID' => $id])->first();
+            if ($familySprite) {
+                $this->FamilySprite->delete($familySprite);
+            }
+
+            $this->Flash->success(__('The family has been deleted.'));
         } else {
             $this->Flash->error(__('The family could not be deleted. Please, try again.'));
         }
@@ -128,9 +135,8 @@ class FamilyController extends AppController
     public function view_sprite($id = null)
     {
         $this->loadModel('FamilySprite');
-        $familySprite = $this->FamilySprite->get($id, [
-            'contain' => []
-        ]);
+        $familySprite = $this->FamilySprite->find()->where(['FamilyID' => $id])->first();
+        $this->set('id', $id);
         $this->set('familySprite', $familySprite);
         $this->set('_serialize', ['familySprite']);
     }

@@ -9,7 +9,7 @@
         <thead>
         <tr>
             <th class="ids"><?= $this->Paginator->sort('AccountID', 'AccountID') ?></th>
-            <th><?= $this->Paginator->sort('AccountName', 'Name') ?></th>
+            <th><?= $this->Paginator->sort('AccountName', __('Name')) ?></th>
             <th class="ids"><?= __('LastUseRoleID') ?></th>
             <th><?= __('LastRoleName') ?></th>
             <th><?= __('IP') ?></th>

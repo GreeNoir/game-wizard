@@ -4,7 +4,7 @@
         <li><?= $this->Html->link(__('New Pet Data'), ['action' => 'add']) ?></li>
     </ul>
 </div>
-<div class="petData table_responsive col-lg-9">
+<div class="petData table-responsive col-lg-9">
     <table class="table table-condensed table-bordered table-striped">
         <thead>
             <tr>

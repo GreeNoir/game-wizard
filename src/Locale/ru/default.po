@@ -140,6 +140,9 @@ msgstr "Аккаунт#"
 msgid "RoleID"
 msgstr "Id"
 
+msgid "Name"
+msgstr "Название"
+
 msgid "AccountName"
 msgstr "Аккаунт"
 
@@ -154,6 +157,21 @@ msgstr "Ник персонажа"
 
 msgid "Equipment"
 msgstr "Снаряжение"
+
+msgid "Family"
+msgstr "Семья"
+
+msgid "Edit Family"
+msgstr "Редактировать семью"
+
+msgid "Delete Family"
+msgstr "Удалить семью"
+
+msgid "List Family"
+msgstr "Список семей"
+
+msgid "New Family"
+msgstr "Создать семью"
 
 msgid "FamilyList"
 msgstr "Семьи"
@@ -178,3 +196,24 @@ msgstr "Петомцы"
 
 msgid "EquipType"
 msgstr "все типы"
+
+msgid "Members"
+msgstr "Члены"
+
+msgid "Edit Pet Data"
+msgstr "Редактировать петомца"
+
+msgid "Delete Pet Data"
+msgstr "Удалить петомца"
+
+msgid "List Pet Data"
+msgstr "Список петомцев"
+
+msgid "New Pet Data"
+msgstr "Создать петомца"
+
+msgid "Guild"
+msgstr "Гильдия"
+
+msgid "Sex"
+msgstr "Пол"

@@ -11,10 +11,10 @@
             <th class="ids"><?= $this->Paginator->sort('RoleID', 'RoleID') ?></th>
             <th><?= $this->Paginator->sort('RoleName') ?></th>
             <th class="ids"><?= $this->Paginator->sort('AccountID', 'AccountID') ?></th>
-            <th><?= $this->Paginator->sort('account_common.AccountName', 'AccountName') ?></th>
-            <th><?= $this->Paginator->sort('FamilyName') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('GuildID') ?></th>
-            <th><?= $this->Paginator->sort('Sex') ?></th>
+            <th><?= $this->Paginator->sort('account_common.AccountName', __('AccountName')) ?></th>
+            <th><?= $this->Paginator->sort('FamilyName', __('Family')) ?></th>
+            <th class="ids"><?= $this->Paginator->sort('GuildID', __('Guild')) ?></th>
+            <th><?= $this->Paginator->sort('Sex', __('Sex')) ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
