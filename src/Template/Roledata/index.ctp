@@ -4,7 +4,7 @@
         <li><?= $this->Html->link(__('New').__('Roledata'), ['action' => 'add']) ?></li>
     </ul>
 </div>
-<div class="roledata table-responsive">
+<div class="roledata table-responsive col-lg-12">
     <table class="table table-condensed table-bordered table-striped">
     <thead>
         <tr>

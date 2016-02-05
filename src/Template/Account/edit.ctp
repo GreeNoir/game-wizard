@@ -1,8 +1,13 @@
 <div class="actions columns">
-
+    <h3><?= __('Actions') ?></h3>
+    <ul class="side-nav">
+        <li><?= $this->Html->link(__('View').__('AccountCommon'), ['controller' => 'AccountCommon', 'action' => 'view', $account->id]) ?> </li>
+        <li><?= $this->Html->link(__('Edit').__('AccountCommon'), ['controller' => 'AccountCommon', 'action' => 'edit', $account->id]) ?> </li>
+        <li><?= $this->Html->link(__('Back').__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index']) ?></li>
+    </ul>
 </div>
 <div class="account view columns">
-    <h2><i class="fa fa-fw fa-eye"></i><?= __('Monitoring for account')?><div class="id">ID#<?= h($account->id) ?></div></h2>
+    <h2><?= __('Monitoring for account')?><div class="id">ID#<?= h($account->id) ?></div></h2>
     <div class="row">
         <div class="columns strings">
             <div class="form-group col-sm-10">

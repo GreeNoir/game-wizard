@@ -132,6 +132,7 @@
 
 <?= $this->Html->scriptBlock('
         var controller = "'.$controller.'";
+        if (controller == "Account") controller = "AccountCommon";
         setMenuActive(controller);
 
         $(".lang_select").chosen({width: "100%", disable_search: true}).change(function(){
