@@ -5,7 +5,7 @@
     </ul>
 </div>
 
-<div class="account_log table-responsive">
+<div class="table-responsive col-lg-8">
     <table class="table table-condensed table-bordered table-striped">
         <thead>
         <tr>
