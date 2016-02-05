@@ -16,7 +16,7 @@
 </div>
 <?php if ($membersCount > 0): ?>
 <div class="members table-responsive col-lg-6">
-    <h2><?=__('FamilyMemberList').' #ID'.$familyID ?></h2>
+    <h3><?=__('FamilyMemberList').' #ID'.$familyID ?></h3>
     <table class="table table-condensed table-bordered table-striped">
         <thead>
         <tr>
@@ -45,7 +45,7 @@
                 <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Equipment') ?>">
                     <?= $this->Html->link(
                     $this->Html->tag('i', '', ['class' => 'fa fa-briefcase']),
-                    ['controller' => 'Roledata', 'action' => 'equipment_item', 'id' => $memberItem->RoleID],
+                    ['controller' => 'Roledata', 'action' => 'equipment_item', 'id' => $memberItem->RoleID, 'slug' => 'all'],
                     ['escape' => false]); ?>
                 </div>
             </td>

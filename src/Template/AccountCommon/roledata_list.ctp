@@ -1,5 +1,5 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?=__('RoledataListHeader').$id ?></h3>
+    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('View').__('AccountCommon'), ['action' => 'view', $id]) ?> </li>
         <li><?= $this->Html->link(__('Edit').__('AccountCommon'), ['action' => 'edit', $id]) ?> </li>
@@ -8,6 +8,7 @@
 </div>
 
 <div class="roledata_list table-responsive col-lg-5">
+    <h3><?=__('RoledataListHeader').$id ?></h3>
     <table class="table table-condensed table-bordered table-striped">
         <thead>
         <tr>

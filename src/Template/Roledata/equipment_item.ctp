@@ -16,6 +16,8 @@
     </ul>
 </div>
 <div class="table-responsive">
+    <?php if ($itemListCount > 0): ?>
+    <h3><?=__('EquipmentList').' #ID'.$id ?></h3>
     <table class="table table-condensed table-bordered table-striped equip">
         <thead>
         <tr>
@@ -49,8 +51,8 @@
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         </thead>
-        <?php if ($itemListCount > 0) { ?>
-            <tbody>
+
+        <tbody>
             <?php foreach ($itemList as $item): ?>
             <tr>
                 <td><?= $item->cSerialNum ?></td>
@@ -95,8 +97,7 @@
                 </td>
             </tr>
             <?php endforeach; ?>
-            </tbody>
-        <?php } ?>
+        </tbody>
         <tfoot>
         <tr>
             <td><?= __('Total') ?>:</td>
@@ -112,6 +113,9 @@
         </ul>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
+    <?php else: ?>
+    <div class="not_found"><?= __('Not Found') ?></div>
+    <?php endif; ?>
 </div>
 
 <?= $this->element('Roledata/equipment_add_dialog'); ?>

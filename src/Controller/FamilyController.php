@@ -204,6 +204,7 @@ class FamilyController extends AppController
             $code = 2;
         } else {
             $this->FamilyMember->addMember($roleID, $familyID);
+            $this->Flash->success(__('The member has been added to the family'));
         }
         echo $code;
     }
