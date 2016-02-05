@@ -57,7 +57,7 @@ class GuildController extends AppController
             $guild->ID = $this->Guild->generateNextID();
             if ($guild->ID > 0 && $this->Guild->save($guild)) {
                 $this->Flash->success(__('The guild has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'edit', $guild->ID]);
             } else {
                 $this->Flash->error(__('The guild could not be saved. Please, try again.'));
             }
@@ -82,7 +82,7 @@ class GuildController extends AppController
             $guild = $this->Guild->patchEntity($guild, $this->request->data);
             if ($this->Guild->save($guild)) {
                 $this->Flash->success(__('The guild has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect($this->referer());
             } else {
                 $this->Flash->error(__('The guild could not be saved. Please, try again.'));
             }

@@ -12,15 +12,6 @@ use Cake\Datasource\ConnectionManager;
  */
 class RoledataController extends AppController
 {
-    public $paginate = [
-        'sortWhitelist' => [
-            'RoleID', 'RoleName', 'account_common.AccountID', 'Sex',
-            'account_common.AccountName', 'SerialNum', 'TypeID', 'Num', 'EquipType', 'FamilyName', 'GuildID'
-        ],
-        'contain' => ['account_common'],
-        'limit' => 20,
-        'order' => ['RoleID' => 'asc']
-    ];
 
     /**
      * Index method
@@ -29,6 +20,13 @@ class RoledataController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'sortWhitelist' => [
+                'RoleID', 'RoleName', 'account_common.AccountID',  'account_common.AccountName', 'Sex'],
+            'contain' => ['account_common'],
+            'limit' => 20,
+            'order' => ['RoleID' => 'asc']
+        ];
         $this->set('roledata', $this->paginate($this->Roledata->getList()));
         $this->set('_serialize', ['roledata']);
     }
@@ -154,6 +152,12 @@ class RoledataController extends AppController
     }
 
     public function equipment_item($id, $slug=null) {
+        $this->paginate = [
+            'sortWhitelist' => [
+                'SerialNum', 'TypeID', 'Num', 'EquipType', 'FamilyName', 'GuildID'
+            ],
+            'order' => ['SerialNum' => 'asc']
+        ];
         $this->loadModel('Item');
         $this->loadModel('AccountCommon');
         $this->loadModel('Roledata');
@@ -203,6 +207,7 @@ class RoledataController extends AppController
         if ($type == ItemTable::EQUIP_UNDEFINED) {
             $type = 'all';
         }
+        $this->Flash->success(__("The equipment has been deleted."));
         return $this->redirect(['action' => 'equipment_item', 'id' => $roleID, 'slug' => $type]);
     }
 

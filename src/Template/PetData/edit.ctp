@@ -10,6 +10,7 @@
         <li><?= $this->Html->link(__('List Pet Data'), ['action' => 'index']) ?></li>
     </ul>
 </div>
+<?= $this->Flash->render() ?>
 <div class="petData form">
     <?= $this->Form->create($petData) ?>
     <legend><?= __('Edit Pet Data') ?><div class="id">ID#<?= $petData->pet_id ?></div></legend>

@@ -223,3 +223,15 @@ td.actions .action {
 div.actions {
     padding-top: 10px;
 }
+
+.alert {
+    padding: 10px;
+}
+
+.alert-danger, .alert-error, .alert-danger .alert-heading, .alert-error .alert-heading {
+    color: #b94a48;
+}
+.alert-danger, .alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+}

@@ -5,3 +5,8 @@ if (!empty($params['class'])) {
 }
 ?>
 <div class="<?= h($class) ?>"><?= h($message) ?></div>
+
+<div class="alert alert-info">
+    <a class="close" data-dismiss="alert">×</a>
+    <div class="<?= h($class) ?>"><?= h($message) ?></div>
+</div>

@@ -4,6 +4,7 @@
         <li><?= $this->Html->link(__('List Pet Data'), ['action' => 'index']) ?></li>
     </ul>
 </div>
+<?= $this->Flash->render() ?>
 <div class="petData form large-9 medium-8 columns content">
     <?= $this->Form->create($petData) ?>
     <legend><?= __('Add Pet Data') ?></legend>

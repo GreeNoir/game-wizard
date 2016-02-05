@@ -63,7 +63,7 @@ class FamilyController extends AppController
                     $this->Flash->error(__('The family could not be saved. Please, try again.'));
                 }
             } else {
-                $this->Flash->error(__('The family should be unique. Please, try again.'));
+                $this->Flash->error(__('The family name should be unique. Please, try again.'));
             }
         }
         $this->set(compact('family'));
@@ -84,11 +84,15 @@ class FamilyController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $family = $this->Family->patchEntity($family, $this->request->data);
-            if ($this->Family->save($family)) {
-                $this->Flash->success(__('The family has been saved.'));
-                return $this->redirect(['action' => 'edit', 'id' => $id]);
+            if ($this->Family->checkUniqueName($family->FamilyName, $id)) {
+                if ($this->Family->save($family)) {
+                    $this->Flash->success(__('The family has been saved.'));
+                    return $this->redirect(['action' => 'edit', 'id' => $id]);
+                } else {
+                    $this->Flash->error(__('The family could not be saved. Please, try again.'));
+                }
             } else {
-                $this->Flash->error(__('The family could not be saved. Please, try again.'));
+                $this->Flash->error(__('The family name should be unique. Please, try again.'));
             }
         }
         $this->set(compact('family'));
@@ -107,7 +111,7 @@ class FamilyController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $family = $this->Family->get($id);
         if ($this->Family->delete($family)) {
-            $this->Flash->success(__('The family has been deleted.'));
+            $this->Flash->set(__('The family has been deleted.'));
         } else {
             $this->Flash->error(__('The family could not be deleted. Please, try again.'));
         }

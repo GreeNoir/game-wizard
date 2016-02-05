@@ -1,1 +1,4 @@
-<div class="message success"><?= h($message) ?></div>
+<div class="alert alert-success">
+    <a class="close" data-dismiss="alert">×</a>
+    <?= h($message) ?>
+</div>
