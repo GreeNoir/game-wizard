@@ -81,7 +81,7 @@ div.input.checkbox {
 }
 
 div.input.checkbox input[type="checkbox"] {
-    left: 161px;
+    left: 200px;
     height: auto;
 }
 
@@ -239,4 +239,10 @@ div.actions {
 .alert-danger, .alert-error {
     background-color: #f2dede;
     border-color: #eed3d7;
+}
+
+div.id {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 6px;
 }
