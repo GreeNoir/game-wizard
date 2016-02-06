@@ -1,4 +1,9 @@
 <div class="actions columns large-2 medium-3">
+    <ul class="breadcrumb">
+        <li><?= $this->Html->link(__('Families'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link($familyName, ['action' => 'view', $familyID]) ?></li>
+        <li class="active"><?= __('Members') ?></li>
+    </ul>
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('ListFamily'), ['action' => 'index']) ?></li>
@@ -16,7 +21,7 @@
 </div>
 <?php if ($membersCount > 0): ?>
 <div class="members table-responsive col-lg-6">
-    <h3><?=__('FamilyMemberList').' #ID'.$familyID ?></h3>
+    <h3><?=__('FamilyMemberList') ?></h3>
     <table class="table table-condensed table-bordered table-striped">
         <thead>
         <tr>

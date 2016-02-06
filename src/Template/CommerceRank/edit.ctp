@@ -12,7 +12,7 @@
 </div>
 <div class="commerceRank form">
     <?= $this->Form->create($commerceRank) ?>
-    <legend><?= __('Edit Commerce Rank') ?><div class="id">ID#<?= $commerceRank->role_id ?></div></legend>
+    <legend><?= __('Edit Commerce Rank') ?><div class="id"><?= $commerceRank->role_id ?></div></legend>
     <?= $this->Form->input('guild_id', ['required' => true, 'type' => 'text', 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('times', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('tael', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>

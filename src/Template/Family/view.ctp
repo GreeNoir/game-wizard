@@ -10,7 +10,7 @@
     </ul>
 </div>
 <div class="family view columns">
-    <h2>ID#<?= h($family->FamilyID) ?></h2>
+    <h2><?= h($family->FamilyID) ?></h2>
     <div class="row">
         <div class="form-group col-sm-10">
             <div class="col-sm-2 subheader"><?= __('FamilyName') ?></div>

@@ -7,7 +7,7 @@
     </ul>
 </div>
 <div class="account view columns">
-    <h2><?= __('Monitoring for account')?><div class="id">ID#<?= h($account->id) ?></div></h2>
+    <h2><?= __('Monitoring for account')?><div class="id"><?= h($account->id) ?></div></h2>
     <div class="row">
         <div class="columns strings">
             <div class="form-group col-sm-10">

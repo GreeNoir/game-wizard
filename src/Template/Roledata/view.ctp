@@ -16,7 +16,7 @@
 </div>
 
 <div class="roledata view large-10 medium-9 columns">
-<h2><div class="id">ID#<?= h($roledata->RoleID) ?></div></h2>
+<h2><div class="id"><?= h($roledata->RoleID) ?></div></h2>
 
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#panel_strings"><?= __('String parameters') ?></a></li>

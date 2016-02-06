@@ -9,7 +9,7 @@
 </div>
 <?php if ($familySprite): ?>
 <div class="familySprite view columns">
-    <h2>ID#<?= h($familySprite->FamilyID) ?></h2>
+    <h2><?= h($familySprite->FamilyID) ?></h2>
     <div class="row">
         <div class="form-group col-sm-10">
             <div class="col-sm-3 subheader"><?= __('Name') ?></div>

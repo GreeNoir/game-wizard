@@ -17,7 +17,7 @@
 </div>
 <div class="table-responsive">
     <?php if ($itemListCount > 0): ?>
-    <h3><?=__('EquipmentList').' #ID'.$id ?></h3>
+    <h3><?=__('EquipmentList') ?></h3>
     <table class="table table-condensed table-bordered table-striped equip">
         <thead>
         <tr>

@@ -8,7 +8,7 @@
     </ul>
 </div>
 <div class="commerceRank view columns">
-    <h2>ID#<?= h($commerceRank->role_id) ?></h2>
+    <h2><?= h($commerceRank->role_id) ?></h2>
     <div class="row">
         <div class="form-group col-sm-10">
             <div class="col-sm-2 subheader"><?= __('Guild Id') ?></div>

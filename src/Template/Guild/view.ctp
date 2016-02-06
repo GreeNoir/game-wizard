@@ -7,7 +7,7 @@
     </ul>
 </div>
 <div class="guild view columns">
-    <h2>ID#<?= h($guild->ID) ?></h2>
+    <h2><?= h($guild->ID) ?></h2>
     <div class="row">
         <div class="form-group col-sm-10">
             <div class="col-sm-3 subheader"><?= __('FounderNameID') ?></div>

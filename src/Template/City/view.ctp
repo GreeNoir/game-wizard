@@ -6,7 +6,7 @@
     </ul>
 </div>
 <div class="city view columns">
-    <h2>ID#<?= h($city->id) ?></h2>
+    <h2><?= h($city->id) ?></h2>
     <div class="row">
         <div class="form-group col-sm-10">
             <div class="col-sm-3 subheader"><?= __('Guild Id') ?></div>

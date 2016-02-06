@@ -32,7 +32,7 @@ msgid "PleaseSelectLanguage"
 msgstr "Please Select Language"
 
 msgid "RoledataListHeader"
-msgstr "Roledata of AccountCommon ID#"
+msgstr "Roledata of AccountCommon"
 
 msgid "Back"
 msgstr "Back to "

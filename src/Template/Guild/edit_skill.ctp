@@ -12,7 +12,7 @@
 </div>
 <div class="guild form">
     <?= $this->Form->create($guildSkill) ?>
-    <legend><?= __('Edit Guild Skill') ?><div class="id">ID#<?= $guildSkill->skill_id ?></div></legend>
+    <legend><?= __('Edit Guild Skill') ?><div class="id"><?= $guildSkill->skill_id ?></div></legend>
     <?= $this->Form->input('guild_id', ['type' => 'text', 'class' => 'form-control', 'disabled' =>true, 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('skill_id', ['type' => 'text', 'class' => 'form-control', 'disabled' =>true, 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('progress', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>

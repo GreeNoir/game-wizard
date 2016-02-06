@@ -32,7 +32,7 @@ msgid "PleaseSelectLanguage"
 msgstr "Выберете язык страницы"
 
 msgid "RoledataListHeader"
-msgstr "Список персонажей аккаунта ID#"
+msgstr "Список персонажей аккаунта "
 
 msgid "Back"
 msgstr "Назад на "

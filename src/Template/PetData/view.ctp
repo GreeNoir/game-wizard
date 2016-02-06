@@ -8,7 +8,7 @@
     </ul>
 </div>
 <div class="petData view large-9 medium-8 columns content">
-    <h2><div class="id">ID#<?= h($petData->pet_id) ?></div></h2>
+    <h2><div class="id"><?= h($petData->pet_id) ?></div></h2>
     <div class="row">
         <div class="form-group col-sm-10">
             <div class="col-sm-2 subheader"><?= __('Pet Name') ?></div>

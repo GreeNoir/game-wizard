@@ -11,7 +11,7 @@
     </ul>
 </div>
 <div class="account_common view columns">
-    <h2><div class="id">ID#<?= h($accountCommon->AccountID) ?></div></h2>
+    <h2><div class="id"><?= h($accountCommon->AccountID) ?></div></h2>
     <div class="row">
         <div class="columns strings">
             <div class="form-group col-sm-10">
