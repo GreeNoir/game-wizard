@@ -6,11 +6,11 @@
 </div>
 <div class="familySprite form">
     <?= $this->Form->create($familySprite) ?>
-    <legend><?= __('Edit Family Sprite') ?><div class="id">ID#<?= $familySprite->FamilyID ?></div></legend>
-
+    <legend><?= __('Edit Family Sprite') ?></legend>
+    <?= $this->Form->input('FamilyID', ['disabled' => true, 'type' => 'text', 'class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]); ?>
     <?= $this->Form->input('Level', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]); ?>
     <?= $this->Form->input('Exp', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]); ?>
-    <?= $this->Form->input('Name', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]); ?>
+    <?= $this->Form->input('Name', ['required' => true, 'disabled' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]); ?>
     <?= $this->Form->input('HP', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]); ?>
     <?= $this->Form->input('EXAttack', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]); ?>
     <?= $this->Form->input('InAttack', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]); ?>

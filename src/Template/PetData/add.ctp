@@ -11,7 +11,7 @@
     <?= $this->Form->input('pet_name', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('pet_value', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('pet_pm', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('master_id', ['required' => true, 'type' => 'text', 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label', 'text' => 'MasterID']]); ?>
+    <?= $this->Form->input('master_id', ['options' => $roledata,'required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label', 'text' => 'Master']]); ?>
     <?= $this->Form->input('type_id', ['required' => true, 'type' => 'text', 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label', 'text' => 'TypeID']]); ?>
     <?= $this->Form->input('quality', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('aptitude', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>

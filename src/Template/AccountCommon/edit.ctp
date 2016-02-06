@@ -15,8 +15,9 @@
 <div class="account_common form">
     <?= $this->Form->create($accountCommon, ['class' => 'form-horizontal']) ?>
 
-    <legend><?= __('Edit Account Common') ?><div class="id">ID#<?= $accountCommon->AccountID ?></div></legend>
-    <?= $this->Form->input('AccountName', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <legend><?= __('Edit Account Common') ?><div class="id"><?= $accountCommon->AccountName ?></div></legend>
+    <?= $this->Form->input('AccountID', ['type' => 'text', 'disabled' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('AccountName', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label'], 'size' => 36]); ?>
     <?= $this->Form->input('ChannelID', ['type' => 'text', 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('BaiBaoYuanBao', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('WareSize', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>

@@ -90,11 +90,15 @@ class AccountCommonTable extends Table
     }
 
     /**
-     * Delete account and all linked roledata
-     * @param $accountID
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
      */
-    public function deleteAccount($accountID) {
-
+    public function buildRules(RulesChecker $rules) {
+        $rules->add($rules->isUnique(['AccountName']));
+        return $rules;
     }
 
 }

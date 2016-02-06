@@ -13,6 +13,8 @@ use Cake\Datasource\ConnectionManager;
 class RoledataController extends AppController
 {
 
+    private $genders = [0 => 'Woman', 1 => 'Man'];
+
     /**
      * Index method
      *
@@ -53,6 +55,28 @@ class RoledataController extends AppController
     public function add()
     {
         $roledata = $this->Roledata->newEntity();
+
+        $this->loadModel('AccountCommon');
+        $accountsList = $this->AccountCommon->find()->select(['AccountID', 'AccountName'])->order(['AccountName' => 'asc'])->all();
+        $accounts[] = __('Please select');
+        foreach($accountsList as $account) {
+            $accounts[$account->AccountID] = $account->AccountName;
+        }
+
+        $this->loadModel('Family');
+        $familyList = $this->Family->find()->order(['FamilyName' => 'asc'])->all();
+        $families[] = __('Please select');
+        foreach($familyList as $family) {
+            $families[$family->FamilyID] = $family->FamilyName;
+        }
+
+        $this->loadModel('Guild');
+        $guildList = $this->Guild->find()->order(['ID' => 'asc'])->all();
+        $guilds[] = __('Please select');
+        foreach($guildList as $guild) {
+            $guilds[$guild->ID] = $guild->ID;
+        }
+
         if ($this->request->is('post')) {
             $roledata = $this->Roledata->patchEntity($roledata, $this->request->data);
             if ($this->Roledata->save($roledata)) {
@@ -63,6 +87,11 @@ class RoledataController extends AppController
                 $this->Flash->error(__('The roledata could not be saved. Please, try again.'));
             }
         }
+
+        $this->set('accounts', $accounts);
+        $this->set('genders', $this->genders);
+        $this->set('families', $families);
+        $this->set('guilds', $guilds);
         $this->set(compact('roledata'));
         $this->set('_serialize', ['roledata']);
     }
@@ -77,6 +106,21 @@ class RoledataController extends AppController
     public function edit($id = null)
     {
         $roledata = $this->Roledata->getRoledata($id);
+
+        $this->loadModel('Family');
+        $familyList = $this->Family->find()->order(['FamilyName' => 'asc'])->all();
+        $families[] = __('Please select');
+        foreach($familyList as $family) {
+            $families[$family->FamilyID] = $family->FamilyName;
+        }
+
+        $this->loadModel('Guild');
+        $guildList = $this->Guild->find()->order(['ID' => 'asc'])->all();
+        $guilds[] = __('Please select');
+        foreach($guildList as $guild) {
+            $guilds[$guild->ID] = $guild->ID;
+        }
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $roledata = $this->Roledata->patchEntity($roledata, $this->request->data);
             if ($this->Roledata->save($roledata)) {
@@ -86,6 +130,9 @@ class RoledataController extends AppController
                 $this->Flash->error(__('The roledata could not be saved. Please, try again.'));
             }
         }
+        $this->set('genders', $this->genders);
+        $this->set('families', $families);
+        $this->set('guilds', $guilds);
         $this->set(compact('roledata'));
         $this->set('_serialize', ['roledata']);
     }

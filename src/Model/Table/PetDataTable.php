@@ -157,13 +157,8 @@ class PetDataTable extends Table
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
-    public function buildRules(RulesChecker $rules)
-    {
-        /*
-        $rules->add($rules->existsIn(['pet_id'], 'Pets'));
-        $rules->add($rules->existsIn(['master_id'], 'Masters'));
-        $rules->add($rules->existsIn(['type_id'], 'Types'));
-        */
+    public function buildRules(RulesChecker $rules) {
+        $rules->add($rules->isUnique(['pet_name']));
         return $rules;
     }
 

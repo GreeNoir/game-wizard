@@ -8,9 +8,9 @@
     <?= $this->Form->create($family) ?>
     <legend><?= __('Add Family') ?></legend>
     <?= $this->Form->input('FamilyName', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('LeaderID', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('FounderID', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('Active', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('LeaderID', ['options' => $roledata, 'required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('FounderID', ['options' => $roledata, 'required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+    <?= $this->Form->input('Active', ['required' => false, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label'], 'value' => 0]); ?>
     <?= $this->Form->input('CreateTime', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10 voofset10">

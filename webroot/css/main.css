@@ -80,8 +80,13 @@ div.input.checkbox {
     margin-bottom: 15px;
 }
 
-div.input.checkbox input[type="checkbox"] {
+div.input.checkbox label.col-sm-2 input[type="checkbox"] {
     left: 200px;
+    height: auto;
+}
+
+div.input.checkbox label.col-sm-3 input[type="checkbox"] {
+    left: 285px;
     height: auto;
 }
 

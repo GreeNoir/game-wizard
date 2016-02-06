@@ -7,6 +7,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\ORM\TableRegistry;
 
 /**
  * Family Model
@@ -62,11 +63,6 @@ class FamilyTable extends Table
             ->notEmpty('FounderID');
 
         $validator
-            ->add('Active', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('Active', 'create')
-            ->notEmpty('Active');
-
-        $validator
             ->add('CreateTime', 'valid', ['rule' => 'datetime'])
             ->requirePresence('CreateTime', 'create')
             ->notEmpty('CreateTime');
@@ -74,16 +70,41 @@ class FamilyTable extends Table
         return $validator;
     }
 
-    public function checkUniqueName($name, $id=null) {
-        $where = ['FamilyName' => $name];
-        if (isset($id)) {
-            $where['FamilyID !='] = $id;
-        }
-        if ($this->find()->where($where)->first()) {
-            return false;
-        } else {
-            return true;
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules) {
+        $rules->add($rules->isUnique(['FamilyName']));
+        return $rules;
+    }
+
+    public function generateNextID() {
+        $nextID = 1;
+        $found = false;
+        $guild = TableRegistry::get('family');
+
+        $count = 0;
+        while(!$found) {
+            $search = $guild->find()->where(['FamilyID' => $nextID])->first();
+            if (!$search) {
+                $found = true;
+            } else {
+                $nextID++;
+            }
+            $count++;
+            if ($count > PHP_INT_MAX) {
+                break;
+            }
         }
 
+        if ($found) {
+            return $nextID;
+        } else {
+            return -1;
+        }
     }
 }

@@ -51,6 +51,14 @@ class PetDataController extends AppController
     public function add()
     {
         $petData = $this->PetData->newEntity();
+
+        $this->loadModel('Roledata');
+        $roledataList = $this->Roledata->find()->select(['RoleID', 'RoleName'])->order(['RoleName' => 'asc'])->all();
+        $roledataItems[] = __('Please select');
+        foreach($roledataList as $roledata) {
+            $roledataItems[$roledata->RoleID] = $roledata->RoleName;
+        }
+
         if ($this->request->is('post')) {
             $petData = $this->PetData->patchEntity($petData, $this->request->data);
             $petData->pet_id = $this->PetData->generateNextID();
@@ -62,6 +70,7 @@ class PetDataController extends AppController
             }
         }
 
+        $this->set('roledata', $roledataItems);
         $this->set(compact('petData'));
         $this->set('_serialize', ['petData']);
     }
@@ -75,9 +84,15 @@ class PetDataController extends AppController
      */
     public function edit($id = null)
     {
-        $petData = $this->PetData->get($id, [
-            'contain' => []
-        ]);
+        $petData = $this->PetData->get($id);
+
+        $this->loadModel('Roledata');
+        $roledataList = $this->Roledata->find()->select(['RoleID', 'RoleName'])->order(['RoleName' => 'asc'])->all();
+        $roledataItems[] = __('Please select');
+        foreach($roledataList as $roledata) {
+            $roledataItems[$roledata->RoleID] = $roledata->RoleName;
+        }
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $petData = $this->PetData->patchEntity($petData, $this->request->data);
             if ($this->PetData->save($petData)) {
@@ -88,6 +103,7 @@ class PetDataController extends AppController
             }
         }
 
+        $this->set('roledata', $roledataItems);
         $this->set(compact('petData'));
         $this->set('_serialize', ['petData']);
     }

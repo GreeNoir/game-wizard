@@ -12,7 +12,8 @@
 </div>
 <div class="city form">
     <?= $this->Form->create($city) ?>
-    <legend><?= __('Edit City') ?><div class="id">ID#<?= $city->id ?></div></legend>
+    <legend><?= __('Edit City') ?></legend>
+    <?= $this->Form->input('id', ['disabled' => true, 'type' => 'text', 'class' => 'form-control', 'type' => 'text', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('guild_id', ['required' => true, 'class' => 'form-control', 'type' => 'text', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('defence', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('eudemon_tally', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>

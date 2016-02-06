@@ -13,11 +13,12 @@
 <?= $this->Flash->render() ?>
 <div class="petData form">
     <?= $this->Form->create($petData) ?>
-    <legend><?= __('Edit Pet Data') ?><div class="id">ID#<?= $petData->pet_id ?></div></legend>
+    <legend><?= __('Edit Pet Data') ?></legend>
+    <?= $this->Form->input('pet_id', ['disabled' => true, 'type' => 'text', 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label', 'text' => 'ID']]); ?>
     <?= $this->Form->input('pet_name', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('pet_value', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('pet_pm', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('master_id', ['required' => true, 'type' => 'text', 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label', 'text' => 'MasterID']]); ?>
+    <?= $this->Form->input('master_id', ['options' => $roledata, 'required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label', 'text' => 'Master']]); ?>
     <?= $this->Form->input('type_id', ['required' => true, 'type' => 'text', 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label', 'text' => 'TypeID']]); ?>
     <?= $this->Form->input('quality', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('aptitude', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>

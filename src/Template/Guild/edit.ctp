@@ -16,7 +16,8 @@
 </div>
 <div class="guild form">
     <?= $this->Form->create($guild) ?>
-    <legend><?= __('Edit Guild') ?><div class="id">ID#<?= $guild->ID ?></div></legend>
+    <legend><?= __('Edit Guild') ?></legend>
+    <?= $this->Form->input('ID', ['disabled' => true, 'type' => 'text', 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('FounderNameID', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('LeaderID', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
     <?= $this->Form->input('SpecState', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>

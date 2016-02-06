@@ -51,21 +51,26 @@ class FamilyController extends AppController
     public function add()
     {
         $family = $this->Family->newEntity();
+
+        $this->loadModel('Roledata');
+        $roledataList = $this->Roledata->find()->select(['RoleID', 'RoleName'])->order(['RoleName' => 'asc'])->all();
+        $roledataItems[] = __('Please select');
+        foreach($roledataList as $roledata) {
+            $roledataItems[$roledata->RoleID] = $roledata->RoleName;
+        }
+
         if ($this->request->is('post')) {
             $family = $this->Family->patchEntity($family, $this->request->data);
-            $family->FamilyID ++;
-            if ($this->Family->checkUniqueName($family->FamilyName)) {
-                if ($this->Family->save($family)) {
-                    $familyID = $family->FamilyID;
-                    $this->Flash->success(__('The family has been saved.'));
-                    return $this->redirect(['action' => 'edit', $familyID]);
-                } else {
-                    $this->Flash->error(__('The family could not be saved. Please, try again.'));
-                }
+            $family->FamilyID = $this->Family->generateNextID();
+            if ($this->Family->save($family)) {
+                $familyID = $family->FamilyID;
+                $this->Flash->success(__('The family has been saved.'));
+                return $this->redirect(['action' => 'edit', $familyID]);
             } else {
-                $this->Flash->error(__('The family name should be unique. Please, try again.'));
+                $this->Flash->error(__('The family could not be saved. Please, try again.'));
             }
         }
+        $this->set('roledata', $roledataItems);
         $this->set(compact('family'));
         $this->set('_serialize', ['family']);
     }
@@ -79,22 +84,25 @@ class FamilyController extends AppController
      */
     public function edit($id = null)
     {
-        $family = $this->Family->get($id, [
-            'contain' => []
-        ]);
+        $family = $this->Family->get($id);
+
+        $this->loadModel('Roledata');
+        $roledataList = $this->Roledata->find()->select(['RoleID', 'RoleName'])->order(['RoleName' => 'asc'])->all();
+        $roledataItems[] = __('Please select');
+        foreach($roledataList as $roledata) {
+            $roledataItems[$roledata->RoleID] = $roledata->RoleName;
+        }
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $family = $this->Family->patchEntity($family, $this->request->data);
-            if ($this->Family->checkUniqueName($family->FamilyName, $id)) {
-                if ($this->Family->save($family)) {
-                    $this->Flash->success(__('The family has been saved.'));
-                    return $this->redirect(['action' => 'edit', 'id' => $id]);
-                } else {
-                    $this->Flash->error(__('The family could not be saved. Please, try again.'));
-                }
+            if ($this->Family->save($family)) {
+                $this->Flash->success(__('The family has been saved.'));
+                return $this->redirect(['action' => 'edit', 'id' => $id]);
             } else {
-                $this->Flash->error(__('The family name should be unique. Please, try again.'));
+                $this->Flash->error(__('The family could not be saved. Please, try again.'));
             }
         }
+        $this->set('roledata', $roledataItems);
         $this->set(compact('family'));
         $this->set('_serialize', ['family']);
     }
