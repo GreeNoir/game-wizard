@@ -16,6 +16,10 @@ $(function() {
 
     $('[data-toggle="tooltip"]').tooltip();
 
+    if ($('.error-message').length > 0) {
+        $('.error-message').parent().parent().addClass('has-warning');
+    }
+
     if ($('.alert').length && $('.container-fluid > div.actions').length) {
         $('.alert').insertAfter($('.container-fluid > div.actions'));
     }

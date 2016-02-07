@@ -15,9 +15,9 @@
         <li><?= $this->Html->link(__('Nurslings'), ['action' => 'nurslings', 'id' => $roledata->RoleID]) ?></li>
     </ul>
 </div>
-<legend><?= __('Edit Roledata') ?><div class="id"><?= $roledata->RoleName ?></div></legend>
 <div class="col-md-8">
-
+<?= $this->Form->create($roledata, ['class' => 'form-horizontal']) ?>
+<legend><?= __('Edit Roledata') ?><div class="id">&nbsp;#<?= $roledata->RoleID ?></div></legend>
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#panel_basic"><?= __('Basic') ?></a></li>
     <li><a data-toggle="tab" href="#panel_place"><?= __('Place') ?></a></li>
@@ -27,7 +27,6 @@
 </ul>
 <div class="well">
 <div class="roledata form">
-    <?= $this->Form->create($roledata, ['class' => 'form-horizontal']) ?>
     <div class="tab-content">
         <div id="panel_basic" class="strings tab-pane fade in active">
             <?php
@@ -229,11 +228,11 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-md-offset-4 col-md-10 voffset10">
+        <div class="col-md-offset-4 col-md-10">
             <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
         </div>
     </div>
-    <?= $this->Form->end() ?>
 </div>
 </div>
+<?= $this->Form->end() ?>
 </div>

@@ -1,4 +1,4 @@
-<br />
+<div class="actions"></div>
 <div class="col-md-6">
     <div class="form well">
         <?= $this->Flash->render('auth') ?>
