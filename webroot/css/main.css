@@ -7,6 +7,10 @@ body {
     background-color: #eeeeee;
 }
 
+a, a:active, a:hover, a:checked, a:visited {
+    outline: 0;
+}
+
 .fa-fw {
     margin-right: 5px;
 }
@@ -273,13 +277,26 @@ span.checkbox-material {
     line-height: 18px;
 }
 
-.navbar {
+.navbar,
+.navbar .navbar-collapse,
+.navbar .navbar-brand {
     height: 51px;
+    color: #999;
+}
+
+.navbar .navbar-brand {
+    line-height: 51px;
+    font-size: 17px;
+    padding: 0 0 0 22px;
 }
 
 .navbar.navbar-inverse .dropdown-menu li > a {
     font-size: 14px;
     padding: 4px 10px;
+}
+
+.navbar .navbar-nav > li > a {
+    padding: 17px 0 17px 20px;
 }
 
 .dropdown-menu .divider {
