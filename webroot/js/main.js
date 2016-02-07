@@ -5,15 +5,13 @@ $(function() {
     });
 
     if ($('form div.input').length > 0) {
-        $('form div.input').addClass("form-group");
+        $('form div.input').wrap("<div class='form-group'></div>");
+        $('form div.input input').addClass('form-control');
+        $('form div.input select').addClass('form-control');
     }
 
     if ($('form.form-inline div.input').length > 0) {
         $('form.form-inline div.input').addClass("col-xs-3");
-    }
-
-    if ($('form:not(.form-inline) div.input').length > 0) {
-        $('form:not(.form-inline) div.input').addClass("col-sm-10");
     }
 
     $('[data-toggle="tooltip"]').tooltip();

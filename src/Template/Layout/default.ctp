@@ -12,10 +12,16 @@
     <?= $this->Html->css('sb-admin.css') ?>
     <?= $this->Html->css('font-awesome.min.css') ?>
     <?= $this->Html->css('chosen.css') ?>
+    <?= $this->Html->css('bootstrap-material-design.min.css') ?>
+    <?= $this->Html->css('ripples.min.css') ?>
+    <?= $this->Html->css('snackbar.min.css') ?>
     <?= $this->Html->css('main.css') ?>
 
     <?= $this->Html->Script('jquery-1.11.3.min.js') ?>
     <?= $this->Html->Script('bootstrap.min.js') ?>
+    <?= $this->Html->Script('material.min.js') ?>
+    <?= $this->Html->Script('ripples.min.js') ?>
+    <?= $this->Html->Script('snackbar.min.js') ?>
     <?= $this->Html->Script('chosen.jquery.min.js') ?>
     <?= $this->Html->Script('main.js') ?>
 
@@ -129,6 +135,10 @@
     <footer>
         <div></div>
     </footer>
+
+<script>
+    $.material.init();
+</script>
 
 <?= $this->Html->scriptBlock('
         var controller = "'.$controller.'";

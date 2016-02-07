@@ -12,22 +12,24 @@
         <li><?= $this->Html->link(__('Monitoring'), ['controller' => 'Account', 'action' => 'edit', $accountCommon['AccountID']], ['escape' => false]) ?></li>
     </ul>
 </div>
-<div class="account_common form">
-    <?= $this->Form->create($accountCommon, ['class' => 'form-horizontal']) ?>
+<div class="col-md-6">
+    <div class="account_common form well">
+        <?= $this->Form->create($accountCommon, ['class' => 'form-horizontal']) ?>
 
-    <legend><?= __('Edit Account Common') ?><div class="id"><?= $accountCommon->AccountName ?></div></legend>
-    <?= $this->Form->input('AccountID', ['type' => 'text', 'disabled' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('AccountName', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label'], 'size' => 36]); ?>
-    <?= $this->Form->input('ChannelID', ['type' => 'text', 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('BaiBaoYuanBao', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('WareSize', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('WareSilver', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('LastUseRoleID', ['type' => 'text', 'disabled' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
+        <legend><?= __('Edit Account Common') ?><div class="id"><?= $accountCommon->AccountName ?></div></legend>
+        <?= $this->Form->input('AccountID', ['type' => 'text', 'disabled' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('AccountName', ['required' => true, 'label' => ['class' => 'col-md-3 control-label'], 'size' => 36]); ?>
+        <?= $this->Form->input('ChannelID', ['type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('BaiBaoYuanBao', ['label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('WareSize', ['label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('WareSilver', ['label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('LastUseRoleID', ['type' => 'text', 'disabled' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10 voofset10">
-            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-10 voofset10">
+                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+            </div>
         </div>
+        <?= $this->Form->end() ?>
     </div>
-    <?= $this->Form->end() ?>
 </div>

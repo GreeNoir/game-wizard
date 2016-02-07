@@ -1,9 +1,10 @@
 body {
-    background-color: #ffffff;
+    background-color: #eeeeee;
 }
 
 #page-wrapper {
     height: 100%;
+    background-color: #eeeeee;
 }
 
 .fa-fw {
@@ -250,4 +251,22 @@ div.id {
     display: inline-block;
     vertical-align: top;
     padding-left: 6px;
+}
+
+.well {
+    background-image: none;
+}
+
+span.checkbox-material {
+    margin-right: 7px;
+}
+
+.nav-tabs li.active > a {
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 18px;
+}
+
+.navbar {
+    height: 51px;
 }

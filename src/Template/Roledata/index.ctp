@@ -5,10 +5,10 @@
     </ul>
 </div>
 <div class="roledata table-responsive col-lg-12">
-    <table class="table table-condensed table-bordered table-striped">
+    <table class="table table-hover table-striped">
     <thead>
         <tr>
-            <th class="ids"><?= $this->Paginator->sort('RoleID', 'RoleID') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('RoleID', '#') ?></th>
             <th><?= $this->Paginator->sort('RoleName') ?></th>
             <th class="ids"><?= $this->Paginator->sort('AccountID', 'AccountID') ?></th>
             <th><?= $this->Paginator->sort('account_common.AccountName', __('AccountName')) ?></th>
