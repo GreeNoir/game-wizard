@@ -212,24 +212,24 @@
         </div>
         <div id="panel_booleans" class="boolean tab-pane fade in">
             <?php
-            echo $this->Form->input('SGFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
-            echo $this->Form->input('RemoveFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
-            echo $this->Form->input('Hostility', ['label' => ['class' => 'col-md-offset-3 ']]);
-            echo $this->Form->input('OfflineExperienceRewardFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
-            echo $this->Form->input('VipLevel', ['label' => ['class' => 'col-md-offset-3 ']]);
-            echo $this->Form->input('CanRankFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
-            echo $this->Form->input('Buy50LvlItemFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
-            echo $this->Form->input('Buy60LvlItemFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
-            echo $this->Form->input('Buy70LvlItemFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
-            echo $this->Form->input('Buy80LvlItemFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
-            echo $this->Form->input('PlayerBack', ['label' => ['class' => 'col-md-offset-3 ']]);
-            echo $this->Form->input('UseConstraintsMaxPKSafeGuardLevel', ['label' => ['class' => 'col-md-offset-3 ']]);
+            echo $this->Form->input('SGFlag', ['label' => ['class' => 'col-md-offset-3']]);
+            echo $this->Form->input('RemoveFlag', ['label' => ['class' => 'col-md-offset-3']]);
+            echo $this->Form->input('Hostility', ['label' => ['class' => 'col-md-offset-3']]);
+            echo $this->Form->input('OfflineExperienceRewardFlag', ['label' => ['class' => 'col-md-offset-3']]);
+            echo $this->Form->input('VipLevel', ['label' => ['class' => 'col-md-offset-3']]);
+            echo $this->Form->input('CanRankFlag', ['label' => ['class' => 'col-md-offset-3']]);
+            echo $this->Form->input('Buy50LvlItemFlag', ['label' => ['class' => 'col-md-offset-3']]);
+            echo $this->Form->input('Buy60LvlItemFlag', ['label' => ['class' => 'col-md-offset-3']]);
+            echo $this->Form->input('Buy70LvlItemFlag', ['label' => ['class' => 'col-md-offset-3']]);
+            echo $this->Form->input('Buy80LvlItemFlag', ['label' => ['class' => 'col-md-offset-3']]);
+            echo $this->Form->input('PlayerBack', ['label' => ['class' => 'col-md-offset-3']]);
+            echo $this->Form->input('UseConstraintsMaxPKSafeGuardLevel', ['label' => ['class' => 'col-md-offset-3']]);
             ?>
         </div>
     </div>
     <div class="form-group">
         <div class="col-md-offset-4 col-md-10">
-            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
         </div>
     </div>
 </div>

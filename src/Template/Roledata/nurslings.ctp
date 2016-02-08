@@ -13,7 +13,7 @@
 <div class="table-responsive col-lg-8">
     <?php if(count($nurslings)): ?>
     <h3><?=__('NurslingsList') ?></h3>
-    <table class="table table-condensed table-bordered table-striped nurslings">
+    <table class="table table-hover table-striped nurslings">
         <thead>
         <tr>
             <th class="ids"><?= __('ID') ?></th>

@@ -51,8 +51,8 @@
             <?= $this->Form->input('ip_ban', ['type' => 'checkbox', 'checked' => $isIpBanned ? 'checked' : '', 'label' => ['text' => '<b>'.__('Ban IP').'</b> ' .h($account->ip), 'class' => 'col-md-offset-3', 'escape' => false]]); ?>
             <?= $this->Form->input('mac_ban', ['type' => 'checkbox', 'checked' => $isMacBanned, 'label' => ['text' => '<b>'.__('Ban MAC').'</b> '.h($account->mac), 'class' => 'col-md-offset-3', 'escape' => false]]); ?>
             <div class="form-group">
-                <div class="col-md-8 col-sm-offset-2">
-                    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+                <div class="col-sm-offset-3">
+                    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
                 </div>
             </div>
         <?= $this->Form->end() ?>

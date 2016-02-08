@@ -73,7 +73,7 @@ function initEquipment(roledataAccountsList) {
         location.href = '/' + select_lang + '/Roledata/equipment_item/'+ id + '/' + slug;
     });
 
-    $('#equipType').chosen();
+    //$('#equipType').chosen();
 
     $('.copy_item').click(function(){
         $('input[name=serial]').val($(this).data('serial'));

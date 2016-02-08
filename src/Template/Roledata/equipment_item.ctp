@@ -18,7 +18,7 @@
 <div class="table-responsive">
     <?php if ($itemListCount > 0): ?>
     <h3><?=__('EquipmentList') ?></h3>
-    <table class="table table-condensed table-bordered table-striped equip">
+    <table class="table table-hover table-striped equip">
         <thead>
         <tr>
             <th><?= $this->Paginator->sort('SerialNum') ?></th>
@@ -27,21 +27,23 @@
             <th>
                 <input type="hidden" name="roleID" value="<?= $id ?>">
                 <input type="hidden" name="subaction">
-                <select id="equipType" name="equipType">
-                    <option value="all" selected="selected"><?= __('EquipType') ?></option>
-                    <?php foreach($equipTypes as $type) { ?>
-                    <option value="<?= $type ?>" <?php if($type==$selectedEquipType) { echo 'selected="selected"';} ?>><?= $type ?></option>
-                    <?php } ?>
-                </select>
-                <div class="sort_container <?php if($selectedEquipType != 'all'): echo 'disabled'; endif;?>">
-                    <?php
-                        $hiddenDirection == 'desc' ? $direction = 'asc' : $direction = 'desc';
-                        if ($direction == 'asc') :
-                            echo $this->Paginator->sort('EquipType', '<i class="fa fa-sort-alpha-asc"></i>', ['escape' => false, 'direction' => $direction]);
-                        else:
-                            echo $this->Paginator->sort('EquipType', '<i class="fa fa-sort-alpha-desc"></i>', ['escape' => false, 'direction' => $direction]);
-                        endif;
-                    ?>
+                <div class="equip_type_container">
+                    <select id="equipType" name="equipType" class="form-control">
+                        <option value="all" selected="selected"><?= __('EquipType') ?></option>
+                        <?php foreach($equipTypes as $type) { ?>
+                        <option value="<?= $type ?>" <?php if($type==$selectedEquipType) { echo 'selected="selected"';} ?>><?= $type ?></option>
+                        <?php } ?>
+                    </select>
+                    <div class="sort_container <?php if($selectedEquipType != 'all'): echo 'disabled'; endif;?>">
+                        <?php
+                            $hiddenDirection == 'desc' ? $direction = 'asc' : $direction = 'desc';
+                            if ($direction == 'asc') :
+                                echo $this->Paginator->sort('EquipType', '<i class="fa fa-sort-alpha-asc"></i>', ['escape' => false, 'direction' => $direction]);
+                            else:
+                                echo $this->Paginator->sort('EquipType', '<i class="fa fa-sort-alpha-desc"></i>', ['escape' => false, 'direction' => $direction]);
+                            endif;
+                        ?>
+                    </div>
                 </div>
             </th>
             <th><?= __('Name') ?></th>

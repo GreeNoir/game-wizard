@@ -4,6 +4,8 @@
         <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
     </ul>
 </div>
+<div class="col-md-8">
+<?= $this->Form->create($roledata, ['class' => 'form-horizontal']) ?>
 <legend><?= __('Add Roledata') ?></legend>
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#panel_basic"><?= __('Basic') ?></a></li>
@@ -12,213 +14,213 @@
     <li><a data-toggle="tab" href="#panel_additional"><?= __('Additional') ?></a></li>
     <li><a data-toggle="tab" href="#panel_booleans"><?= __('Flags') ?></a></li>
 </ul>
+<div class="well">
+    <div class="roledata form">
+        <div class="tab-content">
+            <div id="panel_basic" class="strings tab-pane fade in active">
+                <?php
+                echo $this->Form->input('RoleName', ['label' => ['class' => 'col-md-3 control-label'], 'size' => 32]);
+                echo $this->Form->input('AccountID', ['options' => $accounts, 'label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Sex', ['options' => $genders, 'label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('SpeakOff', ['required' => false, 'type' => 'checkbox', 'label' => ['class' => 'col-md-offset-3']]);
+                echo $this->Form->input('HP', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('CreateTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('LoginTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('LogoutTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                ?>
+            </div>
+            <div id="panel_place" class="strings tab-pane fade in">
+                <?php
+                    echo $this->Form->input('DisplaySet', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('MapID', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('X', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Y', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Z', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('FaceX', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('FaceY', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('FaceZ', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('RebornMapID', ['label' => ['class' => 'col-md-3 control-label']]);
+                ?>
+            </div>
+            <div id="panel_groups" class="strings tab-pane fade in">
+                <?php
+                    echo $this->Form->input('FamilyID', ['options' => $families, 'label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('GuildID', ['options' => $guilds, 'label' => ['class' => 'col-md-3 control-label']]);
+                ?>
+            </div>
+            <div id="panel_additional" class="numbers tab-pane fade in">
+                <?php
+                    echo $this->Form->input('RoleNameCrc', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('HairModelID', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('HairColorID', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('FaceModelID', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('FaceDetailID', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('DressModelID', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Class', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ClassEx', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('LastUpgrade', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Level', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('WorkedLevel', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('LevelPm', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ExpCurLevel', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('MP', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Rage', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Endurance', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Vitality', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Injury', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Knowledge', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Morale', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Morality', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Culture', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Credit', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Identity', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('VIPPoint', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Spirit', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('FixSpirit', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('WuXun', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('WuJi', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Weary', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('AttPtAvail', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TalentPtAvail', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('PhysiqueAdded', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('StrengthAdded', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('PneumaAdded', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('InnerforceAdded', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TechniqueAdded', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('AgilityAdded', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Strength', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('StrengthNum', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('EquipValue', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('EquipPm', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('AdvanceStrength', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ConsumptiveStrength', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('KillCount', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TalentType1', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TalentType2', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TalentType3', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TalentType4', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TalentVal1', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TalentVal2', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TalentVal3', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TalentVal4', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('BagSize', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('BagGold', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('BagSilver', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('BagYuanBao', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ExchangeVolume', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TotalTax', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('RemoteOpenSet', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('CurTitleID', ['label' => ['class' => 'col-md-3 control-label']]);
 
-<div class="roledata form">
-    <?= $this->Form->create($roledata, ['class' => 'form-horizontal']) ?>
-    <div class="tab-content">
-        <div id="panel_basic" class="strings tab-pane fade in active">
-            <?php
-            echo $this->Form->input('RoleName', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label'], 'size' => 32]);
-            echo $this->Form->input('AccountID', ['options' => $accounts, 'class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Sex', ['options' => $genders, 'class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('SpeakOff', ['class' => 'form-control', 'required' => false, 'type' => 'checkbox', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('HP', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('CreateTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('LoginTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('LogoutTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            ?>
-        </div>
-        <div id="panel_place" class="strings tab-pane fade in">
-            <?php
-                echo $this->Form->input('DisplaySet', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('MapID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('X', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Y', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Z', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('FaceX', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('FaceY', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('FaceZ', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('RebornMapID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            ?>
-        </div>
-        <div id="panel_groups" class="strings tab-pane fade in">
-            <?php
-                echo $this->Form->input('FamilyID', ['options' => $families, 'class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('GuildID', ['options' => $guilds, 'class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            ?>
-        </div>
-        <div id="panel_additional" class="numbers tab-pane fade in">
-            <?php
-                echo $this->Form->input('RoleNameCrc', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('HairModelID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('HairColorID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('FaceModelID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('FaceDetailID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('DressModelID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Class', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ClassEx', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('LastUpgrade', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Level', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('WorkedLevel', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('LevelPm', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ExpCurLevel', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('MP', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Rage', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Endurance', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Vitality', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Injury', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Knowledge', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Morale', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Morality', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Culture', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Credit', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Identity', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('VIPPoint', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Spirit', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('FixSpirit', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('WuXun', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('WuJi', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Weary', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('AttPtAvail', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TalentPtAvail', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('PhysiqueAdded', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('StrengthAdded', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('PneumaAdded', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('InnerforceAdded', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TechniqueAdded', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('AgilityAdded', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Strength', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('StrengthNum', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('EquipValue', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('EquipPm', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('AdvanceStrength', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ConsumptiveStrength', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('KillCount', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TalentType1', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TalentType2', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TalentType3', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TalentType4', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TalentVal1', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TalentVal2', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TalentVal3', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TalentVal4', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('BagSize', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('BagGold', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('BagSilver', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('BagYuanBao', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ExchangeVolume', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TotalTax', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('RemoteOpenSet', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('CurTitleID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
+                echo $this->Form->input('OnlineTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('CurOnlineTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('RemoveTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TreasureSum', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('StallLevel', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('StallDailyExp', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('StallCurExp', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('StallLastTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('DeadUnSetSafeGuardCountDown', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ItemTransportMapID', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ItemTransportX', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ItemTransportZ', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ItemTransportY', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('LoverID', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('HaveWedding', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('LastLessingTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('LastLessingLevel', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('NeedPrisonRevive', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('LastLessingLevelEx', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('LastLessingLoongDate', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('CurrentDayOnlineTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('OneDayFirstLoginedTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('OnlineRewardPerDayRecTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('MasterID', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('JingWuPoint', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('QinWuPoint', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('MARelation', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('FollowPetPocketValue', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('RidingPetPocketValue', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('MiraclePrcNum', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('MiracleResetTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('GodMiraclePoints', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('SoaringValue', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('SoaringSkillLearnTimes', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Toughness', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('CompleteRefreshTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('IMRefreshTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ConsolidateTimes', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TrainStateTransfered', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('RoleState', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('VipStartTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('FreeWorldTalkTimes', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('VipMaxDays', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('YaoJingValue', ['label' => ['class' => 'col-md-3 control-label']]);
 
-            echo $this->Form->input('OnlineTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('CurOnlineTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('RemoveTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TreasureSum', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('StallLevel', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('StallDailyExp', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('StallCurExp', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('StallLastTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('DeadUnSetSafeGuardCountDown', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ItemTransportMapID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ItemTransportX', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ItemTransportZ', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ItemTransportY', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('LoverID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('HaveWedding', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('LastLessingTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('LastLessingLevel', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('NeedPrisonRevive', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('LastLessingLevelEx', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('LastLessingLoongDate', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('CurrentDayOnlineTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('OneDayFirstLoginedTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('OnlineRewardPerDayRecTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('MasterID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('JingWuPoint', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('QinWuPoint', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('MARelation', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('FollowPetPocketValue', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('RidingPetPocketValue', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('MiraclePrcNum', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('MiracleResetTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('GodMiraclePoints', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('SoaringValue', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('SoaringSkillLearnTimes', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Toughness', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('CompleteRefreshTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('IMRefreshTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ConsolidateTimes', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TrainStateTransfered', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('RoleState', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('VipStartTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('FreeWorldTalkTimes', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('VipMaxDays', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('YaoJingValue', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-
-            echo $this->Form->input('YListCompleteRefreshTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('YListIMRefreshTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TakeGuildRewardTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ExpPilularUseTimes', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('PickupModeSetting', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('PlayerBackDays', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('BePlayActLayerID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('BePlayActLevel', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('GodHead', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('GodFaith', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('GodCondenced', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Clergy', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('PreClergy', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ClergyMarsPoint', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ClergyApolloPoint', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ClergyRabbiPoint', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ClergyPeacePoint', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('ClergyCandidateType', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Clergy4SeniorOrJunior', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('KeyCodeRewarded', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TrainDate', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TrainNum', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('award_point', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('award_flag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('BrotherEndTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('BrotherTeacherID', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('PulseRemainTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('TigerTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('god_soul', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('monster_soul', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('god_point', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('monster_point', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('flower_num', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('egg_num', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('holy_value', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('role_hit_add', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('role_eei_all', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('CloseSGTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('GetMallFreeTime', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            ?>
+                echo $this->Form->input('YListCompleteRefreshTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('YListIMRefreshTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TakeGuildRewardTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ExpPilularUseTimes', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('PickupModeSetting', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('PlayerBackDays', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('BePlayActLayerID', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('BePlayActLevel', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('GodHead', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('GodFaith', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('GodCondenced', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Clergy', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('PreClergy', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ClergyMarsPoint', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ClergyApolloPoint', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ClergyRabbiPoint', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ClergyPeacePoint', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('ClergyCandidateType', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('Clergy4SeniorOrJunior', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('KeyCodeRewarded', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TrainDate', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TrainNum', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('award_point', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('award_flag', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('BrotherEndTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('BrotherTeacherID', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('PulseRemainTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('TigerTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('god_soul', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('monster_soul', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('god_point', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('monster_point', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('flower_num', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('egg_num', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('holy_value', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('role_hit_add', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('role_eei_all', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('CloseSGTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('GetMallFreeTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                ?>
+            </div>
+            <div id="panel_booleans" class="boolean tab-pane fade in">
+                <?php
+                    echo $this->Form->input('SGFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
+                echo $this->Form->input('RemoveFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
+                echo $this->Form->input('Hostility', ['label' => ['class' => 'col-md-offset-3 ']]);
+                echo $this->Form->input('OfflineExperienceRewardFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
+                echo $this->Form->input('VipLevel', ['label' => ['class' => 'col-md-offset-3 ']]);
+                echo $this->Form->input('CanRankFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
+                echo $this->Form->input('Buy50LvlItemFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
+                echo $this->Form->input('Buy60LvlItemFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
+                echo $this->Form->input('Buy70LvlItemFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
+                echo $this->Form->input('Buy80LvlItemFlag', ['label' => ['class' => 'col-md-offset-3 ']]);
+                echo $this->Form->input('PlayerBack', ['label' => ['class' => 'col-md-offset-3 ']]);
+                echo $this->Form->input('UseConstraintsMaxPKSafeGuardLevel', ['label' => ['class' => 'col-md-offset-3 ']]);
+                ?>
+            </div>
         </div>
-        <div id="panel_booleans" class="boolean tab-pane fade in">
-            <?php
-                echo $this->Form->input('SGFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('RemoveFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Hostility', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('OfflineExperienceRewardFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('VipLevel', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('CanRankFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Buy50LvlItemFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Buy60LvlItemFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Buy70LvlItemFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('Buy80LvlItemFlag', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('PlayerBack', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            echo $this->Form->input('UseConstraintsMaxPKSafeGuardLevel', ['class' => 'form-control', 'label' => ['class' => 'col-sm-3 control-label']]);
-            ?>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10 voffset10">
+                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10 voffset10">
-            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
-        </div>
     </div>
-    <?= $this->Form->end() ?>
+<?= $this->Form->end() ?>
 </div>
-

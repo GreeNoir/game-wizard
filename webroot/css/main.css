@@ -7,7 +7,7 @@ body {
     background-color: #eeeeee;
 }
 
-a, a:active, a:hover, a:checked, a:visited {
+a, a:focus, a:active, a:hover, a:checked, a:visited {
     outline: 0;
 }
 
@@ -82,10 +82,6 @@ label {
     margin-bottom: 5px;
 }
 
-.tab-pane {
-    padding-top: 15px;
-}
-
 div.input.checkbox {
     margin-top: 0;
     margin-bottom: 15px;
@@ -99,10 +95,6 @@ div.input.checkbox label.col-sm-2 input[type="checkbox"] {
 div.input.checkbox label.col-sm-3 input[type="checkbox"] {
     left: 285px;
     height: auto;
-}
-
-div.input.checkbox label {
-    padding-left: 15px;
 }
 
 .form-horizontal .checkbox, .form-horizontal .radio {
@@ -203,12 +195,6 @@ td.actions .action {
     display: inline-block;
 }
 
-.sort_container {
-    display: inline-block;
-    vertical-align: middle;
-    cursor: pointer;
-}
-
 .sort_container.disabled {
     opacity: 0.5;
     color: grey;
@@ -259,7 +245,7 @@ div.id {
 }
 
 span.checkbox-material {
-    margin-right: 7px;
+    margin-right: 11px;
 }
 
 .nav-tabs li.active > a {
@@ -278,7 +264,7 @@ span.checkbox-material {
 .navbar .navbar-brand {
     line-height: 51px;
     font-size: 17px;
-    padding: 0 0 0 22px;
+    padding: 0 22px;
 }
 
 .navbar.navbar-inverse .dropdown-menu li > a {
@@ -308,4 +294,26 @@ div.input.error .error-message {
 
 h3 {
     margin: 5px 0;
+}
+
+.equip_type_container > div {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+}
+
+.equip_type_container .form-group select {
+    margin: 0;
+    padding: 8px 0 0 0;
+    font-size: 14px;
+}
+
+.equip_type_container .sort_container {
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.tab-content.view {
+    padding: 0 0 35px;
 }
