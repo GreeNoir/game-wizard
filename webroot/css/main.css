@@ -265,7 +265,7 @@ span.checkbox-material {
 .nav-tabs li.active > a {
     font-weight: bold;
     font-size: 17px;
-    line-height: 18px;
+    line-height: 20px;
 }
 
 .navbar,
@@ -304,4 +304,8 @@ div.input.error .error-message {
     top: -20px;
     left: 10px;
     color: #f44336;
+}
+
+h3 {
+    margin: 5px 0;
 }

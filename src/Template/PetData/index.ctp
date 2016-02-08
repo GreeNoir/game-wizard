@@ -5,7 +5,7 @@
     </ul>
 </div>
 <div class="petData table-responsive col-lg-9">
-    <table class="table table-condensed table-bordered table-striped">
+    <table class="table table-hover table-striped">
         <thead>
             <tr>
                 <th class="ids"><?= $this->Paginator->sort('pet_id', 'ID') ?></th>

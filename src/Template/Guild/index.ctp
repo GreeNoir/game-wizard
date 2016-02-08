@@ -7,7 +7,7 @@
     </ul>
 </div>
 <div class="guild table-responsive col-lg-10">
-    <table class="table table-condensed table-bordered table-striped">
+    <table class="table table-hover table-striped">
     <thead>
         <tr>
             <th class="ids"><?= $this->Paginator->sort('ID') ?></th>

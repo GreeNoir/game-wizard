@@ -12,11 +12,11 @@
         <li><?= $this->Html->link(__('Monitoring'), ['controller' => 'Account', 'action' => 'edit', $accountCommon['AccountID']], ['escape' => false]) ?></li>
     </ul>
 </div>
-<div class="col-md-6">
+<div class="col-md-7">
     <div class="account_common form well">
         <?= $this->Form->create($accountCommon, ['class' => 'form-horizontal']) ?>
 
-        <legend><?= __('Edit Account Common') ?><div class="id">&nbsp;#<?= $accountCommon->AccountID ?></div></legend>
+        <legend><?= __('Edit Account Common') ?><div class="id">#<?= $accountCommon->AccountID ?></div></legend>
         <?= $this->Form->input('AccountID', ['type' => 'text', 'disabled' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('AccountName', ['required' => true, 'label' => ['class' => 'col-md-3 control-label'], 'size' => 36]); ?>
         <?= $this->Form->input('ChannelID', ['type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>

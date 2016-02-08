@@ -17,7 +17,7 @@
 </div>
 <div class="col-md-8">
 <?= $this->Form->create($roledata, ['class' => 'form-horizontal']) ?>
-<legend><?= __('Edit Roledata') ?><div class="id">&nbsp;#<?= $roledata->RoleID ?></div></legend>
+<legend><?= __('Edit Roledata') ?><div class="id">#<?= $roledata->RoleID ?></div></legend>
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#panel_basic"><?= __('Basic') ?></a></li>
     <li><a data-toggle="tab" href="#panel_place"><?= __('Place') ?></a></li>

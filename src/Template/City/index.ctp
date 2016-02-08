@@ -7,7 +7,7 @@
 </div>
 <div class="city table-responsive col-lg-10">
     <?php if (count($city)): ?>
-    <table class="table table-condensed table-bordered table-striped">
+    <table class="table table-hover table-striped">
     <thead>
         <tr>
             <th class="ids"><?= $this->Paginator->sort('id', 'ID') ?></th>
