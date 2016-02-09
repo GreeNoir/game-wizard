@@ -10,10 +10,6 @@ $(function() {
         $('form div.input select').addClass('form-control');
     }
 
-    if ($('form.form-inline div.input').length > 0) {
-        $('form.form-inline div.input').addClass("col-xs-3");
-    }
-
     $('[data-toggle="tooltip"]').tooltip();
 
     if ($('.error-message').length > 0) {
