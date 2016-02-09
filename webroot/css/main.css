@@ -314,6 +314,22 @@ h3 {
     margin-top: 15px;
 }
 
-.tab-content.view {
-    padding: 0 0 35px;
+.roledata.view.well {
+    padding: 10px 0;
+}
+
+.roledata.view.well h3 {
+    padding: 15px 0 10px 19px;
+}
+
+.roledata.view.well ul.nav.nav-tabs {
+    padding: 0 0 0 10px;
+}
+
+.roledata.view.well .tab-content.view {
+    padding: 0 0 35px 10px;
+}
+
+.roledata.view.well .tab-content.view .form-group:first-child {
+    margin: 20px 0 0;
 }

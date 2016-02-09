@@ -11,7 +11,7 @@
 <div class="col-md-7">
     <div class="roledata_list table-responsive">
         <h3><?=__('RoledataListHeader').$id ?></h3>
-        <table class="table table-hover table-striped">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th>Role ID</th>
