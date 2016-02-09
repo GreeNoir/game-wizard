@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
@@ -12,19 +12,21 @@
         <li><?= $this->Html->link(__('Members'), ['action' => 'members', $family->FamilyID]) ?></li>
     </ul>
 </div>
-<div class="family form">
-    <?= $this->Form->create($family) ?>
-    <legend><?= __('Edit Family') ?></legend>
-    <?= $this->Form->input('FamilyID', ['disabled' => true, 'type' => 'text', 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('FamilyName', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('LeaderID', ['options' => $roledata, 'required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('FounderID', ['options' => $roledata, 'required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('Active', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('CreateTime', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10 voofset10">
-            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+<div class="col-md-7">
+    <div class="family form columns well">
+        <?= $this->Form->create($family, ['class' => 'form-horizontal']) ?>
+        <legend><?= __('Edit Family') ?><div class="id">#<?= $family->FamilyID ?></div></legend>
+        <?= $this->Form->input('FamilyID', ['disabled' => true, 'type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('FamilyName', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('LeaderID', ['options' => $roledata, 'required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('FounderID', ['options' => $roledata, 'required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('Active', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('CreateTime', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-10">
+                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+            </div>
         </div>
+        <?= $this->Form->end() ?>
     </div>
-    <?= $this->Form->end() ?>
 </div>

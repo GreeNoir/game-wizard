@@ -8,7 +8,7 @@
     <table class="table table-hover table-striped">
     <thead>
         <tr>
-            <th class="ids"><?= $this->Paginator->sort('FamilyID') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('FamilyID', '#') ?></th>
             <th><?= $this->Paginator->sort('FamilyName') ?></th>
             <th class="ids"><?= $this->Paginator->sort('LeaderID') ?></th>
             <th class="ids"><?= $this->Paginator->sort('FounderID') ?></th>

@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?> </li>
@@ -6,92 +6,94 @@
         <li><?= $this->Form->postLink(__('Delete Guild'), ['action' => 'delete', $guild->ID], ['confirm' => __('Are you sure you want to delete # {0}?', $guild->ID)]) ?> </li>
     </ul>
 </div>
-<div class="guild view columns">
-    <h2><?= h($guild->ID) ?></h2>
-    <div class="row">
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('FounderNameID') ?></div>
-            <div class="col-sm-3"><?= $guild->FounderNameID ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('LeaderID') ?></div>
-            <div class="col-sm-3"><?= $guild->LeaderID ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('SpecState') ?></div>
-            <div class="col-sm-3"><?= $guild->SpecState ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('Level') ?></div>
-            <div class="col-sm-3"><?= $guild->Level ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('HoldCity0') ?></div>
-            <div class="col-sm-3"><?= $guild->HoldCity0 ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('HoldCity1') ?></div>
-            <div class="col-sm-3"><?= $guild->HoldCity1 ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('HoldCity2') ?></div>
-            <div class="col-sm-3"><?= $guild->HoldCity2 ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('Fund') ?></div>
-            <div class="col-sm-3"><?= $guild->Fund ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('Material') ?></div>
-            <div class="col-sm-3"><?= $guild->Material ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('Rep') ?></div>
-            <div class="col-sm-3"><?= $guild->Rep ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('DailyCost') ?></div>
-            <div class="col-sm-3"><?= $guild->DailyCost ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('Peace') ?></div>
-            <div class="col-sm-3"><?= $guild->Peace ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('Rank') ?></div>
-            <div class="col-sm-3"><?= $guild->Rank ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('GroupPurchase') ?></div>
-            <div class="col-sm-3"><?= $guild->GroupPurchase ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('RemainSpreadTimes') ?></div>
-            <div class="col-sm-3"><?= $guild->RemainSpreadTimes ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('GuildValue1') ?></div>
-            <div class="col-sm-3"><?= $guild->GuildValue1 ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('GuildValue2') ?></div>
-            <div class="col-sm-3"><?= $guild->GuildValue2 ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('CreateTime') ?></div>
-            <div class="col-sm-3"><?= h($guild->CreateTime) ?></div>
-        </div>
-        <div class="form-group col-sm-10">
-            <div class="col-sm-3 subheader"><?= __('Commendation') ?></div>
-            <div class="col-sm-3"><?= $guild->Commendation ? __('Yes') : __('No'); ?></div>
+<div class="col-md-7">
+    <div class="guild view columns well">
+        <h3><div class="id">#<?= h($guild->ID) ?></div></h3>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('FounderNameID') ?></div>
+                <div class="col-md-4"><?= $guild->FounderNameID ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('LeaderID') ?></div>
+                <div class="col-md-4"><?= $guild->LeaderID ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('SpecState') ?></div>
+                <div class="col-md-4"><?= $guild->SpecState ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('Level') ?></div>
+                <div class="col-md-4"><?= $guild->Level ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('HoldCity0') ?></div>
+                <div class="col-md-4"><?= $guild->HoldCity0 ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('HoldCity1') ?></div>
+                <div class="col-md-4"><?= $guild->HoldCity1 ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('HoldCity2') ?></div>
+                <div class="col-md-4"><?= $guild->HoldCity2 ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('Fund') ?></div>
+                <div class="col-md-4"><?= $guild->Fund ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('Material') ?></div>
+                <div class="col-md-4"><?= $guild->Material ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('Rep') ?></div>
+                <div class="col-md-4"><?= $guild->Rep ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('DailyCost') ?></div>
+                <div class="col-md-4"><?= $guild->DailyCost ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('Peace') ?></div>
+                <div class="col-md-4"><?= $guild->Peace ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('Rank') ?></div>
+                <div class="col-md-4"><?= $guild->Rank ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('GroupPurchase') ?></div>
+                <div class="col-md-4"><?= $guild->GroupPurchase ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('RemainSpreadTimes') ?></div>
+                <div class="col-md-4"><?= $guild->RemainSpreadTimes ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('GuildValue1') ?></div>
+                <div class="col-md-4"><?= $guild->GuildValue1 ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('GuildValue2') ?></div>
+                <div class="col-md-4"><?= $guild->GuildValue2 ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('CreateTime') ?></div>
+                <div class="col-md-4"><?= h($guild->CreateTime) ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('Commendation') ?></div>
+                <div class="col-md-4"><?= $guild->Commendation ? __('Yes') : __('No'); ?></div>
+            </div>
         </div>
     </div>
 </div>
-<div class="related row">
-    <div class="table-responsive col-lg-9">
+<div class="related row col-md-7">
+    <div class="table-responsive">
     <h4 class="subheader"><?= __('Related City') ?></h4>
     <?php if (!empty($guild->city)): ?>
-    <table class="table table-condensed table-bordered table-striped">
+    <table class="table table-hover">
         <tr>
             <th class="ids"><?= __('Id') ?></th>
             <th class="ids"><?= __('Defence') ?></th>
@@ -133,11 +135,11 @@
     <?php endif; ?>
     </div>
 </div>
-<div class="related row">
-    <div class="table-responsive col-lg-5">
+<div class="related row col-md-7">
+    <div class="table-responsive">
     <h4 class="subheader"><?= __('Related Commerce Rank') ?></h4>
     <?php if (!empty($guild->commerce_rank)): ?>
-    <table class="table table-condensed table-bordered table-striped">
+    <table class="table table-hover">
         <tr>
             <th class="ids"><?= __('Role Id') ?></th>
             <th class="ids"><?= __('Times') ?></th>
@@ -169,11 +171,11 @@
     <?php endif; ?>
     </div>
 </div>
-<div class="related row">
-    <div class="table-responsive col-lg-5">
+<div class="related row col-md-7">
+    <div class="table-responsive">
     <h4 class="subheader"><?= __('Related Guild Skill') ?></h4>
     <?php if (!empty($guild->guild_skill)): ?>
-    <table class="table table-condensed table-bordered table-striped">
+    <table class="table table-hover">
         <tr>
             <th><?= __('SkillID') ?></th>
             <th><?= __('Progress') ?></th>

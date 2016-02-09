@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
@@ -10,20 +10,22 @@
         <li><?= $this->Html->link(__('List City'), ['action' => 'index']) ?></li>
     </ul>
 </div>
-<div class="city form">
-    <?= $this->Form->create($city) ?>
-    <legend><?= __('Edit City') ?></legend>
-    <?= $this->Form->input('id', ['disabled' => true, 'type' => 'text', 'class' => 'form-control', 'type' => 'text', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('guild_id', ['required' => true, 'class' => 'form-control', 'type' => 'text', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('defence', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('eudemon_tally', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('tax_rate', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('tax_rate_time', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('taxation', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('prolificacy', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10 voofset10">
-            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+<div class="col-md-7">
+    <div class="city form columns well">
+        <?= $this->Form->create($city, ['class' => 'form-horizontal']) ?>
+        <legend><?= __('Edit City') ?><div class="id">#<?= $city->id ?></div></legend>
+        <?= $this->Form->input('id', ['disabled' => true, 'type' => 'text', 'type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('guild_id', ['required' => true, 'type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('defence', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('eudemon_tally', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('tax_rate', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('tax_rate_time', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('taxation', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('prolificacy', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-10">
+                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+            </div>
         </div>
     </div>
 </div>

@@ -314,12 +314,17 @@ h3 {
     margin-top: 15px;
 }
 
-.roledata.view.well {
+#wrapper .view.well {
     padding: 10px 0;
 }
 
-.roledata.view.well h3 {
+#wrapper .view.well h3 {
     padding: 15px 0 10px 19px;
+}
+
+#wrapper .view.well .row {
+    margin: 0;
+    padding: 0 0 25px 0px;
 }
 
 .roledata.view.well ul.nav.nav-tabs {
@@ -332,4 +337,13 @@ h3 {
 
 .roledata.view.well .tab-content.view .form-group:first-child {
     margin: 20px 0 0;
+}
+
+.view.columns.well .row .form-group:first-child {
+    margin: 10px 0 0;
+}
+
+.related.row {
+    margin-left: 0;
+    margin-bottom: 10px;
 }

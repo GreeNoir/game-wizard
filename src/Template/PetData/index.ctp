@@ -4,11 +4,11 @@
         <li><?= $this->Html->link(__('New Pet Data'), ['action' => 'add']) ?></li>
     </ul>
 </div>
-<div class="petData table-responsive col-lg-9">
+<div class="petData table-responsive col-lg-10">
     <table class="table table-hover table-striped">
         <thead>
             <tr>
-                <th class="ids"><?= $this->Paginator->sort('pet_id', 'ID') ?></th>
+                <th class="ids"><?= $this->Paginator->sort('pet_id', '#') ?></th>
                 <th><?= $this->Paginator->sort('pet_name', __('Name')) ?></th>
                 <th class="ids"><?= $this->Paginator->sort('pet_value') ?></th>
                 <th class="ids"><?= $this->Paginator->sort('pet_pm') ?></th>

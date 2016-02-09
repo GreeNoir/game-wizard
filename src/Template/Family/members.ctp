@@ -20,9 +20,9 @@
     </ul>
 </div>
 <?php if ($membersCount > 0): ?>
-<div class="members table-responsive col-lg-6">
+<div class="members table-responsive col-md-7">
     <h3><?=__('FamilyMemberList') ?></h3>
-    <table class="table table-condensed table-bordered table-striped">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th>Role ID</th>

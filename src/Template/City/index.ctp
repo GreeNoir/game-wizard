@@ -10,7 +10,7 @@
     <table class="table table-hover table-striped">
     <thead>
         <tr>
-            <th class="ids"><?= $this->Paginator->sort('id', 'ID') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('id', '#') ?></th>
             <th class="ids"><?= $this->Paginator->sort('guild_id', 'Guild ID') ?></th>
             <th class="ids"><?= $this->Paginator->sort('defence') ?></th>
             <th class="ids"><?= $this->Paginator->sort('eudemon_tally') ?></th>

@@ -10,7 +10,7 @@
     <table class="table table-hover table-striped">
     <thead>
         <tr>
-            <th class="ids"><?= $this->Paginator->sort('ID') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('ID', '#') ?></th>
             <th class="ids"><?= $this->Paginator->sort('FounderNameID') ?></th>
             <th class="ids"><?= $this->Paginator->sort('LeaderID') ?></th>
             <th class="ids"><?= $this->Paginator->sort('SpecState') ?></th>
