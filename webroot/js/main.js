@@ -51,10 +51,15 @@ function setMenuActive(controller) {
 }
 
 function findOwners() {
-    $('.find_progress').css('display', 'inline-block');
     $('#find_results').empty();
     var serialNum = $('#serialNum').val();
+    if (!serialNum.length) {
+        alert('Serial Number cannot be empty! Try again.');
+        return;
+    }
+
     var select_lang = $('select[name="language"] option:selected').val();
+    $('.find_progress').css('display', 'inline-block');
     $.get('/' + select_lang + '/Equipment/find?serialNum='+serialNum, function(data){
         $('#find_results').html(data);
         $('.find_progress').hide();

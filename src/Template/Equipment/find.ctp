@@ -1,6 +1,6 @@
 <?php if (count($ownersList) > 0) { ?>
-    <div class="equipment find table-responsive">
-        <table class="table table-condensed table-bordered table-striped">
+    <div class="equipment find table-responsive col-md-10">
+        <table class="table table-hover">
             <thead>
             <tr>
             <th><?= __('Number') ?></th>
@@ -23,7 +23,7 @@
                     <td><?= $this->Html->link($owner->OwnerID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $owner->OwnerID]) ?></td>
                     <td><?= $owner->RoleName ?></td>
                 </tr>
-            <?<?php endforeach; ?>  ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>

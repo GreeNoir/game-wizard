@@ -7,8 +7,8 @@ body {
     background-color: #eeeeee;
 }
 
-a, a:focus, a:active, a:hover, a:checked, a:visited {
-    outline: 0;
+a, a:focus, a:active, a:hover, a:checked, a:visited, button.btn {
+    outline: 0 !important;
 }
 
 .fa-fw {
@@ -172,8 +172,8 @@ div.equipment .table {
 }
 
 .find_progress {
-    padding: 23px 0 0 7px;
-    font-size: 20px;
+    padding: 0 0 0 20px;
+    font-size: 30px;
     vertical-align: top;
     display: none;
 }
@@ -346,4 +346,22 @@ h3 {
 .related.row {
     margin-left: 0;
     margin-bottom: 10px;
+}
+
+.search_form .form-inline .form-group {
+    vertical-align: top;
+}
+
+.search_form .form-group {
+    margin: 0;
+    padding: 3px 0;
+}
+
+.search_form .btn.btn-fab {
+    font-size: 17px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    padding-left: 5px;
+    color: #009688;
 }
