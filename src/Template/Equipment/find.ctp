@@ -15,12 +15,12 @@
             <tbody>
             <?php foreach($ownersList as $owner): ?>
                 <tr>
-                    <td><?= $owner->Num ?></td>
+                    <td class="ids"><?= $owner->Num ?></td>
                     <td><?= $owner->TypeID ?></td>
                     <td><?= $owner->Name ?></td>
-                    <td><?= $this->Html->link($owner->AccountID, ['controller' => 'AccountCommon', 'action' => 'view', 'id' => $owner->AccountID]) ?></td>
+                    <td class="ids"><?= $this->Html->link($owner->AccountID, ['controller' => 'AccountCommon', 'action' => 'view', 'id' => $owner->AccountID]) ?></td>
                     <td><?= $owner->AccountName ?></td>
-                    <td><?= $this->Html->link($owner->OwnerID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $owner->OwnerID]) ?></td>
+                    <td class="ids"><?= $this->Html->link($owner->OwnerID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $owner->OwnerID]) ?></td>
                     <td><?= $owner->RoleName ?></td>
                 </tr>
             <?php endforeach; ?>
