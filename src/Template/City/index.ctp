@@ -5,7 +5,7 @@
         <li><?= $this->Html->link(__('List Guild'), ['controller' => 'Guild', 'action' => 'index']) ?> </li>
     </ul>
 </div>
-<div class="city table-responsive col-lg-10">
+<div class="city table-responsive col-md-11">
     <?php if (count($city)): ?>
     <table class="table table-hover table-striped">
     <thead>

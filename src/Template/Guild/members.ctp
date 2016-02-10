@@ -14,7 +14,7 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th class="ids"><?= $this->Paginator->sort('RoleID', 'RoleID') ?></th>
+                    <th class="ids"><?= $this->Paginator->sort('RoleID', 'Role#') ?></th>
                     <th><?= $this->Paginator->sort('RoleName') ?></th>
                     <th class="actions"><?= __('Additionally') ?></th>
                 </tr>
