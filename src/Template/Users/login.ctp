@@ -10,7 +10,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <?= $this->Form->button(__('Login'), ['class' => 'btn btn-success']); ?>
+                <?= $this->Form->button(__('Login'), ['class' => 'btn btn-primary']); ?>
             </div>
         </div>
         <?= $this->Form->end() ?>
