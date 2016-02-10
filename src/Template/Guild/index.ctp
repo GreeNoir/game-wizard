@@ -6,7 +6,7 @@
         <li><?= $this->Html->link(__('List Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'index']) ?></li>
     </ul>
 </div>
-<div class="guild table-responsive col-lg-11">
+<div class="guild table-responsive col-md-11">
     <table class="table table-hover table-striped">
     <thead>
         <tr>

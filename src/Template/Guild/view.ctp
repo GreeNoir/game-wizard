@@ -183,16 +183,16 @@
                     <?php if (!empty($guild->guild_skill)): ?>
                     <table class="table table-hover">
                         <tr>
-                            <th><?= __('#') ?></th>
-                            <th><?= __('Progress') ?></th>
-                            <th><?= __('Level') ?></th>
-                            <th><?= __('Researching') ?></th>
-                            <th><?= __('Active') ?></th>
+                            <th class="ids"><?= __('#') ?></th>
+                            <th class="ids"><?= __('Progress') ?></th>
+                            <th class="ids"><?= __('Level') ?></th>
+                            <th class="ids"><?= __('Researching') ?></th>
+                            <th class="ids"><?= __('Active') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($guild->guild_skill as $skill): ?>
                         <tr>
-                            <td><?= h($skill->skill_id) ?></td>
+                            <td class="ids"><?= h($skill->skill_id) ?></td>
                             <td class="ids"><?= h($skill->progress) ?></td>
                             <td class="ids"><?= h($skill->level) ?></td>
                             <td class="ids"><?= $skill->researching ? __('Yes') : __('No') ?></td>
