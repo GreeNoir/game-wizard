@@ -217,7 +217,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10 voffset10">
-                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('New Guild'), ['action' => 'add']) ?></li>
@@ -6,7 +6,7 @@
         <li><?= $this->Html->link(__('List Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'index']) ?></li>
     </ul>
 </div>
-<div class="guild table-responsive col-lg-10">
+<div class="guild table-responsive col-lg-11">
     <table class="table table-hover table-striped">
     <thead>
         <tr>
