@@ -18,6 +18,9 @@ use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\I18n\I18n;
 use Cake\Routing\Router;
+use Cake\I18n\Time;
+use Cake\Database\Type;
+
 
 /**
  * Application Controller
@@ -82,6 +85,9 @@ class AppController extends Controller
         $this->set('controller', $this->name);
 
         I18n::locale($lang);
+
+        Time::setToStringFormat('YYYY-MM-dd HH:mm:ss');
+        Type::build('datetime')->useLocaleParser();
 
         $this->Auth->config([
             'unauthorizedRedirect' => false

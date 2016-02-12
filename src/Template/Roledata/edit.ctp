@@ -36,9 +36,9 @@
             echo $this->Form->input('Sex', ['options' => $genders, 'label' => ['class' => 'col-md-3 control-label']]);
             echo $this->Form->input('SpeakOff', ['required' => false, 'type' => 'checkbox', 'label' => ['class' => 'col-md-offset-3']]);
             echo $this->Form->input('HP', ['label' => ['class' => 'col-md-3 control-label']]);
-            echo $this->Form->input('CreateTime', ['label' => ['class' => 'col-md-3 control-label']]);
-            echo $this->Form->input('LoginTime', ['label' => ['class' => 'col-md-3 control-label']]);
-            echo $this->Form->input('LogoutTime', ['label' => ['class' => 'col-md-3 control-label']]);
+            echo $this->Form->input('CreateTime', ['class' => 'date_input', 'label' => ['class' => 'col-md-3 control-label']]);
+            echo $this->Form->input('LoginTime', ['class' => 'date_input', 'label' => ['class' => 'col-md-3 control-label']]);
+            echo $this->Form->input('LogoutTime', ['class' => 'date_input', 'label' => ['class' => 'col-md-3 control-label']]);
             ?>
         </div>
         <div id="panel_place" class="strings tab-pane fade in">
@@ -206,8 +206,8 @@
             echo $this->Form->input('holy_value', ['label' => ['class' => 'col-md-3 control-label']]);
             echo $this->Form->input('role_hit_add', ['label' => ['class' => 'col-md-3 control-label']]);
             echo $this->Form->input('role_eei_all', ['label' => ['class' => 'col-md-3 control-label']]);
-            echo $this->Form->input('CloseSGTime', ['label' => ['class' => 'col-md-3 control-label']]);
-            echo $this->Form->input('GetMallFreeTime', ['label' => ['class' => 'col-md-3 control-label']]);
+            echo $this->Form->input('CloseSGTime', ['class' => 'date_input', 'label' => ['class' => 'col-md-3 control-label']]);
+            echo $this->Form->input('GetMallFreeTime', ['class' => 'date_input', 'label' => ['class' => 'col-md-3 control-label']]);
             ?>
         </div>
         <div id="panel_booleans" class="boolean tab-pane fade in">

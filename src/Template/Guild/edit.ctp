@@ -32,7 +32,7 @@
         <?= $this->Form->input('DailyCost', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('Peace', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('Rank', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
-        <?= $this->Form->input('CreateTime', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('CreateTime', ['required' => true, 'type' => 'text', 'class' => 'date_input', 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('GroupPurchase', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('RemainSpreadTimes', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('Commendation', ['required' => 'false', 'type' => 'checkbox', 'label' => ['class' => 'col-md-offset-3']]); ?>

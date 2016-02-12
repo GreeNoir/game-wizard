@@ -346,11 +346,20 @@ h3 {
     padding: 3px 0;
 }
 
-.search_form .btn.btn-fab {
+.search_form .btn.btn-fab,
+.login_log_form .btn.btn-fab {
     font-size: 17px;
     width: 40px;
     height: 40px;
     min-width: 40px;
     padding-left: 5px;
     color: #009688;
+}
+
+.login_log_form .form-group {
+    margin: 10px 0 0;
+}
+
+.login_log_form .btn.btn-fab {
+    margin-left: 30px;
 }

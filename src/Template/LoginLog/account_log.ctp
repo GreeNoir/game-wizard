@@ -1,12 +1,12 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions">
     <h3><?=__('LoginLog').$accountName ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Back').__('ListLoginLog'), ['action' => 'index']) ?></li>
     </ul>
 </div>
 
-<div class="table-responsive col-lg-8">
-    <table class="table table-condensed table-bordered table-striped">
+<div class="table-responsive col-lg-9">
+    <table class="table table-hover table-striped">
         <thead>
         <tr>
         <th>IP</th>

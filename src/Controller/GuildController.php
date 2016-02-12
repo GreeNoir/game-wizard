@@ -4,6 +4,12 @@ namespace App\Controller;
 use App\Controller\AppController;
 use App\Model\Table\GuildSkillTable;
 use Cake\Datasource\ConnectionManager;
+/*
+use Cake\I18n\Time;
+use Cake\Database\Type;
+
+Time::setToStringFormat('YYYY-MM-dd HH:mm:ss');
+Type::build('datetime')->useLocaleParser();*/
 
 /**
  * Guild Controller

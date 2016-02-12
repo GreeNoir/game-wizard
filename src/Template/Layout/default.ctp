@@ -15,6 +15,7 @@
     <?= $this->Html->css('bootstrap-material-design.min.css') ?>
     <?= $this->Html->css('ripples.min.css') ?>
     <?= $this->Html->css('snackbar.min.css') ?>
+    <?= $this->Html->css('bootstrap-material-datetimepicker.css') ?>
     <?= $this->Html->css('main.css') ?>
 
     <?= $this->Html->Script('jquery-1.11.3.min.js') ?>
@@ -23,11 +24,17 @@
     <?= $this->Html->Script('ripples.min.js') ?>
     <?= $this->Html->Script('snackbar.min.js') ?>
     <?= $this->Html->Script('chosen.jquery.min.js') ?>
+    <?= $this->Html->Script('moment-with-locales.min.js') ?>
+    <?= $this->Html->Script('bootstrap-material-datetimepicker.js') ?>
     <?= $this->Html->Script('main.js') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div id="wrapper">
@@ -136,11 +143,11 @@
         <div></div>
     </footer>
 
-<script>
-    $.material.init();
-</script>
-
 <?= $this->Html->scriptBlock('
+        $.material.init();
+
+        $("input.date_input").bootstrapMaterialDatePicker({ format : "YYYY-MM-DD HH:mm:ss" });
+
         var controller = "'.$controller.'";
         if (controller == "Account") controller = "AccountCommon";
         setMenuActive(controller);

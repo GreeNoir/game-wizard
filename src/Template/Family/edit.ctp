@@ -21,7 +21,7 @@
         <?= $this->Form->input('LeaderID', ['options' => $roledata, 'required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('FounderID', ['options' => $roledata, 'required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('Active', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
-        <?= $this->Form->input('CreateTime', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('CreateTime', ['required' => true, 'type' => 'text', 'class' => 'date_input', 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <div class="form-group">
             <div class="col-md-offset-3 col-md-10">
                 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
