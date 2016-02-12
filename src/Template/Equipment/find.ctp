@@ -1,6 +1,6 @@
 <?php if (count($ownersList) > 0) { ?>
-    <div class="equipment find table-responsive col-md-10">
-        <table class="table table-hover">
+    <div class="equipment find table-responsive">
+        <table class="table">
             <thead>
             <tr>
             <th><?= __('Number') ?></th>

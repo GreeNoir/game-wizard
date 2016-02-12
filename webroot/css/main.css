@@ -159,6 +159,11 @@ div.equipment .table {
     width: auto;
 }
 
+#find_results,
+#login_log {
+    display: none;
+}
+
 .find_progress {
     padding: 0 0 0 20px;
     font-size: 30px;
@@ -337,6 +342,11 @@ h3 {
     margin-bottom: 10px;
 }
 
+.container-fluid .well.search_form,
+.container-fluid .well.login_log_form {
+    padding: 19px 19px 30px 19px;
+}
+
 .search_form .form-inline .form-group {
     vertical-align: top;
 }
@@ -362,4 +372,8 @@ h3 {
 
 .login_log_form .btn.btn-fab {
     margin-left: 30px;
+}
+
+#equip_add input#count {
+    width: 100px;
 }

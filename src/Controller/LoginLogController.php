@@ -22,11 +22,10 @@ class LoginLogController extends AppController {
      *
      * @return void
      */
-    public function index()
-    {
+    public function index() {
         $this->loadModel('AccountCommon');
         $accountCommons = $this->AccountCommon->find()->select(['AccountID', 'AccountName'])->all();
-        $accountCommonList = [];
+        $accountCommonList[0] = __('Please select');
         foreach($accountCommons as $item) {
             $accountCommonList[$item->AccountID] = $item->AccountName;
         }
@@ -34,6 +33,7 @@ class LoginLogController extends AppController {
     }
 
     public function accountLog() {
+        $this->viewClass = 'ajax';
         $this->loadModel('AccountCommon');
         $accountID = $this->request->query['accountID'];
         $this->set('accountID', $accountID);

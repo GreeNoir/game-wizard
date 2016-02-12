@@ -1,11 +1,4 @@
-<div class="actions">
-    <h3><?=__('LoginLog').$accountName ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('Back').__('ListLoginLog'), ['action' => 'index']) ?></li>
-    </ul>
-</div>
-
-<div class="table-responsive col-lg-9">
+<div class="table-responsive">
     <table class="table table-hover table-striped">
         <thead>
         <tr>

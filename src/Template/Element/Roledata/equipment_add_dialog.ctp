@@ -12,8 +12,8 @@
                 <input type="hidden" name="empty_option" value="<?= __('please_select') ?>">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="control-label col-sm-2"><?= __('Account') ?></label>
-                        <div class="col-sm-10">
+                        <label class="control-label col-md-3"><?= __('Account') ?></label>
+                        <div class="col-md-9">
                             <select name="account" class="form-control">
                                 <option value="0"><?= __('please_select') ?></option>
                                 <?php foreach($accountCommonList as $accountCommon) { ?>
@@ -26,17 +26,17 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2"><?= __('Roledata') ?></label>
-                        <div class="col-sm-10">
+                        <label class="control-label col-md-3"><?= __('Roledata') ?></label>
+                        <div class="col-md-9">
                             <select name="roledata" class="form-control">
                                 <option value="0"><?= __('please_select') ?></option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2"><?= __('Number') ?></label>
-                        <div class="col-sm-10">
-                            <input type="number" name="count" class="form-control" value="1">
+                        <label class="control-label col-md-3"><?= __('Number') ?></label>
+                        <div class="col-md-4">
+                            <input id="count" type="number" name="count" class="form-control" value="1" size="10">
                         </div>
                     </div>
                 </div>

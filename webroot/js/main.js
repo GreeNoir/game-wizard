@@ -51,6 +51,7 @@ function setMenuActive(controller) {
 }
 
 function findOwners() {
+    $('#find_results').hide();
     $('#find_results').empty();
     var serialNum = $('#serialNum').val();
     if (!serialNum.length) {
@@ -62,7 +63,25 @@ function findOwners() {
     $('.find_progress').css('display', 'inline-block');
     $.get('/' + select_lang + '/Equipment/find?serialNum='+serialNum, function(data){
         $('#find_results').html(data);
+        $('#find_results').show();
         $('.find_progress').hide();
+    });
+}
+
+function getAccountLog() {
+    var accountID = $('#accountID').val();
+    $('#login_log').hide();
+    $('#login_log').empty();
+
+    if (accountID == 0) {
+        alert('Please select one existing Account');
+        return;
+    }
+
+    var select_lang = $('select[name="language"] option:selected').val();
+    $.get('/' + select_lang + '/LoginLog/accountLog?accountID='+accountID, function(data) {
+        $('#login_log').html(data);
+        $('#login_log').show();
     });
 }
 
