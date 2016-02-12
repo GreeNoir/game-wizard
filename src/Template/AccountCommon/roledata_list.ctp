@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('View').__('AccountCommon'), ['action' => 'view', $id]) ?> </li>
@@ -11,7 +11,7 @@
 <div class="col-md-7">
     <div class="roledata_list table-responsive">
         <h3><?=__('RoledataListHeader').$id ?></h3>
-        <table class="table table-hover">
+        <table class="table table-hover table-striped">
             <thead>
             <tr>
                 <th>Role ID</th>

@@ -11,7 +11,7 @@
     <div class="col-lg-6">
         <div class="members table-responsive">
             <h3><?=__('Related Guild Roledata') ?><div class="id">#<?= $guildID ?></div></h3>
-            <table class="table table-hover">
+            <table class="table table-hover table-striped">
                 <thead>
                 <tr>
                     <th class="ids"><?= $this->Paginator->sort('RoleID', 'Role#') ?></th>

@@ -377,3 +377,7 @@ h3 {
 #equip_add input#count {
     width: 100px;
 }
+
+div.not_found {
+    padding: 20px;
+}

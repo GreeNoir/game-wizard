@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns">
     <ul class="breadcrumb">
         <li><?= $this->Html->link(__('Families'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link($familyName, ['action' => 'view', $familyID]) ?></li>
@@ -22,7 +22,7 @@
 <?php if ($membersCount > 0): ?>
 <div class="members table-responsive col-md-7">
     <h3><?=__('FamilyMemberList') ?></h3>
-    <table class="table table-hover">
+    <table class="table table-hover table-striped">
         <thead>
         <tr>
             <th>Role ID</th>
