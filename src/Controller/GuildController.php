@@ -233,6 +233,7 @@ class GuildController extends AppController
         $roledata = $this->Roledata->get($roleID);
         $roledata->GuildID = $guildID;
         $this->Roledata->save($roledata);
+        $this->Flash->success(__('The member has been added to the guild'));
     }
 
 }
