@@ -45,14 +45,19 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">Game Wizard</a>
             </div>
-            <ul id="actions" class="nav navbar-nav navbar-collapse top-nav">
-                <li class="dropdown">
+            <ul class="nav navbar-nav navbar-collapse top-nav">
+                <li class="dropdown" id="actions">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-bars"></i> <?= __('Actions') ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu"></ul>
                 </li>
             </ul>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
+
+                <!--li class="dropdown" id="actions">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-bars"></i> <?= __('Actions') ?> <b class="caret"></b></a>
+                    <ul class="dropdown-menu"></ul>
+                </li-->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="lang_drop"><i class="fa fa-fw fa-globe"></i> <?= __('Language') ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu lang">

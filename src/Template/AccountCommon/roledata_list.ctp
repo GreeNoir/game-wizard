@@ -1,10 +1,10 @@
 <div class="actions columns">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('View').__('AccountCommon'), ['action' => 'view', $id]) ?> </li>
-        <li><?= $this->Html->link(__('Edit').__('AccountCommon'), ['action' => 'edit', $id]) ?> </li>
-        <li><?= $this->Html->link(__('Back').__('ListAccountCommon'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Monitoring'), ['controller' => 'Account', 'action' => 'edit', $id], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-external-link']).__('View').__('AccountCommon'), ['action' => 'view', $id], ['escape' => false]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit').__('AccountCommon'), ['action' => 'edit', $id], ['escape' => false]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('Back').__('ListAccountCommon'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-eye']).__('Monitoring'), ['controller' => 'Account', 'action' => 'edit', $id], ['escape' => false]) ?></li>
     </ul>
 </div>
 

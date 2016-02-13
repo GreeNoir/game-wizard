@@ -1,9 +1,9 @@
 <div class="actions columns">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('View').__('AccountCommon'), ['controller' => 'AccountCommon', 'action' => 'view', $account->id]) ?> </li>
-        <li><?= $this->Html->link(__('Edit').__('AccountCommon'), ['controller' => 'AccountCommon', 'action' => 'edit', $account->id]) ?> </li>
-        <li><?= $this->Html->link(__('Back').__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-external-link']).__('View').__('AccountCommon'), ['controller' => 'AccountCommon', 'action' => 'view', $account->id], ['escape' => false]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit').__('AccountCommon'), ['controller' => 'AccountCommon', 'action' => 'edit', $account->id], ['escape' => false]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('Back').__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
 <div class="col-md-7">

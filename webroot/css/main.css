@@ -304,11 +304,11 @@ ul.nav.nav-tabs {
     width: 212px;
 }
 
-ul#actions {
+li#actions {
     display: none;
 }
 
-ul#actions.top-nav > .open > .dropdown-menu > li > a {
+li#actions .dropdown-menu > li > a {
     white-space: nowrap;
 }
 

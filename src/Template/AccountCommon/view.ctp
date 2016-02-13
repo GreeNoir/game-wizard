@@ -1,12 +1,11 @@
 <div class="actions columns">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit').__('AccountCommon'), ['action' => 'edit', $accountCommon->AccountID]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete').__('AccountCommon'), ['action' => 'delete', $accountCommon->AccountID], ['confirm' => __('Are you sure you want to delete # {0}?', $accountCommon->AccountID)]) ?> </li>
-        <li><?= $this->Html->link(__('List').' '.__('AccountCommon'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New').__('AccountCommon'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('RoledataList'), ['action' => 'roledata_list', 'id' => $accountCommon->AccountID]); ?></li>
-        <li><?= $this->Html->link(__('Monitoring'), ['controller' => 'Account', 'action' => 'edit', $accountCommon['AccountID']], ['escape' => false]) ?>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit').__('AccountCommon'), ['action' => 'edit', $accountCommon->AccountID], ['escape' => false]) ?> </li>
+        <li><?= $this->Form->postLink($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete').__('AccountCommon'), ['action' => 'delete', $accountCommon->AccountID], ['escape' => false, 'confirm' => __('Are you sure you want to delete # {0}?', $accountCommon->AccountID)]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('List').' '.__('AccountCommon'), ['action' => 'index'], ['escape' => false]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-eye']).__('Monitoring'), ['controller' => 'Account', 'action' => 'edit', $accountCommon['AccountID']], ['escape' => false]) ?>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-male']).__('RoledataList'), ['action' => 'roledata_list', 'id' => $accountCommon->AccountID], ['escape' => false]); ?></li>
         </li>
     </ul>
 </div>

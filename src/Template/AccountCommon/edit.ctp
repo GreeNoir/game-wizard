@@ -2,14 +2,15 @@
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
-            __('Delete'),
+            $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete'),
             ['action' => 'delete', $accountCommon->AccountID],
-            ['confirm' => __('Are you sure you want to delete # {0}?', $accountCommon->AccountID)]
+            ['escape' => false,
+            'confirm' => __('Are you sure you want to delete # {0}?', $accountCommon->AccountID)]
             )
             ?></li>
-        <li><?= $this->Html->link(__('List').' '.__('AccountCommon'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('RoledataList'), ['action' => 'roledata_list', 'id' => $accountCommon->AccountID]); ?></li>
-        <li><?= $this->Html->link(__('Monitoring'), ['controller' => 'Account', 'action' => 'edit', $accountCommon['AccountID']], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('List').' '.__('AccountCommon'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-eye']).__('Monitoring'), ['controller' => 'Account', 'action' => 'edit', $accountCommon['AccountID']], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-male']).__('RoledataList'), ['action' => 'roledata_list', 'id' => $accountCommon->AccountID], ['escape' => false]); ?></li>
     </ul>
 </div>
 <div class="col-md-7">
