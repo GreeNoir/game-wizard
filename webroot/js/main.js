@@ -177,3 +177,11 @@ function addMembers(controller) {
         }
     }
 }
+
+function uploadActions() {
+    $('ul#actions').hide();
+    if ($('div.actions ul.side-nav').length > 0) {
+        $('div.actions ul.side-nav').children().clone().appendTo('ul#actions ul.dropdown-menu');
+        $('ul#actions').show();
+    }
+}

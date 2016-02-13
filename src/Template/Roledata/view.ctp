@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<div class="actions columns">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit').__('Roledata'), ['action' => 'edit', $roledata->RoleID]) ?></li>
@@ -14,6 +14,10 @@
         <li><?= $this->Html->link(__('Nurslings'), ['action' => 'nurslings', 'id' => $roledata->RoleID]) ?></li>
     </ul>
 </div>
+
+<script>
+    uploadActions();
+</script>
 
 <div class="col-md-9 well roledata view">
 <h3><div class="id">#<?= h($roledata->RoleID) ?></div></h3>

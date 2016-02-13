@@ -7,6 +7,10 @@ body {
     background-color: #eeeeee;
 }
 
+.container-fluid {
+    padding-top: 25px;
+}
+
 a, a:focus, a:active, a:hover, a:checked, a:visited, button.btn {
     outline: 0 !important;
 }
@@ -217,7 +221,7 @@ td.actions .action {
 }
 
 div.actions {
-    padding: 15px 0;
+    display: none;
 }
 
 .table-responsive {
@@ -242,10 +246,28 @@ span.checkbox-material {
     margin-right: 11px;
 }
 
-.nav-tabs li.active > a {
-    font-weight: bold;
-    font-size: 17px;
-    line-height: 20px;
+ul.nav.nav-tabs {
+    padding: 0 0 0 10px;
+}
+
+.tab-content.view {
+    padding: 0 0 35px 10px;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid #ddd;
+}
+
+.nav-tabs li {
+    margin-bottom: 0;
+}
+
+.nav-tabs li.active {
+    border-bottom: 2px solid #ddd;
+}
+
+.nav-tabs li > a {
+    line-height: 17px;
 }
 
 .navbar,
@@ -263,15 +285,31 @@ span.checkbox-material {
 
 .navbar.navbar-inverse .dropdown-menu li > a {
     font-size: 14px;
-    padding: 4px 10px;
+    padding: 4px 20px;
 }
 
 .navbar .navbar-nav > li > a {
-    padding: 17px 0 17px 20px;
+    padding: 15px 10px;
+}
+
+.navbar .navbar-nav.side-nav > li > a {
+    padding-left: 20px;
 }
 
 .dropdown-menu .divider {
     margin: 5px 0;
+}
+
+.navbar-header {
+    width: 212px;
+}
+
+ul#actions {
+    display: none;
+}
+
+ul#actions.top-nav > .open > .dropdown-menu > li > a {
+    white-space: nowrap;
 }
 
 div.input.error {
@@ -319,14 +357,6 @@ h3 {
 #wrapper .view.well .row {
     margin: 0;
     padding: 0 0 25px 0px;
-}
-
-.roledata.view.well ul.nav.nav-tabs {
-    padding: 0 0 0 10px;
-}
-
-.roledata.view.well .tab-content.view {
-    padding: 0 0 35px 10px;
 }
 
 .roledata.view.well .tab-content.view .form-group:first-child {
@@ -380,4 +410,8 @@ h3 {
 
 div.not_found {
     padding: 20px;
+}
+
+select#accountID {
+    width: 200px;
 }

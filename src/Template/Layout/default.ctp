@@ -45,6 +45,12 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">Game Wizard</a>
             </div>
+            <ul id="actions" class="nav navbar-nav navbar-collapse top-nav">
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-bars"></i> <?= __('Actions') ?> <b class="caret"></b></a>
+                    <ul class="dropdown-menu"></ul>
+                </li>
+            </ul>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
@@ -145,6 +151,8 @@
 
 <?= $this->Html->scriptBlock('
         $.material.init();
+
+        uploadActions();
 
         $("input.date_input").bootstrapMaterialDatePicker({ format : "YYYY-MM-DD HH:mm:ss" });
 
