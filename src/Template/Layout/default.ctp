@@ -37,7 +37,7 @@
     <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div id="wrapper">
+    <div id="wrapper" class="btn-group-sm">
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -45,19 +45,18 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">Game Wizard</a>
             </div>
-            <ul class="nav navbar-nav navbar-collapse top-nav">
+            <ul class="nav navbar-nav navbar-collapse top-nav hidden-sm">
                 <li class="dropdown" id="actions">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-bars"></i> <?= __('Actions') ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu"></ul>
                 </li>
             </ul>
+            <form id="search" class="navbar-form navbar-left hidden-sm">
+                <input class="form-control" type="text" name="search" placeholder="<?= __('Search') ?>">
+                <?= $this->Form->button($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-search']), ['class' => 'btn btn-fab btn-default', 'type' => 'button', 'onclick' => '']); ?>
+            </form>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-
-                <!--li class="dropdown" id="actions">
-                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-bars"></i> <?= __('Actions') ?> <b class="caret"></b></a>
-                    <ul class="dropdown-menu"></ul>
-                </li-->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="lang_drop"><i class="fa fa-fw fa-globe"></i> <?= __('Language') ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu lang">
@@ -134,7 +133,7 @@
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#reports"><i class="fa fa-fw fa-file-text"></i><?= __('Reports') ?><i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="reports" class="collapse">
-                            <li data-controller="LoginLog"><?= $this->Html->link(__('ListLoginLog'), ['controller' => 'LoginLog', 'action' => 'index', 'lang' => $lang]); ?></li>
+                            <li data-controller="LoginLog"><?= $this->Html->link(__('ListLoginLog'), ['controller' => 'LoginLog', 'action' => 'start', 'lang' => $lang]); ?></li>
                         </ul>
                     </li>
                 </ul>

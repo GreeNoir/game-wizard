@@ -22,7 +22,7 @@ class LoginLogController extends AppController {
      *
      * @return void
      */
-    public function index() {
+    public function start() {
         $this->loadModel('AccountCommon');
         $accountCommons = $this->AccountCommon->find()->select(['AccountID', 'AccountName'])->all();
         $accountCommonList[0] = __('Please select');

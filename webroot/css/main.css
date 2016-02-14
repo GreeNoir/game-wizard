@@ -281,6 +281,7 @@ ul.nav.nav-tabs {
     line-height: 51px;
     font-size: 17px;
     padding: 0 22px;
+    width: 225px;
 }
 
 .navbar.navbar-inverse .dropdown-menu li > a {
@@ -298,10 +299,6 @@ ul.nav.nav-tabs {
 
 .dropdown-menu .divider {
     margin: 5px 0;
-}
-
-.navbar-header {
-    width: 212px;
 }
 
 li#actions {
@@ -386,22 +383,13 @@ h3 {
     padding: 3px 0;
 }
 
-.search_form .btn.btn-fab,
-.login_log_form .btn.btn-fab {
+.btn.btn-fab {
     font-size: 17px;
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    padding-left: 5px;
-    color: #009688;
+    padding: 0 0 0 6px;
 }
 
 .login_log_form .form-group {
     margin: 10px 0 0;
-}
-
-.login_log_form .btn.btn-fab {
-    margin-left: 30px;
 }
 
 #equip_add input#count {
@@ -414,4 +402,21 @@ div.not_found {
 
 select#accountID {
     width: 200px;
+}
+
+.navbar .navbar-form#search {
+    margin-top: 6px;
+}
+
+.navbar .navbar-form#search .form-control {
+    color: #999 !important;
+    width: 220px;
+}
+
+.navbar .navbar-form#search .form-control::-moz-placeholder {
+    opacity: 0.2;
+}
+
+.navbar .navbar-form#search .form-control::-webkit-input-placeholder {
+    opacity: 0.2;
 }
