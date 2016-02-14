@@ -45,18 +45,18 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">Game Wizard</a>
             </div>
-            <ul class="nav navbar-nav navbar-collapse top-nav hidden-sm">
+            <ul class="nav navbar-nav navbar-collapse top-nav hidden-sm hidden-xs">
                 <li class="dropdown" id="actions">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-bars"></i> <?= __('Actions') ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu"></ul>
                 </li>
             </ul>
-            <form id="search" class="navbar-form navbar-left hidden-sm">
+            <form id="search" class="navbar-form navbar-left hidden-sm hidden-xs">
                 <input class="form-control" type="text" name="search" placeholder="<?= __('Search') ?>">
                 <?= $this->Form->button($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-search']), ['class' => 'btn btn-fab btn-default', 'type' => 'button', 'onclick' => '']); ?>
             </form>
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
+            <ul class="nav navbar-right top-nav hidden-xs">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="lang_drop"><i class="fa fa-fw fa-globe"></i> <?= __('Language') ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu lang">
