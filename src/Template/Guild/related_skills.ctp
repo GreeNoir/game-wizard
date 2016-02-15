@@ -5,9 +5,13 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Back').__('Edit Guild'), ['action' => 'edit', $guildID], ['escape' => false]) ?> </li>
     </ul>
 </div>
+<ul class="breadcrumb col-md-10">
+    <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('Back').__('Edit Guild'), ['action' => 'edit', $guildID]) ?></li>
+    <li class="active"><?= __('Related Skills') ?></li>
+</ul>
 <div class="table-responsive col-md-10">
     <?php if (count($skills)): ?>
-    <h3><?= __('Related Guild Skill').' #'.$guildID ?></h3>
     <table class="table table-hover table-striped">
         <thead>
             <tr>

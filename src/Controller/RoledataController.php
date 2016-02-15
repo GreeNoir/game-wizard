@@ -294,6 +294,9 @@ class RoledataController extends AppController
         $this->set('aEquip', $aEquip);
         $this->set('type', $type);
         $this->set('roleID', $roleID);
+        $this->set('accountID', $this->Roledata->getRoledataInfo($roleID)->AccountID);
+        $this->set('accountName', $this->Roledata->getRoledataInfo($roleID)->AccountName);
+        $this->set('roleName', $this->Roledata->getRoledataInfo($roleID)->RoleName);
         $this->set('serial', $serial);
     }
 

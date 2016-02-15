@@ -18,7 +18,6 @@
 
 <div class="table-responsive">
     <?php if ($itemListCount > 0): ?>
-    <h3><?=__('EquipmentList') ?></h3>
     <table class="table table-hover table-striped equip">
         <thead>
         <tr>

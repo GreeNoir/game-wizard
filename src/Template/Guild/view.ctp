@@ -9,7 +9,6 @@
 </div>
 
 <div class="col-md-10 well view">
-    <h3><div class="id">#<?= h($guild->ID) ?></div></h3>
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#panel_view"><?= __('Fields') ?></a></li>
         <li><a data-toggle="tab" href="#panel_cities"><?= __('Cities') ?></a></li>
@@ -98,123 +97,128 @@
             </div>
         </div>
         <div id="panel_cities" class="tab-pane fade in">
-            <div class="table-responsive">
+            <div class="row">
             <?php if (!empty($guild->city)): ?>
-            <table class="table table-hover">
-                <tr>
-                    <th class="ids"><?= __('#') ?></th>
-                    <th class="ids"><?= __('Defence') ?></th>
-                    <th class="ids"><?= __('Eudemon Tally') ?></th>
-                    <th class="ids"><?= __('Tax Rate') ?></th>
-                    <th class="ids"><?= __('Tax Rate Time') ?></th>
-                    <th class="ids"><?= __('Taxation') ?></th>
-                    <th class="ids"><?= __('Prolificacy') ?></th>
-                    <th class="ids"><?= __('Signup List') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
-                <?php foreach ($guild->city as $city): ?>
-                <tr>
-                    <td class="ids"><?= h($city->id) ?></td>
-                    <td class="ids"><?= h($city->defence) ?></td>
-                    <td class="ids"><?= h($city->eudemon_tally) ?></td>
-                    <td class="ids"><?= h($city->tax_rate) ?></td>
-                    <td class="ids"><?= h($city->tax_rate_time) ?></td>
-                    <td class="ids"><?= h($city->taxation) ?></td>
-                    <td class="ids"><?= h($city->prolificacy) ?></td>
-                    <td class="ids"><?= h($city->signup_list) ?></td>
-                    <td class="actions">
-                        <div class="icon-contain-inline action"><?= $this->Html->link(
-                            $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
-                            ['controller' => 'City', 'action' => 'edit', $city->id],
-                            ['escape' => false]) ?></div>
-                        <div class="icon-contain-inline action"><?= $this->Form->postLink(
-                            $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']),
-                            ['controller' => 'City', 'action' => 'delete', $city->id],
-                            ['escape' => false,
-                            'confirm' => __('Are you sure you want to delete # {0}?', $city->id)
-                            ]) ?></div>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th class="ids"><?= __('#') ?></th>
+                        <th class="ids"><?= __('Defence') ?></th>
+                        <th class="ids"><?= __('Eudemon Tally') ?></th>
+                        <th class="ids"><?= __('Tax Rate') ?></th>
+                        <th class="ids"><?= __('Tax Rate Time') ?></th>
+                        <th class="ids"><?= __('Taxation') ?></th>
+                        <th class="ids"><?= __('Prolificacy') ?></th>
+                        <th class="ids"><?= __('Signup List') ?></th>
+                        <th class="actions"><?= __('Actions') ?></th>
+                    </tr>
+                    <?php foreach ($guild->city as $city): ?>
+                    <tr>
+                        <td class="ids"><?= h($city->id) ?></td>
+                        <td class="ids"><?= h($city->defence) ?></td>
+                        <td class="ids"><?= h($city->eudemon_tally) ?></td>
+                        <td class="ids"><?= h($city->tax_rate) ?></td>
+                        <td class="ids"><?= h($city->tax_rate_time) ?></td>
+                        <td class="ids"><?= h($city->taxation) ?></td>
+                        <td class="ids"><?= h($city->prolificacy) ?></td>
+                        <td class="ids"><?= h($city->signup_list) ?></td>
+                        <td class="actions">
+                            <div class="icon-contain-inline action"><?= $this->Html->link(
+                                $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
+                                ['controller' => 'City', 'action' => 'edit', $city->id],
+                                ['escape' => false]) ?></div>
+                            <div class="icon-contain-inline action"><?= $this->Form->postLink(
+                                $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']),
+                                ['controller' => 'City', 'action' => 'delete', $city->id],
+                                ['escape' => false,
+                                'confirm' => __('Are you sure you want to delete # {0}?', $city->id)
+                                ]) ?></div>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
             <?php else: ?>
-            <div class="not_found"><?= __('Not Found') ?></div>
+                <div class="not_found"><?= __('Not Found') ?></div>
             <?php endif; ?>
             </div>
         </div>
         <div id="panel_commerce_ranks" class="tab-pane fade in">
-            <div class="table-responsive col-md-6">
+            <div class="row">
             <?php if (!empty($guild->commerce_rank)): ?>
-            <table class="table table-hover">
-                <tr>
-                    <th class="ids"><?= __('Role#') ?></th>
-                    <th class="ids"><?= __('Times') ?></th>
-                    <th class="ids"><?= __('Tael') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
-                <?php foreach ($guild->commerce_rank as $commerceRank): ?>
-                <tr>
-                    <td class="ids"><?= h($commerceRank->role_id) ?></td>
-                    <td class="ids"><?= h($commerceRank->times) ?></td>
-                    <td class="ids"><?= h($commerceRank->tael) ?></td>
-                    <td class="actions">
-                        <div class="icon-contain-inline action"><?= $this->Html->link(
-                            $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
-                            ['controller' => 'CommerceRank', 'action' => 'edit', $commerceRank->role_id],
-                            ['escape' => false]) ?></div>
-                        <div class="icon-contain-inline action"><?= $this->Form->postLink(
-                            $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']),
-                            ['controller' => 'CommerceRank', 'action' => 'delete', $commerceRank->role_id],
-                            ['escape' => false,
-                            'confirm' => __('Are you sure you want to delete # {0}?', $commerceRank->role_id)
-                            ]) ?></div>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </table>
+            <div class="table-responsive col-md-6">
+                <table class="table table-hover">
+                    <tr>
+                        <th class="ids"><?= __('Role#') ?></th>
+                        <th class="ids"><?= __('Times') ?></th>
+                        <th class="ids"><?= __('Tael') ?></th>
+                        <th class="actions"><?= __('Actions') ?></th>
+                    </tr>
+                    <?php foreach ($guild->commerce_rank as $commerceRank): ?>
+                    <tr>
+                        <td class="ids"><?= h($commerceRank->role_id) ?></td>
+                        <td class="ids"><?= h($commerceRank->times) ?></td>
+                        <td class="ids"><?= h($commerceRank->tael) ?></td>
+                        <td class="actions">
+                            <div class="icon-contain-inline action"><?= $this->Html->link(
+                                $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
+                                ['controller' => 'CommerceRank', 'action' => 'edit', $commerceRank->role_id],
+                                ['escape' => false]) ?></div>
+                            <div class="icon-contain-inline action"><?= $this->Form->postLink(
+                                $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']),
+                                ['controller' => 'CommerceRank', 'action' => 'delete', $commerceRank->role_id],
+                                ['escape' => false,
+                                'confirm' => __('Are you sure you want to delete # {0}?', $commerceRank->role_id)
+                                ]) ?></div>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
             <?php else: ?>
-            <div class="not_found"><?= __('Not Found') ?></div>
+                <div class="not_found"><?= __('Not Found') ?></div>
             <?php endif; ?>
             </div>
-            <div style="clear:both"></div>
         </div>
         <div id="panel_guild_skills" class="tab-pane fade in">
-            <div class="table-responsive">
+            <div class="row">
             <?php if (!empty($guild->guild_skill)): ?>
-            <table class="table table-hover">
-                <tr>
-                    <th class="ids"><?= __('#') ?></th>
-                    <th class="ids"><?= __('Progress') ?></th>
-                    <th class="ids"><?= __('Level') ?></th>
-                    <th class="ids"><?= __('Researching') ?></th>
-                    <th class="ids"><?= __('Active') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
-                <?php foreach ($guild->guild_skill as $skill): ?>
-                <tr>
-                    <td class="ids"><?= h($skill->skill_id) ?></td>
-                    <td class="ids"><?= h($skill->progress) ?></td>
-                    <td class="ids"><?= h($skill->level) ?></td>
-                    <td class="ids"><?= $skill->researching ? __('Yes') : __('No') ?></td>
-                    <td class="ids"><?= $skill->active ? __('Yes') : __('No') ?></td>
-                    <td class="actions">
-                        <div class="icon-contain-inline action"><?= $this->Html->link(
-                            $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
-                            ['action' => 'edit_skill', '?' => ['guild_id' => $skill->guild_id, 'skill_id' => $skill->skill_id]],
-                            ['escape' => false]) ?></div>
-                        <div class="icon-contain-inline action"><?= $this->Form->postLink(
-                            $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']),
-                            ['action' => 'delete_skill', '?' => ['skill_id' => $skill->skill_id, 'guild_id' => $skill->guild_id]],
-                            ['escape' => false,
-                            'confirm' => __('Are you sure you want to delete # {0}?', $skill->skill_id)
-                            ]) ?></div>
-                    </td>
-                </tr>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th class="ids"><?= __('#') ?></th>
+                        <th class="ids"><?= __('Progress') ?></th>
+                        <th class="ids"><?= __('Level') ?></th>
+                        <th class="ids"><?= __('Researching') ?></th>
+                        <th class="ids"><?= __('Active') ?></th>
+                        <th class="actions"><?= __('Actions') ?></th>
+                    </tr>
+                    <?php foreach ($guild->guild_skill as $skill): ?>
+                    <tr>
+                        <td class="ids"><?= h($skill->skill_id) ?></td>
+                        <td class="ids"><?= h($skill->progress) ?></td>
+                        <td class="ids"><?= h($skill->level) ?></td>
+                        <td class="ids"><?= $skill->researching ? __('Yes') : __('No') ?></td>
+                        <td class="ids"><?= $skill->active ? __('Yes') : __('No') ?></td>
+                        <td class="actions">
+                            <div class="icon-contain-inline action"><?= $this->Html->link(
+                                $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
+                                ['action' => 'edit_skill', '?' => ['guild_id' => $skill->guild_id, 'skill_id' => $skill->skill_id]],
+                                ['escape' => false]) ?></div>
+                            <div class="icon-contain-inline action"><?= $this->Form->postLink(
+                                $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']),
+                                ['action' => 'delete_skill', '?' => ['skill_id' => $skill->skill_id, 'guild_id' => $skill->guild_id]],
+                                ['escape' => false,
+                                'confirm' => __('Are you sure you want to delete # {0}?', $skill->skill_id)
+                                ]) ?></div>
+                        </td>
+                    </tr>
 
-                <?php endforeach; ?>
-            </table>
+                    <?php endforeach; ?>
+                </table>
+            </div>
             <?php else: ?>
-            <div class="not_found"><?= __('Not Found') ?></div>
+                <div class="not_found"><?= __('Not Found') ?></div>
             <?php endif; ?>
             </div>
         </div>

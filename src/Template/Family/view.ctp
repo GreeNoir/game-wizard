@@ -10,15 +10,14 @@
 </div>
 <div class="col-md-7">
     <div class="family columns view well">
-        <h3><div class="id">#<?= h($family->FamilyID) ?></div></h3>
         <div class="row">
-            <div class="form-group col-md-12">
-                <div class="col-md-4 subheader"><?= __('FamilyName') ?></div>
-                <div class="col-md-8"><?= h($family->FamilyName) ?></div>
-            </div>
             <div class="form-group col-md-12">
                 <div class="col-md-4 subheader"><?= __('FamilyID') ?></div>
                 <div class="col-md-8"><?= $family->FamilyID ?></div>
+            </div>
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('FamilyName') ?></div>
+                <div class="col-md-8"><?= h($family->FamilyName) ?></div>
             </div>
             <div class="form-group col-md-12">
                 <div class="col-md-4 subheader"><?= __('LeaderID') ?></div>

@@ -5,8 +5,12 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Back').__('Edit Guild'), ['action' => 'edit', $guildID], ['escape' => false]) ?> </li>
     </ul>
 </div>
+<ul class="breadcrumb col-md-10">
+    <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('Back').__('Edit Guild'), ['action' => 'edit', $guildID]) ?></li>
+    <li class="active"><?= __('Related cities') ?></li>
+</ul>
 <div class="table-responsive col-md-10">
-    <h3><?= __('Related Guild Cities').' #'.$guildID ?></h3>
     <?php if (count($cities)): ?>
     <table class="table table-hover table-striped">
         <thead>

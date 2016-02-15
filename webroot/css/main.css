@@ -344,16 +344,12 @@ h3 {
 }
 
 #wrapper .view.well {
-    padding: 10px 0;
-}
-
-#wrapper .view.well h3 {
-    padding: 15px 0 10px 19px;
+    padding: 0;
 }
 
 #wrapper .view.well .row {
     margin: 0;
-    padding: 0 0 25px 0px;
+    padding: 25px 0;
 }
 
 .roledata.view.well .tab-content.view .form-group:first-child {
@@ -398,6 +394,7 @@ h3 {
 
 div.not_found {
     padding: 20px;
+    clear: both;
 }
 
 select#accountID {

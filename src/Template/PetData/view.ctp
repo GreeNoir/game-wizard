@@ -8,8 +8,11 @@
 </div>
 <div class="col-md-7">
     <div class="petData columns view well">
-        <h3><div class="id">#<?= h($petData->pet_id) ?></div></h3>
         <div class="row">
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('PetID') ?></div>
+                <div class="col-md-8"><?= h($petData->pet_id) ?></div>
+            </div>
             <div class="form-group col-md-12">
                 <div class="col-md-4 subheader"><?= __('Pet Name') ?></div>
                 <div class="col-md-8"><?= h($petData->pet_name) ?></div>

@@ -12,7 +12,6 @@
 <div class="col-md-7">
     <div class="petData form well">
         <?= $this->Form->create($petData, ['class' => 'form-horizontal']) ?>
-        <legend><?= __('Edit Pet Data') ?></legend>
         <?= $this->Form->input('pet_id', ['disabled' => true, 'type' => 'text', 'label' => ['class' => 'col-md-3 control-label', 'text' => 'ID']]); ?>
         <?= $this->Form->input('pet_name', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('pet_value', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>

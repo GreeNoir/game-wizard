@@ -12,8 +12,11 @@
 </div>
 <div class="col-md-7">
     <div class="city view columns well">
-        <h3><div class="id">#<?= h($city->id) ?></div></h3>
         <div class="row">
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('CityID') ?></div>
+                <div class="col-sm-3"><?= $city->id ?></div>
+            </div>
             <div class="form-group col-md-12">
                 <div class="col-md-4 subheader"><?= __('Guild Id') ?></div>
                 <div class="col-sm-3"><?= $city->guild_id ?></div>

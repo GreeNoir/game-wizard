@@ -1,14 +1,17 @@
 <div class="actions columns">
-    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('EquipmentOfRoleID').' '.$roleID, ['action' => 'equipment_item', 'id' => $roleID, 'slug' => 'all']) ?></li>
     </ul>
 </div>
+<ul class="breadcrumb col-md-7">
+    <li><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link($accountName, ['controller' => 'AccountCommon', 'action' => 'view', $accountID]) ?></li>
+    <li><?= $this->Html->link($roleName, ['action' => 'view', $roleID]) ?></li>
+    <li><?= $this->Html->link( __('Equipment'), ['action' => 'equipment_item', 'id' => $roleID, 'slug' => 'all']) ?></li>
+    <li class="active"><?= $type ?></li>
+</ul>
 <div class="col-md-7">
     <div class="equipment form well">
-
-        <legend><?= __('Edit equipment ').$type ?> #<?= $serial ?></legend>
-
         <?php
             echo $this->Form->create($oEquip, ['class' => 'form-horizontal']);
             foreach($aEquip as $field=>$value) {

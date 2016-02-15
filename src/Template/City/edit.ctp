@@ -13,7 +13,6 @@
 <div class="col-md-7">
     <div class="city form columns well">
         <?= $this->Form->create($city, ['class' => 'form-horizontal']) ?>
-        <legend><?= __('Edit City') ?><div class="id">#<?= $city->id ?></div></legend>
         <?= $this->Form->input('id', ['disabled' => true, 'type' => 'text', 'type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('guild_id', ['required' => true, 'type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('defence', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>

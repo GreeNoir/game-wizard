@@ -16,8 +16,6 @@
 <div class="col-md-7">
     <div class="account_common form well">
         <?= $this->Form->create($accountCommon, ['class' => 'form-horizontal']) ?>
-
-        <legend><?= __('Edit Account Common') ?><div class="id">#<?= $accountCommon->AccountID ?></div></legend>
         <?= $this->Form->input('AccountID', ['type' => 'text', 'disabled' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('AccountName', ['required' => true, 'label' => ['class' => 'col-md-3 control-label'], 'size' => 36]); ?>
         <?= $this->Form->input('ChannelID', ['type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>

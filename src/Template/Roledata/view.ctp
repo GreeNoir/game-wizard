@@ -16,8 +16,6 @@
 </div>
 
 <div class="col-md-9 well roledata view">
-<h3><div class="id">#<?= h($roledata->RoleID) ?></div></h3>
-
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#panel_basic"><?= __('Basic') ?></a></li>
     <li><a data-toggle="tab" href="#panel_place"><?= __('Place') ?></a></li>

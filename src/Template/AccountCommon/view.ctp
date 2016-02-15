@@ -11,8 +11,12 @@
 </div>
 <div class="col-md-7">
     <div class="account_common view columns well">
-        <h3><div class="id">#<?= h($accountCommon->AccountID) ?></div></h3>
         <div class="row">
+            <div class="form-group col-md-12">
+                <div class="col-md-4 subheader"><?= __('AccountID') ?></div>
+                <div class="col-md-8"><?= h($accountCommon->AccountID) ?></div>
+            </div>
+
             <div class="form-group col-md-12">
                 <div class="col-md-4 subheader"><?= __('AccountName') ?></div>
                 <div class="col-md-8"><?= h($accountCommon->AccountName) ?></div>
