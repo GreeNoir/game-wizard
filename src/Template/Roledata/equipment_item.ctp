@@ -63,12 +63,12 @@
                 <td>
                     <?php
                         if (!isset($item->EquipType)) {
-                            echo $this->Html->link(__($selectedEquipType), ['action' => 'edit_equipment', '?' => ['type' => $selectedEquipType, 'serial' => $item->cSerialNum, 'roleID' => $id]]);
+                            echo $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__($selectedEquipType), ['action' => 'edit_equipment', '?' => ['type' => $selectedEquipType, 'serial' => $item->cSerialNum, 'roleID' => $id]], ['escape' => false]);
                         } else {
                             if($item->EquipType == 'undefined') {
                                 echo '';
                             } else {
-                                echo $this->Html->link(__($item->EquipType), ['action' => 'edit_equipment', '?' => ['type' => $item->EquipType, 'serial' => $item->cSerialNum, 'roleID' => $id]]);
+                                echo $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__($item->EquipType), ['action' => 'edit_equipment', '?' => ['type' => $item->EquipType, 'serial' => $item->cSerialNum, 'roleID' => $id]], ['escape' => false]);
                             }
                         }
                     ?>
