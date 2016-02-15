@@ -7,7 +7,6 @@
 <div class="col-md-7">
     <div class="petData form well">
         <?= $this->Form->create($petData, ['class' => 'form-horizontal']) ?>
-        <legend><?= __('Add Pet Data') ?></legend>
         <?= $this->Form->input('pet_name', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('pet_value', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('pet_pm', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
@@ -29,7 +28,7 @@
         <?= $this->Form->input('live', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('lifeadded', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <div class="form-group">
-            <div class="col-md-offset-4 col-md-10">
+            <div class="col-md-offset-3 col-md-10">
                 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
             </div>
         </div>

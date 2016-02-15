@@ -7,7 +7,6 @@
 <div class="col-md-7">
     <div class="guildSkill columns well">
         <?= $this->Form->create($guildSkill, ['class' => 'form-horizontal']) ?>
-        <legend><?= __('Add Guild Skill for Guild #').$guildID ?></legend>
         <?= $this->Form->input('skill_id', ['disabled' => 'true', 'type' => 'text', 'label' => ['text' => 'Skill Id', 'class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('progress', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('level', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>

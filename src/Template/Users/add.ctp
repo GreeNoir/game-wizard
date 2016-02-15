@@ -8,7 +8,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <?= $this->Form->button(__('UserCreate'), ['class' => 'btn btn-success']); ?>
+            <?= $this->Form->button(__('UserCreate'), ['class' => 'btn btn-primary']); ?>
         </div>
     </div>
     <?= $this->Form->end() ?>

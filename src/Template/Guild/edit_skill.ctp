@@ -13,7 +13,6 @@
 <div class="col-md-7">
     <div class="guild form well">
         <?= $this->Form->create($guildSkill, ['class' => 'form-horizontal']) ?>
-        <legend><?= __('Edit Guild Skill') ?>#<?= $guildSkill->skill_id ?></legend>
         <?= $this->Form->input('guild_id', ['type' => 'text', 'disabled' =>true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('skill_id', ['type' => 'text', 'disabled' =>true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('progress', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>

@@ -6,7 +6,6 @@
 <div class="col-md-7">
     <div class="commerceRank form well">
         <?= $this->Form->create($commerceRank, ['class' => 'form-horizontal']) ?>
-        <legend><?= __('Add Commerce Rank') ?></legend>
         <?= $this->Form->input('guild_id', ['options' => $guildIds, 'required' => true, 'label' => ['text' => 'Guild ID', 'class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('times', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('tael', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>

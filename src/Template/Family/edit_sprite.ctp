@@ -6,7 +6,6 @@
 <div class="col-md-7">
     <div class="familySprite form well">
         <?= $this->Form->create($familySprite, ['class' => 'form-horizontal']) ?>
-        <legend><?= __('Edit Family Sprite') ?><div class="id">#<?= $familySprite->FamilyID ?></div></legend>
         <?= $this->Form->input('FamilyID', ['disabled' => true, 'type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('Level', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('Exp', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>

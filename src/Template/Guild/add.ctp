@@ -7,7 +7,6 @@
 <div class="col-md-7">
     <div class="guild form columns well">
         <?= $this->Form->create($guild, ['class' => 'form-horizontal']) ?>
-        <legend><?= __('Add Guild') ?></legend>
         <?= $this->Form->input('FounderNameID', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('LeaderID', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('SpecState', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>

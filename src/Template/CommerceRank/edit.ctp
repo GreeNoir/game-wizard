@@ -14,7 +14,7 @@
 <div class="col-md-7">
     <div class="commerceRank form well">
         <?= $this->Form->create($commerceRank, ['class' => 'form-horizontal']) ?>
-        <legend><?= __('Edit Commerce Rank') ?><div class="id"> #<?= $commerceRank->role_id ?></div></legend>
+        <?= $this->Form->input('role_id', ['disabled' => true, 'type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('guild_id', ['required' => true, 'type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('times', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('tael', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>

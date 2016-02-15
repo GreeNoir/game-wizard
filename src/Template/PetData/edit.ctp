@@ -34,7 +34,7 @@
         <?= $this->Form->input('live', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('lifeadded', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <div class="form-group">
-            <div class="col-md-offset-4 col-md-10">
+            <div class="col-md-offset-3 col-md-10">
                 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
             </div>
         </div>

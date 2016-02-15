@@ -6,7 +6,6 @@
 <div class="col-md-7">
     <div class="city form columns well">
         <?= $this->Form->create($city, ['class' => 'form-horizontal']) ?>
-        <legend><?= __('Add City') ?></legend>
         <?= $this->Form->input('guild_id', ['required' => true, 'options' => $guildIds, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('defence', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('eudemon_tally', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>

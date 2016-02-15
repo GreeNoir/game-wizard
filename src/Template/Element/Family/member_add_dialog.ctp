@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick="addMembers('<?= $controller ?>');"><?= __('Add') ?></button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addMembers('<?= $controller ?>');"><?= __('Add') ?></button>
                     <button type="button" class="btn btn-default" data-dismiss="modal"><?= __('Cancel') ?></button>
                 </div>
             </form>

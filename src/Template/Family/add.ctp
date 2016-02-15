@@ -7,7 +7,6 @@
 <div class="col-md-7">
     <div class="family form columns well">
         <?= $this->Form->create($family, ['class' => 'form-horizontal']) ?>
-        <legend><?= __('Add Family') ?></legend>
         <?= $this->Form->input('FamilyName', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('LeaderID', ['options' => $roledata, 'required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
         <?= $this->Form->input('FounderID', ['options' => $roledata, 'required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
