@@ -2,14 +2,12 @@
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
-                __('Delete'),
+                $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete'),
                 ['action' => 'delete', $family->FamilyID],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $family->FamilyID)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Family'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Sprite'), ['action' => 'edit_sprite', $family->FamilyID]) ?></li>
-        <li><?= $this->Html->link(__('Members'), ['action' => 'members', $family->FamilyID]) ?></li>
+                ['escape' => false, 'confirm' => __('Are you sure you want to delete # {0}?', $family->FamilyID)])?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Family'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-cog']).__('Sprite'), ['action' => 'edit_sprite', $family->FamilyID], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-users']).__('Members'), ['action' => 'members', $family->FamilyID], ['escape' => false]) ?></li>
     </ul>
 </div>
 <div class="col-md-7">

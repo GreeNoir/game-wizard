@@ -1,20 +1,21 @@
-<div class="actions columns large-2 medium-3">
-    <ul class="breadcrumb">
-        <li><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link($accountName, ['controller' => 'AccountCommon', 'action' => 'view', $accountID]) ?></li>
-        <li><?= $this->Html->link($roleName, ['action' => 'view', $id]) ?></li>
-        <?php if ($selectedEquipType == 'all'): ?>
-            <li class="active"><?= __('Equipment') ?></li>
-        <?php else: ?>
-            <li><?= $this->Html->link(__('Equipment'), ['action' => 'equipment_item', 'id' => $id, 'slug' => 'all']) ?></li>
-            <li class="active"><?= $selectedEquipType ?></li>
-        <?php endif; ?>
-    </ul>
-    <h3><?= __('Actions') ?></h3>
+<ul class="breadcrumb">
+    <li><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link($accountName, ['controller' => 'AccountCommon', 'action' => 'view', $accountID]) ?></li>
+    <li><?= $this->Html->link($roleName, ['action' => 'view', $id]) ?></li>
+    <?php if ($selectedEquipType == 'all'): ?>
+        <li class="active"><?= __('Equipment') ?></li>
+    <?php else: ?>
+        <li><?= $this->Html->link(__('Equipment'), ['action' => 'equipment_item', 'id' => $id, 'slug' => 'all']) ?></li>
+        <li class="active"><?= $selectedEquipType ?></li>
+    <?php endif; ?>
+</ul>
+
+<div class="actions">
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Back').__('RoledataList'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('Back').__('RoledataList'), ['action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
+
 <div class="table-responsive">
     <?php if ($itemListCount > 0): ?>
     <h3><?=__('EquipmentList') ?></h3>

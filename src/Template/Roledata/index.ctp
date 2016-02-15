@@ -1,7 +1,7 @@
 <div class="actions">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('New').__('Roledata'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('New').__('Roledata'), ['action' => 'add'], ['escape' => false]) ?></li>
     </ul>
 </div>
 <div class="roledata table-responsive col-lg-12">

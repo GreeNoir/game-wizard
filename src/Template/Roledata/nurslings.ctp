@@ -1,22 +1,23 @@
-<div class="actions columns large-2 medium-3">
+<div class="columns">
     <ul class="breadcrumb">
         <li><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link($accountName, ['controller' => 'AccountCommon', 'action' => 'view', $accountID]) ?></li>
         <li><?= $this->Html->link($roleName, ['action' => 'view', $id]) ?></li>
         <li class="active"><?= __('Nurslings') ?></li>
     </ul>
-    <h3><?= __('Actions') ?></h3>
+</div>
+<div class="actions">
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Back').__('RoledataList'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('Back').__('RoledataList'), ['action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
 <div class="table-responsive col-lg-8">
     <?php if(count($nurslings)): ?>
     <h3><?=__('NurslingsList') ?></h3>
-    <table class="table table-hover nurslings">
+    <table class="table table-hover table-striped nurslings">
         <thead>
         <tr>
-            <th class="ids"><?= __('ID') ?></th>
+            <th class="ids">#</th>
             <th><?= __('Name') ?></th>
             <th class="ids"><?= __('pet_value') ?></th>
             <th class="ids"><?= __('pet_pm') ?></th>

@@ -1,21 +1,22 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link('Add Guild Commerce Rank', ['controller' => 'CommerceRank', 'action' => 'add', '?' => ['guild_id' => $guildID]]) ?></li>
-        <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Back').__('Edit Guild'), ['action' => 'edit', $guildID]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('Add Guild Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'add', '?' => ['guild_id' => $guildID]], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Guild'), ['action' => 'index'], ['escape' => false]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Back').__('Edit Guild'), ['action' => 'edit', $guildID], ['escape' => false]) ?> </li>
     </ul>
 </div>
-<div class="table-responsive col-lg-5">
-    <h2 class="subheader"><?= __('Related Guild Commerce Rank').' #ID'.$guildID ?></h2>
+<div class="table-responsive col-md-7">
+    <h3><?= __('Related Guild Commerce Rank').' #'.$guildID ?></h3>
     <?php if (count($commerceRanks)): ?>
-    <table class="table table-condensed table-bordered table-striped">
+    <table class="table table-hover table-striped">
+        <thead>
         <tr>
-            <th class="ids"><?= $this->Paginator->sort('role_id') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('role_id', 'Role#') ?></th>
             <th class="ids"><?= $this->Paginator->sort('times') ?></th>
             <th class="ids"><?= $this->Paginator->sort('tael') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
+        </thead>
         <?php foreach ($commerceRanks as $commerceRank): ?>
         <tr>
             <td class="ids"><?= h($commerceRank->role_id) ?></td>

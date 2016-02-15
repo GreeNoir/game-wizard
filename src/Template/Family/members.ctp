@@ -1,22 +1,21 @@
+<ul class="breadcrumb">
+    <li><?= $this->Html->link(__('Families'), ['action' => 'index']) ?></li>
+    <li><?= $this->Html->link($familyName, ['action' => 'view', $familyID]) ?></li>
+    <li class="active"><?= __('Members') ?></li>
+</ul>
+
 <div class="actions columns">
-    <ul class="breadcrumb">
-        <li><?= $this->Html->link(__('Families'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link($familyName, ['action' => 'view', $familyID]) ?></li>
-        <li class="active"><?= __('Members') ?></li>
-    </ul>
-    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('ListFamily'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('View'), ['action' => 'view', 'id' => $familyID]) ?></li>
-        <li><?= $this->Html->link(__('Edit'), ['action' => 'edit', 'id' => $familyID]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('ListFamily'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-external-link']).__('View'), ['action' => 'view', 'id' => $familyID], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit'), ['action' => 'edit', 'id' => $familyID], ['escape' => false]) ?></li>
         <li><?= $this->Form->postLink(
-            __('Delete'),
+            $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete'),
             ['action' => 'delete', $familyID],
-            ['confirm' => __('Are you sure you want to delete # {0}?', $familyID)]
-            )
-            ?></li>
-        <li><?= $this->Html->link(__('Sprite'), ['action' => 'view_sprite', 'id' => $familyID]) ?></li>
-        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#member_add"><?= __('AddMember') ?></a></li>
+            ['escape' => false,
+            'confirm' => __('Are you sure you want to delete # {0}?', $familyID)]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-cog']).__('Sprite'), ['action' => 'view_sprite', 'id' => $familyID], ['escape' => false]) ?></li>
+        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#member_add"><?= $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('AddMember') ?></a></li>
     </ul>
 </div>
 <?php if ($membersCount > 0): ?>

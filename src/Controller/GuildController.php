@@ -175,6 +175,7 @@ class GuildController extends AppController
                 $this->Flash->error(__('The family sprite could not be saved. Please, try again.'));
             }
         }
+        $this->set('guildID', $guildID);
         $this->set(compact('guildSkill'));
         $this->set('_serialize', ['guildSkill']);
     }

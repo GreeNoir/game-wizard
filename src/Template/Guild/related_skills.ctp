@@ -1,23 +1,24 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+<div class="actions columns">
     <ul class="side-nav">
-        <li><?= $this->Html->link('Add Guild Skill', ['action' => 'add_skill', $guildID]) ?></li>
-        <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Back').__('Edit Guild'), ['action' => 'edit', $guildID]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('Add Guild Skill'), ['action' => 'add_skill', $guildID], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Guild'), ['action' => 'index'], ['escape' => false]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Back').__('Edit Guild'), ['action' => 'edit', $guildID], ['escape' => false]) ?> </li>
     </ul>
 </div>
-<div class="table-responsive col-lg-10">
-    <h2 class="subheader"><?= __('Related Guild Skill').' #ID'.$guildID ?></h2>
+<div class="table-responsive col-md-10">
     <?php if (count($skills)): ?>
-    <table class="table table-condensed table-bordered table-striped">
-        <tr>
+    <h3><?= __('Related Guild Skill').' #'.$guildID ?></h3>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
             <th class="ids"><?= $this->Paginator->sort('skill_id') ?></th>
             <th class="ids"><?= $this->Paginator->sort('progress') ?></th>
             <th class="ids"><?= $this->Paginator->sort('level') ?></th>
             <th class="ids"><?= $this->Paginator->sort('researching') ?></th>
             <th class="ids"><?= $this->Paginator->sort('active') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
-        </tr>
+            </tr>
+        </thead>
         <?php foreach ($skills as $skill): ?>
         <tr>
             <td class="ids"><?= $skill->skill_id ?></td>

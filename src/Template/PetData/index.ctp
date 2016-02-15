@@ -1,7 +1,7 @@
 <div class="actions">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Pet Data'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('New Pet Data'), ['action' => 'add'], ['escape' => false]) ?></li>
     </ul>
 </div>
 <div class="petData table-responsive col-lg-10">

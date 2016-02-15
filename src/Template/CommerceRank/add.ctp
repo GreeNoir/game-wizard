@@ -1,21 +1,22 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+<div class="actions columns">
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('List Commerce Rank'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Commerce Rank'), ['action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
-<div class="commerceRank form large-10 medium-9 columns">
-    <?= $this->Form->create($commerceRank) ?>
-    <legend><?= __('Add Commerce Rank') ?></legend>
-    <?= $this->Form->input('guild_id', ['options' => $guildIds, 'required' => true, 'class' => 'form-control', 'label' => ['text' => 'Guild ID', 'class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('times', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('tael', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10 voofset10">
-            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+<div class="col-md-7">
+    <div class="commerceRank form well">
+        <?= $this->Form->create($commerceRank, ['class' => 'form-horizontal']) ?>
+        <legend><?= __('Add Commerce Rank') ?></legend>
+        <?= $this->Form->input('guild_id', ['options' => $guildIds, 'required' => true, 'label' => ['text' => 'Guild ID', 'class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('times', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('tael', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <div class="form-group">
+            <div class="col-md-offset-3">
+                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+            </div>
         </div>
+        <?= $this->Form->end() ?>
     </div>
-    <?= $this->Form->end() ?>
 </div>
 <?= $this->Html->scriptBlock('
 var guildID = "'.$guild_id.'";

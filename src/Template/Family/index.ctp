@@ -1,7 +1,7 @@
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Family'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('New Family'), ['action' => 'add'], ['escape' => false]) ?></li>
     </ul>
 </div>
 <div class="family table-responsive col-lg-10">

@@ -1,15 +1,15 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+<div class="actions columns">
     <ul class="side-nav">
-        <li><?= $this->Html->link('Add Guild City', ['controller' => 'City', 'action' => 'add', '?' => ['guild_id' => $guildID]]) ?></li>
-        <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Back').__('Edit Guild'), ['action' => 'edit', $guildID]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('Add Guild City'), ['controller' => 'City', 'action' => 'add', '?' => ['guild_id' => $guildID]], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Guild'), ['action' => 'index'], ['escape' => false]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Back').__('Edit Guild'), ['action' => 'edit', $guildID], ['escape' => false]) ?> </li>
     </ul>
 </div>
-<div class="table-responsive col-lg-10">
-    <h2 class="subheader"><?= __('Related Guild Cities').' #ID'.$guildID ?></h2>
+<div class="table-responsive col-md-10">
+    <h3><?= __('Related Guild Cities').' #'.$guildID ?></h3>
     <?php if (count($cities)): ?>
-    <table class="table table-condensed table-bordered table-striped">
+    <table class="table table-hover table-striped">
+        <thead>
         <tr>
             <th class="ids"><?= $this->Paginator->sort('id') ?></th>
             <th class="ids"><?= $this->Paginator->sort('defence') ?></th>
@@ -21,6 +21,7 @@
             <th class="ids"><?= $this->Paginator->sort('signup_list') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
+        </thead>
         <?php foreach ($cities as $city): ?>
         <tr>
             <td class="ids"><?= h($city->id) ?></td>

@@ -2,9 +2,9 @@
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <?php if ($familySprite): ?>
-            <li><?= $this->Html->link(__('Edit Family Sprite'), ['action' => 'edit_sprite', $id]) ?> </li>
+            <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit Family Sprite'), ['action' => 'edit_sprite', $id], ['escape' => false]) ?> </li>
         <?php endif; ?>
-        <li><?= $this->Html->link(__('ListOfFamily'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('ListOfFamily'), ['action' => 'index'], ['escape' => false]) ?> </li>
     </ul>
 </div>
 <?php if ($familySprite): ?>

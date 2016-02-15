@@ -1,9 +1,8 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+<div class="actions columns">
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Back').__('Edit Guild'), ['action' => 'edit', $guildID]) ?> </li>
-        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#member_add"><?= __('AddMember') ?></a></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Guild'), ['action' => 'index'], ['escape' => false]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Back').__('Edit Guild'), ['action' => 'edit', $guildID], ['escape' => false]) ?> </li>
+        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#member_add"><?= $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('AddMember') ?></a></li>
     </ul>
 </div>
 

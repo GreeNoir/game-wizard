@@ -2,17 +2,18 @@
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
-                __('Delete'),
+                $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete'),
                 ['action' => 'delete', $roledata->RoleID],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $roledata->RoleID)]
+                ['escape' => false,
+                'confirm' => __('Are you sure you want to delete # {0}?', $roledata->RoleID)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Equipment'), ['action' => 'equipment_item', 'id' => $roledata->RoleID, 'slug' => 'all']) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('RoledataList'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-briefcase']).__('Equipment'), ['action' => 'equipment_item', 'id' => $roledata->RoleID, 'slug' => 'all'], ['escape' => false]) ?></li>
         <?php if ($roledata->FamilyName != 'undefined'): ?>
-            <li><?= $this->Html->link(__('Family').' "'.$roledata->FamilyName.'"', ['controller' => 'Family', 'action' => 'edit', 'id' => $roledata->FamilyID]) ?></li>
+            <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-users']).$roledata->FamilyName, ['controller' => 'Family', 'action' => 'edit', 'id' => $roledata->FamilyID], ['escape' => false]) ?></li>
         <?php endif; ?>
-        <li><?= $this->Html->link(__('Nurslings'), ['action' => 'nurslings', 'id' => $roledata->RoleID]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-paw']).__('Nurslings'), ['action' => 'nurslings', 'id' => $roledata->RoleID], ['escape' => false]) ?></li>
     </ul>
 </div>
 <div class="col-md-8">

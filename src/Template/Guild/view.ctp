@@ -1,9 +1,10 @@
 <div class="actions columns">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Edit Guild'), ['action' => 'edit', $guild->ID]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Guild'), ['action' => 'delete', $guild->ID], ['confirm' => __('Are you sure you want to delete # {0}?', $guild->ID)]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Guild'), ['action' => 'index'], ['escape' => false]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit Guild'), ['action' => 'edit', $guild->ID], ['escape' => false]) ?> </li>
+        <li><?= $this->Form->postLink($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete Guild'), ['action' => 'delete', $guild->ID], ['escape' => false, 'confirm' => __('Are you sure you want to delete # {0}?', $guild->ID)]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-users']).__('List Members'), ['controller' => 'Guild', 'action' => 'members', $guild->ID], ['escape' => false]) ?></li>
     </ul>
 </div>
 

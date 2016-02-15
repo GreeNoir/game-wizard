@@ -2,12 +2,12 @@
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
-                __('Delete'),
+            $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete'),
                 ['action' => 'delete', $city->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $city->id)]
+                ['escape' => false, 'confirm' => __('Are you sure you want to delete # {0}?', $city->id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List City'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List City'), ['action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
 <div class="col-md-7">

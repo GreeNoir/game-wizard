@@ -1,22 +1,23 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+<div class="actions columns">
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Back').__('Related Skills'), ['action' => 'related_skills', $guildID]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Guild'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('Back').__('Related Skills'), ['action' => 'related_skills', $guildID], ['escape' => false]) ?></li>
     </ul>
 </div>
-<div class="guildSkill form large-10 medium-9 columns">
-    <?= $this->Form->create($guildSkill) ?>
-    <legend><?= __('Add Guild Skill for Guild #').$guildID ?></legend>
-    <?= $this->Form->input('skill_id', ['disabled' => 'true', 'type' => 'text', 'class' => 'form-control', 'label' => ['text' => 'Skill Id', 'class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('progress', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('level', ['required' => true, 'class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('researching', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <?= $this->Form->input('active', ['class' => 'form-control', 'label' => ['class' => 'col-sm-2 control-label']]); ?>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10 voofset10">
-            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-success']) ?>
+<div class="col-md-7">
+    <div class="guildSkill columns well">
+        <?= $this->Form->create($guildSkill, ['class' => 'form-horizontal']) ?>
+        <legend><?= __('Add Guild Skill for Guild #').$guildID ?></legend>
+        <?= $this->Form->input('skill_id', ['disabled' => 'true', 'type' => 'text', 'label' => ['text' => 'Skill Id', 'class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('progress', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('level', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('researching', ['label' => ['class' => 'col-md-offset-3']]); ?>
+        <?= $this->Form->input('active', ['label' => ['class' => 'col-md-offset-3']]); ?>
+        <div class="form-group">
+            <div class="col-md-offset-3">
+                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+            </div>
         </div>
+        <?= $this->Form->end() ?>
     </div>
-    <?= $this->Form->end() ?>
 </div>

@@ -1,8 +1,13 @@
 <div class="actions columns">
-    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit City'), ['action' => 'edit', $city->id]) ?> </li>
-        <li><?= $this->Html->link(__('List City'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit City'), ['action' => 'edit', $city->id], ['escape' => false]) ?> </li>
+        <li><?= $this->Form->postLink(
+            $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete'),
+            ['action' => 'delete', $city->id],
+            ['escape' => false, 'confirm' => __('Are you sure you want to delete # {0}?', $city->id)]
+            )
+            ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List City'), ['action' => 'index'], ['escape' => false]) ?> </li>
     </ul>
 </div>
 <div class="col-md-7">

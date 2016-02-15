@@ -1,12 +1,11 @@
 <div class="actions columns">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit Family'), ['action' => 'edit', $family->FamilyID]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Family'), ['action' => 'delete', $family->FamilyID], ['confirm' => __('Are you sure you want to delete # {0}?', $family->FamilyID)]) ?> </li>
-        <li><?= $this->Html->link(__('List Family'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Family'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('Sprite'), ['action' => 'view_sprite', $family->FamilyID]) ?></li>
-        <li><?= $this->Html->link(__('Members'), ['action' => 'members', $family->FamilyID]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit Family'), ['action' => 'edit', $family->FamilyID], ['escape' => false]) ?> </li>
+        <li><?= $this->Form->postLink($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete Family'), ['action' => 'delete', $family->FamilyID], ['escape' => false, 'confirm' => __('Are you sure you want to delete # {0}?', $family->FamilyID)]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Family'), ['action' => 'index'], ['escape' => false]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-cog']).__('Sprite'), ['action' => 'view_sprite', $family->FamilyID], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-users']).__('Members'), ['action' => 'members', $family->FamilyID], ['escape' => false]) ?></li>
     </ul>
 </div>
 <div class="col-md-7">
