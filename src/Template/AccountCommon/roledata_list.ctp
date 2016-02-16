@@ -3,14 +3,18 @@
     <ul class="side-nav">
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-external-link']).__('View').__('AccountCommon'), ['action' => 'view', $id], ['escape' => false]) ?> </li>
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit').__('AccountCommon'), ['action' => 'edit', $id], ['escape' => false]) ?> </li>
-        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('Back').__('ListAccountCommon'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('Back').__('ListAccountCommon'), ['action' => 'index'], ['escape' => false]) ?></li>
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-eye']).__('Monitoring'), ['controller' => 'Account', 'action' => 'edit', $id], ['escape' => false]) ?></li>
     </ul>
 </div>
-
+<ul class="breadcrumb">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List').' '.__('AccountCommon'), ['action' => 'index']) ?></li>
+    <li><?= $this->Html->link($accountName, ['action' => 'view', $id]) ?></li>
+    <li class="active"><?= __('RoledataListHeader') ?></li>
+</ul>
 <div class="col-md-7">
     <div class="roledata_list table-responsive">
-        <h3><?=__('RoledataListHeader').$id ?></h3>
         <table class="table table-hover table-striped">
             <thead>
             <tr>

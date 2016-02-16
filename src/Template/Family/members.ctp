@@ -1,4 +1,4 @@
-<ul class="breadcrumb">
+<ul class="breadcrumb col-md-7">
     <li><?= $this->Html->link(__('Families'), ['action' => 'index']) ?></li>
     <li><?= $this->Html->link($familyName, ['action' => 'view', $familyID]) ?></li>
     <li class="active"><?= __('Members') ?></li>
@@ -20,7 +20,6 @@
 </div>
 <?php if ($membersCount > 0): ?>
 <div class="members table-responsive col-md-7">
-    <h3><?=__('FamilyMemberList') ?></h3>
     <table class="table table-hover table-striped">
         <thead>
         <tr>

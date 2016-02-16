@@ -6,6 +6,7 @@
     </ul>
 </div>
 <ul class="breadcrumb col-md-7">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Back').__('Edit Guild'), ['action' => 'edit', $guildID]) ?></li>
     <li class="active"><?= __('Related Guild Commerce Rank') ?></li>

@@ -1,5 +1,4 @@
 <div class="actions columns">
-    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit').__('Roledata'), ['action' => 'edit', $roledata->RoleID], ['escape' => false]) ?></li>
         <li><?= $this->Form->postLink($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete').__('Roledata'), ['action' => 'delete', $roledata->RoleID],
@@ -14,6 +13,11 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-paw']).__('Nurslings'), ['action' => 'nurslings', 'id' => $roledata->RoleID], ['escape' => false]) ?></li>
     </ul>
 </div>
+<ul class="breadcrumb">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
+    <li class="active"><?= $roledata->RoleName ?></li>
+</ul>
 
 <div class="col-md-9 well roledata view">
 <ul class="nav nav-tabs">

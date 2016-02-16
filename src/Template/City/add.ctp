@@ -3,6 +3,11 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List City'), ['action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
+<ul class="breadcrumb col-md-7">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List City'), ['action' => 'index']) ?></li>
+    <li class="active"><?= __('CityAdd') ?></li>
+</ul>
 <div class="col-md-7">
     <div class="city form columns well">
         <?= $this->Form->create($city, ['class' => 'form-horizontal']) ?>

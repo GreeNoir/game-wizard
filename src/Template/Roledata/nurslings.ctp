@@ -1,7 +1,7 @@
 <div class="columns">
     <ul class="breadcrumb">
+        <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link($accountName, ['controller' => 'AccountCommon', 'action' => 'view', $accountID]) ?></li>
         <li><?= $this->Html->link($roleName, ['action' => 'view', $id]) ?></li>
         <li class="active"><?= __('Nurslings') ?></li>
     </ul>
@@ -13,7 +13,6 @@
 </div>
 <div class="table-responsive col-lg-8">
     <?php if(count($nurslings)): ?>
-    <h3><?=__('NurslingsList') ?></h3>
     <table class="table table-hover table-striped nurslings">
         <thead>
         <tr>

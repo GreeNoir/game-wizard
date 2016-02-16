@@ -3,12 +3,17 @@
     <ul class="side-nav">
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-external-link']).__('View').__('AccountCommon'), ['controller' => 'AccountCommon', 'action' => 'view', $account->id], ['escape' => false]) ?> </li>
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit').__('AccountCommon'), ['controller' => 'AccountCommon', 'action' => 'edit', $account->id], ['escape' => false]) ?> </li>
-        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('Back').__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('Back').__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
+<ul class="breadcrumb">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List').' '.__('AccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link($account->name, ['controller' => 'AccountCommon', 'action' => 'view', $account->id]) ?></li>
+    <li class="active"><?= __('Monitoring for account') ?></li>
+</ul>
 <div class="col-md-7">
     <div class="account view columns well">
-        <h3><?= __('Monitoring for account')?><div class="id">#<?= h($account->id) ?></div></h3>
         <div class="row">
             <div class="columns strings">
                 <div class="form-group col-md-12">

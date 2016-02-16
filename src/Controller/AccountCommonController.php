@@ -134,6 +134,7 @@ class AccountCommonController extends AppController {
         $list = $this->AccountCommon->getListRoledata($id);
 
         $this->set('id', $id);
+        $this->set('accountName', $this->AccountCommon->get($id)->AccountName);
         $this->set('roledataList', $list);
     }
 

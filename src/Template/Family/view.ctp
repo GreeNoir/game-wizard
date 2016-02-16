@@ -1,5 +1,4 @@
 <div class="actions columns">
-    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit Family'), ['action' => 'edit', $family->FamilyID], ['escape' => false]) ?> </li>
         <li><?= $this->Form->postLink($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete Family'), ['action' => 'delete', $family->FamilyID], ['escape' => false, 'confirm' => __('Are you sure you want to delete # {0}?', $family->FamilyID)]) ?> </li>
@@ -8,6 +7,11 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-users']).__('Members'), ['action' => 'members', $family->FamilyID], ['escape' => false]) ?></li>
     </ul>
 </div>
+<ul class="breadcrumb col-md-7">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List Family'), ['action' => 'index']) ?></li>
+    <li class="active"><?= $family->FamilyName ?></li>
+</ul>
 <div class="col-md-7">
     <div class="family columns view well">
         <div class="row">

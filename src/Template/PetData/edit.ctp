@@ -1,5 +1,4 @@
 <div class="actions columns">
-    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
                 $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete'),
@@ -9,6 +8,11 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('List Pet Data'), ['action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
+<ul class="breadcrumb">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List Pet Data'), ['action' => 'index']) ?></li>
+    <li class="active"><?= $petData->pet_name ?></li>
+</ul>
 <div class="col-md-7">
     <div class="petData form well">
         <?= $this->Form->create($petData, ['class' => 'form-horizontal']) ?>

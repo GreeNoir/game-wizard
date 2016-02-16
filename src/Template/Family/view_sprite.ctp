@@ -1,5 +1,4 @@
 <div class="actions columns">
-    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <?php if ($familySprite): ?>
             <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit Family Sprite'), ['action' => 'edit_sprite', $id], ['escape' => false]) ?> </li>
@@ -7,10 +6,17 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('ListOfFamily'), ['action' => 'index'], ['escape' => false]) ?> </li>
     </ul>
 </div>
+<ul class="breadcrumb col-md-7">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List Family'), ['action' => 'index']) ?></li>
+    <?php if($familySprite): ?>
+        <li class="active"><?= $familySprite->Name ?></li>
+    <?php endif; ?>
+</ul>
+
 <?php if ($familySprite): ?>
 <div class="col-md-7">
     <div class="familySprite view columns well">
-        <h3><div class="id">#<?= h($familySprite->FamilyID) ?></div></h3>
         <div class="row">
             <div class="form-group col-md-12">
                 <div class="col-md-4 subheader"><?= __('Name') ?></div>

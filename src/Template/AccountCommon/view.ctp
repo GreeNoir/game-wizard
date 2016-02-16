@@ -3,12 +3,17 @@
     <ul class="side-nav">
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit').__('AccountCommon'), ['action' => 'edit', $accountCommon->AccountID], ['escape' => false]) ?> </li>
         <li><?= $this->Form->postLink($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete').__('AccountCommon'), ['action' => 'delete', $accountCommon->AccountID], ['escape' => false, 'confirm' => __('Are you sure you want to delete # {0}?', $accountCommon->AccountID)]) ?> </li>
-        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('List').' '.__('AccountCommon'), ['action' => 'index'], ['escape' => false]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List').' '.__('AccountCommon'), ['action' => 'index'], ['escape' => false]) ?> </li>
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-eye']).__('Monitoring'), ['controller' => 'Account', 'action' => 'edit', $accountCommon['AccountID']], ['escape' => false]) ?>
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-male']).__('RoledataList'), ['action' => 'roledata_list', 'id' => $accountCommon->AccountID], ['escape' => false]); ?></li>
         </li>
     </ul>
 </div>
+<ul class="breadcrumb">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List').' '.__('AccountCommon'), ['action' => 'index']) ?></li>
+    <li class="active"><?= $accountCommon->AccountName ?></li>
+</ul>
 <div class="col-md-7">
     <div class="account_common view columns well">
         <div class="row">

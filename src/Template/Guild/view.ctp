@@ -1,5 +1,4 @@
 <div class="actions columns">
-    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Guild'), ['action' => 'index'], ['escape' => false]) ?> </li>
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Edit Guild'), ['action' => 'edit', $guild->ID], ['escape' => false]) ?> </li>
@@ -7,6 +6,10 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-users']).__('List Members'), ['controller' => 'Guild', 'action' => 'members', $guild->ID], ['escape' => false]) ?></li>
     </ul>
 </div>
+<ul class="breadcrumb col-md-10">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?></li>
+</ul>
 
 <div class="col-md-10 well view">
     <ul class="nav nav-tabs">
@@ -18,6 +21,10 @@
     <div class="tab-content">
         <div id="panel_view" class="tab-pane fade in active">
             <div class="row">
+                <div class="form-group col-md-12">
+                    <div class="col-md-4 subheader"><?= __('GuildID') ?></div>
+                    <div class="col-md-4"><?= $guild->ID ?></div>
+                </div>
                 <div class="form-group col-md-12">
                     <div class="col-md-4 subheader"><?= __('FounderNameID') ?></div>
                     <div class="col-md-4"><?= $guild->FounderNameID ?></div>

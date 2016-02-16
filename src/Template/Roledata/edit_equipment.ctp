@@ -4,8 +4,8 @@
     </ul>
 </div>
 <ul class="breadcrumb col-md-7">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index']) ?></li>
-    <li><?= $this->Html->link($accountName, ['controller' => 'AccountCommon', 'action' => 'view', $accountID]) ?></li>
     <li><?= $this->Html->link($roleName, ['action' => 'view', $roleID]) ?></li>
     <li><?= $this->Html->link( __('Equipment'), ['action' => 'equipment_item', 'id' => $roleID, 'slug' => 'all']) ?></li>
     <li class="active"><?= $type ?></li>

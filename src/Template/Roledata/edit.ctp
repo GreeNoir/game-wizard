@@ -1,5 +1,4 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+<div class="actions columns">
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
                 $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete'),
@@ -16,6 +15,11 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-paw']).__('Nurslings'), ['action' => 'nurslings', 'id' => $roledata->RoleID], ['escape' => false]) ?></li>
     </ul>
 </div>
+<ul class="breadcrumb">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
+    <li class="active"><?= $roledata->RoleName ?></li>
+</ul>
 <div class="col-md-8">
 <?= $this->Form->create($roledata, ['class' => 'form-horizontal']) ?>
 <ul class="nav nav-tabs">

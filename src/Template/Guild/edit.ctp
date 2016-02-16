@@ -1,5 +1,4 @@
 <div class="actions columns">
-    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
                 $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete'),
@@ -14,6 +13,10 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-users']).__('List Members'), ['controller' => 'Guild', 'action' => 'members', $guild->ID], ['escape' => false]) ?></li>
     </ul>
 </div>
+<ul class="breadcrumb col-md-10">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?></li>
+</ul>
 <div class="col-md-7">
     <div class="guild form columns well">
         <?= $this->Form->create($guild, ['class' => 'form-horizontal']) ?>

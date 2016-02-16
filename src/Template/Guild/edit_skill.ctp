@@ -10,6 +10,12 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Guild'), ['action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
+<ul class="breadcrumb col-md-7">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('Related Skills'), ['action' => 'related_skills', $guildSkill->guild_id]) ?></li>
+    <li class="active"><?= __('EditGuildSkill') ?></li>
+</ul>
 <div class="col-md-7">
     <div class="guild form well">
         <?= $this->Form->create($guildSkill, ['class' => 'form-horizontal']) ?>
