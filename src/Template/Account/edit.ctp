@@ -6,11 +6,11 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('Back').__('ListAccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
-<ul class="breadcrumb">
+<ul class="breadcrumb col-md-7">
     <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('List').' '.__('AccountCommon'), ['controller' => 'AccountCommon', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link($account->name, ['controller' => 'AccountCommon', 'action' => 'view', $account->id]) ?></li>
-    <li class="active"><?= __('Monitoring for account') ?></li>
+    <li class="active"><?= __('Monitoring') ?></li>
 </ul>
 <div class="col-md-7">
     <div class="account view columns well">

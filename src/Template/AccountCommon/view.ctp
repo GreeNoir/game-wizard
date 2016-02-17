@@ -9,7 +9,7 @@
         </li>
     </ul>
 </div>
-<ul class="breadcrumb">
+<ul class="breadcrumb col-md-7">
     <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('List').' '.__('AccountCommon'), ['action' => 'index']) ?></li>
     <li class="active"><?= $accountCommon->AccountName ?></li>

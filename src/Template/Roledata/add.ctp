@@ -1,9 +1,9 @@
 <div class="actions columns">
     <ul class="side-nav">
-        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('RoledataList'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('RoledataList'), ['action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
-<ul class="breadcrumb">
+<ul class="breadcrumb col-md-8">
     <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
     <li class="active"><?= __('RoledataAdd') ?></li>
@@ -27,9 +27,9 @@
                 echo $this->Form->input('Sex', ['options' => $genders, 'label' => ['class' => 'col-md-3 control-label']]);
                 echo $this->Form->input('SpeakOff', ['required' => false, 'type' => 'checkbox', 'label' => ['class' => 'col-md-offset-3']]);
                 echo $this->Form->input('HP', ['label' => ['class' => 'col-md-3 control-label']]);
-                echo $this->Form->input('CreateTime', ['label' => ['class' => 'col-md-3 control-label']]);
-                echo $this->Form->input('LoginTime', ['label' => ['class' => 'col-md-3 control-label']]);
-                echo $this->Form->input('LogoutTime', ['label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('CreateTime', ['class' => 'date_input', 'label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('LoginTime', ['disabled' => true, 'label' => ['class' => 'col-md-3 control-label']]);
+                echo $this->Form->input('LogoutTime', ['disabled' => true, 'label' => ['class' => 'col-md-3 control-label']]);
                 ?>
             </div>
             <div id="panel_place" class="strings tab-pane fade in">

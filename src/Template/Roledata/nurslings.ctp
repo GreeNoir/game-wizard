@@ -1,17 +1,15 @@
-<div class="columns">
-    <ul class="breadcrumb">
-        <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link($roleName, ['action' => 'view', $id]) ?></li>
-        <li class="active"><?= __('Nurslings') ?></li>
-    </ul>
-</div>
 <div class="actions">
     <ul class="side-nav">
-        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('Back').__('RoledataList'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('Back').__('RoledataList'), ['action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
-<div class="table-responsive col-lg-8">
+<ul class="breadcrumb col-md-8">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('RoledataList'), ['controller' => 'Roledata', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link($roleName, ['action' => 'view', $id]) ?></li>
+    <li class="active"><?= __('Nurslings') ?></li>
+</ul>
+<div class="table-responsive col-md-8">
     <?php if(count($nurslings)): ?>
     <table class="table table-hover table-striped nurslings">
         <thead>

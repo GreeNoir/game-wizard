@@ -12,7 +12,7 @@
 
 <div class="actions">
     <ul class="side-nav">
-        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('Back').__('RoledataList'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('Back').__('RoledataList'), ['action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
 

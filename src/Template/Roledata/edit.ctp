@@ -7,7 +7,7 @@
                 'confirm' => __('Are you sure you want to delete # {0}?', $roledata->RoleID)]
             )
         ?></li>
-        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('RoledataList'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('RoledataList'), ['action' => 'index'], ['escape' => false]) ?></li>
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-briefcase']).__('Equipment'), ['action' => 'equipment_item', 'id' => $roledata->RoleID, 'slug' => 'all'], ['escape' => false]) ?></li>
         <?php if ($roledata->FamilyName != 'undefined'): ?>
             <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-users']).$roledata->FamilyName, ['controller' => 'Family', 'action' => 'edit', 'id' => $roledata->FamilyID], ['escape' => false]) ?></li>
@@ -15,7 +15,7 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-paw']).__('Nurslings'), ['action' => 'nurslings', 'id' => $roledata->RoleID], ['escape' => false]) ?></li>
     </ul>
 </div>
-<ul class="breadcrumb">
+<ul class="breadcrumb col-md-8">
     <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
     <li class="active"><?= $roledata->RoleName ?></li>

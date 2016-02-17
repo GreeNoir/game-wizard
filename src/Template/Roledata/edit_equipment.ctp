@@ -18,6 +18,11 @@
                 $options = ['label' => ['class' => 'col-md-3 control-label']];
                 if ($field == 'cSerialNum') {
                     $options['disabled'] = true;
+                    $options['label']['text'] = 'SerialNum';
+                }
+
+                if (gettype($value) == 'resource') {
+                    $options['disabled'] = true;
                 }
                 echo $this->Form->input($field, $options);
             }
