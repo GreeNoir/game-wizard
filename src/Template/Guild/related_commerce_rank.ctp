@@ -28,11 +28,11 @@
             <td class="ids"><?= h($commerceRank->times) ?></td>
             <td class="ids"><?= h($commerceRank->tael) ?></td>
             <td class="actions">
-                <div class="icon-contain-inline action"><?= $this->Html->link(
+                <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Edit') ?>"><?= $this->Html->link(
                     $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
                     ['controller' => 'CommerceRank', 'action' => 'edit', $commerceRank->role_id],
                     ['escape' => false]) ?></div>
-                <div class="icon-contain-inline action"><?= $this->Form->postLink(
+                <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Delete') ?>"><?= $this->Form->postLink(
                     $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']),
                     ['controller' => 'CommerceRank', 'action' => 'delete', $commerceRank->role_id],
                     ['escape' => false,

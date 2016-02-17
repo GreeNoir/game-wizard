@@ -5,10 +5,10 @@
                 ['action' => 'delete', $petData->pet_id],
                 ['escape' => false, 'confirm' => __('Are you sure you want to delete # {0}?', $petData->pet_id)]
             )?></li>
-        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('List Pet Data'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Pet Data'), ['action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
-<ul class="breadcrumb">
+<ul class="breadcrumb col-md-7">
     <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('List Pet Data'), ['action' => 'index']) ?></li>
     <li class="active"><?= $petData->pet_name ?></li>

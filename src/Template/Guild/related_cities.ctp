@@ -6,6 +6,7 @@
     </ul>
 </div>
 <ul class="breadcrumb col-md-10">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Back').__('Edit Guild'), ['action' => 'edit', $guildID]) ?></li>
     <li class="active"><?= __('Related cities') ?></li>
@@ -15,7 +16,7 @@
     <table class="table table-hover table-striped">
         <thead>
         <tr>
-            <th class="ids"><?= $this->Paginator->sort('id') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('id', '#') ?></th>
             <th class="ids"><?= $this->Paginator->sort('defence') ?></th>
             <th class="ids"><?= $this->Paginator->sort('uudemon_tally') ?></th>
             <th class="ids"><?= $this->Paginator->sort('tax_rate') ?></th>
@@ -37,11 +38,11 @@
             <td class="ids"><?= h($city->prolificacy) ?></td>
             <td class="ids"><?= h($city->signup_list) ?></td>
             <td class="actions">
-                <div class="icon-contain-inline action"><?= $this->Html->link(
+                <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Edit') ?>"><?= $this->Html->link(
                     $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
                     ['controller' => 'City', 'action' => 'edit', $city->id],
                     ['escape' => false]) ?></div>
-                <div class="icon-contain-inline action"><?= $this->Form->postLink(
+                <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Delete') ?>"><?= $this->Form->postLink(
                     $this->Html->tag('i', '', ['class' => 'fa fa-trash-o']),
                     ['controller' => 'City', 'action' => 'delete', $city->id],
                     ['escape' => false,

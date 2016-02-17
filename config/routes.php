@@ -63,6 +63,8 @@ Router::connect('/:lang/', ['controller' => 'Home', 'action' => 'index']);
 
 Router::connect('/:lang/:controller', ['action' => 'index']);
 
+Router::connect('/:lang/:controller/about', ['action' => 'about']);
+
 Router::connect('/:lang/:controller/add', ['action' => 'add']);
 
 Router::connect('/:lang/:controller/view/:id', ['action' => 'view'],  ['id' => '\d+', 'pass' => ['id']]);

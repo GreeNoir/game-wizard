@@ -9,9 +9,7 @@
 <ul class="breadcrumb col-md-7">
     <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('List Family'), ['action' => 'index']) ?></li>
-    <?php if($familySprite): ?>
-        <li class="active"><?= $familySprite->Name ?></li>
-    <?php endif; ?>
+    <li class="active"><?= __('Sprite') ?></li>
 </ul>
 
 <?php if ($familySprite): ?>

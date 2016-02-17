@@ -43,7 +43,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Game Wizard</a>
+                <a class="navbar-brand" href="/"><?= __('Game Wizard') ?></a>
             </div>
             <ul class="nav navbar-nav navbar-collapse top-nav hidden-sm hidden-xs">
                 <li class="dropdown" id="actions">
@@ -148,10 +148,6 @@
             </div>
         </div>
     </div>
-
-    <footer>
-        <div></div>
-    </footer>
 
 <?= $this->Html->scriptBlock('
         $.material.init();

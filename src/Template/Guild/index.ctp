@@ -1,11 +1,14 @@
 <div class="actions columns">
-    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('New Guild'), ['action' => 'add'], ['escape' => false]) ?></li>
-        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('List City'), ['controller' => 'City', 'action' => 'index'], ['escape' => false]) ?></li>
-        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('List Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List City'), ['controller' => 'City', 'action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'index'], ['escape' => false]) ?></li>
     </ul>
 </div>
+<ul class="breadcrumb col-md-11">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li class="active"><?= __('List Guild') ?></li>
+</ul>
 <div class="guild table-responsive col-md-11">
     <table class="table table-hover table-striped">
     <thead>

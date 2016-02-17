@@ -1,5 +1,4 @@
 <div class="actions columns">
-    <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Form->postLink(
             $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-trash-o']).__('Delete'),
@@ -16,7 +15,6 @@
     <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Guild'), ['controller' => 'Guild', 'action' => 'view', $city->guild_id]) ?></li>
     <li><?= $this->Html->link(__('Related Cities'), ['controller' => 'Guild', 'action' => 'related_cities', $city->guild_id]) ?></li>
-    <li><?= __('Edit Guild City') ?></li>
 </ul>
 <div class="col-md-7">
     <div class="city form columns well">

@@ -1,11 +1,15 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+<div class="actions">
     <ul class="side-nav">
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('New City'), ['action' => 'add'], ['escape' => false]) ?></li>
-        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-list-alt']).__('List Guild'), ['controller' => 'Guild', 'action' => 'index'], ['escape' => false]) ?> </li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Guild'), ['controller' => 'Guild', 'action' => 'index'], ['escape' => false]) ?> </li>
     </ul>
 </div>
-<div class="city table-responsive col-md-11">
+<ul class="breadcrumb col-md-10">
+    <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
+    <li class="active"><?= __('List City') ?></li>
+</ul>
+
+<div class="city table-responsive col-md-10">
     <?php if (count($city)): ?>
     <table class="table table-hover table-striped">
     <thead>

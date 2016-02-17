@@ -8,7 +8,7 @@
 <ul class="breadcrumb col-md-7">
     <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Back').__('Edit Guild'), ['action' => 'edit', $guildID]) ?></li>
-    <li class="active"><?= __('Related Guild Roledata') ?></li>
+    <li class="active"><?= __('Members') ?></li>
 </ul>
 <?php if (count($roledataList)): ?>
     <div class="table-responsive col-md-7">
@@ -17,7 +17,7 @@
             <tr>
                 <th class="ids"><?= $this->Paginator->sort('RoleID', 'Role#') ?></th>
                 <th><?= $this->Paginator->sort('RoleName') ?></th>
-                <th class="actions"><?= __('Additionally') ?></th>
+                <th class="actions" style="padding-right: 40px;"><?= __('Additionally') ?></th>
             </tr>
             </thead>
             <tbody>
