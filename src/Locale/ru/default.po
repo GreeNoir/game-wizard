@@ -1,6 +1,9 @@
 msgid "Home"
 msgstr "Главная"
 
+msgid "Thesis1"
+msgstr "Уникальная система администрирования игровых элементов"
+
 msgid "Actions"
 msgstr "Действия"
 

@@ -22,11 +22,11 @@
                 <div class="clearfix"></div>
                 <h2 class="section-heading"><?= __('ColumnSubheader') ?></h2>
                 <div class="lead">
-                    <div><?= __('Thesis1') ?></div>
-                    <div><?= __('Thesis2') ?></div>
-                    <div><?= __('Thesis3') ?></div>
-                    <div><?= __('Thesis4') ?></div>
-                    <div><?= __('Thesis5') ?></div>
+                    <div><?= $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-star']).__('Thesis1') ?></div>
+                    <div><?= $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-star']).__('Thesis2') ?></div>
+                    <div><?= $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-star']).__('Thesis3') ?></div>
+                    <div><?= $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-star']).__('Thesis4') ?></div>
+                    <div><?= $this->Html->tag('i', '', ['class' => 'fa fa-fw fa-star']).__('Thesis5') ?></div>
                 </div>
             </div>
             <div class="col-lg-5 col-lg-offset-2 col-sm-6">
