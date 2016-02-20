@@ -15,6 +15,8 @@ use Cake\Validation\Validator;
 class RoledataTable extends Table
 {
 
+    private $searchFields = ['RoleID', 'RoleName'];
+
     public static function defaultConnectionName() {
         return 'sm_db';
     }
@@ -1039,6 +1041,10 @@ class RoledataTable extends Table
     public function buildRules(RulesChecker $rules) {
         $rules->add($rules->isUnique(['RoleName']));
         return $rules;
+    }
+
+    public function getSearchFields() {
+        return $this->searchFields;
     }
 
 }

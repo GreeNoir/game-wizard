@@ -21,6 +21,8 @@ class ItemTable extends Table{
     const EQUIP_SOULCRYSTAL = 'Soulcrystal';
     const EQUIP_UNDEFINED = 'undefined';
 
+    private $searchFields = ['SerialNum'];
+
     public static function defaultConnectionName() {
         return 'sm_db';
     }
@@ -148,7 +150,16 @@ class ItemTable extends Table{
             ->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)',
                 'Num', 'TypeID',
                 'Name' => "IF(item_name.name <> '', item_name.name, equip_name.name)",
-                'AccountID', 'AccountName' => 'a.AccountName', 'OwnerID', 'RoleName' => 'r.RoleName'])
+                'AccountID', 'AccountName' => 'a.AccountName', 'OwnerID', 'RoleName' => 'r.RoleName',
+                'EquipType' =>
+                    "CASE
+                    WHEN soulcrystal.SerialNum IS NOT NULL THEN 'Soulcrystal'
+                    WHEN holyequip.SerialNum IS NOT NULL THEN 'Holyequip'
+                    WHEN holyman.SerialNum IS NOT NULL THEN 'Holyman'
+                    WHEN equip.SerialNum IS NOT NULL THEN 'Equip'
+                    ELSE 'undefined'
+                    END"
+            ])
             ->join([
                 'a' => [
                     'table' => 'account_common',
@@ -180,6 +191,42 @@ class ItemTable extends Table{
                     'type'  => 'LEFT',
                     'conditions' => [
                         'equip_name.id = item.TypeID'
+                    ]
+                ]
+            ])
+            ->join([
+                'equip' => [
+                    'table' => 'equip',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'item.SerialNum = equip.SerialNum',
+                    ]
+                ]
+            ])
+            ->join([
+                'holyequip' => [
+                    'table' => 'holyequip',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'item.SerialNum = holyequip.SerialNum',
+                    ]
+                ]
+            ])
+            ->join([
+                'holyman' => [
+                    'table' => 'holyman',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'item.SerialNum = holyman.SerialNum',
+                    ]
+                ]
+            ])
+            ->join([
+                'soulcrystal' => [
+                    'table' => 'soulcrystal',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'item.SerialNum = soulcrystal.SerialNum',
                     ]
                 ]
             ])
@@ -239,5 +286,9 @@ class ItemTable extends Table{
         }
         $query = TableRegistry::get('item')->query();
         $query->delete()->where(['TypeID' => $typeID])->execute();
+    }
+
+    public function getSearchFields() {
+        return $this->searchFields;
     }
 }

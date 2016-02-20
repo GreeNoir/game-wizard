@@ -15,6 +15,9 @@ use Cake\ORM\TableRegistry;
  */
 class AccountCommonTable extends Table
 {
+
+    private $searchFields = ['AccountID', 'AccountName'];
+
     public static function defaultConnectionName() {
         return 'sm_db';
     }
@@ -99,6 +102,10 @@ class AccountCommonTable extends Table
     public function buildRules(RulesChecker $rules) {
         $rules->add($rules->isUnique(['AccountName']));
         return $rules;
+    }
+
+    public function getSearchFields() {
+        return $this->searchFields;
     }
 
 }

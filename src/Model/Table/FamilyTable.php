@@ -16,6 +16,8 @@ use Cake\ORM\TableRegistry;
 class FamilyTable extends Table
 {
 
+    private $searchFields = ['FamilyID', 'FamilyName'];
+
     public static function defaultConnectionName() {
         return 'sm_db';
     }
@@ -106,5 +108,9 @@ class FamilyTable extends Table
         } else {
             return -1;
         }
+    }
+
+    public function getSearchFields() {
+        return $this->searchFields;
     }
 }

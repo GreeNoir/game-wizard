@@ -51,10 +51,10 @@
                     <ul class="dropdown-menu"></ul>
                 </li>
             </ul>
-            <form id="search" class="navbar-form navbar-left hidden-sm hidden-xs">
-                <input class="form-control" type="text" name="search" placeholder="<?= __('Search') ?>">
-                <?= $this->Form->button($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-search']), ['class' => 'btn btn-fab btn-default', 'type' => 'button', 'onclick' => '']); ?>
-            </form>
+            <?= $this->Form->create('', ['autocomplete' => 'off', 'class' => 'navbar-form navbar-left', 'id' => 'search', 'url' => ['controller' => 'Home', 'action' => 'search'], 'type' => 'get']) ?>
+                <?= $this->Form->input('search', ['autocomplete' => 'off', 'type' => 'text', 'class' => 'form-control', 'placeholder' => __('Search'), 'label' => '']) ?>
+                <?= $this->Form->button($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-search']), ['class' => 'btn btn-fab btn-default', 'type' => 'submit']); ?>
+            <?= $this->Form->end() ?>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav hidden-xs">
                 <li class="dropdown">

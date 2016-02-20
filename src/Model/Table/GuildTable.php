@@ -18,6 +18,8 @@ use Cake\ORM\TableRegistry;
 class GuildTable extends Table
 {
 
+    private $searchFields = ['ID'];
+
     public static function defaultConnectionName() {
         return 'sm_db';
     }
@@ -192,5 +194,9 @@ class GuildTable extends Table
         } else {
             return -1;
         }
+    }
+
+    public function getSearchFields() {
+        return $this->searchFields;
     }
 }

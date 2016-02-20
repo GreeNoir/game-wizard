@@ -92,7 +92,7 @@ class AppController extends Controller
         $this->Auth->config([
             'unauthorizedRedirect' => false
         ]);
-        $this->Auth->allow(['index', 'view', 'display', 'login']);
+        $this->Auth->allow(['index', 'view', 'display', 'login', 'search']);
 
         $user = $this->Auth->user();
 

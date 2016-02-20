@@ -421,3 +421,7 @@ select#accountID {
 select#familyid, select#guildid {
     width: 200px;
 }
+
+.search_part {
+    padding-top: 20px;
+}

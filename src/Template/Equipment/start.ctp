@@ -1,4 +1,4 @@
-<div class="col-md-8">
+<div class="col-md-10">
     <div class="search_form well">
         <?= $this->Form->create('', ['class' => 'form-inline']) ?>
         <h4><?= __('Please input the serial number to find') ?></h4>
