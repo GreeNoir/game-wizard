@@ -1,7 +1,7 @@
 <div class="col-md-8">
     <div class="well">
-        <?php if (count($searchResults)): ?>
-            <h4><?= __('Search results') ?>: "<?= $searchString ?>"</h4>
+        <h4><?= __('Search results') ?>: "<?= $searchString ?>"</h4>
+        <?php if ($results): ?>
             <?php foreach($searchResults as $table=>$searchResults) : ?>
                 <?php if (count($searchResults)) : ?>
                 <div class="search_part">

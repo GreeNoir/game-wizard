@@ -19,6 +19,7 @@ class HomeController extends AppController
     public function search() {
         $searchString = trim($this->request->query['search']);
         $searchResults = [];
+        $results = false;
 
         if ($searchString) {
             $searchTables = ['AccountCommon', 'Roledata', 'Family', 'Guild', 'Item'];
@@ -98,9 +99,13 @@ class HomeController extends AppController
                     ]);
                 }
                 $searchResults[$table] = $query->all();
+                if (count($searchResults[$table])) {
+                    $results = true;
+                }
             }
         }
 
+        $this->set('results', $results);
         $this->set('searchString', $searchString);
         $this->set('searchResults', $searchResults);
     }
