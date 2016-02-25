@@ -49,6 +49,11 @@ class UsersController extends AppController {
     public function add()
     {
         $user = $this->Users->newEntity();
+        $roleOptions = [
+            'admin' => __('Admin'),
+            'view'  => __('View')
+        ];
+
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
@@ -57,6 +62,8 @@ class UsersController extends AppController {
             }
             $this->Flash->error(__('Unable to add the user.'));
         }
+
+        $this->set('roleOptions', $roleOptions);
         $this->set('user', $user);
     }
 

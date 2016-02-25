@@ -1,7 +1,5 @@
-<div class="actions"></div>
 <div class="col-md-6">
     <div class="form well">
-        <?= $this->Flash->render('auth') ?>
         <?= $this->Form->create('User', ['autocomplete' => 'off', 'class' => 'form-horizontal']) ?>
         <legend><?= __('Please login'); ?></legend>
 

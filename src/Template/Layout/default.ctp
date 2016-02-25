@@ -51,7 +51,7 @@
                     <ul class="dropdown-menu"></ul>
                 </li>
             </ul>
-            <?= $this->Form->create('', ['autocomplete' => 'off', 'class' => 'navbar-form navbar-left', 'id' => 'search', 'url' => ['controller' => 'Home', 'action' => 'search'], 'type' => 'get']) ?>
+            <?= $this->Form->create('', ['autocomplete' => 'off', 'class' => 'navbar-form navbar-left hidden-xs', 'id' => 'search', 'url' => ['controller' => 'Home', 'action' => 'search'], 'type' => 'get']) ?>
                 <?= $this->Form->input('search', ['autocomplete' => 'off', 'type' => 'text', 'class' => 'form-control', 'placeholder' => __('Search'), 'label' => '']) ?>
                 <?= $this->Form->button($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-search']), ['class' => 'btn btn-fab btn-default', 'type' => 'submit']); ?>
             <?= $this->Form->end() ?>
