@@ -185,3 +185,14 @@ function uploadActions() {
         $('li#actions').show();
     }
 }
+
+function highlightSearchItems(searchStr) {
+    $('div.search_item > span, div.search_item a.search_link').each(function(){
+        var itemText = $(this).html();
+        var reg = new RegExp(searchStr, "gi");
+        var highlighted = itemText.replace(reg, '<span class="highlight">$&</span>');
+        $(this).html(highlighted);
+    });
+
+
+}

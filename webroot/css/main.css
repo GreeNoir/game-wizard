@@ -425,3 +425,8 @@ select#familyid, select#guildid {
 .search_part {
     padding-top: 20px;
 }
+
+.search_item span.highlight {
+    font-weight: 500;
+    text-decoration: underline;
+}

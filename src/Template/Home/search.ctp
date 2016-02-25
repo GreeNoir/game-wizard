@@ -7,17 +7,17 @@
                 <div class="search_part">
                     <h5><?= __('Search results for ').__($table) ?>:</h5>
                     <?php foreach($searchResults as $item): ?>
-                            <div>
+                            <div class="search_item">
                                 <?php
                                 if ($table == 'Item') {
                                     if ($item->EquipType != 'undefined') {
-                                        echo $this->Html->link($item->id.' - '.$item->EquipType, ['controller' => 'Roledata', 'action' => 'edit_equipment', '?' => ['type' => $item->EquipType, 'serial' => $item->id, 'roleID' => $item->OwnerID]]);
-                                        echo ' '.__('Owner').' - '.$this->Html->link($item->RoleName, ['controller' => 'Roledata', 'action' => 'view', $item->OwnerID]);
+                                        echo $this->Html->link($item->id.' - '.$item->EquipType, ['controller' => 'Roledata', 'action' => 'edit_equipment', '?' => ['type' => $item->EquipType, 'serial' => $item->id, 'roleID' => $item->OwnerID]], ['class' => 'search_link']);
+                                        echo '  '.__('Owner').' - '.$this->Html->link($item->RoleName, ['controller' => 'Roledata', 'action' => 'view', $item->OwnerID]);
                                     } else {
-                                        echo $item->id;
+                                        echo '<span>'.$item->id.'</span>';
                                     }
                                 } else { ?>
-                                    <?= $this->Html->link($item->id.(isset($item->name) ? ' - '.$item->name : ''), ['controller' => $table, 'action' => 'view', $item->id]) ?>
+                                    <?= $this->Html->link($item->id.(isset($item->name) ? ' - '.$item->name : ''), ['controller' => $table, 'action' => 'view', $item->id], ['class' => 'search_link']) ?>
                                 <?php } ?>
                             </div>
                     <?php endforeach; ?>
@@ -32,4 +32,5 @@
 
 <?= $this->Html->scriptBlock('
     $("input#search").val("'.$searchString.'");
+    highlightSearchItems("'.$searchString.'");
 ') ?>
