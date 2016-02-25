@@ -73,10 +73,12 @@
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i> <?= $username ?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                <?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-user']).__('Profile'),
+                                ['controller' => 'Users', 'action' => 'profile'], ['escape' => false]) ?>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                                <?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-gear']).__('Settings'),
+                                ['controller' => 'Users', 'action' => 'settings'], ['escape' => false]) ?>
                             </li>
                             <li class="divider"></li>
                             <li>

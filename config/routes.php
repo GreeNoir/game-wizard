@@ -67,6 +67,10 @@ Router::connect('/:lang/:controller/about', ['action' => 'about']);
 
 Router::connect('/:lang/:controller/search', ['action' => 'search']);
 
+Router::connect('/:lang/:controller/profile', ['action' => 'profile']);
+
+Router::connect('/:lang/:controller/settings', ['action' => 'settings']);
+
 Router::connect('/:lang/:controller/add', ['action' => 'add']);
 
 Router::connect('/:lang/:controller/view/:id', ['action' => 'view'],  ['id' => '\d+', 'pass' => ['id']]);
