@@ -430,3 +430,16 @@ select#familyid, select#guildid {
     font-weight: 500;
     text-decoration: underline;
 }
+
+.profile .row {
+    padding-bottom: 20px;
+}
+
+.profile .list-group {
+    box-shadow: none;
+}
+
+.profile .list-group .list-group-item h4.list-group-item-heading {
+    font-weight: normal;
+    font-size: 18px;
+}

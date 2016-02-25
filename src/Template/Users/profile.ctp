@@ -1,21 +1,40 @@
-<div class="col-md-8">
-    <div class="well">
-        <h4><?= __('Profile Info') ?></h4>
-        <div>
-            <?= __('Account Created') ?>
-            <?= $user->created ?>
-        </div>
-        <div>
-            <?= __('Login Time') ?>
-            <?= $user->last_login ?>
-        </div>
-        <div>
-            <?= __('Logout Time') ?>
-            <?= $user->last_logout ?>
-        </div>
-        <div>
-            <?= __('User Role') ?>
-            <?= $user->role ?>
+<div class="profile col-md-5">
+    <div class="row">
+        <h3><?= __('Profile Info') ?></h3>
+    </div>
+    <div class="row">
+        <div class="list-group">
+            <div class="list-group-item">
+                <div class="row-action-primary"><i class="material-icons">folder</i></div>
+                <div class="row-content">
+                    <h4 class="list-group-item-heading"><?= __('Account Created') ?></h4>
+                    <p class="list-group-item-text"><?= $user->created ?></p>
+                </div>
+            </div>
+            <div class="list-group-separator"></div>
+            <div  class="list-group-item">
+                <div class="row-action-primary"><i class="material-icons">folder</i></div>
+                <div class="row-content">
+                    <h4 class="list-group-item-heading"><?= __('Login Time') ?></h4>
+                    <p class="list-group-item-text"><?= $user->last_login ?></p>
+                </div>
+            </div>
+            <div class="list-group-separator"></div>
+            <div  class="list-group-item">
+                <div class="row-action-primary"><i class="material-icons">folder</i></div>
+                <div class="row-content">
+                    <h4 class="list-group-item-heading"><?= __('Logout Time') ?></h4>
+                    <p class="list-group-item-text"><?= $user->last_logout ?></p>
+                </div>
+            </div>
+            <div class="list-group-separator"></div>
+            <div  class="list-group-item">
+                <div class="row-action-primary"><i class="material-icons">folder</i></div>
+                <div class="row-content">
+                    <h4 class="list-group-item-heading"><?= __('User Role') ?></h4>
+                    <p class="list-group-item-text"><?= $user->role ?></p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

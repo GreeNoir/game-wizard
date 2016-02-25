@@ -9,8 +9,9 @@
         <?= $this->Form->input('role', ['options' => $roleOptions, 'label' => ['text' => __('Role'), 'class' => 'col-md-3 control-label']]) ?>
 
         <div class="form-group">
-            <div class="col-md-offset-3 col-md-10">
-                <?= $this->Form->button(__('Update'), ['class' => 'btn btn-primary']); ?>
+            <div class="col-md-offset-2 col-md-10">
+                <?= $this->Form->button(__('Cancel'), ['type' => 'reset', 'class' => 'btn btn-default']); ?>
+                <?= $this->Form->button(__('Update'), ['type' => 'submit', 'class' => 'btn btn-primary']); ?>
             </div>
         </div>
         <?= $this->Form->end() ?>
