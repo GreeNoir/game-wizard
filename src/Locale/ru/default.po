@@ -260,3 +260,11 @@ msgstr "Мужской"
 msgid "Woman"
 msgstr "Женский"
 
+msgid "Additionally"
+msgstr "Дополнительно"
+
+msgid "Find"
+msgstr "Поиск"
+
+msgid "Search"
+msgstr "Найти"
