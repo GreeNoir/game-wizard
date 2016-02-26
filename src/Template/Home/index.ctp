@@ -30,14 +30,13 @@
                 </div>
             </div>
             <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                <img class="img-responsive img-thumbnail" src="../../../webroot/img/Blood-and-Soul1.jpg"  alt="">
+                <img class="img-responsive img-thumbnail" src="../../../webroot/img/bloodsoul_right.jpg"  alt="">
             </div>
         </div>
     </div>
 </div>
 
 <div class="banner">
-
     <div class="container">
         <div class="row first">
             <div class="col-lg-12">

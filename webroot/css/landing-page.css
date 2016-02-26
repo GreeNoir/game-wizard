@@ -25,7 +25,7 @@ h3,
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../img/bs.jpg) no-repeat center center;
+    background: url(../img/bloodsoul_header.jpg) no-repeat center center;
     background-size: cover;
 }
 
@@ -106,7 +106,7 @@ h3,
 .banner {
     padding: 70px 0;
     color: #f8f8f8;
-    background: url(../img/bg.jpg) no-repeat center center;
+    background: url(../img/bloodsoul_banner.jpg) no-repeat center center;
     background-size: cover;
 }
 
@@ -165,4 +165,14 @@ p.copyright {
 
 .row .lead > div {
     padding-bottom: 15px;
+}
+
+.banner a {
+    color: #f8f8f8;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.banner p {
+    font-size: 17px;
 }

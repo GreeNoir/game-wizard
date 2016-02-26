@@ -1,7 +1,5 @@
 <div class="profile col-md-5">
-    <div class="row">
-        <h3><?= __('Profile Info') ?></h3>
-    </div>
+    <legend><?= __('Profile Info') ?></legend>
     <div class="row">
         <div class="list-group">
             <div class="list-group-item">
