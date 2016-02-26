@@ -373,26 +373,26 @@ h3 {
     padding: 19px 19px 30px 19px;
 }
 
-.search_form .form-inline .form-group {
-    vertical-align: top;
-}
-
-.search_form .form-group {
+#search_form .form-group {
     margin: 0;
-    padding: 3px 0;
+    padding: 6px 0;
 }
 
-#search > div.form-group, #search > button {
+#search_form > div.form-group, #search > button {
     display: inline-block;
     vertical-align: middle;
 }
 
-#search {
+#search_form {
     margin: 0;
 }
 
-#search label {
+#search_form label {
     display: none;
+}
+
+input#search {
+    padding-left: 10px;
 }
 
 .btn.btn-fab {
@@ -417,21 +417,16 @@ select#accountID {
     width: 200px;
 }
 
-.navbar .navbar-form#search {
-    margin-top: 6px;
-    margin-bottom: 0;
-}
-
-.navbar .navbar-form#search .form-control {
+.navbar .navbar-form#search_form .form-control {
     color: #999 !important;
     width: 220px;
 }
 
-.navbar .navbar-form#search .form-control::-moz-placeholder {
+.navbar .navbar-form#search_form .form-control::-moz-placeholder {
     opacity: 0.2;
 }
 
-.navbar .navbar-form#search .form-control::-webkit-input-placeholder {
+.navbar .navbar-form#search_form .form-control::-webkit-input-placeholder {
     opacity: 0.2;
 }
 
