@@ -23,6 +23,10 @@ a, a:focus, a:active, a:hover, a:checked, a:visited, button.btn {
     clear: both;
 }
 
+.top-nav > li > a {
+    padding-bottom: 17px;
+}
+
 .dropdown-menu.lang {
     width: auto;
     height: 65px;
