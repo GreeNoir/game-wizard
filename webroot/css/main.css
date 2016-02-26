@@ -23,10 +23,6 @@ a, a:focus, a:active, a:hover, a:checked, a:visited, button.btn {
     clear: both;
 }
 
-.top-nav > li > a {
-    padding-bottom: 17px;
-}
-
 .dropdown-menu.lang {
     width: auto;
     height: 65px;
@@ -296,8 +292,9 @@ ul.nav.nav-tabs {
     padding: 4px 20px;
 }
 
-.navbar .navbar-nav > li > a {
-    padding: 15px 10px;
+.navbar .navbar-nav > li > a,
+.top-nav > li > a {
+    padding: 15px 10px 16px 10px;
 }
 
 .navbar .navbar-nav.side-nav > li > a {
