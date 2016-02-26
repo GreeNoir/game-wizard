@@ -43,20 +43,26 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <a class="navbar-brand" href="/"><?= __('Game Wizard') ?></a>
             </div>
-            <ul class="nav navbar-nav navbar-collapse top-nav hidden-sm hidden-xs">
+            <ul class="nav navbar-nav navbar-collapse top-nav">
                 <li class="dropdown" id="actions">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-bars"></i> <?= __('Actions') ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu"></ul>
                 </li>
             </ul>
-            <?= $this->Form->create('', ['autocomplete' => 'off', 'class' => 'navbar-form navbar-left hidden-xs', 'id' => 'search', 'url' => ['controller' => 'Home', 'action' => 'search'], 'type' => 'get']) ?>
-                <?= $this->Form->input('search', ['autocomplete' => 'off', 'type' => 'text', 'class' => 'form-control', 'placeholder' => __('Search'), 'label' => '']) ?>
+            <?= $this->Form->create('', ['autocomplete' => 'off', 'class' => 'navbar-form navbar-left', 'id' => 'search', 'url' => ['controller' => 'Home', 'action' => 'search'], 'type' => 'get']) ?>
+                <?= $this->Form->input('search', ['autocomplete' => 'off', 'type' => 'text', 'class' => 'form-control', 'placeholder' => __('Search')]) ?>
                 <?= $this->Form->button($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-search']), ['class' => 'btn btn-fab btn-default', 'type' => 'submit']); ?>
             <?= $this->Form->end() ?>
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav hidden-xs">
+            <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="lang_drop"><i class="fa fa-fw fa-globe"></i> <?= __('Language') ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu lang">

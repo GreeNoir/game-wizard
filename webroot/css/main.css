@@ -273,8 +273,11 @@ ul.nav.nav-tabs {
 .navbar,
 .navbar .navbar-collapse,
 .navbar .navbar-brand {
-    height: 51px;
     color: #999;
+}
+
+.navbar .navbar-brand {
+    height: 51px;
 }
 
 .navbar .navbar-brand {
@@ -379,6 +382,19 @@ h3 {
     padding: 3px 0;
 }
 
+#search > div.form-group, #search > button {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#search {
+    margin: 0;
+}
+
+#search label {
+    display: none;
+}
+
 .btn.btn-fab {
     font-size: 17px;
     padding: 0 0 0 6px;
@@ -403,6 +419,7 @@ select#accountID {
 
 .navbar .navbar-form#search {
     margin-top: 6px;
+    margin-bottom: 0;
 }
 
 .navbar .navbar-form#search .form-control {
