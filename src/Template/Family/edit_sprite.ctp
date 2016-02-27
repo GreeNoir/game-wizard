@@ -6,6 +6,7 @@
 <ul class="breadcrumb col-md-7">
     <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('List Family'), ['action' => 'index']) ?></li>
+    <li><?= $this->Html->link($name, ['action' => 'view', $id]) ?></li>
     <li class="active"><?= __('Sprite') ?></li>
 </ul>
 <div class="col-md-7">

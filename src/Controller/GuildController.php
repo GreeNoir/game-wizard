@@ -169,8 +169,8 @@ class GuildController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $guildSkill = $this->GuildSkill->patchEntity($guildSkill, $this->request->data);
             if ($this->GuildSkill->save($guildSkill)) {
-                $this->Flash->success(__('The skill sprite has been saved.'));
-                return $this->redirect(['action' => 'view', $guildID]);
+                $this->Flash->success(__('The guildSkill has been saved.'));
+                return $this->redirect(['action' => 'related_skills', $guildID]);
             } else {
                 $this->Flash->error(__('The family sprite could not be saved. Please, try again.'));
             }

@@ -142,9 +142,11 @@ class FamilyController extends AppController
      */
     public function view_sprite($id = null)
     {
+        $family = $this->Family->get($id);
         $this->loadModel('FamilySprite');
         $familySprite = $this->FamilySprite->find()->where(['FamilyID' => $id])->first();
         $this->set('id', $id);
+        $this->set('name', $family->FamilyName);
         $this->set('familySprite', $familySprite);
         $this->set('_serialize', ['familySprite']);
     }
@@ -158,6 +160,7 @@ class FamilyController extends AppController
      */
     public function edit_sprite($id = null)
     {
+        $family = $this->Family->get($id);
         $this->loadModel('FamilySprite');
         $familySprite = $this->FamilySprite->get($id, [
             'contain' => []
@@ -171,6 +174,8 @@ class FamilyController extends AppController
                 $this->Flash->error(__('The family sprite could not be saved. Please, try again.'));
             }
         }
+        $this->set('id', $id);
+        $this->set('name', $family->FamilyName);
         $this->set(compact('familySprite'));
         $this->set('_serialize', ['familySprite']);
     }
