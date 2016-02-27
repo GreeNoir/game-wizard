@@ -16,11 +16,11 @@
         <tr>
             <th class="ids"><?= $this->Paginator->sort('id', '#') ?></th>
             <th class="ids"><?= $this->Paginator->sort('guild_id', 'Guild ID') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('defence') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('eudemon_tally') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('tax_rate') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('tax_rate_time') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('taxation') ?></th>
+            <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('defence') ?></th>
+            <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('eudemon_tally') ?></th>
+            <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('tax_rate') ?></th>
+            <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('tax_rate_time') ?></th>
+            <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('taxation') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -29,11 +29,11 @@
         <tr>
             <td class="ids"><?= $city->id ?></td>
             <td class="ids"><?= $this->Html->link($city->guild_id, ['controller' => 'Guild', 'action' => 'view', $city->guild_id]) ?></td>
-            <td class="ids"><?= $city->defence ?></td>
-            <td class="ids"><?= $city->eudemon_tally ?></td>
-            <td class="ids"><?= $city->tax_rate ?></td>
-            <td class="ids"><?= $city->tax_rate_time ?></td>
-            <td class="ids"><?= $city->taxation ?></td>
+            <td class="ids hidden-sm hidden-xs"><?= $city->defence ?></td>
+            <td class="ids hidden-sm hidden-xs"><?= $city->eudemon_tally ?></td>
+            <td class="ids hidden-sm hidden-xs"><?= $city->tax_rate ?></td>
+            <td class="ids hidden-sm hidden-xs"><?= $city->tax_rate_time ?></td>
+            <td class="ids hidden-sm hidden-xs"><?= $city->taxation ?></td>
             <td class="actions">
                 <div>
                     <div class="icon-contain"><?= $this->Html->link(

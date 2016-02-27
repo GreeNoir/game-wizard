@@ -9,10 +9,6 @@ use Cake\Validation\Validator;
  *
  */
 
-/*
- ALTER TABLE `wizard_db`.`users` ADD COLUMN `last_login` DATETIME NULL AFTER `created`, ADD COLUMN `last_logout` DATETIME NULL AFTER `last_login`;
- */
-
 class UsersTable extends Table
 {
 

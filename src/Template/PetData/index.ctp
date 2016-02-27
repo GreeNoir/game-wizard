@@ -13,11 +13,11 @@
             <tr>
                 <th class="ids"><?= $this->Paginator->sort('pet_id', '#') ?></th>
                 <th><?= $this->Paginator->sort('pet_name', __('Name')) ?></th>
-                <th class="ids"><?= $this->Paginator->sort('pet_value') ?></th>
-                <th class="ids"><?= $this->Paginator->sort('pet_pm') ?></th>
+                <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('pet_value') ?></th>
+                <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('pet_pm') ?></th>
                 <th class="ids"><?= $this->Paginator->sort('master_id', __('MasterID')) ?></th>
                 <th class="ids"><?= $this->Paginator->sort('type_id', 'TypeID') ?></th>
-                <th class="ids"><?= $this->Paginator->sort('quality') ?></th>
+                <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('quality') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -27,10 +27,10 @@
                 <td class="ids"><?= h($petData->pet_id) ?></td>
                 <td><?= h($petData->pet_name) ?></td>
                 <td class="ids"><?= h($petData->pet_value) ?></td>
-                <td class="ids"><?= h($petData->pet_pm) ?></td>
-                <td class="ids"><?= $this->Html->link($petData->master_id, ['controller' => 'Roledata', 'action' => 'view', $petData->master_id]) ?></td>
+                <td class="ids hidden-sm hidden-xs"><?= h($petData->pet_pm) ?></td>
+                <td class="ids hidden-sm hidden-xs"><?= $this->Html->link($petData->master_id, ['controller' => 'Roledata', 'action' => 'view', $petData->master_id]) ?></td>
                 <td class="ids"><?= h($petData->type_id) ?></td>
-                <td class="ids"><?= h($petData->quality) ?></td>
+                <td class="ids hidden-sm hidden-xs"><?= h($petData->quality) ?></td>
                 <td class="actions">
                     <div>
                         <div class="icon-contain"><?= $this->Html->link(

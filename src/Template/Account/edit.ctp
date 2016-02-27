@@ -17,35 +17,35 @@
         <div class="row">
             <div class="columns strings">
                 <div class="form-group col-md-12">
-                    <div class="col-md-3 subheader"><?= __('name') ?></div>
+                    <div class="col-md-3 col-xs-3 subheader"><?= __('name') ?></div>
                     <div class="col-md-9"><?= h($account->name) ?></div>
                 </div>
                 <div class="form-group col-md-12">
-                    <div class="col-md-3 subheader"><?= __('privilege') ?></div>
+                    <div class="col-md-3 col-xs-3 subheader"><?= __('privilege') ?></div>
                     <div class="col-md-9"><?= h($account->privilege) ?></div>
                 </div>
                 <div class="form-group col-md-12">
-                    <div class="col-md-3 subheader"><?= __('login_status') ?></div>
+                    <div class="col-md-3 col-xs-3 subheader"><?= __('login_status') ?></div>
                     <div class="col-md-9"><?= h($account->login_status) ?></div>
                 </div>
                 <div class="form-group col-md-12">
-                    <div class="col-md-3 subheader"><?= __('worldname_crc') ?></div>
+                    <div class="col-md-3 col-xs-3 subheader"><?= __('worldname_crc') ?></div>
                     <div class="col-md-9"><?= h($account->worldname_crc) ?></div>
                 </div>
                 <div class="form-group col-md-12">
-                    <div class="col-md-3 subheader"><?= __('forbid_mask') ?></div>
+                    <div class="col-md-3 col-xs-3 subheader"><?= __('forbid_mask') ?></div>
                     <div class="col-md-9"><?= h($account->forbid_mask) ?></div>
                 </div>
                 <div class="form-group col-md-12">
-                    <div class="col-md-3 subheader"><?= __('mibao') ?></div>
+                    <div class="col-md-3 col-xs-3 subheader"><?= __('mibao') ?></div>
                     <div class="col-md-9"><?= h($account->mibao) ?></div>
                 </div>
                 <div class="form-group col-md-12">
-                    <div class="col-md-3 subheader"><?= __('time') ?></div>
+                    <div class="col-md-3 col-xs-3 subheader"><?= __('time') ?></div>
                     <div class="col-md-9"><?= h($account->time) ?></div>
                 </div>
                 <div class="form-group col-md-12">
-                    <div class="col-md-3 subheader"><?= __('email') ?></div>
+                    <div class="col-md-3 col-xs-3 subheader"><?= __('email') ?></div>
                     <div class="col-md-9"><?= h($account->email) ?></div>
                 </div>
             </div>

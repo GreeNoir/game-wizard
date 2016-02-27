@@ -22,10 +22,10 @@
 <div class="col-md-7">
     <div class="commerceRank form well">
         <?= $this->Form->create($commerceRank, ['class' => 'form-horizontal']) ?>
-        <?= $this->Form->input('role_id', ['disabled' => true, 'type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>
-        <?= $this->Form->input('guild_id', ['required' => true, 'type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>
-        <?= $this->Form->input('times', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
-        <?= $this->Form->input('tael', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('role_id', ['disabled' => true, 'type' => 'text', 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
+        <?= $this->Form->input('guild_id', ['required' => true, 'type' => 'text', 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
+        <?= $this->Form->input('times', ['required' => true, 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
+        <?= $this->Form->input('tael', ['required' => true, 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
         <div class="form-group">
             <div class="col-md-offset-3">
                 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>

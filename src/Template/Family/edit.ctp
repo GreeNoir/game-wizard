@@ -17,12 +17,12 @@
 <div class="col-md-7">
     <div class="family form columns well">
         <?= $this->Form->create($family, ['class' => 'form-horizontal']) ?>
-        <?= $this->Form->input('FamilyID', ['disabled' => true, 'type' => 'text', 'label' => ['class' => 'col-md-3 control-label']]); ?>
-        <?= $this->Form->input('FamilyName', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
-        <?= $this->Form->input('LeaderID', ['options' => $roledata, 'required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
-        <?= $this->Form->input('FounderID', ['options' => $roledata, 'required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
-        <?= $this->Form->input('Active', ['required' => true, 'label' => ['class' => 'col-md-3 control-label']]); ?>
-        <?= $this->Form->input('CreateTime', ['required' => true, 'type' => 'text', 'class' => 'date_input', 'label' => ['class' => 'col-md-3 control-label']]); ?>
+        <?= $this->Form->input('FamilyID', ['disabled' => true, 'type' => 'text', 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
+        <?= $this->Form->input('FamilyName', ['required' => true, 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
+        <?= $this->Form->input('LeaderID', ['options' => $roledata, 'required' => true, 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
+        <?= $this->Form->input('FounderID', ['options' => $roledata, 'required' => true, 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
+        <?= $this->Form->input('Active', ['required' => true, 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
+        <?= $this->Form->input('CreateTime', ['required' => true, 'type' => 'text', 'class' => 'date_input', 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
         <div class="form-group">
             <div class="col-md-offset-3 col-md-10">
                 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>

@@ -12,12 +12,12 @@
     <thead>
         <tr>
             <th class="ids"><?= $this->Paginator->sort('RoleID', '#') ?></th>
-            <th><?= $this->Paginator->sort('RoleName') ?></th>
+            <th class=""><?= $this->Paginator->sort('RoleName') ?></th>
             <th class="ids"><?= $this->Paginator->sort('AccountID', 'AccountID') ?></th>
-            <th><?= $this->Paginator->sort('account_common.AccountName', __('AccountName')) ?></th>
-            <th><?= $this->Paginator->sort('FamilyName', __('Family')) ?></th>
-            <th class="ids"><?= $this->Paginator->sort('GuildID', __('Guild')) ?></th>
-            <th><?= $this->Paginator->sort('Sex', __('Sex')) ?></th>
+            <th class=""><?= $this->Paginator->sort('account_common.AccountName', __('AccountName')) ?></th>
+            <th class="hidden-sm hidden-xs"><?= $this->Paginator->sort('FamilyName', __('Family')) ?></th>
+            <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('GuildID', __('Guild')) ?></th>
+            <th class="hidden-sm hidden-xs"><?= $this->Paginator->sort('Sex', __('Sex')) ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -25,24 +25,25 @@
     <?php foreach ($roledata as $roledata): ?>
         <tr>
             <td class="ids"><?= $this->Number->format($roledata->RoleID) ?></td>
-            <td><?= h($roledata->RoleName) ?></td>
+            <td class=""><?= h($roledata->RoleName) ?></td>
             <td class="ids">
                 <?php
                     $accountID = $this->Number->format($roledata->AccountID);
                 echo $this->Html->link($accountID, ['controller' => 'AccountCommon', 'action' => 'view', 'id' => $accountID]);
                 ?>
             </td>
-            <td><?= $roledata->AccountName ?></td>
-            <td><?php
+            <td class=""><?= $roledata->AccountName ?></td>
+            <td class="hidden-sm hidden-xs"><?php
                 if ($roledata->FamilyName != 'undefined') {
                     echo $this->Html->link($roledata->FamilyName, ['controller' => 'Family', 'action' => 'view', 'id' => $roledata->FamilyID]);
                 } else {
                     echo '';
                 } ?>
             </td>
-            <td class="ids"><?= $roledata->GuildID ? $this->Html->link($roledata->GuildID, ['controller' => 'Guild', 'action' => 'view', $roledata->GuildID]) : '' ?>
+            <td class="ids hidden-sm hidden-xs">
+                <?= $roledata->GuildID ? $this->Html->link($roledata->GuildID, ['controller' => 'Guild', 'action' => 'view', $roledata->GuildID]) : '' ?>
             </td>
-            <td><?php
+            <td class="hidden-sm hidden-xs"><?php
                 if ($roledata->Sex == 0) echo __('Woman');
                 else { echo __('Man'); } ?>
             </td>

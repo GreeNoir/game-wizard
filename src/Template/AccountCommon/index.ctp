@@ -13,13 +13,13 @@
         <tr>
             <th class="ids"><?= $this->Paginator->sort('AccountID', '#') ?></th>
             <th><?= $this->Paginator->sort('AccountName', __('Name')) ?></th>
-            <th class="ids"><?= __('LastUseRoleID') ?></th>
-            <th><?= __('LastRoleName') ?></th>
-            <th><?= __('IP') ?></th>
-            <th><?= __('MAC') ?></th>
-            <th class="numbers"><?= $this->Paginator->sort('BaiBaoYuanBao') ?></th>
-            <th class="numbers"><?= $this->Paginator->sort('WareSize') ?></th>
-            <th class="numbers"><?= $this->Paginator->sort('WareSilver') ?></th>
+            <th class="ids hidden-xs"><?= __('LastUseRoleID') ?></th>
+            <th class="hidden-sm hidden-xs"><?= __('LastRoleName') ?></th>
+            <th class="hidden-sm hidden-xs"><?= __('IP') ?></th>
+            <th class="hidden-sm hidden-xs"><?= __('MAC') ?></th>
+            <th class="numbers hidden-sm hidden-xs"><?= $this->Paginator->sort('BaiBaoYuanBao') ?></th>
+            <th class="numbers hidden-sm hidden-xs"><?= $this->Paginator->sort('WareSize') ?></th>
+            <th class="numbers hidden-sm hidden-xs"><?= $this->Paginator->sort('WareSilver') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         </thead>
@@ -28,13 +28,13 @@
         <tr>
             <td class="ids"><?= $this->Number->format($accountCommon['AccountID']) ?></td>
             <td><?= h($accountCommon['AccountName']) ?></td>
-            <td class="ids"><?= $this->Html->link($accountCommon['LastUseRoleID'], ['action' => 'view', $accountCommon['LastUseRoleID'], 'controller' => 'Roledata']); ?></td>
-            <td><?= $accountCommon['r']['RoleName'] ?></td>
-            <td><?= $accountCommon['l']['ip'] ?></td>
-            <td><?= $accountCommon['l']['mac'] ?></td>
-            <td class="numbers"><?= $accountCommon['BaiBaoYuanBao'] ?></td>
-            <td class="numbers"><?= $accountCommon['WareSize'] ?></td>
-            <td class="numbers"><?= $accountCommon['WareSilver'] ?></td>
+            <td class="ids hidden-xs"><?= $this->Html->link($accountCommon['LastUseRoleID'], ['action' => 'view', $accountCommon['LastUseRoleID'], 'controller' => 'Roledata']); ?></td>
+            <td class="hidden-sm hidden-xs"><?= $accountCommon['r']['RoleName'] ?></td>
+            <td class="hidden-sm hidden-xs"><?= $accountCommon['l']['ip'] ?></td>
+            <td class="hidden-sm hidden-xs"><?= $accountCommon['l']['mac'] ?></td>
+            <td class="numbers hidden-sm hidden-xs"><?= $accountCommon['BaiBaoYuanBao'] ?></td>
+            <td class="numbers hidden-sm hidden-xs"><?= $accountCommon['WareSize'] ?></td>
+            <td class="numbers hidden-sm hidden-xs"><?= $accountCommon['WareSilver'] ?></td>
             <td class="actions">
                 <div>
                     <div class="icon-contain"><?= $this->Html->link(

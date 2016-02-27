@@ -16,7 +16,7 @@
             <th class="ids"><?= $this->Paginator->sort('LeaderID') ?></th>
             <th class="ids"><?= $this->Paginator->sort('FounderID') ?></th>
             <th class="ids"><?= $this->Paginator->sort('Active') ?></th>
-            <th><?= $this->Paginator->sort('CreateTime') ?></th>
+            <th class="hidden-sm hidden-xs"><?= $this->Paginator->sort('CreateTime') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -28,7 +28,7 @@
             <td class="ids"><?= $this->Html->link($family->LeaderID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $family->LeaderID]) ?></td>
             <td class="ids"><?= $this->Html->link($family->FounderID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $family->FounderID]) ?></td>
             <td class="ids"><?= $family->Active ?></td>
-            <td><?= h($family->CreateTime) ?></td>
+            <td class="hidden-sm hidden-xs"><?= h($family->CreateTime) ?></td>
             <td class="actions">
                 <div>
                     <div class="icon-contain"><?= $this->Html->link(

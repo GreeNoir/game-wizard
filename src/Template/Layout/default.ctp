@@ -57,7 +57,7 @@
                     <ul class="dropdown-menu"></ul>
                 </li>
             </ul>
-            <?= $this->Form->create('', ['autocomplete' => 'off', 'class' => 'navbar-form navbar-left', 'id' => 'search_form', 'url' => ['controller' => 'Home', 'action' => 'search'], 'type' => 'get']) ?>
+            <?= $this->Form->create('', ['autocomplete' => 'off', 'class' => 'navbar-form navbar-left hidden-sm hidden-xs', 'id' => 'search_form', 'url' => ['controller' => 'Home', 'action' => 'search'], 'type' => 'get']) ?>
                 <?= $this->Form->input('search', ['autocomplete' => 'off', 'type' => 'text', 'class' => 'form-control', 'placeholder' => __('Search')]) ?>
                 <?= $this->Form->button($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-search']), ['class' => 'btn btn-fab btn-default', 'type' => 'submit']); ?>
             <?= $this->Form->end() ?>
@@ -143,6 +143,12 @@
                         <ul id="reports" class="collapse">
                             <li data-controller="LoginLog"><?= $this->Html->link(__('ListLoginLog'), ['controller' => 'LoginLog', 'action' => 'start', 'lang' => $lang]); ?></li>
                         </ul>
+                    </li>
+                    <li id="search_block" class="visible-sm visible-xs">
+                        <?= $this->Form->create('', ['autocomplete' => 'off', 'class' => 'navbar-form navbar-left', 'id' => 'search_form', 'url' => ['controller' => 'Home', 'action' => 'search'], 'type' => 'get']) ?>
+                        <?= $this->Form->input('search', ['autocomplete' => 'off', 'type' => 'text', 'class' => 'form-control', 'placeholder' => __('Search')]) ?>
+                        <?= $this->Form->button($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-search']), ['class' => 'btn btn-fab btn-default', 'type' => 'submit']); ?>
+                        <?= $this->Form->end() ?>
                     </li>
                 </ul>
             </div>

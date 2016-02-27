@@ -16,10 +16,10 @@
             <th class="ids"><?= $this->Paginator->sort('ID', '#') ?></th>
             <th class="ids"><?= $this->Paginator->sort('FounderNameID') ?></th>
             <th class="ids"><?= $this->Paginator->sort('LeaderID') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('SpecState') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('Level') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('HoldCity0') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('HoldCity1') ?></th>
+            <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('SpecState') ?></th>
+            <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('Level') ?></th>
+            <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('HoldCity0') ?></th>
+            <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('HoldCity1') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -29,10 +29,10 @@
             <td class="ids"><?= $guild->ID ?></td>
             <td class="ids"><?= $this->Html->link($guild->FounderNameID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $guild->FounderNameID]) ?></td>
             <td class="ids"><?= $this->Html->link($guild->LeaderID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $guild->LeaderID]) ?></td>
-            <td class="ids"><?= $guild->SpecState ?></td>
-            <td class="ids"><?= $guild->Level ?></td>
-            <td class="ids"><?= $guild->HoldCity0 ?></td>
-            <td class="ids"><?= $guild->HoldCity1 ?></td>
+            <td class="ids hidden-sm hidden-xs"><?= $guild->SpecState ?></td>
+            <td class="ids hidden-sm hidden-xs"><?= $guild->Level ?></td>
+            <td class="ids hidden-sm hidden-xs"><?= $guild->HoldCity0 ?></td>
+            <td class="ids hidden-sm hidden-xs"><?= $guild->HoldCity1 ?></td>
             <td class="actions">
                 <div>
                     <div class="icon-contain"><?= $this->Html->link(
