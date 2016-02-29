@@ -469,3 +469,28 @@ select#familyid, select#guildid {
 .view .nav.nav-tabs {
     padding: 0;
 }
+
+form.table_editor td:not(.edit) {
+    padding-top: 14px;
+}
+
+form.table_editor .form-group {
+    margin: 0;
+    padding: 0;
+}
+
+form.table_editor div.input {
+    display: inline-block;
+    vertical-align: top;
+}
+
+form.table_editor div.input > label {
+    display: none;
+}
+
+form.table_editor div.input > input {
+    margin: 0;
+    padding: 0;
+    width: 90px;
+    height: 30px;
+}

@@ -5,14 +5,15 @@
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Back').__('Edit Guild'), ['action' => 'edit', $guildID], ['escape' => false]) ?> </li>
     </ul>
 </div>
-<ul class="breadcrumb col-md-10">
+<ul class="breadcrumb col-md-8">
     <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('List Guild'), ['action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Back').__('Edit Guild'), ['action' => 'edit', $guildID]) ?></li>
     <li class="active"><?= __('Related Skills') ?></li>
 </ul>
-<div class="table-responsive col-md-10">
+<div class="table-responsive col-md-8" style="padding-bottom: 20px;">
     <?php if (count($skills)): ?>
+    <?= $this->Form->create('', ['class' => 'table_editor']) ?>
     <table class="table table-hover table-striped">
         <thead>
             <tr>
@@ -28,7 +29,7 @@
         <tr>
             <td class="ids"><?= $skill->skill_id ?></td>
             <td class="ids"><?= $skill->progress ?></td>
-            <td class="ids"><?= $skill->level ?></td>
+            <td class="ids edit"><?= $this->Form->input('level', ['label' => ['text' => ''], 'type' => 'number', 'value' => $skill->level]) ?></td>
             <td class="ids"><?= $skill->researching ? __('Yes') : __('No') ?></td>
             <td class="ids"><?= $skill->active ? __('Yes') : __('No') ?></td>
             <td class="actions">
@@ -44,17 +45,12 @@
                     ]) ?></div>
             </td>
         </tr>
-
         <?php endforeach; ?>
     </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-        </ul>
-        <p><?= $this->Paginator->counter() ?></p>
+    <div style="text-align: right; padding-right: 15px;">
+        <?= $this->Form->button(__('Save'), ['class' => 'btn btn-raised btn-primary']) ?>
     </div>
+    <?= $this->Form->end() ?>
     <?php else: ?>
     <div class="not_found"><?= __('Not Found') ?></div>
     <?php endif; ?>
