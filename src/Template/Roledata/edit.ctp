@@ -20,7 +20,7 @@
     <li><?= $this->Html->link(__('RoledataList'), ['action' => 'index']) ?></li>
     <li class="active"><?= $roledata->RoleName ?></li>
 </ul>
-<div class="col-md-8">
+<div class="col-md-8 view well">
 <?= $this->Form->create($roledata, ['class' => 'form-horizontal']) ?>
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#panel_basic"><?= __('Basic') ?></a></li>
@@ -29,7 +29,6 @@
     <li><a data-toggle="tab" href="#panel_additional"><?= __('Additional') ?></a></li>
     <li><a data-toggle="tab" href="#panel_booleans"><?= __('Flags') ?></a></li>
 </ul>
-<div class="well">
 <div class="roledata form">
     <div class="tab-content">
         <div id="panel_basic" class="strings tab-pane fade in active">
@@ -236,7 +235,6 @@
             <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
         </div>
     </div>
-</div>
 </div>
 <?= $this->Form->end() ?>
 </div>

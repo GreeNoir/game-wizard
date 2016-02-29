@@ -465,3 +465,7 @@ select#familyid, select#guildid {
 #search_block #search {
     width: 150px;
 }
+
+.view .nav.nav-tabs {
+    padding: 0;
+}
