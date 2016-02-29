@@ -117,7 +117,7 @@
                         <th class="ids"><?= __('Taxation') ?></th>
                         <th class="ids"><?= __('Prolificacy') ?></th>
                         <th class="ids"><?= __('Signup List') ?></th>
-                        <th class="actions"><?= __('Actions') ?></th>
+                        <th class="actions icon-contain"><?= __('Actions') ?></th>
                     </tr>
                     <?php foreach ($guild->city as $city): ?>
                     <tr>
@@ -159,7 +159,7 @@
                         <th class="ids"><?= __('Role#') ?></th>
                         <th class="ids"><?= __('Times') ?></th>
                         <th class="ids"><?= __('Tael') ?></th>
-                        <th class="actions"><?= __('Actions') ?></th>
+                        <th class="actions icon-contain"><?= __('Actions') ?></th>
                     </tr>
                     <?php foreach ($guild->commerce_rank as $commerceRank): ?>
                     <tr>
@@ -198,7 +198,7 @@
                         <th class="ids"><?= __('Level') ?></th>
                         <th class="ids"><?= __('Researching') ?></th>
                         <th class="ids"><?= __('Active') ?></th>
-                        <th class="actions"><?= __('Actions') ?></th>
+                        <th class="actions icon-contain"><?= __('Actions') ?></th>
                     </tr>
                     <?php foreach ($guild->guild_skill as $skill): ?>
                     <tr>
