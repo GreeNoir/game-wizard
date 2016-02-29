@@ -21,7 +21,7 @@
             <th class="ids"><?= $this->Paginator->sort('level') ?></th>
             <th class="ids"><?= $this->Paginator->sort('researching') ?></th>
             <th class="ids"><?= $this->Paginator->sort('active') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th class="actions icon-contain"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <?php foreach ($skills as $skill): ?>

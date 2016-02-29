@@ -14,12 +14,12 @@
     <table class="table table-hover table-striped nurslings">
         <thead>
         <tr>
-            <th class="ids">#</th>
+            <th class="ids" style="width: 15%;">#</th>
             <th><?= __('Name') ?></th>
             <th class="ids"><?= __('pet_value') ?></th>
             <th class="ids"><?= __('pet_pm') ?></th>
             <th class="ids"><?= __('quality') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th class="actions icon-contain"><?= __('Actions') ?></th>
         </tr>
         </thead>
         <tbody>

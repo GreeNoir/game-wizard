@@ -13,42 +13,40 @@
     <li><?= $this->Html->link($accountName, ['action' => 'view', $id]) ?></li>
     <li class="active"><?= __('RoledataListHeader') ?></li>
 </ul>
-<div class="col-md-7">
-    <div class="roledata_list table-responsive">
-        <table class="table table-hover table-striped">
-            <thead>
-            <tr>
-                <th>Role ID</th>
-                <th>RoleName</th>
-                <th class="actions"><?= __('Additionally') ?></th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($roledataList as $roledataItem): ?>
-            <tr>
-                <td>
-                    <?= $this->Html->link($roledataItem->RoleID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $roledataItem->RoleID]) ?>
-                </td>
-                <td><?= $roledataItem->RoleName ?></td>
-                <td class="actions">
-                    <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('View') ?>"><?= $this->Html->link(
-                        $this->Html->tag('i', '', ['class' => 'fa fa-external-link']),
-                        ['controller' => 'Roledata', 'action' => 'view', 'id' => $roledataItem->RoleID],
-                        ['escape' => false]) ?></div>
-                    <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Edit') ?>"><?= $this->Html->link(
-                        $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
-                        ['controller' => 'Roledata', 'action' => 'edit', 'id' => $roledataItem->RoleID],
-                        ['escape' => false]) ?></div>
-                    <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Equipment') ?>">
-                        <?= $this->Html->link(
-                        $this->Html->tag('i', '', ['class' => 'fa fa-briefcase']),
-                        ['controller' => 'Roledata', 'action' => 'equipment_item', 'id' => $roledataItem->RoleID, 'slug' => 'all'],
-                        ['escape' => false]); ?>
-                    </div>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
+<div class="roledata_list table-responsive col-md-7">
+    <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+            <th class="ids" style="width: 20%;">Role#</th>
+            <th><?= __('RoleName') ?></th>
+            <th class="actions icon-contain" style="width: 20%;"><?= __('Additionally') ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($roledataList as $roledataItem): ?>
+        <tr>
+            <td class="ids">
+                <?= $this->Html->link($roledataItem->RoleID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $roledataItem->RoleID]) ?>
+            </td>
+            <td><?= $roledataItem->RoleName ?></td>
+            <td class="actions">
+                <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('View') ?>"><?= $this->Html->link(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-external-link']),
+                    ['controller' => 'Roledata', 'action' => 'view', 'id' => $roledataItem->RoleID],
+                    ['escape' => false]) ?></div>
+                <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Edit') ?>"><?= $this->Html->link(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
+                    ['controller' => 'Roledata', 'action' => 'edit', 'id' => $roledataItem->RoleID],
+                    ['escape' => false]) ?></div>
+                <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Equipment') ?>">
+                    <?= $this->Html->link(
+                    $this->Html->tag('i', '', ['class' => 'fa fa-briefcase']),
+                    ['controller' => 'Roledata', 'action' => 'equipment_item', 'id' => $roledataItem->RoleID, 'slug' => 'all'],
+                    ['escape' => false]); ?>
+                </div>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
 </div>
