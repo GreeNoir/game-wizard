@@ -494,3 +494,7 @@ form.table_editor div.input > input {
     width: 90px;
     height: 30px;
 }
+
+.col-md-offset-2 {
+    padding-left: 0;
+}

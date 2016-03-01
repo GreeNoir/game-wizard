@@ -13,23 +13,25 @@
 </ul>
 <div class="table-responsive col-md-8" style="padding-bottom: 20px;">
     <?php if (count($skills)): ?>
-    <?= $this->Form->create('', ['class' => 'table_editor']) ?>
+    <?= $this->Form->create('', ['class' => 'table_editor', 'method' => 'post']) ?>
     <table class="table table-hover table-striped">
         <thead>
             <tr>
-            <th class="ids"><?= $this->Paginator->sort('skill_id', '#') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('progress') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('level') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('researching') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('active') ?></th>
+            <th class="ids">#</th>
+            <th class="ids"><?= __('Progress') ?></th>
+            <th class="ids"><?= __('Level') ?></th>
+            <th class="ids"><?= __('Researching') ?></th>
+            <th class="ids"><?= __('Active') ?></th>
             <th class="actions icon-contain"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <?php foreach ($skills as $skill): ?>
         <tr>
+            <input type="hidden" name="guild_skills[<?= $skill->skill_id ?>][skill_id]" value="<?= $skill->skill_id ?>">
+            <input type="hidden" name="guild_skills[<?= $skill->skill_id ?>][guild_id]" value="<?= $guildID ?>">
             <td class="ids"><?= $skill->skill_id ?></td>
             <td class="ids"><?= $skill->progress ?></td>
-            <td class="ids edit"><?= $this->Form->input('level', ['label' => ['text' => ''], 'type' => 'number', 'value' => $skill->level]) ?></td>
+            <td class="ids edit"><?= $this->Form->input('guild_skills['.$skill->skill_id.'][level]', ['required' => 'true', 'label' => false, 'type' => 'number', 'min' => '1', 'value' => $skill->level]) ?></td>
             <td class="ids"><?= $skill->researching ? __('Yes') : __('No') ?></td>
             <td class="ids"><?= $skill->active ? __('Yes') : __('No') ?></td>
             <td class="actions">

@@ -169,10 +169,10 @@ class GuildController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $guildSkill = $this->GuildSkill->patchEntity($guildSkill, $this->request->data);
             if ($this->GuildSkill->save($guildSkill)) {
-                $this->Flash->success(__('The skill sprite has been saved.'));
+                $this->Flash->success(__('The guild skill has been saved.'));
                 return $this->redirect(['action' => 'view', $guildID]);
             } else {
-                $this->Flash->error(__('The family sprite could not be saved. Please, try again.'));
+                $this->Flash->error(__('The guild skill could not be saved. Please, try again.'));
             }
         }
         $this->set('guildID', $guildID);
@@ -195,8 +195,36 @@ class GuildController extends AppController
     }
 
     public function related_skills($id) {
+        $this->loadModel('GuildSkill');
+        if ($this->request->is('post')) {
+            $data = $this->request->data['guild_skills'];
+            $errors = [];
+            foreach($data as $skill_id => $obj) {
+                $guildSkill = $this->GuildSkill->find()->where(['guild_id' => $obj['guild_id'], 'skill_id' => $skill_id])->first();
+                $guildSkill = $this->GuildSkill->patchEntity($guildSkill, $obj);
+                if ($guildSkill->errors()) {
+                    $errors[$skill_id] = $guildSkill->errors();
+                }
+            }
+            if (!$errors) {
+                foreach($data as $skill_id => $obj) {
+                    $guildSkill = $this->GuildSkill->find()->where(['guild_id' => $obj['guild_id'], 'skill_id' => $skill_id])->first();
+                    $guildSkill = $this->GuildSkill->patchEntity($guildSkill, $obj);
+                    $this->GuildSkill->save($guildSkill);
+                }
+                $this->Flash->success(__('The guild skills was updated.'));
+                $this->redirect(['action' => 'related_skills', $id]);
+            } else {
+                $error_messages = __('input errors').': ';
+                foreach($errors as $key => $errors) {
+                    $error_messages .= '#'.$key.' ';
+                }
+                $this->Flash->error($error_messages);
+            }
+        }
+
         $skills = $this->Guild->GuildSkill->find()->where(['guild_id' => $id]);
-        $this->set('skills', $this->paginate($skills));
+        $this->set('skills', $skills);
         $this->set('_serialize', ['skills']);
         $this->set('guildID', $id);
     }

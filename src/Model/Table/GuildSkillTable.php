@@ -55,7 +55,11 @@ class GuildSkillTable extends Table
         $validator
             ->add('level', 'valid', ['rule' => 'numeric'])
             ->requirePresence('level', 'create')
-            ->notEmpty('level');
+            ->notEmpty('level')
+            ->add('level', 'format', [
+                'rule' => array('custom', '/^[1-9]\d*$/'),
+                'message' => __('Please enter a valid level')
+            ]);
 
         $validator
             ->add('researching', 'valid', ['rule' => 'boolean'])
