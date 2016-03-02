@@ -191,29 +191,32 @@ class GuildController extends AppController
     public function related_skills($id) {
         $this->loadModel('GuildSkill');
         if ($this->request->is('post')) {
-            $data = $this->request->data['guild_skills'];
-            $errors = [];
-            foreach($data as $skill_id => $obj) {
-                $guildSkill = $this->GuildSkill->find()->where(['guild_id' => $obj['guild_id'], 'skill_id' => $skill_id])->first();
-                $guildSkill = $this->GuildSkill->patchEntity($guildSkill, $obj);
-                if ($guildSkill->errors()) {
-                    $errors[$skill_id] = $guildSkill->errors();
-                }
-            }
-            if (!$errors) {
+            $action = $this->request->data['action'];
+            if ($action == 'save') {
+                $data = $this->request->data['guild_skills'];
+                $errors = [];
                 foreach($data as $skill_id => $obj) {
                     $guildSkill = $this->GuildSkill->find()->where(['guild_id' => $obj['guild_id'], 'skill_id' => $skill_id])->first();
                     $guildSkill = $this->GuildSkill->patchEntity($guildSkill, $obj);
-                    $this->GuildSkill->save($guildSkill);
+                    if ($guildSkill->errors()) {
+                        $errors[$skill_id] = $guildSkill->errors();
+                    } else {
+                        $this->GuildSkill->save($guildSkill);
+                    }
                 }
-                $this->Flash->success(__('The guild skills was updated.'));
+                if (!$errors) {
+                    $this->Flash->success(__('The guild skills was updated.'));
+                    $this->redirect(['action' => 'related_skills', $id]);
+                } else {
+                    $error_messages = __('input errors').': ';
+                    foreach($errors as $key => $errors) {
+                        $error_messages .= '#'.$key.' ';
+                    }
+                    $this->Flash->error($error_messages);
+                }
+            } elseif($action == 'upgrade') {
+                $this->GuildSkill->upgradeGuildSkills($id);
                 $this->redirect(['action' => 'related_skills', $id]);
-            } else {
-                $error_messages = __('input errors').': ';
-                foreach($errors as $key => $errors) {
-                    $error_messages .= '#'.$key.' ';
-                }
-                $this->Flash->error($error_messages);
             }
         }
 

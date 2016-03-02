@@ -49,8 +49,9 @@
         </tr>
         <?php endforeach; ?>
     </table>
-    <div style="text-align: right; padding-right: 15px;">
-        <?= $this->Form->button(__('Save'), ['class' => 'btn btn-raised btn-primary']) ?>
+    <div class="buttons_block">
+        <?= $this->Form->button(__('Upgrade'), ['type' => 'submit', 'name' => 'action', 'value' => 'upgrade', 'class' => 'btn btn-raised btn-success']) ?>
+        <?= $this->Form->button(__('Save'), ['type' => 'submit', 'name' => 'action', 'value' => 'save', 'class' => 'btn btn-raised btn-primary']) ?>
     </div>
     <?= $this->Form->end() ?>
     <?php else: ?>
