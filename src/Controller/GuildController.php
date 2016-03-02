@@ -4,12 +4,6 @@ namespace App\Controller;
 use App\Controller\AppController;
 use App\Model\Table\GuildSkillTable;
 use Cake\Datasource\ConnectionManager;
-/*
-use Cake\I18n\Time;
-use Cake\Database\Type;
-
-Time::setToStringFormat('YYYY-MM-dd HH:mm:ss');
-Type::build('datetime')->useLocaleParser();*/
 
 /**
  * Guild Controller
@@ -170,7 +164,7 @@ class GuildController extends AppController
             $guildSkill = $this->GuildSkill->patchEntity($guildSkill, $this->request->data);
             if ($this->GuildSkill->save($guildSkill)) {
                 $this->Flash->success(__('The guild skill has been saved.'));
-                return $this->redirect(['action' => 'view', $guildID]);
+                return $this->redirect(['action' => 'related_skills', $guildID]);
             } else {
                 $this->Flash->error(__('The guild skill could not be saved. Please, try again.'));
             }
