@@ -1,6 +1,6 @@
 <div class="actions columns">
     <ul class="side-nav">
-        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('Add Guild Skill'), ['action' => 'add_skill', $guildID], ['escape' => false]) ?></li>
+        <!--li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('Add Guild Skill'), ['action' => 'add_skill', $guildID], ['escape' => false]) ?></li-->
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Guild'), ['action' => 'index'], ['escape' => false]) ?> </li>
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-pencil']).__('Back').__('Edit Guild'), ['action' => 'edit', $guildID], ['escape' => false]) ?> </li>
     </ul>
@@ -22,7 +22,7 @@
             <th class="ids"><?= __('Level') ?></th>
             <th class="ids"><?= __('Researching') ?></th>
             <th class="ids"><?= __('Active') ?></th>
-            <th class="actions icon-contain"><?= __('Actions') ?></th>
+            <!--th class="actions icon-contain"><?= __('Actions') ?></th-->
             </tr>
         </thead>
         <?php foreach ($skills as $skill): ?>
@@ -31,10 +31,10 @@
             <input type="hidden" name="guild_skills[<?= $skill->skill_id ?>][guild_id]" value="<?= $guildID ?>">
             <td class="ids"><?= $skill->skill_id ?></td>
             <td class="ids"><?= $skill->progress ?></td>
-            <td class="ids edit"><?= $this->Form->input('guild_skills['.$skill->skill_id.'][level]', ['required' => 'true', 'label' => false, 'type' => 'number', 'min' => '1', 'value' => $skill->level]) ?></td>
+            <td class="ids edit"><?= $this->Form->input('guild_skills['.$skill->skill_id.'][level]', ['required' => 'true', 'label' => false, 'type' => 'number', 'min' => '0', 'max' => '11', 'value' => $skill->level]) ?></td>
             <td class="ids"><?= $skill->researching ? __('Yes') : __('No') ?></td>
             <td class="ids"><?= $skill->active ? __('Yes') : __('No') ?></td>
-            <td class="actions">
+            <!--td class="actions">
                 <div class="icon-contain-inline action" data-toggle="tooltip" title="<?= __('Edit') ?>"><?= $this->Html->link(
                     $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
                     ['action' => 'edit_skill', '?' => ['guild_id' => $skill->guild_id, 'skill_id' => $skill->skill_id]],
@@ -45,7 +45,7 @@
                     ['escape' => false,
                     'confirm' => __('Are you sure you want to delete # {0}?', $skill->skill_id)
                     ]) ?></div>
-            </td>
+            </td-->
         </tr>
         <?php endforeach; ?>
     </table>

@@ -104,7 +104,7 @@ class GuildSkillTable extends Table
             ->requirePresence('level', 'create')
             ->notEmpty('level')
             ->add('level', 'format', [
-                'rule' => array('custom', '/^[1-9]\d*$/'),
+                'rule' => array('custom', '/^[0-9]\d*$/'),
                 'message' => __('Please enter a valid level')
             ]);
 

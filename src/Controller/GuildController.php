@@ -215,8 +215,16 @@ class GuildController extends AppController
                     $this->Flash->error($error_messages);
                 }
             } elseif($action == 'upgrade') {
-                $this->GuildSkill->upgradeGuildSkills($id);
-                $this->redirect(['action' => 'related_skills', $id]);
+                $this->loadModel('GuildUpgrade');
+                if (!$this->Guild->isMaxLevel($id)) {
+                    $this->Guild->upgrade($id);
+                    $this->GuildSkill->upgradeGuildSkills($id);
+                    $this->GuildUpgrade->upgrade($id);
+                    $this->Flash->success(__('The guild skills was upgraded.'));
+                    $this->redirect(['action' => 'related_skills', $id]);
+                } else {
+                    $this->Flash->error(__('This guild is upgraded already.'));
+                }
             }
         }
 

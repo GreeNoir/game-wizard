@@ -19,6 +19,7 @@ class GuildTable extends Table
 {
 
     private $searchFields = ['ID'];
+    private $maxLevel = 5;
 
     public static function defaultConnectionName() {
         return 'sm_db';
@@ -198,5 +199,27 @@ class GuildTable extends Table
 
     public function getSearchFields() {
         return $this->searchFields;
+    }
+
+    public function upgrade($guildID) {
+        $guild = TableRegistry::get('guild');
+        $guild->find()->update()
+            ->set(['level' => $this->maxLevel])
+            ->where(['ID' => $guildID])
+            ->execute();
+    }
+
+    public function isMaxLevel($guildID) {
+        $guild = TableRegistry::get('guild');
+        $level = $guild->find()->where(['ID' => $guildID])->extract('Level')->first();
+        if ($level == $this->maxLevel) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getMaxLevel() {
+        return $this->maxLevel;
     }
 }

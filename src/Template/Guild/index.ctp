@@ -1,6 +1,6 @@
 <div class="actions columns">
     <ul class="side-nav">
-        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('New Guild'), ['action' => 'add'], ['escape' => false]) ?></li>
+        <!--li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-plus-square-o']).__('New Guild'), ['action' => 'add'], ['escape' => false]) ?></li-->
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List City'), ['controller' => 'City', 'action' => 'index'], ['escape' => false]) ?></li>
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('List Commerce Rank'), ['controller' => 'CommerceRank', 'action' => 'index'], ['escape' => false]) ?></li>
     </ul>

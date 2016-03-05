@@ -198,7 +198,7 @@
                         <th class="ids"><?= __('Level') ?></th>
                         <th class="ids"><?= __('Researching') ?></th>
                         <th class="ids"><?= __('Active') ?></th>
-                        <th class="actions icon-contain"><?= __('Actions') ?></th>
+                        <!--th class="actions icon-contain"><?= __('Actions') ?></th-->
                     </tr>
                     <?php foreach ($guild->guild_skill as $skill): ?>
                     <tr>
@@ -207,7 +207,7 @@
                         <td class="ids"><?= h($skill->level) ?></td>
                         <td class="ids"><?= $skill->researching ? __('Yes') : __('No') ?></td>
                         <td class="ids"><?= $skill->active ? __('Yes') : __('No') ?></td>
-                        <td class="actions">
+                        <!--td class="actions">
                             <div class="icon-contain-inline action"><?= $this->Html->link(
                                 $this->Html->tag('i', '', ['class' => 'fa fa-pencil']),
                                 ['action' => 'edit_skill', '?' => ['guild_id' => $skill->guild_id, 'skill_id' => $skill->skill_id]],
@@ -218,7 +218,7 @@
                                 ['escape' => false,
                                 'confirm' => __('Are you sure you want to delete # {0}?', $skill->skill_id)
                                 ]) ?></div>
-                        </td>
+                        </td-->
                     </tr>
 
                     <?php endforeach; ?>
