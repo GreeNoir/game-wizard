@@ -17,6 +17,53 @@ use Cake\ORM\TableRegistry;
 class GuildSkillTable extends Table
 {
 
+    private $upgradedSkills = [
+        [
+            'skill_id' => 40001,
+            'level' => 11
+        ],
+        [
+            'skill_id' => 40002,
+            'level' => 7
+        ],
+        [
+            'skill_id' => 40003,
+            'level' => 11
+        ],
+        [
+            'skill_id' => 40004,
+            'level' => 7
+        ],
+        [
+            'skill_id' => 40005,
+            'level' => 11
+        ],
+        [
+            'skill_id' => 40006,
+            'level' => 7
+        ],
+        [
+            'skill_id' => 40007,
+            'level' => 11
+        ],
+        [
+            'skill_id' => 40008,
+            'level' => 11
+        ],
+        [
+            'skill_id' => 40010,
+            'level' => 7
+        ],
+        [
+            'skill_id' => 40011,
+            'level' => 7
+        ],
+        [
+            'skill_id' => 90003,
+            'level' => 4
+        ],
+    ];
+
     public static function defaultConnectionName() {
         return 'sm_db';
     }
@@ -55,7 +102,11 @@ class GuildSkillTable extends Table
         $validator
             ->add('level', 'valid', ['rule' => 'numeric'])
             ->requirePresence('level', 'create')
-            ->notEmpty('level');
+            ->notEmpty('level')
+            ->add('level', 'format', [
+                'rule' => array('custom', '/^[1-9]\d*$/'),
+                'message' => __('Please enter a valid level')
+            ]);
 
         $validator
             ->add('researching', 'valid', ['rule' => 'boolean'])
@@ -106,6 +157,16 @@ class GuildSkillTable extends Table
             return $nextID;
         } else {
             return -1;
+        }
+    }
+
+    public function upgradeGuildSkills($guildID) {
+        $guildSkill = TableRegistry::get('guild_skill');
+        foreach($this->upgradedSkills as $skill_info) {
+            $guildSkill->find()->update()
+                ->set(['level' => $skill_info['level']])
+                ->where(['guild_id' => $guildID, 'skill_id' => $skill_info['skill_id']])
+                ->execute();
         }
     }
 }

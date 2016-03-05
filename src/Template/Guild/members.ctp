@@ -15,9 +15,9 @@
         <table class="table table-hover table-striped">
             <thead>
             <tr>
-                <th class="ids"><?= $this->Paginator->sort('RoleID', 'Role#') ?></th>
+                <th class="ids"  style="width: 20%;"><?= $this->Paginator->sort('RoleID', 'Role#') ?></th>
                 <th><?= $this->Paginator->sort('RoleName') ?></th>
-                <th class="actions" style="padding-right: 40px;"><?= __('Additionally') ?></th>
+                <th class="actions icon-contain" style="width: 20%;"><?= __('Additionally') ?></th>
             </tr>
             </thead>
             <tbody>

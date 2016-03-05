@@ -24,7 +24,7 @@
             <th class="ids"><?= $this->Paginator->sort('taxation') ?></th>
             <th class="ids"><?= $this->Paginator->sort('prolificacy') ?></th>
             <th class="ids"><?= $this->Paginator->sort('signup_list') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th class="actions icon-contain"><?= __('Actions') ?></th>
         </tr>
         </thead>
         <?php foreach ($cities as $city): ?>

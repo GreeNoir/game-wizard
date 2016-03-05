@@ -120,6 +120,10 @@ th.actions {
     width: 115px;
 }
 
+th.actions.icon-contain {
+    text-align: center;
+}
+
 th.ids, td.ids {
     text-align: center;
 }
@@ -460,4 +464,46 @@ select#familyid, select#guildid {
 
 #search_block #search {
     width: 150px;
+}
+
+.view .nav.nav-tabs {
+    padding: 0;
+}
+
+form.table_editor td:not(.edit) {
+    padding-top: 14px;
+}
+
+form.table_editor .form-group {
+    margin: 0;
+    padding: 0;
+}
+
+form.table_editor div.input {
+    display: inline-block;
+    vertical-align: top;
+}
+
+form.table_editor div.input > label {
+    display: none;
+}
+
+form.table_editor div.input > input {
+    margin: 0;
+    padding: 0;
+    width: 90px;
+    height: 30px;
+}
+
+.col-md-offset-2 {
+    padding-left: 0;
+}
+
+.buttons_block {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.buttons_block button {
+    margin-right: 5px;
 }

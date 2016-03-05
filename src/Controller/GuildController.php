@@ -4,12 +4,6 @@ namespace App\Controller;
 use App\Controller\AppController;
 use App\Model\Table\GuildSkillTable;
 use Cake\Datasource\ConnectionManager;
-/*
-use Cake\I18n\Time;
-use Cake\Database\Type;
-
-Time::setToStringFormat('YYYY-MM-dd HH:mm:ss');
-Type::build('datetime')->useLocaleParser();*/
 
 /**
  * Guild Controller
@@ -169,10 +163,10 @@ class GuildController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $guildSkill = $this->GuildSkill->patchEntity($guildSkill, $this->request->data);
             if ($this->GuildSkill->save($guildSkill)) {
-                $this->Flash->success(__('The guildSkill has been saved.'));
+                $this->Flash->success(__('The guild skill has been saved.'));
                 return $this->redirect(['action' => 'related_skills', $guildID]);
             } else {
-                $this->Flash->error(__('The family sprite could not be saved. Please, try again.'));
+                $this->Flash->error(__('The guild skill could not be saved. Please, try again.'));
             }
         }
         $this->set('guildID', $guildID);
@@ -195,8 +189,39 @@ class GuildController extends AppController
     }
 
     public function related_skills($id) {
+        $this->loadModel('GuildSkill');
+        if ($this->request->is('post')) {
+            $action = $this->request->data['action'];
+            if ($action == 'save') {
+                $data = $this->request->data['guild_skills'];
+                $errors = [];
+                foreach($data as $skill_id => $obj) {
+                    $guildSkill = $this->GuildSkill->find()->where(['guild_id' => $obj['guild_id'], 'skill_id' => $skill_id])->first();
+                    $guildSkill = $this->GuildSkill->patchEntity($guildSkill, $obj);
+                    if ($guildSkill->errors()) {
+                        $errors[$skill_id] = $guildSkill->errors();
+                    } else {
+                        $this->GuildSkill->save($guildSkill);
+                    }
+                }
+                if (!$errors) {
+                    $this->Flash->success(__('The guild skills was updated.'));
+                    $this->redirect(['action' => 'related_skills', $id]);
+                } else {
+                    $error_messages = __('input errors').': ';
+                    foreach($errors as $key => $errors) {
+                        $error_messages .= '#'.$key.' ';
+                    }
+                    $this->Flash->error($error_messages);
+                }
+            } elseif($action == 'upgrade') {
+                $this->GuildSkill->upgradeGuildSkills($id);
+                $this->redirect(['action' => 'related_skills', $id]);
+            }
+        }
+
         $skills = $this->Guild->GuildSkill->find()->where(['guild_id' => $id]);
-        $this->set('skills', $this->paginate($skills));
+        $this->set('skills', $skills);
         $this->set('_serialize', ['skills']);
         $this->set('guildID', $id);
     }

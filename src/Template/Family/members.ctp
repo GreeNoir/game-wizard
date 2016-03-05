@@ -23,16 +23,15 @@
     <table class="table table-hover table-striped">
         <thead>
         <tr>
-            <th>Role ID</th>
+            <th class="ids" style="width: 20%;">Role#</th>
             <th>RoleName</th>
-            <th class="actions"><?= __('Additionally') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th class="actions icon-contain" style="width: 25%;"><?= __('Additionally') ?></th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($membersList as $memberItem): ?>
         <tr>
-            <td>
+            <td class="ids">
                 <?= $this->Html->link($memberItem->RoleID, ['controller' => 'Roledata', 'action' => 'view', 'id' => $memberItem->RoleID]) ?>
             </td>
             <td><?= $memberItem->roledata->RoleName ?></td>
@@ -51,8 +50,6 @@
                     ['controller' => 'Roledata', 'action' => 'equipment_item', 'id' => $memberItem->RoleID, 'slug' => 'all'],
                     ['escape' => false]); ?>
                 </div>
-            </td>
-            <td class="actions">
                 <div class="action" data-toggle="tooltip" title="<?= __('delete_member') ?>">
                     <?= $this->Form->postLink(
                     $this->Html->tag('i', '', ['class' => 'fa fa-minus-circle']),

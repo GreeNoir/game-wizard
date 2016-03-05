@@ -16,10 +16,10 @@
     <table class="table table-hover table-striped">
         <thead>
         <tr>
-            <th class="ids"><?= $this->Paginator->sort('role_id', 'Role#') ?></th>
+            <th class="ids" style="width: 20%;"><?= $this->Paginator->sort('role_id', 'Role#') ?></th>
             <th class="ids"><?= $this->Paginator->sort('times') ?></th>
             <th class="ids"><?= $this->Paginator->sort('tael') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th class="actions icon-contain" style="width: 20%;"><?= __('Actions') ?></th>
         </tr>
         </thead>
         <?php foreach ($commerceRanks as $commerceRank): ?>
