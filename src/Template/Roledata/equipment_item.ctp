@@ -50,7 +50,7 @@
             <th><?= __('Bind') ?></th>
             <th><?= __('Create Time') ?></th>
             <th><?= __('Delete Time') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th class="actions centered"><?= __('Actions') ?></th>
         </tr>
         </thead>
 
