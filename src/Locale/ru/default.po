@@ -268,3 +268,6 @@ msgstr "Поиск"
 
 msgid "Search"
 msgstr "Найти"
+
+msgid "Upgrade"
+msgstr "Прокачка"
