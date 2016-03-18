@@ -28,6 +28,12 @@ msgstr "аккаунт"
 msgid "RoledataList"
 msgstr "Персонажи"
 
+msgid "Account#"
+msgstr "Аккаунт#"
+
+msgid "Role#"
+msgstr "Перс.#"
+
 msgid "ListAccountCommon"
 msgstr "Аккаунты"
 

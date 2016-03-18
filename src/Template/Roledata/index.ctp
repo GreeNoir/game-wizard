@@ -11,9 +11,9 @@
     <table class="table table-hover table-striped">
     <thead>
         <tr>
-            <th class="ids"><?= $this->Paginator->sort('RoleID', '#') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('RoleID', __('Role#')) ?></th>
             <th class=""><?= $this->Paginator->sort('RoleName') ?></th>
-            <th class="ids"><?= $this->Paginator->sort('AccountID', 'AccountID') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('AccountID', __('Account#')) ?></th>
             <th class=""><?= $this->Paginator->sort('account_common.AccountName', __('AccountName')) ?></th>
             <th class="hidden-sm hidden-xs"><?= $this->Paginator->sort('FamilyName', __('Family')) ?></th>
             <th class="ids hidden-sm hidden-xs"><?= $this->Paginator->sort('GuildID', __('Guild')) ?></th>

@@ -11,7 +11,7 @@
     <table class="table table-hover table-striped">
         <thead>
         <tr>
-            <th class="ids"><?= $this->Paginator->sort('AccountID', '#') ?></th>
+            <th class="ids"><?= $this->Paginator->sort('AccountID', 'Account#') ?></th>
             <th><?= $this->Paginator->sort('AccountName', __('Name')) ?></th>
             <th class="ids hidden-xs"><?= __('LastUseRoleID') ?></th>
             <th class="hidden-sm hidden-xs"><?= __('LastRoleName') ?></th>
