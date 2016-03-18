@@ -40,10 +40,10 @@
         <?= $this->Form->input('Commendation', ['required' => 'false', 'type' => 'checkbox', 'label' => ['class' => 'col-md-offset-3']]); ?>
         <?= $this->Form->input('GuildValue1', ['required' => true, 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
         <?= $this->Form->input('GuildValue2', ['required' => true, 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
-        <?= $this->Form->input('skill_ids', ['options' => $skill_ids, 'required' => true, 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
         <div class="form-group">
-            <div class="col-md-offset-3 col-md-10">
-                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+            <div class="col-md-10 col-md-offset-3">
+                <?= $this->Form->button(__('Submit'), ['type' => 'submit', 'name' => 'action', 'value' => 'save', 'class' => 'btn btn-primary']) ?>
+                <?= $this->Form->button(__('Upgrade'), ['type' => 'submit', 'name' => 'action', 'value' => 'upgrade', 'class' => 'btn btn-primary']) ?>
             </div>
         </div>
         <?= $this->Form->end() ?>

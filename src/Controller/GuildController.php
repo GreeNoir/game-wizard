@@ -78,15 +78,27 @@ class GuildController extends AppController
         $guild = $this->Guild->get($id, [
             'contain' => ['GuildSkill']
         ]);
+
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $guild = $this->Guild->patchEntity($guild, $this->request->data);
-            if ($this->Guild->save($guild)) {
-                $this->Flash->success(__('The guild has been saved.'));
-                return $this->redirect($this->referer());
-            } else {
-                $this->Flash->error(__('The guild could not be saved. Please, try again.'));
+            $action = $this->request->data['action'];
+            if ($action == 'save') {
+                $guild = $this->Guild->patchEntity($guild, $this->request->data);
+                if ($this->Guild->save($guild)) {
+                    $this->Flash->success(__('The guild has been saved.'));
+                    return $this->redirect(['action' => 'edit', $id]);
+                } else {
+                    $this->Flash->error(__('The guild could not be saved. Please, try again.'));
+                }
+            } elseif ($action == 'upgrade') {
+                if ($this->upgrade($id)) {
+                    $this->Flash->success(__('The guild was upgraded.'));
+                    $this->redirect(['action' => 'edit', $id]);
+                } else {
+                    $this->Flash->error(__('This guild is upgraded already.'));
+                }
             }
         }
+
         $skills = $this->Guild->GuildSkill->find()->where(['guild_id' => $guild->ID]);
         $skill_ids = [];
         foreach($skills as $skill) {
@@ -215,12 +227,8 @@ class GuildController extends AppController
                     $this->Flash->error($error_messages);
                 }
             } elseif($action == 'upgrade') {
-                $this->loadModel('GuildUpgrade');
-                if (!$this->Guild->isMaxLevel($id)) {
-                    $this->Guild->upgrade($id);
-                    $this->GuildSkill->upgradeGuildSkills($id);
-                    $this->GuildUpgrade->upgrade($id);
-                    $this->Flash->success(__('The guild skills was upgraded.'));
+                if ($this->upgrade($id)) {
+                    $this->Flash->success(__('The guild was upgraded.'));
                     $this->redirect(['action' => 'related_skills', $id]);
                 } else {
                     $this->Flash->error(__('This guild is upgraded already.'));
@@ -232,6 +240,19 @@ class GuildController extends AppController
         $this->set('skills', $skills);
         $this->set('_serialize', ['skills']);
         $this->set('guildID', $id);
+    }
+
+    private function upgrade($guildID) {
+        $this->loadModel('GuildSkill');
+        $this->loadModel('GuildUpgrade');
+        if (!$this->Guild->isMaxLevel($guildID)) {
+            $this->Guild->upgrade($guildID);
+            $this->GuildSkill->upgradeGuildSkills($guildID);
+            $this->GuildUpgrade->upgrade($guildID);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function related_cities($id) {
