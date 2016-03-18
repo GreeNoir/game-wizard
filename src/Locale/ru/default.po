@@ -201,7 +201,7 @@ msgid "EquipType"
 msgstr "все типы"
 
 msgid "Members"
-msgstr "Члены"
+msgstr "Участники"
 
 msgid "Edit Pet Data"
 msgstr "Редактировать петомца"
@@ -271,3 +271,31 @@ msgstr "Найти"
 
 msgid "Upgrade"
 msgstr "Прокачка"
+
+msgid "delete_member"
+msgstr "Удалить участника"
+
+msgid "Update"
+msgstr "Сохранить"
+
+msgid "Cancel"
+msgstr "Отменить"
+
+msgid "User settings"
+msgstr "Настройки пользователя"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Account Created"
+msgstr "Аккаунт создан"
+
+msgid "Login Time"
+msgstr "Последний вход"
+
+msgid "Logout Time"
+msgstr "Последний выход"
+
+msgid "User Role"
+msgstr "Права пользователя"
+
