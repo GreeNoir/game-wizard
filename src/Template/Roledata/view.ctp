@@ -26,6 +26,7 @@
     <li><a data-toggle="tab" href="#panel_groups"><?= __('Groups') ?></a></li>
     <li><a data-toggle="tab" href="#panel_additional"><?= __('Additional') ?></a></li>
     <li><a data-toggle="tab" href="#panel_booleans"><?= __('Flags') ?></a></li>
+    <li><a data-toggle="tab" href="#panel_skills"><?= __('Skills') ?></a></li>
 </ul>
 <div class="tab-content view">
     <div id="panel_basic" class="strings tab-pane fade in active">
@@ -744,6 +745,37 @@
         <div class="form-group">
             <div class="col-md-5 subheader"><?= __('UseConstraintsMaxPKSafeGuardLevel') ?></div>
             <div class="col-md-4"><?= $roledata->UseConstraintsMaxPKSafeGuardLevel? __('Yes') : __('No');?></div>
+        </div>
+    </div>
+    <div id="panel_skills" class="skills tab-pane fade in">
+        <div class="row">
+            <?php if (!empty($skills)): ?>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th class="ids"><?= __('#') ?></th>
+                        <th class="ids"><?= __('BiddenLevel') ?></th>
+                        <th class="ids"><?= __('SelfLevel') ?></th>
+                        <th class="ids"><?= __('Proficiency') ?></th>
+                        <th class="ids"><?= __('CoolDown') ?></th>
+                        <th class="ids"><?= __('active_time') ?></th>
+                    </tr>
+                    <?php foreach ($skills as $skill): ?>
+                    <tr>
+                        <td class="ids"><?= h($skill->ID) ?></td>
+                        <td class="ids"><?= h($skill->BiddenLevel) ?></td>
+                        <td class="ids"><?= h($skill->SelfLevel) ?></td>
+                        <td class="ids"><?= $skill->Proficiency ?></td>
+                        <td class="ids"><?= $skill->CoolDown ?></td>
+                        <td class="ids"><?= $skill->active_time ?></td>
+                    </tr>
+
+                    <?php endforeach; ?>
+                </table>
+            </div>
+            <?php else: ?>
+            <div class="not_found"><?= __('Not Found') ?></div>
+            <?php endif; ?>
         </div>
     </div>
 </div>

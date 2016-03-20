@@ -8,6 +8,7 @@
             )
         ?></li>
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('RoledataList'), ['action' => 'index'], ['escape' => false]) ?></li>
+        <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-table']).__('Skills'), ['action' => 'related_skills', 'id' => $roledata->RoleID], ['escape' => false]) ?></li>
         <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-briefcase']).__('Equipment'), ['action' => 'equipment_item', 'id' => $roledata->RoleID, 'slug' => 'all'], ['escape' => false]) ?></li>
         <?php if ($roledata->FamilyName != 'undefined'): ?>
             <li><?= $this->Html->link($this->Html->tag('i', '', ['class' => 'fa fa-fw fa-users']).$roledata->FamilyName, ['controller' => 'Family', 'action' => 'edit', 'id' => $roledata->FamilyID], ['escape' => false]) ?></li>

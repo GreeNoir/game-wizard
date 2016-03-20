@@ -43,7 +43,10 @@ class RoledataController extends AppController
     public function view($id = null)
     {
         $roledata = $this->Roledata->getRoledata($id);
+        $this->loadModel('Skill');
+        $skills = $this->Skill->related_skills($id);
         $this->set('roledata', $roledata);
+        $this->set('skills', $skills);
         $this->set('_serialize', ['roledata']);
     }
 
@@ -307,6 +310,48 @@ class RoledataController extends AppController
         $this->set('accountName', $this->Roledata->getRoledataInfo($id)->AccountName);
         $this->set('roleName', $this->Roledata->getRoledataInfo($id)->RoleName);
         $this->set('nurslings', $this->PetData->getNurslings($id));
+    }
+
+    public function related_skills($id) {
+        $this->loadModel('Skill');
+        if ($this->request->is('post')) {
+            $action = (isset($this->request->data['action']) ? $this->request->data['action'] : '');
+            if ($action == 'save') {
+                $skills = $this->request->data['skills'];
+                $errors = [];
+                foreach($skills as $skillID => $obj) {
+                    $skill = $this->Skill->find()->where(['RoleID' => $id, 'ID' => $skillID])->first();
+                    $skill = $this->Skill->patchEntity($skill, $obj);
+                    if ($skill->errors()) {
+                        $errors[$skillID] = $skill->errors();
+                    } else {
+                        $this->Skill->save($skill);
+                    }
+                }
+                if (!$errors) {
+                    $this->Flash->success(__('The skills was updated.'));
+                    $this->redirect(['action' => 'related_skills', $id]);
+                } else {
+                    $error_messages = __('input errors').': ';
+                    foreach($errors as $key => $errors) {
+                        $error_messages .= '#'.$key.' ';
+                    }
+                    $this->Flash->error($error_messages);
+                }
+            } elseif ($action == 'upgrade') {
+                $this->upgrade($id);
+                $this->Flash->success(__('The roledata skills was upgraded.'));
+                $this->redirect(['action' => 'related_skills', $id]);
+            }
+        }
+        $this->set('roleID', $id);
+        $skills = $this->Skill->related_skills($id);
+        $this->set('skills', $skills);
+    }
+
+    private function upgrade($roleID) {
+        $this->loadModel('Skill');
+        $this->Skill->upgrade($roleID);
     }
 
 }
