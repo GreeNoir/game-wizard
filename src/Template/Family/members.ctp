@@ -50,7 +50,7 @@
                     ['controller' => 'Roledata', 'action' => 'equipment_item', 'id' => $memberItem->RoleID, 'slug' => 'all'],
                     ['escape' => false]); ?>
                 </div>
-                <div class="action" data-toggle="tooltip" title="<?= __('delete_member') ?>">
+                <div class="action" data-toggle="tooltip" title="<?= __('Delete Member') ?>">
                     <?= $this->Form->postLink(
                     $this->Html->tag('i', '', ['class' => 'fa fa-minus-circle']),
                     ['action' => 'del_member'],

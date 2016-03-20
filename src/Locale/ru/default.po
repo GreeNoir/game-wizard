@@ -278,7 +278,7 @@ msgstr "Найти"
 msgid "Upgrade"
 msgstr "Прокачка"
 
-msgid "delete_member"
+msgid "Delete Member"
 msgstr "Удалить участника"
 
 msgid "Update"

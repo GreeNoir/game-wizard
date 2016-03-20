@@ -25,7 +25,9 @@
         <?= $this->Form->input('CreateTime', ['required' => true, 'type' => 'text', 'class' => 'date_input', 'label' => ['class' => 'col-md-3 col-xs-3 control-label']]); ?>
         <div class="form-group">
             <div class="col-md-offset-3 col-md-10">
-                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+                <?= $this->Form->button(__('Submit'), ['name' => 'action', 'value' => 'save', 'class' => 'btn btn-primary']) ?>
+                <?= $this->Form->button(__('Sprite'), ['name' => 'action', 'value' => 'sprite', 'class' => 'btn btn-primary']) ?>
+                <?= $this->Form->button(__('Upgrade'), ['name' => 'action', 'value' => 'upgrade', 'class' => 'btn btn-primary']) ?>
             </div>
         </div>
         <?= $this->Form->end() ?>

@@ -5,6 +5,7 @@ use App\Model\Entity\FamilySprite;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 use Cake\Validation\Validator;
 
 /**
@@ -14,8 +15,37 @@ use Cake\Validation\Validator;
 class FamilySpriteTable extends Table
 {
 
+    private $upgradedSprite = [
+        'Level' => 100,
+        'Exp'   => 125000,
+        'HP'    => 100000,
+        'EXAttack'  => 3515,
+        'InAttack'  => 3515,
+        'EXDefense' => 6327,
+        'InDefense' => 6327,
+        'EXAttackDeeper'    => 350,
+        'InAttackDeeper'    => 350,
+        'EXAttackResistance'=> 600,
+        'InAttackResistance'=> 600,
+        'Toughness' => 410,
+        'CritDes'   => 4100,
+        'ControleffectDeepen'  => 126,
+        'ControleffectResistance'  => 84,
+        'SlowingeffectDeepen'   => 126,
+        'SlowingeffectResistance'   => 84,
+        'FixedeffectDeepen' => 126,
+        'FixedeffectResistance' => 84,
+        'AgingeffectDeepen' => 126,
+        'AgingeffectResistance' => 84
+    ];
+
+
     public static function defaultConnectionName() {
         return 'sm_db';
+    }
+
+    private function getUpgradedSprite() {
+        return $this->upgradedSprite;
     }
 
     /**
@@ -136,5 +166,13 @@ class FamilySpriteTable extends Table
             ->allowEmpty('AgingeffectResistance');
 
         return $validator;
+    }
+
+    public function upgrade($familyID) {
+        $familySprite = TableRegistry::get('family_sprite');
+        $familySprite->find()->update()
+            ->set($this->getUpgradedSprite())
+            ->where(['FamilyID' => $familyID])
+            ->execute();
     }
 }

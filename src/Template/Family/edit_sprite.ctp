@@ -38,7 +38,8 @@
     
         <div class="form-group">
             <div class="col-md-offset-3 col-md-10">
-                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+                <?= $this->Form->button(__('Submit'), ['name' => 'action', 'value' => 'save', 'class' => 'btn btn-primary']) ?>
+                <?= $this->Form->button(__('Upgrade'), ['type' => 'submit', 'name' => 'action', 'value' => 'upgrade', 'class' => 'btn btn-primary']) ?>
             </div>
         </div>
         <?= $this->Form->end() ?>

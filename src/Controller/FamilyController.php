@@ -94,12 +94,22 @@ class FamilyController extends AppController
         }
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $family = $this->Family->patchEntity($family, $this->request->data);
-            if ($this->Family->save($family)) {
-                $this->Flash->success(__('The family has been saved.'));
+            $action = (isset($this->request->data['action']) ? $this->request->data['action'] : '');
+            if ($action == 'save') {
+                $family = $this->Family->patchEntity($family, $this->request->data);
+                if ($this->Family->save($family)) {
+                    $this->Flash->success(__('The family has been saved.'));
+                    return $this->redirect(['action' => 'edit', 'id' => $id]);
+                } else {
+                    $this->Flash->error(__('The family could not be saved. Please, try again.'));
+                }
+            } elseif ($action == 'sprite') {
+                return $this->redirect(['action' => 'edit_sprite', 'id' => $id]);
+            } elseif ($action == 'upgrade') {
+                $this->loadModel('FamilySprite');
+                $this->FamilySprite->upgrade($id);
+                $this->Flash->success(__('The family sprite has been upgraded.'));
                 return $this->redirect(['action' => 'edit', 'id' => $id]);
-            } else {
-                $this->Flash->error(__('The family could not be saved. Please, try again.'));
             }
         }
         $this->set('roledata', $roledataItems);
@@ -162,18 +172,24 @@ class FamilyController extends AppController
     {
         $family = $this->Family->get($id);
         $this->loadModel('FamilySprite');
-        $familySprite = $this->FamilySprite->get($id, [
-            'contain' => []
-        ]);
+        $familySprite = $this->FamilySprite->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $familySprite = $this->FamilySprite->patchEntity($familySprite, $this->request->data);
-            if ($this->FamilySprite->save($familySprite)) {
-                $this->Flash->success(__('The family sprite has been saved.'));
+            $action = (isset($this->request->data['action']) ? $this->request->data['action'] : '');
+            if ($action == 'save') {
+                $familySprite = $this->FamilySprite->patchEntity($familySprite, $this->request->data);
+                if ($this->FamilySprite->save($familySprite)) {
+                    $this->Flash->success(__('The family sprite has been saved.'));
+                    return $this->redirect(['action' => 'edit_sprite', 'id' => $id]);
+                } else {
+                    $this->Flash->error(__('The family sprite could not be saved. Please, try again.'));
+                }
+            } elseif ($action == 'upgrade') {
+                $this->FamilySprite->upgrade($id);
+                $this->Flash->success(__('The family sprite has been upgraded.'));
                 return $this->redirect(['action' => 'edit_sprite', 'id' => $id]);
-            } else {
-                $this->Flash->error(__('The family sprite could not be saved. Please, try again.'));
             }
         }
+
         $this->set('id', $id);
         $this->set('name', $family->FamilyName);
         $this->set(compact('familySprite'));

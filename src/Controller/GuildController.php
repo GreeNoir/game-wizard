@@ -80,7 +80,7 @@ class GuildController extends AppController
         ]);
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $action = $this->request->data['action'];
+            $action = (isset($this->request->data['action']) ? $this->request->data['action'] : '');
             if ($action == 'save') {
                 $guild = $this->Guild->patchEntity($guild, $this->request->data);
                 if ($this->Guild->save($guild)) {
@@ -203,7 +203,7 @@ class GuildController extends AppController
     public function related_skills($id) {
         $this->loadModel('GuildSkill');
         if ($this->request->is('post')) {
-            $action = $this->request->data['action'];
+            $action = (isset($this->request->data['action']) ? $this->request->data['action'] : '');
             if ($action == 'save') {
                 $data = $this->request->data['guild_skills'];
                 $errors = [];
