@@ -27,17 +27,16 @@
         <?php foreach ($skills as $skill): ?>
         <tr>
             <td class="ids"><?= $skill->ID ?></td>
-            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][BiddenLevel]', ['type' => 'number', 'min' => 0, 'value' => $skill->BiddenLevel]) ?></td>
-            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][SelfLevel]', ['type' => 'number', 'min' => 0, 'value' => $skill->SelfLevel]) ?></td>
-            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][Proficiency]', ['type' => 'number', 'min' => 0, 'value' => $skill->Proficiency]) ?></td>
-            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][CoolDown]', ['type' => 'number', 'min' => 0, 'value' => $skill->CoolDown]) ?></td>
-            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][active_time]', ['type' => 'number', 'min' => 0, 'value' => $skill->active_time]) ?></td>
+            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][BiddenLevel]', ['type' => 'number', 'readonly' => 'readonly', 'value' => $skill->BiddenLevel]) ?></td>
+            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][SelfLevel]', ['type' => 'number', 'readonly' => 'readonly', 'value' => $skill->SelfLevel]) ?></td>
+            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][Proficiency]', ['type' => 'number', 'readonly' => 'readonly', 'value' => $skill->Proficiency]) ?></td>
+            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][CoolDown]', ['type' => 'number', 'readonly' => 'readonly', 'value' => $skill->CoolDown]) ?></td>
+            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][active_time]', ['type' => 'number', 'readonly' => 'readonly', 'value' => $skill->active_time]) ?></td>
         </tr>
         <?php endforeach; ?>
     </table>
     <div class="buttons_block">
         <?= $this->Form->button(__('Upgrade'), ['type' => 'submit', 'name' => 'action', 'value' => 'upgrade', 'class' => 'btn btn-raised btn-success']) ?>
-        <?= $this->Form->button(__('Save'), ['type' => 'submit', 'name' => 'action', 'value' => 'save', 'class' => 'btn btn-raised btn-primary']) ?>
     </div>
     <?= $this->Form->end() ?>
     <?php else: ?>
