@@ -20,6 +20,18 @@ $(function() {
         $('.alert').insertAfter($('.container-fluid > div.actions'));
     }
 
+    $('input[type=number]').each(function() {
+        $(this).addClass('no_spinners');
+    });
+
+    $('input[type=number]').focus(function() {
+        $(this).removeClass('no_spinners');
+    });
+
+    $('input[type=number]').blur(function() {
+        $(this).addClass('no_spinners');
+    });
+
 });
 
 function languageChange() {
@@ -193,6 +205,4 @@ function highlightSearchItems(searchStr) {
         var highlighted = itemText.replace(reg, '<span class="highlight">$&</span>');
         $(this).html(highlighted);
     });
-
-
 }

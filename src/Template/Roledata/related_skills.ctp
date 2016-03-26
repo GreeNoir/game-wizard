@@ -27,11 +27,11 @@
         <?php foreach ($skills as $skill): ?>
         <tr>
             <td class="ids"><?= $skill->ID ?></td>
-            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][BiddenLevel]', ['type' => 'number', 'value' => $skill->BiddenLevel]) ?></td>
-            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][SelfLevel]', ['type' => 'number', 'value' => $skill->SelfLevel]) ?></td>
-            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][Proficiency]', ['type' => 'number', 'value' => $skill->Proficiency]) ?></td>
-            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][CoolDown]', ['type' => 'number', 'value' => $skill->CoolDown]) ?></td>
-            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][active_time]', ['type' => 'number', 'value' => $skill->active_time]) ?></td>
+            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][BiddenLevel]', ['type' => 'number', 'min' => 0, 'value' => $skill->BiddenLevel]) ?></td>
+            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][SelfLevel]', ['type' => 'number', 'min' => 0, 'value' => $skill->SelfLevel]) ?></td>
+            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][Proficiency]', ['type' => 'number', 'min' => 0, 'value' => $skill->Proficiency]) ?></td>
+            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][CoolDown]', ['type' => 'number', 'min' => 0, 'value' => $skill->CoolDown]) ?></td>
+            <td class="ids"><?= $this->Form->input('skills['.$skill->ID.'][active_time]', ['type' => 'number', 'min' => 0, 'value' => $skill->active_time]) ?></td>
         </tr>
         <?php endforeach; ?>
     </table>

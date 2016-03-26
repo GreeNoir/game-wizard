@@ -511,3 +511,7 @@ form.table_editor div.input > input {
 .buttons_block button {
     margin-right: 5px;
 }
+
+input[type=number].no_spinners {
+    -moz-appearance: textfield;
+}
