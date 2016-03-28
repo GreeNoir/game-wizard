@@ -157,7 +157,7 @@ class AppController extends Controller
               `id` double NOT NULL,
               `name` varchar(255) DEFAULT NULL,
               PRIMARY KEY (`id`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8"
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8"
         ];
 
         foreach($queries as $q) {
