@@ -56,7 +56,7 @@ class ItemTable extends Table{
         $query = $item->find()
             ->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)',
                 'Num', 'TypeID', 'Bind', 'CreateTime', 'del_time',
-                'Name' => 'item_name.name']);
+                'Name' => "IF(item_name.name <> '', item_name.name, equip_name.name)"]);
         if (!isset($params['equipType']) || (isset($params['equipType']) && $params['equipType']=='all')) {
             $query->select([
                 'EquipType' =>
@@ -78,6 +78,15 @@ class ItemTable extends Table{
                     ]
                 ]
             ]);
+        $query->join([
+            'equip_name' => [
+                'table' => 'wizard_db.equip_name',
+                'type'  => 'LEFT',
+                'conditions' => [
+                    'equip_name.id = item.TypeID'
+                ]
+            ]
+        ]);
 
         if (isset($params['equipType']) && $params['equipType'] && $params['equipType']!='all') {
             $equipType = $params['equipType'];
@@ -220,13 +229,16 @@ class ItemTable extends Table{
 
             foreach($result as $k=>$row) {
                 $result[$k]->Name = '-';
-                $item_find = $item_name->select()->where(['id' => $row->TypeID])->first();
-                if ($item_find) {
-                    $result[$k]->Name = $item_find->name;
-                } else {
+
+                if ($row->EquipType == 'Equip') {
                     $equip_find = $equip_name->select()->where(['id' => $row->TypeID])->first();
                     if ($equip_find) {
                         $result[$k]->Name = $equip_find->name;
+                    }
+                } elseif ($row->EquipType == 'Item') {
+                    $item_find = $item_name->select()->where(['id' => $row->TypeID])->first();
+                    if ($item_find) {
+                        $result[$k]->Name = $item_find->name;
                     }
                 }
             }
