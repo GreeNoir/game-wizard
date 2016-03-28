@@ -20,6 +20,7 @@ use Cake\I18n\I18n;
 use Cake\Routing\Router;
 use Cake\I18n\Time;
 use Cake\Database\Type;
+use Cake\Datasource\ConnectionManager;
 
 
 /**
@@ -55,6 +56,7 @@ class AppController extends Controller
                 'action' => 'index'
             ]
         ]);
+        $this->DatabaseInitialize();
     }
 
     public function beforeFilter(Event $event) {
@@ -127,6 +129,40 @@ class AppController extends Controller
             '?'          => $this->request->query
         ]);
         return $transUrl;
+    }
+
+    private function DatabaseInitialize() {
+        $conn = ConnectionManager::get('sm_db');
+        $db_name = 'wizard_db';
+        $queries = [
+            "CREATE DATABASE IF NOT EXISTS {$db_name} CHARACTER SET utf8 COLLATE utf8_general_ci",
+
+            "CREATE TABLE IF NOT EXISTS {$db_name}.`users` (
+              `id` int(11) NOT NULL AUTO_INCREMENT,
+              `username` varchar(100) DEFAULT NULL,
+              `password` varchar(100) DEFAULT NULL,
+              `role` varchar(20) DEFAULT NULL,
+              `created` datetime DEFAULT NULL,
+              `last_login` datetime DEFAULT NULL,
+              `last_logout` datetime DEFAULT NULL,
+              PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8",
+
+            "CREATE TABLE IF NOT EXISTS {$db_name}.`item_name` (
+              `id` int(10) NOT NULL,
+              `name` varchar(255) NOT NULL
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8",
+
+            "CREATE TABLE IF NOT EXISTS {$db_name}.`equip_name` (
+              `id` int(11) NOT NULL,
+              `name` varchar(255) DEFAULT NULL,
+              PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8"
+        ];
+
+        foreach($queries as $q) {
+            $conn->query($q);
+        }
     }
 
 }
