@@ -15,6 +15,10 @@ use Cake\Datasource\ConnectionManager;
 class EquipmentController extends AppController {
 
     public function start() {
+        $this->loadModel('ItemName');
+        $this->ItemName->DatabaseInitialize();
+        $this->loadModel('EquipName');
+        $this->EquipName->DatabaseInitialize();
     }
 
     /**

@@ -149,12 +149,12 @@ class AppController extends Controller
             ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8",
 
             "CREATE TABLE IF NOT EXISTS {$db_name}.`item_name` (
-              `id` int(10) NOT NULL,
+              `id` double NOT NULL,
               `name` varchar(255) NOT NULL
             ) ENGINE=MyISAM DEFAULT CHARSET=utf8",
 
             "CREATE TABLE IF NOT EXISTS {$db_name}.`equip_name` (
-              `id` int(11) NOT NULL,
+              `id` double NOT NULL,
               `name` varchar(255) DEFAULT NULL,
               PRIMARY KEY (`id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8"

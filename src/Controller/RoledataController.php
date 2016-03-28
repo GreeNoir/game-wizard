@@ -208,6 +208,12 @@ class RoledataController extends AppController
             ],
             'order' => ['SerialNum' => 'asc']
         ];
+
+        $this->loadModel('ItemName');
+        $this->ItemName->DatabaseInitialize();
+        $this->loadModel('EquipName');
+        $this->EquipName->DatabaseInitialize();
+
         $this->loadModel('Item');
         $this->loadModel('AccountCommon');
         $this->loadModel('Roledata');
