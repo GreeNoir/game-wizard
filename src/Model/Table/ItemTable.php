@@ -149,7 +149,6 @@ class ItemTable extends Table{
         $result = $item->find()
             ->select(['cSerialNum' => 'CONVERT (item.SerialNum, CHAR)',
                 'Num', 'TypeID',
-                'Name' => "IF(item_name.name <> '', item_name.name, equip_name.name)",
                 'AccountID', 'AccountName' => 'a.AccountName', 'OwnerID', 'RoleName' => 'r.RoleName',
                 'EquipType' =>
                     "CASE
@@ -173,24 +172,6 @@ class ItemTable extends Table{
                     'table' => 'roledata',
                     'conditions' => [
                         'r.RoleID = item.OwnerID'
-                    ]
-                ]
-            ])
-            ->join([
-                'item_name' => [
-                    'table' => 'wizard_db.item_name',
-                    'type'  => 'LEFT',
-                    'conditions' => [
-                        'item_name.id = item.TypeID'
-                    ]
-                ]
-            ])
-            ->join([
-                'equip_name' => [
-                    'table' => 'wizard_db.equip_name',
-                    'type'  => 'LEFT',
-                    'conditions' => [
-                        'equip_name.id = item.TypeID'
                     ]
                 ]
             ])
@@ -233,6 +214,23 @@ class ItemTable extends Table{
             ->having(['cSerialNum' => $serialNum])
             ->toArray();
 
+        if (count($result)) {
+            $item_name = TableRegistry::get('item_name')->find();
+            $equip_name = TableRegistry::get('equip_name')->find();
+
+            foreach($result as $k=>$row) {
+                $result[$k]->Name = '-';
+                $item_find = $item_name->select()->where(['id' => $row->TypeID])->first();
+                if ($item_find) {
+                    $result[$k]->Name = $item_find->name;
+                } else {
+                    $equip_find = $equip_name->select()->where(['id' => $row->TypeID])->first();
+                    if ($equip_find) {
+                        $result[$k]->Name = $equip_find->name;
+                    }
+                }
+            }
+        }
         return $result;
     }
 
