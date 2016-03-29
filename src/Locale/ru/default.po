@@ -319,3 +319,9 @@ msgstr "Выберете аккаунт для просмотра журнала
 
 msgid "Please select"
 msgstr "Пожалуйста выберете"
+
+msgid "Search results"
+msgstr "Результаты поиска"
+
+msgid "SearchEmpty"
+msgstr "Ничего не найдено"

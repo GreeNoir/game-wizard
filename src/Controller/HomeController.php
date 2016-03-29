@@ -17,7 +17,7 @@ class HomeController extends AppController
     }
 
     public function search() {
-        $searchString = trim($this->request->query['search']);
+        $searchString = (isset($this->request->query['search']) ? trim($this->request->query['search']) : '');
         $searchResults = [];
         $results = false;
 
