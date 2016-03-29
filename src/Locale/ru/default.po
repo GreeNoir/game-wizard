@@ -273,7 +273,7 @@ msgid "Find"
 msgstr "Поиск"
 
 msgid "Search"
-msgstr "Найти"
+msgstr "Поиск"
 
 msgid "Upgrade"
 msgstr "Прокачка"
@@ -313,3 +313,9 @@ msgstr "Серийный №"
 
 msgid "Settings"
 msgstr "Настройки"
+
+msgid "Please select an account to see the login log"
+msgstr "Выберете аккаунт для просмотра журнала входов"
+
+msgid "Please select"
+msgstr "Пожалуйста выберете"
