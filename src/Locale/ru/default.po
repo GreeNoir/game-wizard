@@ -305,3 +305,11 @@ msgstr "Последний выход"
 msgid "User Role"
 msgstr "Права пользователя"
 
+msgid "Please input the serial number to find"
+msgstr "Введите серийный номер вещи"
+
+msgid "Serial Number"
+msgstr "Серийный №"
+
+msgid "Settings"
+msgstr "Настройки"
