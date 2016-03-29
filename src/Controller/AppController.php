@@ -121,13 +121,21 @@ class AppController extends Controller
     }
 
     private function translateUrl($newLang) {
-        $transUrl = Router::url([
+        $params = [
             'controller' => $this->request->params['controller'],
             'action'     => $this->request->params['action'],
             'lang'       => $newLang,
-            'id'         => $this->request->params['id'],
             '?'          => $this->request->query
-        ]);
+        ];
+        if (isset($this->request->params['id'])) {
+            $params['id'] = $this->request->params['id'];
+        }
+        if (isset($this->request->params['slug'])) {
+            $params['slug'] = $this->request->params['slug'];
+        }
+
+        $transUrl = Router::url($params);
+
         return $transUrl;
     }
 
