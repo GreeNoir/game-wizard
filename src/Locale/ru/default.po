@@ -25,6 +25,9 @@ msgstr "Удалить "
 msgid "AccountCommon"
 msgstr "аккаунт"
 
+msgid "ListAccountCommon"
+msgstr "Аккаунты"
+
 msgid "RoledataList"
 msgstr "Персонажи"
 

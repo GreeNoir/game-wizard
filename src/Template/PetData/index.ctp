@@ -5,7 +5,7 @@
 </div>
 <ul class="breadcrumb col-md-10">
     <li><?= $this->Html->link(__('Home'), ['controller' => 'Home', 'action' => 'index']) ?></li>
-    <li class="active"><?= __('List Nurslings') ?></li>
+    <li class="active"><?= __('Nurslings') ?></li>
 </ul>
 <div class="petData table-responsive col-md-10">
     <table class="table table-hover table-striped">

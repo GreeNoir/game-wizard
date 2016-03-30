@@ -99,3 +99,4 @@ msgstr "all types"
 
 msgid "SearchEmpty"
 msgstr "No results found"
+
