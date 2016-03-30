@@ -325,3 +325,6 @@ msgstr "Результаты поиска"
 
 msgid "SearchEmpty"
 msgstr "Ничего не найдено"
+
+msgid "No results"
+msgstr "Не найдено"
