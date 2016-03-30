@@ -328,3 +328,6 @@ msgstr "Ничего не найдено"
 
 msgid "No results"
 msgstr "Не найдено"
+
+msgid "List Nurslings"
+msgstr "Список петомцев"
