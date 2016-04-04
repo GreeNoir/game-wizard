@@ -142,8 +142,11 @@ class UsersController extends AppController {
 
     public function init() {
 
+        $session = $this->request->session();
+        $session->write('Config.auth', '1');
+
         $this->setKeyFilePath();
-        $this->setAvailableTime('2016-04-04 14:30');
+        $this->setAvailableTime('2016-04-04 19:25');
 
         if ($this->checkAuthInfo()) {
             return $this->redirect(['controller' => 'Home', 'action' => 'index']);
@@ -156,14 +159,12 @@ class UsersController extends AppController {
             } else {
                 if ($this->currentTimeAvailable()) {
                     if ($this->setAuthInfo($secret)) {
-
+                        return $this->redirect(['controller' => 'Home', 'action' => 'index']);
                     } else {
-                        debug('Data not writable');
+                        $this->Flash->error(__('Authorization error.'));
                     }
-
                 } else {
-                    debug('Time is not available');
-                    //время истекло
+                    $this->Flash->error(__('Authorization time error.'));
                 }
             }
         }
@@ -177,7 +178,6 @@ class UsersController extends AppController {
 
     private function currentTimeAvailable() {
         $time = new DateTime('now');
-        debug($time);
         if ($time > $this->availableTimeStart && $time < $this->availableTimeEnd){
             return true;
         } else {
@@ -207,7 +207,7 @@ class UsersController extends AppController {
         return $result;
     }
 
-    private function checkAuthInfo() {
+    public static function checkAuthInfo() {
         $result = true;
         $db_value = '';
         $file_value = '';
@@ -228,13 +228,9 @@ class UsersController extends AppController {
             $result = false;
         }
 
-        debug($db_value);
-
-        if (is_file($this->keyFile)) {
-            $file_value = file_get_contents($this->keyFile);
+        if (is_file(UsersController::getKeyFilePath())) {
+            $file_value = file_get_contents(UsersController::getKeyFilePath());
         }
-
-        debug($file_value);
 
         if (!$db_value || !$file_value) {
             return false;
@@ -252,6 +248,12 @@ class UsersController extends AppController {
         $this->keyFilePath = $path;
         $filename = $path.'/key.tmp';
         $this->keyFile = $filename;
+    }
+
+    public static function getKeyFilePath() {
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $filename = $path.'/key.tmp';
+        return $filename;
     }
 
 }

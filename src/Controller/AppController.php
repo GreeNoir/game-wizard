@@ -92,9 +92,9 @@ class AppController extends Controller
         Type::build('datetime')->useLocaleParser();
 
         $this->Auth->config([
-            'unauthorizedRedirect' => false
+            'checkAuthIn' => 'UsersController::checkAuthInfo();'
         ]);
-        $this->Auth->allow(['index', 'view', 'display', 'login', 'search', 'about', 'init']);
+        $this->Auth->allow(['index', 'view', 'login', 'search', 'about', 'init']);
 
         $user = $this->Auth->user();
 
