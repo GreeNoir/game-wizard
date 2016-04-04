@@ -100,3 +100,8 @@ msgstr "all types"
 msgid "SearchEmpty"
 msgstr "No results found"
 
+msgid "delete_item"
+msgstr "Delete this item from equipment Roledata list"
+
+msgid "secret_description"
+msgstr "Please type some secret word"

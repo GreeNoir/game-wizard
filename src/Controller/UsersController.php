@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Datasource\ConnectionManager;
+use DateTime;
 
 /**
  * Users Controller
@@ -11,6 +13,11 @@ use Cake\Event\Event;
  * @property \App\Model\Table\UsersTable $Users
  */
 class UsersController extends AppController {
+
+    private $availableTimeStart;
+    private $availableTimeEnd;
+    private $keyFilePath;
+    private $keyFile;
 
     public function beforeFilter(Event $event)
     {
@@ -131,6 +138,120 @@ class UsersController extends AppController {
         }
 
         return $roleOptions;
+    }
+
+    public function init() {
+
+        $this->setKeyFilePath();
+        $this->setAvailableTime('2016-04-04 14:30');
+
+        if ($this->checkAuthInfo()) {
+            return $this->redirect(['controller' => 'Home', 'action' => 'index']);
+        }
+
+        if ($this->request->is(['post'])) {
+            $secret = $this->request->data['secret'];
+            if (!preg_match('/^[a-z0-9_]+$/i', $secret) || strlen($secret)<5) {
+                $this->Flash->error(__('Secret word is invalid. Try again'));
+            } else {
+                if ($this->currentTimeAvailable()) {
+                    if ($this->setAuthInfo($secret)) {
+
+                    } else {
+                        debug('Data not writable');
+                    }
+
+                } else {
+                    debug('Time is not available');
+                    //время истекло
+                }
+            }
+        }
+    }
+
+    private function setAvailableTime($start) {
+        $this->availableTimeStart = new DateTime($start);
+        $this->availableTimeEnd = new DateTime($start);
+        $this->availableTimeEnd->modify('+ 30 minutes');
+    }
+
+    private function currentTimeAvailable() {
+        $time = new DateTime('now');
+        debug($time);
+        if ($time > $this->availableTimeStart && $time < $this->availableTimeEnd){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private function setAuthInfo($secret) {
+        $result = true;
+        if (is_writable($this->keyFilePath)) {
+
+            $db_name = 'wizard_db';
+            $conn = ConnectionManager::get($db_name);
+            $queries = [
+                "DROP TABLE IF EXISTS {$db_name}.`tmp`",
+                "CREATE TABLE {$db_name}.`tmp`( `key` VARCHAR(255) ) ENGINE=InnoDB CHARSET=utf8 COLLATE=utf8_general_ci",
+                "INSERT INTO {$db_name}.`tmp` (`key`) VALUES ('".$secret."')"
+            ];
+            foreach($queries as $q) {
+                $conn->query($q);
+            }
+
+            file_put_contents($this->keyFile, $secret);
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+
+    private function checkAuthInfo() {
+        $result = true;
+        $db_value = '';
+        $file_value = '';
+
+        $db_name = 'wizard_db';
+        $conn = ConnectionManager::get($db_name);
+        $q = "CREATE TABLE IF NOT EXISTS {$db_name}.`tmp`( `key` VARCHAR(255) ) ENGINE=InnoDB CHARSET=utf8 COLLATE=utf8_general_ci";
+        $conn->query($q);
+
+        $q = "SELECT * FROM {$db_name}.`tmp` LIMIT 1";
+        $rows = $conn->query($q);
+        if ($rows) {
+            foreach($rows as $row) {
+                $db_value = $row['key'];
+            }
+
+        } else {
+            $result = false;
+        }
+
+        debug($db_value);
+
+        if (is_file($this->keyFile)) {
+            $file_value = file_get_contents($this->keyFile);
+        }
+
+        debug($file_value);
+
+        if (!$db_value || !$file_value) {
+            return false;
+        }
+
+        if ($db_value == $file_value) {
+            $result = true;
+        }
+
+        return $result;
+    }
+
+    private function setKeyFilePath() {
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $this->keyFilePath = $path;
+        $filename = $path.'/key.tmp';
+        $this->keyFile = $filename;
     }
 
 }

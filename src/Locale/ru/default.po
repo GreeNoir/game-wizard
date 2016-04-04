@@ -334,3 +334,9 @@ msgstr "Не найдено"
 
 msgid "List Nurslings"
 msgstr "Список петомцев"
+
+msgid "delete_item"
+msgstr "Удалить эту вещь из списка вещей персонажа"
+
+msgid "secret_description"
+msgstr "Введите кодовое слово"

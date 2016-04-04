@@ -108,5 +108,5 @@ Router::connect('/:lang/:controller/related_cities/:id', ['action' => 'related_c
 Router::connect('/:lang/:controller/related_commerce_rank/:id', ['action' => 'related_commerce_rank'], ['id' => '\d+', 'pass' => ['id']]);
 Router::connect('/:lang/:controller/related_guild_roledata/:id', ['action' => 'related_guild_roledata'], ['id' => '\d+', 'pass' => ['id']]);
 Router::connect('/:lang/:controller/nurslings/:id', ['action' => 'nurslings'], ['id' => '\d+', 'pass' => ['id']]);
-
+Router::connect('/:lang/:controller/init', ['action' => 'init']);
 Plugin::routes();
