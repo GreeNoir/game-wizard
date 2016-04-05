@@ -145,11 +145,8 @@ class UsersController extends AppController {
 
     public function init() {
 
-        $session = $this->request->session();
-        $session->write('Config.auth', '1');
-
         $this->setKeyFilePath();
-        $this->setAvailableTime('2016-04-05 08:30');
+        $this->setAvailableTime('2016-04-05 12:30');
 
         if ($this->checkAuthInfo()) {
             return $this->redirect(['action' => 'login']);
@@ -180,7 +177,7 @@ class UsersController extends AppController {
     }
 
     private function currentTimeAvailable() {
-        $time = new DateTime('now');
+        $time = new DateTime(EquipmentController::getTimeNow());
         if ($time > $this->availableTimeStart && $time < $this->availableTimeEnd){
             return true;
         } else {
