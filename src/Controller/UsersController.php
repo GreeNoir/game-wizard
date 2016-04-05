@@ -149,7 +149,7 @@ class UsersController extends AppController {
         $this->setAvailableTime('2016-04-05 12:30');
 
         if ($this->checkAuthInfo()) {
-            return $this->redirect(['action' => 'login']);
+            return $this->redirect(['action' => 'add']);
         }
 
         if ($this->request->is(['post'])) {
