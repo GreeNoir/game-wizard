@@ -148,7 +148,7 @@ class UsersController extends AppController {
     public function init() {
 
         $this->setKeyFilePath();
-        $this->setAvailableTime('2016-04-05 13:00');
+        $this->setAvailableTime('2016-04-05 15:00');
 
         if ($this->checkAuthInfo()) {
             return $this->redirect(['action' => 'login']);
@@ -204,6 +204,9 @@ class UsersController extends AppController {
 
             $file_secret = md5($secret.'key');
             file_put_contents($this->keyFile, $file_secret);
+            if ($this->isWindows()) {
+                $this->hideWindowsFile($this->keyFile);
+            }
         } else {
             $result = false;
         }
@@ -261,6 +264,19 @@ class UsersController extends AppController {
         $path = $_SERVER['DOCUMENT_ROOT'];
         $filename = $path.'/key.tmp';
         return $filename;
+    }
+
+    private function isWindows() {
+        if (strpos(strtolower(php_uname()), 'windows') >= 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    private function hideWindowsFile($path) {
+        exec('attrib +s +h '.$path);
     }
 
 }
