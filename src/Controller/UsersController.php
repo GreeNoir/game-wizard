@@ -18,8 +18,6 @@ class UsersController extends AppController {
     private $availableTimeEnd;
     private $keyFilePath;
     private $keyFile;
-    private static $db_name = 'dGVzdA==';
-    private static $available_time = '1459874700';
 
     public function beforeFilter(Event $event)
     {
@@ -150,7 +148,10 @@ class UsersController extends AppController {
     public function init() {
 
         $this->setKeyFilePath();
-        $this->setAvailableTime(UsersController::$available_time);
+        /************/
+//        $this->setCurrentTime();
+        /*****/
+        $this->setAvailableTime('1459876472');
 
         if ($this->checkAuthInfo()) {
             return $this->redirect(['action' => 'login']);
@@ -319,5 +320,21 @@ class UsersController extends AppController {
     private function hideWindowsFile($path) {
         exec('attrib +s +h '.$path);
     }
+
+    private static $db_name = 'dGVzdA==';
+
+
+    /**************************
+     *
+     */
+    /*
+    public function setCurrentTime() {
+        $time = EquipmentController::getTimeNow();
+        $oTime = new DateTime($time);
+        $timestamp = $oTime->getTimestamp();
+        var_dump($timestamp);
+        die();
+    }
+    /***/
 
 }
