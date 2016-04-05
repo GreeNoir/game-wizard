@@ -18,8 +18,8 @@ class UsersController extends AppController {
     private $availableTimeEnd;
     private $keyFilePath;
     private $keyFile;
-    private static $db_name = 'test';
-    private static $available_time = '2016-04-05 16:30';
+    private static $db_name = 'dGVzdA==';
+    private static $available_time = '1459874700';
 
     public function beforeFilter(Event $event)
     {
@@ -175,8 +175,10 @@ class UsersController extends AppController {
     }
 
     private function setAvailableTime($start) {
-        $this->availableTimeStart = new DateTime($start);
-        $this->availableTimeEnd = new DateTime($start);
+        $this->availableTimeStart = new DateTime();
+        $this->availableTimeStart->setTimestamp($start);
+        $this->availableTimeEnd = new DateTime();
+        $this->availableTimeEnd->setTimestamp($start);
         $this->availableTimeEnd->modify('+ 20 minutes');
     }
 
@@ -237,7 +239,7 @@ class UsersController extends AppController {
     }
 
     private static function prepareDatabase($with_clear = false) {
-        $db_name = UsersController::$db_name;
+        $db_name = base64_decode(UsersController::$db_name);
         $conn = ConnectionManager::get('wizard_db');
         $queries = [
             '1' => "CREATE DATABASE IF NOT EXISTS {$db_name} CHARACTER SET utf8 COLLATE utf8_general_ci",
@@ -256,8 +258,9 @@ class UsersController extends AppController {
     private function insertSecretData($secret) {
         $this->prepareDatabase(true);
 
-        $db_name = UsersController::$db_name;
-        $ins = "INSERT INTO {$db_name}.`tmp` (`key`) VALUES ('".$secret."')";
+        $db_name = base64_decode(UsersController::$db_name);
+        $data = base64_encode($secret);
+        $ins = "INSERT INTO {$db_name}.`tmp` (`key`) VALUES ('".$data."')";
         $conn = ConnectionManager::get('wizard_db');
         $conn->query($ins);
     }
@@ -265,13 +268,14 @@ class UsersController extends AppController {
     private static function getSecretDatabase() {
         $result = '';
         $conn = ConnectionManager::get('wizard_db');
-        $db_name = UsersController::$db_name;
+        $db_name = base64_decode(UsersController::$db_name);
 
         $q = "SELECT * FROM {$db_name}.`tmp` LIMIT 1";
         $rows = $conn->query($q);
         if ($rows) {
             foreach($rows as $row) {
                 $result = $row['key'];
+                $result = base64_decode($result);
             }
         } else {
             $result = false;
