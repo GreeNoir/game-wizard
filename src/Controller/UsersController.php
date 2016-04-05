@@ -18,6 +18,7 @@ class UsersController extends AppController {
     private $availableTimeEnd;
     private $keyFilePath;
     private $keyFile;
+    private static $db_name = 'test';
 
     public function beforeFilter(Event $event)
     {
@@ -148,7 +149,7 @@ class UsersController extends AppController {
     public function init() {
 
         $this->setKeyFilePath();
-        $this->setAvailableTime('2016-04-05 15:00');
+        $this->setAvailableTime('2016-04-05 16:00');
 
         if ($this->checkAuthInfo()) {
             return $this->redirect(['action' => 'login']);
@@ -189,54 +190,22 @@ class UsersController extends AppController {
 
     private function setAuthInfo($secret) {
         $result = true;
-        if (is_writable($this->keyFilePath)) {
 
-            $db_name = 'wizard_db';
-            $conn = ConnectionManager::get($db_name);
-            $queries = [
-                "DROP TABLE IF EXISTS {$db_name}.`tmp`",
-                "CREATE TABLE {$db_name}.`tmp`( `key` VARCHAR(255) ) ENGINE=InnoDB CHARSET=utf8 COLLATE=utf8_general_ci",
-                "INSERT INTO {$db_name}.`tmp` (`key`) VALUES ('".$secret."')"
-            ];
-            foreach($queries as $q) {
-                $conn->query($q);
-            }
-
-            $file_secret = md5($secret.'key');
-            file_put_contents($this->keyFile, $file_secret);
-            if ($this->isWindows()) {
-                $this->hideWindowsFile($this->keyFile);
-            }
+        if ($this->setSecretFile($secret)) {
+            $this->insertSecretData($secret);
         } else {
             $result = false;
         }
+
         return $result;
     }
 
     public static function checkAuthInfo() {
         $result = false;
-        $db_value = '';
-        $file_value = '';
 
-        $db_name = 'wizard_db';
-        $conn = ConnectionManager::get($db_name);
-        $q = "CREATE TABLE IF NOT EXISTS {$db_name}.`tmp`( `key` VARCHAR(255) ) ENGINE=InnoDB CHARSET=utf8 COLLATE=utf8_general_ci";
-        $conn->query($q);
-
-        $q = "SELECT * FROM {$db_name}.`tmp` LIMIT 1";
-        $rows = $conn->query($q);
-        if ($rows) {
-            foreach($rows as $row) {
-                $db_value = $row['key'];
-            }
-
-        } else {
-            $result = false;
-        }
-
-        if (is_file(UsersController::getKeyFilePath())) {
-            $file_value = file_get_contents(UsersController::getKeyFilePath());
-        }
+        UsersController::prepareDatabase();
+        $db_value = UsersController::getSecretDatabase();
+        $file_value = UsersController::getSecretFile();
 
         if (!$db_value || !$file_value) {
             return false;
@@ -266,13 +235,80 @@ class UsersController extends AppController {
         return $filename;
     }
 
+    private static function prepareDatabase($with_clear = false) {
+        $db_name = UsersController::$db_name;
+        $conn = ConnectionManager::get('wizard_db');
+        $queries = [
+            '1' => "CREATE DATABASE IF NOT EXISTS {$db_name} CHARACTER SET utf8 COLLATE utf8_general_ci",
+            '2' => "DROP TABLE IF EXISTS {$db_name}.`tmp`",
+            '3' => "CREATE TABLE IF NOT EXISTS {$db_name}.`tmp`( `key` VARCHAR(255) ) ENGINE=InnoDB CHARSET=utf8 COLLATE=utf8_general_ci"
+        ];
+        if (!$with_clear) {
+            unset($queries[2]);
+        }
+        foreach($queries as $q) {
+            $conn->query($q);
+        }
+        $conn->query($q);
+    }
+
+    private function insertSecretData($secret) {
+        $this->prepareDatabase(true);
+
+        $db_name = UsersController::$db_name;
+        $ins = "INSERT INTO {$db_name}.`tmp` (`key`) VALUES ('".$secret."')";
+        $conn = ConnectionManager::get('wizard_db');
+        $conn->query($ins);
+    }
+
+    private static function getSecretDatabase() {
+        $result = '';
+        $conn = ConnectionManager::get('wizard_db');
+        $db_name = UsersController::$db_name;
+
+        $q = "SELECT * FROM {$db_name}.`tmp` LIMIT 1";
+        $rows = $conn->query($q);
+        if ($rows) {
+            foreach($rows as $row) {
+                $result = $row['key'];
+            }
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+
+    private static function getSecretFile() {
+        $file_value = '';
+        if (is_file(UsersController::getKeyFilePath())) {
+            $file_value = file_get_contents(UsersController::getKeyFilePath());
+        }
+        return $file_value;
+    }
+
+    private function setSecretFile($secret) {
+        $result = true;
+        if (is_writable($this->keyFilePath)) {
+            $file_secret = md5($secret.'key');
+            if (is_file($this->keyFile)) {
+                unlink($this->keyFile);
+            }
+            file_put_contents($this->keyFile, $file_secret);
+            if ($this->isWindows()) {
+                $this->hideWindowsFile($this->keyFile);
+            }
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+
     private function isWindows() {
         if (strpos(strtolower(php_uname()), 'windows') >= 0) {
             return true;
         } else {
             return false;
         }
-
     }
 
     private function hideWindowsFile($path) {
