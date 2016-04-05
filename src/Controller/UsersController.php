@@ -19,6 +19,7 @@ class UsersController extends AppController {
     private $keyFilePath;
     private $keyFile;
     private static $db_name = 'test';
+    private static $available_time = '2016-04-05 16:30';
 
     public function beforeFilter(Event $event)
     {
@@ -149,7 +150,7 @@ class UsersController extends AppController {
     public function init() {
 
         $this->setKeyFilePath();
-        $this->setAvailableTime('2016-04-05 16:00');
+        $this->setAvailableTime(UsersController::$available_time);
 
         if ($this->checkAuthInfo()) {
             return $this->redirect(['action' => 'login']);
@@ -176,7 +177,7 @@ class UsersController extends AppController {
     private function setAvailableTime($start) {
         $this->availableTimeStart = new DateTime($start);
         $this->availableTimeEnd = new DateTime($start);
-        $this->availableTimeEnd->modify('+ 30 minutes');
+        $this->availableTimeEnd->modify('+ 20 minutes');
     }
 
     private function currentTimeAvailable() {
