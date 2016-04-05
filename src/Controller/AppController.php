@@ -47,13 +47,9 @@ class AppController extends Controller
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
             'authorize' => ['Controller'],
-            'loginRedirect' => [
-                'controller' => 'Home',
-                'action' => 'index'
-            ],
-            'logoutRedirect' => [
-                'controller' => 'Home',
-                'action' => 'index'
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'init'
             ]
         ]);
         $this->DatabaseInitialize();
@@ -94,7 +90,7 @@ class AppController extends Controller
         $this->Auth->config([
             'unauthorizedRedirect' => false
         ]);
-        $this->Auth->allow(['index', 'view', 'login', 'search', 'about', 'init']);
+        $this->Auth->allow(['login', 'init']);
 
         $user = $this->Auth->user();
 

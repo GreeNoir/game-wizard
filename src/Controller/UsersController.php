@@ -75,6 +75,9 @@ class UsersController extends AppController {
 
     public function login()
     {
+        if (!UsersController::checkAuthInfo()) {
+            $this->redirect(['action' => 'init']);
+        }
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
@@ -146,10 +149,10 @@ class UsersController extends AppController {
         $session->write('Config.auth', '1');
 
         $this->setKeyFilePath();
-        $this->setAvailableTime('2016-04-04 19:25');
+        $this->setAvailableTime('2016-04-05 08:30');
 
         if ($this->checkAuthInfo()) {
-            return $this->redirect(['controller' => 'Home', 'action' => 'index']);
+            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
         }
 
         if ($this->request->is(['post'])) {
