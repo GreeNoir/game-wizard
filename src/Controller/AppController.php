@@ -82,7 +82,9 @@ class AppController extends Controller
         $this->set('lang', $lang);
         $this->set('controller', $this->name);
 
+        I18n::locale($lang);
         Time::setToStringFormat('YYYY-MM-dd HH:mm:ss');
+        Type::build('datetime')->useLocaleParser();
 
         $this->Auth->config([
             'unauthorizedRedirect' => false

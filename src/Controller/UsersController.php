@@ -75,9 +75,11 @@ class UsersController extends AppController {
 
     public function login()
     {
+
         if (!UsersController::checkAuthInfo()) {
             $this->redirect(['action' => 'init']);
         }
+
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
@@ -146,10 +148,10 @@ class UsersController extends AppController {
     public function init() {
 
         $this->setKeyFilePath();
-        $this->setAvailableTime('2016-04-05 12:30');
+        $this->setAvailableTime('2016-04-05 13:00');
 
         if ($this->checkAuthInfo()) {
-            return $this->redirect(['action' => 'add']);
+            return $this->redirect(['action' => 'login']);
         }
 
         if ($this->request->is(['post'])) {
@@ -161,10 +163,10 @@ class UsersController extends AppController {
                     if ($this->setAuthInfo($secret)) {
                         return $this->redirect(['controller' => 'Home', 'action' => 'index']);
                     } else {
-                        $this->Flash->error(__('Authorization error.'));
+                        $this->Flash->error(__('Authorization write error.'));
                     }
                 } else {
-                    $this->Flash->error(__('Authorization time error.'));
+                    $this->Flash->error(__('Authorization timeout error.'));
                 }
             }
         }
@@ -200,7 +202,8 @@ class UsersController extends AppController {
                 $conn->query($q);
             }
 
-            file_put_contents($this->keyFile, $secret);
+            $file_secret = md5($secret.'key');
+            file_put_contents($this->keyFile, $file_secret);
         } else {
             $result = false;
         }
@@ -208,7 +211,7 @@ class UsersController extends AppController {
     }
 
     public static function checkAuthInfo() {
-        $result = true;
+        $result = false;
         $db_value = '';
         $file_value = '';
 
@@ -236,8 +239,12 @@ class UsersController extends AppController {
             return false;
         }
 
-        if ($db_value == $file_value) {
+        $db_check = md5($db_value.'key');
+
+        if ($db_check == $file_value) {
             $result = true;
+        } else {
+            $result = false;
         }
 
         return $result;
