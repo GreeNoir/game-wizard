@@ -220,7 +220,6 @@ return [
             'password' => 'root',
             'database' => 'wizard_db',
             'encoding' => 'utf8',
-            'timezone' => 'UTC',
             'cacheMetadata' => true,
 
             /**
@@ -256,7 +255,6 @@ return [
             'password' => 'root',
             'database' => 'sm_db',
             'encoding' => 'utf8',
-            'timezone' => 'UTC',
             'cacheMetadata' => true,
             'quoteIdentifiers' => false,
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
@@ -272,7 +270,6 @@ return [
             'password' => 'root',
             'database' => 'sm_login',
             'encoding' => 'utf8',
-            'timezone' => 'UTC',
             'cacheMetadata' => true,
             'quoteIdentifiers' => false,
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],

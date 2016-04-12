@@ -5,6 +5,7 @@ use App\Model\Entity\Roledata;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 use Cake\Validation\Validator;
 
 /**
@@ -13,6 +14,8 @@ use Cake\Validation\Validator;
  */
 class RoledataTable extends Table
 {
+
+    private $searchFields = ['RoleID', 'RoleName'];
 
     public static function defaultConnectionName() {
         return 'sm_db';
@@ -31,7 +34,22 @@ class RoledataTable extends Table
         $this->table('roledata');
         $this->displayField('RoleID');
         $this->primaryKey('RoleID');
-
+        $this->belongsTo('account_common', [
+            'className' => 'AccountCommon',
+            'foreignKey' => 'AccountID',
+            'joinType'  => 'INNER'
+        ]);
+        $this->schema()->columnType('MapID', 'float');
+        $this->schema()->columnType('RebornMapID', 'float');
+        $this->schema()->columnType('WorkedLevel', 'float');
+        $this->schema()->columnType('GuildID', 'float');
+        $this->schema()->columnType('RemoveTime', 'float');
+        $this->schema()->columnType('ItemTransportMapID', 'float');
+        $this->schema()->columnType('LoverID', 'float');
+        $this->schema()->columnType('MasterID', 'float');
+        $this->schema()->columnType('PickupModeSetting', 'float');
+        $this->schema()->columnType('BePlayActLayerID', 'float');
+        $this->schema()->columnType('FamilyID', 'float');
     }
 
     /**
@@ -922,4 +940,111 @@ class RoledataTable extends Table
 
         return $validator;
     }
+
+    public function getList() {
+        $roledata = TableRegistry::get('roledata');
+        $query = $roledata->find()
+            ->select(['RoleID', 'RoleName', 'AccountID', 'AccountName' => 'a.AccountName', 'FamilyID' => 'f.FamilyID',
+                'FamilyName' => 'IFNULL(f.FamilyName, "undefined")', 'Sex',
+                'GuildID' => 'IFNULL(g.ID, 0)'])
+            ->join([
+                'a' => [
+                    'table' => 'account_common',
+                    'conditions' => [
+                        'a.AccountID = roledata.AccountID',
+                    ]
+                ],
+                'fm' => [
+                    'table' => 'family_member',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'fm.RoleID = roledata.RoleID'
+                    ]
+                ],
+                'f' => [
+                    'table' => 'family',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'fm.FamilyID = f.FamilyID'
+                    ]
+                ],
+                'g' => [
+                    'table' => 'guild',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'g.ID = roledata.GuildID'
+                    ]
+                ]
+            ]);
+        return $query;
+    }
+
+    public function getRoledata($roleID) {
+        $roledata = TableRegistry::get('roledata');
+        $result = $roledata->find()
+            ->select(['FamilyID' => 'f.FamilyID', 'FamilyName' => 'IFNULL(f.FamilyName, "undefined")'])
+            ->autoFields(true)
+            ->join([
+                'a' => [
+                    'table' => 'account_common',
+                    'conditions' => [
+                        'a.AccountID = roledata.AccountID',
+                    ]
+                ],
+                'fm' => [
+                    'table' => 'family_member',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'fm.RoleID = roledata.RoleID'
+                    ]
+                ],
+                'f' => [
+                    'table' => 'family',
+                    'type'  => 'LEFT',
+                    'conditions' => [
+                        'fm.FamilyID = f.FamilyID'
+                    ]
+                ]
+            ])
+            ->where(['roledata.RoleID' => $roleID])->first();
+        return $result;
+    }
+
+    public function getRoledataInfo($roleID) {
+        $roledata = TableRegistry::get('roledata');
+        $result = $roledata->find()
+            ->select(['AccountID', 'AccountName' => 'a.AccountName', 'RoleName'])
+            ->join([
+                'a' => [
+                    'table' => 'account_common',
+                    'conditions' => [
+                        'a.AccountID = roledata.AccountID',
+                    ]
+                ]
+            ])
+            ->where(['RoleID' => $roleID])->first();
+        return $result;
+    }
+
+    public function resetGuildID($guildID) {
+        $roledata = TableRegistry::get('roledata');
+        $roledata->updateAll(['GuildID' => 0], ['GuildID' => $guildID]);
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules) {
+        $rules->add($rules->isUnique(['RoleName']));
+        return $rules;
+    }
+
+    public function getSearchFields() {
+        return $this->searchFields;
+    }
+
 }

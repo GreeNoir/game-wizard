@@ -24,7 +24,7 @@ class AccountCommonController extends AppController {
      */
     public function index()
     {
-        $this->set('accountCommonList', $this->paginate($this->AccountCommon->find('all')));
+        $this->set('accountCommonList', $this->paginate($this->AccountCommon->getIndexList()));
     }
 
     /**
@@ -81,7 +81,7 @@ class AccountCommonController extends AppController {
             $accountCommon = $this->AccountCommon->patchEntity($accountCommon, $this->request->data);
             if ($this->AccountCommon->save($accountCommon)) {
                 $this->Flash->success(__('The account common has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'edit', 'id' => $id]);
             } else {
                 $this->Flash->error(__('The account common could not be saved. Please, try again.'));
             }
@@ -99,9 +99,30 @@ class AccountCommonController extends AppController {
      */
     public function delete($id = null)
     {
+        $this->loadModel('Roledata');
+        $this->loadModel('Item');
         $this->request->allowMethod(['post', 'delete']);
+
         $accountCommon = $this->AccountCommon->get($id);
         if ($this->AccountCommon->delete($accountCommon)) {
+
+            /* список всех вещей привязанных к данному аккаунту */
+            $itemList = $this->Item->find()
+                ->select(['TypeID'])
+                ->where(['AccountID' => $id])
+                ->all();
+
+            foreach($itemList as $item) {
+                $this->Item->deleteItems($item->TypeID);
+            }
+
+            /* список всех персонажей привязанных к данному аккаунту */
+            $roledataList = $this->AccountCommon->getListRoledata($id);
+            foreach($roledataList as $roledataInfo) {
+                $roledata = $this->Roledata->get($roledataInfo->RoleID);
+                $this->Roledata->delete($roledata);
+            }
+
             $this->Flash->success(__('The Account Common has been deleted.'));
         } else {
             $this->Flash->error(__('The Account Common could not be deleted. Please, try again.'));
@@ -113,6 +134,7 @@ class AccountCommonController extends AppController {
         $list = $this->AccountCommon->getListRoledata($id);
 
         $this->set('id', $id);
+        $this->set('accountName', $this->AccountCommon->get($id)->AccountName);
         $this->set('roledataList', $list);
     }
 

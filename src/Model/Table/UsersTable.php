@@ -8,6 +8,7 @@ use Cake\Validation\Validator;
  * Users Model
  *
  */
+
 class UsersTable extends Table
 {
 
@@ -43,11 +44,34 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator->notEmpty('username');
+        $validator->add('username', 'unique', [
+            'rule' => 'validateUnique',
+            'provider' => 'table',
+            'message' => __('This username has already been taken')
+        ]);
+        $validator->add('username', 'length', [
+            'rule' => ['lengthBetween', 3, 50],
+            'message' => __('Username length should be from 3 to 50 characters')
+        ]);
         $validator->notEmpty('password');
+        $validator->add('password', 'length', [
+            'rule' => ['lengthBetween', 4, 50],
+            'message' => __('Password length should be from 4 to 50 characters')
+        ]);
         $validator->notEmpty('role');
         $validator->add('role', 'inList', [
             'rule' => ['inList', ['admin', 'view']],
-            'message' => 'Please enter a valid role'
+            'message' => __('Please enter a valid role')
+        ]);
+
+        $validator->notEmpty('password2');
+        $validator->add('password2', [
+            'compare' => [
+                'rule' => function($value, $context) {
+                    return $value == $context['data']['password'];
+                },
+                'message' => __('Passwords not equal')
+            ]
         ]);
 
         return $validator;
